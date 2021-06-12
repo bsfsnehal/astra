@@ -1,0 +1,27 @@
+name: PHP Tests
+
+on:
+  push:
+    branches-ignore:
+      - 'master'
+
+jobs:
+  themecheck:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      - name: Provide permission to init.sh
+        run: chmod +x ./bin/envs/init.sh
+      - name: Provide permission to cli-setup.sh
+        run: chmod +x ./bin/envs/cli-setup.sh
+      - run: ./bin/envs/init.sh theme-check latest yes
+

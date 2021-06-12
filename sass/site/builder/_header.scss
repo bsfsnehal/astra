@@ -208,14 +208,7 @@
  * For desktop view.
  */
 
-#ast-mobile-header {
-	display: none;
-}
-
 .ast-header-break-point {
-	#ast-desktop-header {
-		display: none;
-	}
 	#ast-mobile-header {
 		display: block;
 	}

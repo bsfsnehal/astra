@@ -2993,6 +2993,21 @@ function astra_update_related_posts_grid_layout() {
 }
 
 /**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_remove_logo_max_width() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-remove-logo-max-width-css'] ) ) {
+		$theme_options['can-remove-logo-max-width-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Migrate Site Title & Site Tagline options to new responsive array.
  *
  * @since 3.5.0

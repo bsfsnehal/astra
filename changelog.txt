@@ -1,3 +1,14 @@
+v3.6.0 (Unreleased)
+- Fix: Max-width responsive CSS enlarges logo size on mobile devices in old header layout.
+- Fix: Cart Icon not working with Sticky Header after enabling the option "Hide when scrolling down" on mobile devices.
+- Fix: Secondary menu not expendable on mobile when it is outside of Off Canvas.
+- Improvement: Added close button for multiselect selected items in Google font variants.
+- Fix: CLS – Flashing desktop menu on mobile view.
+- Fix: WooCommerce - product search widget button not aligned on other than shop and single product page.
+- Improvement: Changed customizer submenu control title from 'Container Animation' to 'Submenu Animation'.
+- Improvement: Moved 'Submenu Animation' control from General tab to Design  tab.
+- Improvement: Changed sub-menu container animation option name from 'Default' to 'None'.
+
 v3.5.0
 - Fix: Aspect ratio is changed for YouTube embed block.
 - Fix: Spacing CSS missing when 'Inline Logo and Title' option is enabled.

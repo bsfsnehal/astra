@@ -255,7 +255,7 @@ function astra_css( control, css_property, selector, unit ) {
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
 
-			if ( new_value ) {
+			if ( new_value || 0 === new_value ) {
 
 				/**
 				 *	If ( unit == 'url' ) then = url('{VALUE}')
@@ -633,7 +633,7 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[ast-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px; width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;  width: ' + logo_width['tablet'] + 'px;} #masthead .site-logo-img img { max-height: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px; width: ' + logo_width['mobile'] + 'px;}' +
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px; } @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } #masthead .site-logo-img img { max-height: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }' +
 			    '#masthead .site-logo-img img { max-height: ' + logo_width['mobile'] + 'px; } .astra-logo-svg{width: ' + logo_width['mobile'] + 'px !important; } }';
 				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
 				var mobileLogoStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } @media( max-width: 768px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; }  @media( max-width: 544px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }';
@@ -642,6 +642,36 @@ function isJsonString( str ) {
 			else{
 				wp.customize.preview.send( 'refresh' );
 			}
+		} );
+	} );
+
+	/*
+	 * Responsive Logo Visibility
+	 */
+	wp.customize( 'astra-settings[display-site-title-responsive]', function( setting ) {
+		setting.bind( function( logo_visibility ) {
+			var desktopTitleVisibility  = ( logo_visibility['desktop'] ) ? 'block' : 'none';
+			var tabletTitleVisibility  = ( logo_visibility['tablet'] ) ? 'block' : 'none';
+			var mobileTitleVisibility  = ( logo_visibility['mobile'] ) ? 'block' : 'none';
+			var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
+				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktopTitleVisibility + ';} @media( max-width: ' + tabletBreakPoint + 'px) { .ast-site-title-wrap .site-title { display: ' + tabletTitleVisibility + ';} } @media( max-width: ' + mobileBreakPoint + 'px) { .ast-site-title-wrap .site-title { display: ' + mobileTitleVisibility + ';} }';
+			astra_add_dynamic_css( 'display-site-title-responsive', dynamicStyle );
+		} );
+	} );
+
+	/*
+	 * Responsive Tagline Visibility
+	 */
+	wp.customize( 'astra-settings[display-site-tagline-responsive]', function( setting ) {
+		setting.bind( function( tagline_visibility ) {
+			var desktopTaglineVisibility  = ( tagline_visibility['desktop'] ) ? 'block' : 'none';
+			var tabletTaglineVisibility  = ( tagline_visibility['tablet'] ) ? 'block' : 'none';
+			var mobileTaglineVisibility  = ( tagline_visibility['mobile'] ) ? 'block' : 'none';
+			var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
+				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-description { display: ' + desktopTaglineVisibility + ';} @media( max-width: ' + tabletBreakPoint + 'px) { .ast-site-title-wrap .site-description { display: ' + tabletTaglineVisibility + ';} } @media( max-width: ' + mobileBreakPoint + 'px) { .ast-site-title-wrap .site-description { display: ' + mobileTaglineVisibility + ';} }';
+			astra_add_dynamic_css( 'display-site-tagline-responsive', dynamicStyle );
 		} );
 	} );
 
@@ -1491,6 +1521,7 @@ function isJsonString( str ) {
 	astra_responsive_font_size( 'astra-settings[related-posts-section-title-font-size]', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-section-title-line-height]', 'line-height', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-section-title-text-transform]', 'text-transform', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
+	astra_css( 'astra-settings[releted-posts-title-alignment]', 'text-align', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 
 	// Related Posts - Customizer preview for Post Meta.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-meta-font-family]', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
@@ -1505,4 +1536,26 @@ function isJsonString( str ) {
 	astra_responsive_font_size( 'astra-settings[related-posts-content-font-size]', '.ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-content-line-height]', 'line-height', '.ast-related-post-content .ast-related-post-excerpt' );
 	astra_css( 'astra-settings[related-posts-content-text-transform]', 'text-transform', '.ast-related-post-content .ast-related-post-excerpt' );
+
+	// Title Color.
+    astra_css(
+        'astra-settings[header-color-site-title]',
+        'color',
+        '.ast-site-identity .site-title a, .ast-site-identity .site-title'
+    );
+
+    // Title Hover Color.
+    astra_css(
+        'astra-settings[header-color-h-site-title]',
+        'color',
+        '.ast-site-identity .site-title a:hover, .ast-site-identity .site-title:hover'
+    );
+
+	// Tagline Color.
+    astra_css(
+        'astra-settings[header-color-site-tagline]',
+        'color',
+        '.ast-site-identity .site-description'
+    );
+
 } )( jQuery );

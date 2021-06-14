@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2021, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Breadcrumbs Markup Initial Setup
  *
- * @since x.x.x
+ * @since 3.5.0
  */
 class Astra_Related_Posts_Markup {
 
@@ -24,31 +24,13 @@ class Astra_Related_Posts_Markup {
 	 *  Constructor
 	 */
 	public function __construct() {
-		add_filter( 'body_class', array( $this, 'astra_related_posts_body_class' ) );
 		add_action( 'astra_entry_after', array( $this, 'astra_related_posts_markup' ), 10 );
-	}
-
-	/**
-	 * Adds custom classes to the array of body classes.
-	 *
-	 * @since x.x.x
-	 * @param array $classes Classes for the body element.
-	 * @return array
-	 */
-	public function astra_related_posts_body_class( $classes ) {
-		if ( astra_target_rules_for_related_posts() ) {
-			$related_posts_grid = astra_get_option( 'related-posts-grid', 2 );
-
-			$classes[] = 'ast-related-posts-grid-' . esc_attr( $related_posts_grid );
-		}
-
-		return $classes;
 	}
 
 	/**
 	 * Enable/Disable Single Post -> Related Posts section.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 * @return void
 	 */
 	public function astra_related_posts_markup() {
@@ -60,13 +42,13 @@ class Astra_Related_Posts_Markup {
 	/**
 	 * Related Posts markup.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 * @return bool
 	 */
 	public function astra_get_related_posts() {
 		global $post;
 		$post_id                   = $post->ID;
-		$related_posts_grid        = astra_get_option( 'related-posts-grid', 2 );
+		$related_posts_title       = astra_get_option( 'related-posts-title' );
 		$related_post_meta         = astra_get_option( 'related-posts-meta-structure' );
 		$related_post_structure    = astra_get_option_meta( 'related-posts-structure' );
 		$output_str                = astra_get_post_meta( $related_post_meta );
@@ -98,7 +80,7 @@ class Astra_Related_Posts_Markup {
 			 *
 			 * To avoid such cases $post_counter & ( $post_counter < $total_posts_count ) condition used.
 			 *
-			 * @since x.x.x
+			 * @since 3.5.0
 			 */
 			$post_counter      = 1;
 			$total_posts_count = $related_posts_total_count + 1;
@@ -110,24 +92,25 @@ class Astra_Related_Posts_Markup {
 				if ( is_array( $exclude_ids ) && ! in_array( $post_id, $exclude_ids ) ) {
 
 					if ( false === $related_posts_section_loaded ) {
-						$grid_class = ( $related_posts_grid ) ? 'ast-grid-' . $related_posts_grid : 'ast-grid-2';
 
 						echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						do_action( 'astra_related_posts_title_before' );
 
-						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							'astra_related_posts_title',
-							sprintf(
-								'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
-								'h2',
-								esc_html__( 'Related Posts', 'astra' )
-							)
-						);
+						if ( '' !== $related_posts_title ) {
+							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								'astra_related_posts_title',
+								sprintf(
+									'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
+									'h2',
+									$related_posts_title
+								)
+							);
+						}
 
 						do_action( 'astra_related_posts_title_after' );
 
-						echo '<div class="ast-related-posts-wrapper ' . $grid_class . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<div class="ast-related-posts-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 						$related_posts_section_loaded = true;
 					}
@@ -186,7 +169,7 @@ class Astra_Related_Posts_Markup {
 	 *
 	 * @param int $current_post_id current post ID.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function astra_get_related_post_read_more( $current_post_id ) {
 		if ( ! astra_get_option( 'enable-related-posts-excerpt' ) ) {
@@ -229,7 +212,7 @@ class Astra_Related_Posts_Markup {
 	 *
 	 * @param int $current_post_id current post ID.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function astra_get_related_post_excerpt( $current_post_id ) {
 		if ( ! astra_get_option( 'enable-related-posts-excerpt' ) ) {
@@ -268,7 +251,7 @@ class Astra_Related_Posts_Markup {
 	 *
 	 * @param int $current_post_id current post ID.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function astra_get_related_post_title( $current_post_id ) {
 		$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
@@ -298,7 +281,7 @@ class Astra_Related_Posts_Markup {
 	 * @param boolean $echo   Output print or return.
 	 * @return string|null
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function astra_get_related_post_featured_image( $current_post_id, $before = '', $after = '', $echo = true ) {
 		$related_post_structure = astra_get_option_meta( 'related-posts-structure' );
@@ -354,7 +337,7 @@ class Astra_Related_Posts_Markup {
 	 *
 	 * @param int $post_id Current Post ID.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 *
 	 * @return WP_Query|bool
 	 */

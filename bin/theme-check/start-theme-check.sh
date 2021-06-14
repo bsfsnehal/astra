@@ -25,4 +25,4 @@ done
 # Run setup
 echo "Setting up environment $WP_ENV"
 
-docker-compose -f $DOCKER_FILE run  --rm -u root cli bash -c "/var/www/html/bin/local-env/theme-check/theme-check.sh $ZIP_URL $WP_VERSION $WP_ENV $SKIP_CACHE"
+docker-compose -f $DOCKER_FILE run  --rm -u root cli bash -c "/var/www/html/bin/local-env/theme-check/run-theme-check.sh $ZIP_URL $WP_VERSION $WP_ENV $SKIP_CACHE"

@@ -21,4 +21,3 @@ jobs:
       - name: Update permission for theme-check.sh
         run: chmod +x ./bin/local-env/theme-check/theme-check.sh
       - run: ./bin/local-env/theme-check/start.sh theme-check latest yes
-

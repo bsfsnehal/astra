@@ -6,7 +6,7 @@ ZIP_URL=${4}
 
 if [ ! -n "$ZIP_URL" ]
 then
-	# Create temp folder to save astra.zip
+	# Create temp folder to save astra.zip.
 	npm install
 	npm run dist
 	ZIP_URL="/tmp/repo/astra/artifact/astra.zip"

@@ -21,6 +21,8 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$blog_post_inside_spacing = astra_get_option( 'blog-post-inside-spacing' );
 	$blog_grid                = astra_get_option( 'blog-grid' );
 	$blog_space_bet_posts     = astra_get_option( 'blog-space-bet-posts' );
+	$content_bg_obj           = astra_get_option( 'content-bg-obj-responsive' );
+	$blog_layout              = astra_get_option( 'blog-layout' );
 
 	$spacing_desktop = array(
 		// Blog Grid Inside Spacing.
@@ -35,6 +37,16 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		),
 	);
 	$dynamic_css    .= astra_parse_css( $spacing_desktop );
+	
+	// Blog Pro Layout Colors.
+	if ( 'blog-layout-1' == $blog_layout ) {
+		$blog_layouts = array(
+			'.ast-separate-container .blog-layout-1' => array(
+				'background-color' => '#ffffff',
+			),
+		);
+		$dynamic_css .= astra_parse_css( $blog_layouts );
+	}
 
 	if ( $blog_grid > 1 && $blog_space_bet_posts ) {
 		$space_between_css = array(

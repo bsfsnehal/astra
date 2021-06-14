@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/theme-check bash
 
 BUILD_VERSION=$(node -pe "require('./package.json').version")
 export BUILD_VERSION

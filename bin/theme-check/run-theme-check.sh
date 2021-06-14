@@ -1,4 +1,4 @@
-#!/usr/local-env/theme-check bash
+#!/usr/bin/theme-check bash
 set -e
 ASTRA_LOCATION=$1
 WP_VERSION=$2

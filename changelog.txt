@@ -10,6 +10,7 @@ v3.6.0 (Unreleased)
 - Fix: Secondary menu not expendable on mobile when it is outside of Off Canvas.
 - Fix: CLS – Flashing desktop menu on mobile view.
 - Fix: WooCommerce - product search widget button not aligned on other than shop and single product page.
+- Improvement: Changed Transparent Header Border Bottom default value from '' to 0;
 - Fix: Sticky Header - Transition effect of headers when Shrink Effect is enabled.
 
 v3.5.0

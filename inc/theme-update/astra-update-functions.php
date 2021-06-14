@@ -3051,3 +3051,18 @@ function astra_remove_logo_max_width() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to maintain backward compatibility for existing users for Transparent Header border bottom default value i.e from '' to 0.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_transparent_header_default_value() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['transparent-header-default-border'] ) ) {
+		$theme_options['transparent-header-default-border'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

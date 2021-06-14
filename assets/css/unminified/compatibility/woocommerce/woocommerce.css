@@ -4299,16 +4299,6 @@ button.pswp__button--zoom:hover {
   padding: 2px 0px;
 }
 
-.woocommerce ul.product-categories > li ul li:before {
-  content: "\e900";
-  padding: 0 5px 0 5px;
-  display: inline-block;
-  font-family: Astra;
-  transform: rotate(-90deg);
-  font-size: 11px;
-  font-size: 0.7rem;
-}
-
 .woocommerce ul.product-categories > li:first-child {
   border: none;
 }

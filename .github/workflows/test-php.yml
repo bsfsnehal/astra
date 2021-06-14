@@ -19,9 +19,9 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - name: Provide permission to init.sh
-        run: chmod +x ./bin/envs/init.sh
-      - name: Provide permission to cli-setup.sh
-        run: chmod +x ./bin/envs/cli-setup.sh
-      - run: ./bin/envs/init.sh theme-check latest yes
+      - name: Update permission for start.sh
+        run: chmod +x ./bin/local-env/theme-check/start.sh
+      - name: Update permission for cli-setup.sh
+        run: chmod +x ./bin/local-env/theme-check/cli-setup.sh
+      - run: ./bin/local-env/theme-check/start.sh theme-check latest yes
 

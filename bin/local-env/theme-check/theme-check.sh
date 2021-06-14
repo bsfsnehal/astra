@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/local-env/theme-check bash
 set -e
 ASTRA_LOCATION=$1
 WP_VERSION=$2
@@ -14,13 +14,7 @@ init_environment(){
 	chmod 0777 -R /var/www/html/wp-content/
 	echo "Installing Astra theme from $ASTRA_LOCATION"
 	wp --allow-root theme install --activate $ASTRA_LOCATION
-	# wp --allow-root theme install astra
-	# wp --allow-root theme activate astra
 	wp --allow-root option update fresh_site 0
-  echo "Installing Theme API Plugin"
-  wp --allow-root plugin install https://github.com/Codeinwp/wp-thememods-api/archive/main.zip --force --activate
-  echo "Installing JWT Auth Plugin"
-  wp --allow-root plugin install api-bearer-auth --force --activate
 }
 
 
@@ -34,16 +28,21 @@ if [ -f $WP_CACHED_ENV ] && [ $SKIP_CACHE == "no" ]; then
     exit 0;
 fi
 
+# Create WP Core.
 wp  --allow-root core install --url=http://localhost:8080 --title=SandboxSite --admin_user=admin --admin_password=admin --admin_email=admin@admin.com
 mkdir -p /var/www/html/wp-content/uploads
 rm -rf /var/www/html/wp-content/plugins/akismet
 
+# Setup environment.
 init_environment
 
+# Install WP CLI package anhskohbo/wp-cli-themecheck.
 php -d memory_limit=1024M "$(which wp)" package install anhskohbo/wp-cli-themecheck --allow-root
 
+# Install Theme Check plugin
 wp plugin install theme-check --activate --allow-root
 
+# Run theme check for Astra zip
 wp themecheck --theme=astra --no-interactive --allow-root
 
 wp --allow-root cache flush

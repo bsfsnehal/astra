@@ -1,9 +1,6 @@
-name: PHP Tests
+name: Coding Standards
 
-on:
-  push:
-    branches-ignore:
-      - 'master'
+on: pull_request
 
 jobs:
   themecheck:
@@ -21,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
       - name: Update permission for start.sh
         run: chmod +x ./bin/local-env/theme-check/start.sh
-      - name: Update permission for cli-setup.sh
-        run: chmod +x ./bin/local-env/theme-check/cli-setup.sh
+      - name: Update permission for theme-check.sh
+        run: chmod +x ./bin/local-env/theme-check/theme-check.sh
       - run: ./bin/local-env/theme-check/start.sh theme-check latest yes
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/local-env/theme-check bash
 WP_ENV=${1-default}
 WP_VERSION=${2-latest}
 SKIP_CACHE=${3-no}
@@ -6,12 +6,8 @@ ZIP_URL=${4}
 
 if [ ! -n "$ZIP_URL" ]
 then
+	# Create temp folder to save astra.zip
 	npm install
-	# Install dependencies.
-	composer install --no-dev
-	grunt release
-	ls
-	echo $PWD
 	npm run dist
 	ZIP_URL="/tmp/repo/astra/artifact/astra.zip"
 fi
@@ -29,4 +25,4 @@ done
 # Run setup
 echo "Setting up environment $WP_ENV"
 
-docker-compose -f $DOCKER_FILE run  --rm -u root cli bash -c "/var/www/html/bin/envs/cli-setup.sh $ZIP_URL $WP_VERSION $WP_ENV $SKIP_CACHE"
+docker-compose -f $DOCKER_FILE run  --rm -u root cli bash -c "/var/www/html/bin/local-env/theme-check/theme-check.sh $ZIP_URL $WP_VERSION $WP_ENV $SKIP_CACHE"

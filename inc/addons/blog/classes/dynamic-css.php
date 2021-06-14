@@ -19,6 +19,8 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	 * - Variable Declaration.
 	 */
 	$blog_post_inside_spacing = astra_get_option( 'blog-post-inside-spacing' );
+	$blog_grid                = astra_get_option( 'blog-grid' );
+	$blog_space_bet_posts     = astra_get_option( 'blog-space-bet-posts' );
 
 	$spacing_desktop = array(
 		// Blog Grid Inside Spacing.
@@ -28,9 +30,20 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'padding-bottom' => astra_responsive_spacing( $blog_post_inside_spacing, 'bottom', 'desktop' ),
 			'padding-left'   => astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ),
 		),
+		'.ast-separate-container .ast-separate-posts.ast-article-post' => array(
+			'margin-bottom' => '2em',
+		),
 	);
 	$dynamic_css    .= astra_parse_css( $spacing_desktop );
 
+	if ( $blog_grid > 1 && $blog_space_bet_posts ) {
+		$space_between_css = array(
+			'.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post' => array(
+				'background' => 'transparent',
+			),
+		);
+		$dynamic_css      .= astra_parse_css( $space_between_css );
+	}
 	$spacing_tablet = array(
 		// Blog Grid Inside Spacing.
 		'.ast-separate-container .ast-grid-2 .blog-layout-1, .ast-separate-container .ast-grid-2 .blog-layout-2, .ast-separate-container .ast-grid-2 .blog-layout-3, .ast-separate-container .ast-grid-3 .blog-layout-1, .ast-separate-container .ast-grid-3 .blog-layout-2, .ast-separate-container .ast-grid-3 .blog-layout-3, .ast-separate-container .ast-grid-4 .blog-layout-1, .ast-separate-container .ast-grid-4 .blog-layout-2, .ast-separate-container .ast-grid-4 .blog-layout-3' => array(

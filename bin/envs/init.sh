@@ -6,12 +6,9 @@ ZIP_URL=${4}
 
 if [ ! -n "$ZIP_URL" ]
 then
+	# Create astra.zip if not already created.
 	npm install
-	# Install dependencies.
 	composer install --no-dev
-	grunt release
-	ls
-	echo $PWD
 	npm run dist
 	ZIP_URL="/tmp/repo/astra/artifact/astra.zip"
 fi
@@ -29,4 +26,5 @@ done
 # Run setup
 echo "Setting up environment $WP_ENV"
 
+# Execute theme check file.
 docker-compose -f $DOCKER_FILE run  --rm -u root cli bash -c "/var/www/html/bin/envs/cli-setup.sh $ZIP_URL $WP_VERSION $WP_ENV $SKIP_CACHE"

@@ -151,7 +151,7 @@ class Astra_WebFont_Loader {
 		$astra_font_url = file_exists( $this->get_local_stylesheet_path() ) ? $this->get_local_stylesheet_url() : $this->remote_url;
 
 		// If the local file exists, return its URL, with a fallback to the remote URL.
-		astra_update_option( 'astra_font_url', json_encode( $astra_font_url ) );
+		astra_update_option( 'astra_font_url', wp_json_encode( $astra_font_url ) );
 
 		return $astra_font_url;
 	}

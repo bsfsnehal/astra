@@ -314,7 +314,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'priority' => 30,
 					'title'    => __( 'Submenu Animation', 'astra' ),
 					'choices'  => array(
-						''           => __( 'Default', 'astra' ),
+						''           => __( 'None', 'astra' ),
 						'slide-down' => __( 'Slide Down', 'astra' ),
 						'slide-up'   => __( 'Slide Up', 'astra' ),
 						'fade'       => __( 'Fade', 'astra' ),

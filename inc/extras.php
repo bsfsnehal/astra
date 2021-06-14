@@ -641,6 +641,7 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 		return;
 	}
 
+	// Now preload font data after processing it, as we didn't get stored data.
 	$font = astra_webfont_loader_instance( $url );
 	$font->set_font_format( $format );
 	$font->preload_local_fonts();

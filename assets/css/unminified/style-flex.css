@@ -1888,6 +1888,7 @@ body {
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
+  transition: all 0.2s linear;
 }
 
 .ast-logo-title-inline .site-logo-img {

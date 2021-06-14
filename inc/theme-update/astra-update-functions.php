@@ -2993,21 +2993,6 @@ function astra_update_related_posts_grid_layout() {
 }
 
 /**
- * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * @since x.x.x
- * @return void.
- */
-function astra_remove_logo_max_width() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['can-remove-logo-max-width-css'] ) ) {
-		$theme_options['can-remove-logo-max-width-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Migrate Site Title & Site Tagline options to new responsive array.
  *
  * @since 3.5.0
@@ -3031,4 +3016,38 @@ function astra_site_title_tagline_responsive_control_migration() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Do not apply new font-weight heading support CSS in editor/frontend directly.
+ *
+ * 1. Adding Font-weight support to widget titles.
+ * 2. Customizer font CSS not supporting in editor.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_headings_font_support() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-support-widget-and-editor-fonts'] ) ) {
+		$theme_options['can-support-widget-and-editor-fonts'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_remove_logo_max_width() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-remove-logo-max-width-css'] ) ) {
+		$theme_options['can-remove-logo-max-width-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
 }

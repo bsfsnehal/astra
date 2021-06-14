@@ -540,7 +540,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle' => array(
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
-				':root'                          => array(
+				':root'                                  => array(
 					'--postRowGap'    => '0px',
 					'--postColumnGap' => '0px',
 					'--gridColumns'   => '1',

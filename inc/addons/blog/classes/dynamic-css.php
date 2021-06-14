@@ -22,7 +22,7 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$blog_featured_image_padding = astra_get_option( 'blog-featured-image-padding' );
 	$container_layout            = astra_get_option( 'site-content-layout' );
 	$blog_grid                   = astra_get_option( 'blog-grid' );
-    $blog_layout              = astra_get_option( 'blog-layout' );
+	$blog_layout                 = astra_get_option( 'blog-layout' );
 
 
 	$spacing_desktop = array(
@@ -30,12 +30,12 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			'--postRowGap'    => '26px',
 			'--postColumnGap' => '32px',
 		),
-        '.ast-separate-container .ast-separate-posts.ast-article-post' => array(
+		'.ast-separate-container .ast-separate-posts.ast-article-post' => array(
 			'margin-bottom' => '2em',
 		),
 	);
 
-    if ( 'blog-layout-1' == $blog_layout ) {
+	if ( 'blog-layout-1' == $blog_layout ) {
 		$blog_layouts = array(
 			'.ast-separate-container .blog-layout-1' => array(
 				'background-color' => '#ffffff',
@@ -46,16 +46,16 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( $blog_grid > 1 ) {
 		// Blog Grid Inside Spacing.
-		$spacing_desktop[ '.ast-separate-container .ast-grid-' . $blog_grid . ' .blog-layout-1' ]    = array(
+		$spacing_desktop[ '.ast-separate-container .ast-grid-' . $blog_grid . ' .blog-layout-1' ] = array(
 			'padding-top'    => astra_responsive_spacing( $blog_post_inside_spacing, 'top', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $blog_post_inside_spacing, 'right', 'desktop' ),
 			'padding-bottom' => astra_responsive_spacing( $blog_post_inside_spacing, 'bottom', 'desktop' ),
 			'padding-left'   => astra_responsive_spacing( $blog_post_inside_spacing, 'left', 'desktop' ),
 		);
-		$spacing_desktop[ '.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post' ] = array(
+		$spacing_desktop['.ast-separate-container .ast-grid-2 .ast-article-post, .ast-separate-container .ast-grid-3 .ast-article-post, .ast-separate-container .ast-grid-4 .ast-article-post'] = array(
 			'background' => 'transparent',   
 		);
-		$spacing_desktop[ 'ast-separate-container .ast-grid-' . $blog_grid . ' .blog-layout-1' ]     = array(
+		$spacing_desktop[ 'ast-separate-container .ast-grid-' . $blog_grid . ' .blog-layout-1' ] = array(
 			'padding' => '1.5em',
 		);
 

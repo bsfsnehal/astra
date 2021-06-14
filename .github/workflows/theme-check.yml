@@ -16,8 +16,8 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - name: Update permission for start.sh
-        run: chmod +x ./bin/local-env/theme-check/start.sh
-      - name: Update permission for theme-check.sh
-        run: chmod +x ./bin/local-env/theme-check/theme-check.sh
-      - run: ./bin/local-env/theme-check/start.sh theme-check latest yes
+      - name: Update permission for start-theme-check.sh
+        run: chmod +x ./bin/start-theme-check.sh
+      - name: Update permission for run-theme-check.sh
+        run: chmod +x ./bin/local-env/theme-check/run-theme-check.sh
+      - run: ./bin/start-theme-check.sh theme-check latest yes

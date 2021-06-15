@@ -354,7 +354,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'body-font-variant'                    => '',
 					'body-font-weight'                     => 'inherit',
 					'font-size-body'                       => array(
-						'desktop'      => 15,
+						'desktop'      => astra_apply_new_default_blog_values() ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -362,15 +362,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 
-					'body-line-height'                     => '',
+					'body-line-height'                     => astra_apply_new_default_blog_values() ? 1.8 : '',
 					'para-margin-bottom'                   => '',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
-					'headings-font-weight'                 => 'inherit',
+					'headings-font-weight'                 => astra_apply_new_default_blog_values() ? 600 : 'inherit',
 					'headings-text-transform'              => '',
 					'headings-line-height'                 => '',
 					'font-size-site-title'                 => array(
-						'desktop'      => 35,
+						'desktop'      => astra_apply_new_default_blog_values() ? 26 : 35,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -402,9 +402,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                 => array(
-						'desktop'      => 24,
-						'tablet'       => 24,
-						'mobile'       => 24,
+						'desktop'      => astra_apply_new_default_blog_values() ? 24 : 30,
+						'tablet'       => '',
+						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
@@ -426,7 +426,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h3'                         => array(
-						'desktop'      => 25,
+						'desktop'      => astra_apply_new_default_blog_values() ? 26 : 25,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -434,7 +434,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h4'                         => array(
-						'desktop'      => 20,
+						'desktop'      => astra_apply_new_default_blog_values() ? 22 : 20,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -450,7 +450,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h6'                         => array(
-						'desktop'      => 15,
+						'desktop'      => astra_apply_new_default_blog_values() ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',

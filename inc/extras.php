@@ -636,3 +636,15 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 	$font->set_font_format( $format );
 	$font->preload_local_fonts();
 }
+
+/**
+ * Check whether user is exising or new to apply the updated default values for default blog post layout.
+ * 
+ * @since x.x.x 
+ * @return void
+ */
+function astra_apply_new_default_blog_values(){
+	$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}

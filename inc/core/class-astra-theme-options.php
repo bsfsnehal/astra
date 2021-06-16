@@ -96,6 +96,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
+			$apply_new_default_values = astra_apply_new_default_blog_values();
+
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -354,7 +356,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'body-font-variant'                    => '',
 					'body-font-weight'                     => 'inherit',
 					'font-size-body'                       => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 16 : 15,
+						'desktop'      => $apply_new_default_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -362,15 +364,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 
-					'body-line-height'                     => astra_apply_new_default_blog_values() ? 1.8 : '',
+					'body-line-height'                     => $apply_new_default_values ? 1.8 : '',
 					'para-margin-bottom'                   => '',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
-					'headings-font-weight'                 => astra_apply_new_default_blog_values() ? 600 : 'inherit',
+					'headings-font-weight'                 => $apply_new_default_values ? 600 : 'inherit',
 					'headings-text-transform'              => '',
 					'headings-line-height'                 => '',
 					'font-size-site-title'                 => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 26 : 35,
+						'desktop'      => $apply_new_default_values ? 26 : 35,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -402,7 +404,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                 => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 24 : 30,
+						'desktop'      => $apply_new_default_values ? 24 : 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -426,7 +428,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h3'                         => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 26 : 25,
+						'desktop'      => $apply_new_default_values ? 26 : 25,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -434,7 +436,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h4'                         => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 22 : 20,
+						'desktop'      => $apply_new_default_values ? 22 : 20,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -450,7 +452,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h6'                         => array(
-						'desktop'      => astra_apply_new_default_blog_values() ? 16 : 15,
+						'desktop'      => $apply_new_default_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',

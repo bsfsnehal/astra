@@ -6,7 +6,7 @@ set -e
 # Include useful functions
 . "$(dirname "$0")/includes.sh"
 
-ls -lsha ~/.wp-cli
+dc exec -T -u xfs $CLI ls -lsha /etc/X11/fs/.wp-cli
 
 # Install theme-check package.
 wp package install anhskohbo/wp-cli-themecheck

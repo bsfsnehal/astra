@@ -17,6 +17,9 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
 
+      - name: Package Astra
+        run: npm run package
+
       - name: Start Enviornment
         run: npm run env:start
 

@@ -20,7 +20,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ../../astra:/var/www/html/wp-content/themes/astra
-      - ../wp-cli-home:/etc/X11/fs/.wp-cli
+      - ../.wp-cli:/etc/X11/fs/.wp-cli
     env_file:
       - .env.wp
     depends_on:

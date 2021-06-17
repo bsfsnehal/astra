@@ -14,17 +14,21 @@ services:
       - mysql
 
   cli:
+    privileged: true
     image: wordpress:cli
     user: xfs
     volumes:
       - wordpress_data:/var/www/html
-      - ../../:/var/www/html/wp-content/themes/astra
+      - ../../astra:/var/www/html/wp-content/themes/astra
+      - ./:/etc/X11/fs/.wp-cli/packages
     env_file:
       - .env.wp
     depends_on:
       - mysql
       - wordpress
-    command: tail -f /dev/null
+    command: >
+      tail -f /dev/null
+      chown xfs:xfs /etc/X11/fs/.wp-cli
 
   mysql:
     image: mysql:5.7

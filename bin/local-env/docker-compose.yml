@@ -29,6 +29,8 @@ services:
     command: >
       tail -f /dev/null
       chown xfs:xfs /etc/X11/fs/.wp-cli
+      mkdir /etc/X11/fs/.wp-cli/packages
+      chown xfs:xfs /etc/X11/fs/.wp-cli/packages
 
   mysql:
     image: mysql:5.7

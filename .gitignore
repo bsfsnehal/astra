@@ -36,3 +36,4 @@ assets/dynamic-css.css
 
 
 bin/local-env/cache/
+bin/local-env/composer*

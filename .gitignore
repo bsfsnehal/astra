@@ -34,6 +34,5 @@ cghooks.lock
 # Dynamic CSS file.
 assets/dynamic-css.css
 
-
-bin/local-env/cache/
-bin/local-env/composer*
+# Create empty directory for wp-cli.
+bin/wp-cli-home/

@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @access public
 		 * @return void
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 */
 		public function regenerate_astra_fonts_folder() {
 

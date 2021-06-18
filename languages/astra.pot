@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-10T09:57:18+00:00\n"
+"POT-Creation-Date: 2021-06-16T09:00:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -528,7 +528,7 @@ msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-color-configs.php:184
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:257
-#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:295
+#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:267
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:75
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:328
 msgid "Colors"
@@ -549,10 +549,8 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/class-astra-woo-shop-sidebar-configs.php:66
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:113
 #: inc/customizer/configurations/builder/header/class-astra-header-account-component-configs.php:42
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:168
 #: inc/customizer/configurations/layout/class-astra-blog-layout-configs.php:48
 #: inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php:47
-#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:317
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:66
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:85
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:104
@@ -575,6 +573,7 @@ msgstr ""
 #: inc/addons/heading-colors/customizer/class-astra-heading-colors-configs.php:367
 #: inc/customizer/configurations/builder/header/class-astra-header-account-component-configs.php:243
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:110
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:168
 #: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:556
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:347
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:284
@@ -582,6 +581,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:127
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:159
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:149
+#: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:317
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:98
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:228
 #: inc/modules/related-posts/customizer/class-astra-related-posts-configs.php:745
@@ -1462,7 +1462,7 @@ msgid "Easy Digital Downloads"
 msgstr ""
 
 #: inc/compatibility/edd/class-astra-edd.php:445
-#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1750
+#: inc/compatibility/woocommerce/class-astra-woocommerce.php:1752
 msgid "View your shopping cart"
 msgstr ""
 
@@ -2625,7 +2625,7 @@ msgid "Buttons"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-register-sections-panels.php:353
-#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:275
+#: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:247
 #: inc/customizer/configurations/buttons/class-astra-existing-button-configs.php:49
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:228
 msgid "Header Button"
@@ -3377,22 +3377,22 @@ msgstr ""
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:185
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:186
 msgid "Submenu Container"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:200
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:201
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:120
 msgid "Divider Size"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:225
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:226
 #: inc/customizer/configurations/builder/header/class-astra-mobile-menu-component-configs.php:145
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:376
 msgid "Divider Color"
 msgstr ""
 
-#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:249
+#: inc/customizer/configurations/builder/header/class-astra-header-menu-component-configs.php:250
 msgid "Top Offset"
 msgstr ""
 
@@ -3697,6 +3697,10 @@ msgstr ""
 
 #: inc/customizer/configurations/performance/class-astra-performance-configs.php:55
 msgid "Preload Local Fonts"
+msgstr ""
+
+#: inc/customizer/configurations/performance/class-astra-performance-configs.php:78
+msgid "Flush Local Fonts Cache"
 msgstr ""
 
 #: inc/customizer/configurations/performance/class-astra-performance-configs.php:79

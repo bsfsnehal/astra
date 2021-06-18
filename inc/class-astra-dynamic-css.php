@@ -3308,7 +3308,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * 1. Adding Font-weight support to widget titles.
 		 * 2. Customizer font CSS not supporting in editor.
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function support_font_css_to_widget_and_in_editor() {
@@ -3322,7 +3322,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * @see https://github.com/brainstormforce/astra/commit/d09f63336b73d58c8f8951726edbc90671d7f419
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function remove_logo_max_width_mobile_static_css() {

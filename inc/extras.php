@@ -599,7 +599,7 @@ function astra_is_elemetor_active() {
 /**
  * Get a stylesheet URL for a webfont.
  *
- * @since x.x.x
+ * @since 3.6.0
  *
  * @param string $url    The URL of the remote webfont.
  * @param string $format The font-format. If you need to support IE, change this to "woff".
@@ -650,7 +650,7 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 /**
  * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
  * 
- * @since x.x.x 
+ * @since 3.6.0 
  */
 function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );

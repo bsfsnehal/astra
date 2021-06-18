@@ -3025,7 +3025,7 @@ function astra_site_title_tagline_responsive_control_migration() {
  * 1. Adding Font-weight support to widget titles.
  * 2. Customizer font CSS not supporting in editor.
  *
- * @since x.x.x
+ * @since 3.6.0
  *
  * @return void
  */
@@ -3041,7 +3041,7 @@ function astra_headings_font_support() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.0
  * @return void.
  */
 function astra_remove_logo_max_width() {
@@ -3056,7 +3056,7 @@ function astra_remove_logo_max_width() {
 /**
  * Set flag to maintain backward compatibility for existing users for Transparent Header border bottom default value i.e from '' to 0.
  *
- * @since x.x.x
+ * @since 3.6.0
  * @return void.
  */
 function astra_update_button_defaults_and_gb_button_patterns() {

@@ -1,12 +1,9 @@
-.git
-*.git
 CONTRIBUTING.md
 .distignore
 .gitignore
-dist
+src
 *.zip
 node_modules/
-build/
 css/sourcemap/
 .git/
 .github

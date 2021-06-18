@@ -1562,8 +1562,6 @@ function isJsonString( str ) {
 
 document.addEventListener( 'astPartialContentRendered', function() {
 
-	menu_toggle_all = document.querySelectorAll( '.main-header-menu-toggle' );
-
 	body.classList.remove("ast-main-header-nav-open");
 
 	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );

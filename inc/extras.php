@@ -587,6 +587,16 @@ function is_astra_addon_3_5_0_version() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Get a stylesheet URL for a webfont.
  *
  * @since x.x.x

@@ -4,6 +4,8 @@ v3.6.1 (Unreleased)
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 
 v3.6.0 (Unreleased)
+- New: Performance - Load Google Font locally.
+- New: Performance - Preload locally hosted Google Font.
 - Improvement: Added close button for multiselect selected items in Google font variants.
 - Improvement: Changed customizer submenu control title from 'Container Animation' to 'Submenu Animation'.
 - Improvement: Moved 'Submenu Animation' control from General tab to Design  tab.

@@ -28,7 +28,8 @@ services:
       - wordpress
     command: >
       tail -f /dev/null
-      chown 33:33 /etc/X11/fs/.wp-cli
+      chown xfs:xfs /etc/X11/fs/.wp-cli
+      chown xfs:xfs /etc/X11/fs/.wp-cli/packages
 
   mysql:
     image: mysql:5.7

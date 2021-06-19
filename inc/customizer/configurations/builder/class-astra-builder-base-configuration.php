@@ -211,7 +211,7 @@ final class Astra_Builder_Base_Configuration {
 		/**
 		 * Notice for Colors - Transparent header enabled on page.
 		 */
-		$configs[] =	array(
+		$configs[] = array(
 			'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-' . $suffix . ']',
 			'type'            => 'control',
 			'control'         => 'ast-description',
@@ -225,7 +225,7 @@ final class Astra_Builder_Base_Configuration {
 		/**
 		* Option: Transparent Header Section - Link.
 		*/
-		$configs[] =	array(
+		$configs[] = array(
 			'name'            => ASTRA_THEME_SETTINGS . '[ast-transparent-header-notice-link-' . $suffix . ']',
 			'type'            => 'control',
 			'control'         => 'ast-customizer-link',
@@ -235,7 +235,7 @@ final class Astra_Builder_Base_Configuration {
 			'linked'          => 'section-transparent-header',
 			'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
 			'active_callback' => array( $this, 'ast_is_transparent_header' ),
-			'context'           => Astra_Builder_Helper::$general_tab,
+			'context'         => Astra_Builder_Helper::$general_tab,
 		);
 
 		return $configs;

@@ -325,7 +325,7 @@ class Astra_Button_Component_Configs {
 			);
 
 			if ( 'header' === $builder_type ) {
-				$button_config = array_merge(
+				$button_config[] = array_merge(
 					$button_config,
 					astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'button-' . $index, __( 'Button', 'astra' ) )
 				);

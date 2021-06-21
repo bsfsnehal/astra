@@ -1,8 +1,13 @@
 v3.6.1 (Unreleased)
 - Improvement: Moved customizer related code from frontend JS file to customizer JS file.
+- Improvement: When Transparent Header is active then added "transparent header enabled notice" in all builder elements.
+- Fix: Avoided extra search-form markup and added compatibility with get_search_form().
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
-- Fix: Avoided extra search-form markup and added compatibility with get_search_form().
+- Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
+- Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
+- Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
+- Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 
 v3.6.0
 - New: Performance - Load Google Font locally. (https://wpastra.com/docs/self-hosted-google-fonts/)
@@ -14,12 +19,10 @@ v3.6.0
 - Improvement: Changed sub-menu container animation option name from 'Default' to 'None'.
 - Improvement: Added headings font-weight support to widget-title headings. (https://wpastra.com/docs/font-weight-for-widget-titles/)
 - Improvement: Changed Transparent Header Border Bottom default value from '' to 0;
-- Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: Customizer's font & color settings not reflecting in Gutenberg editor. (https://wpastra.com/astra-3-6/)
 - Fix: Max-width responsive CSS enlarges logo size on mobile devices in old header layout.
 - Fix: Cart Icon not working with Sticky Header after enabling the option "Hide when scrolling down" on mobile devices.
 - Fix: Secondary menu not expendable on mobile when it is outside of Off Canvas.
-- Improvement: Added close button for multiselect selected items in Google font variants.
 - Fix: CLS – Flashing desktop menu on mobile view.
 - Fix: WooCommerce - product search widget button not aligned on other than shop and single product page.
 - Fix: Sticky Header - Transition effect of headers when Shrink Effect is enabled.

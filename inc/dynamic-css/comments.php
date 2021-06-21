@@ -124,7 +124,7 @@ function astra_comments_css( $dynamic_css ) {
 
       .comment-reply-title {
       padding-top: 1em;
-      font-weight: normal;
+      font-weight: ' . ( astra_apply_new_default_blog_values() ? '600' : 'normal' ) . ';
       line-height: 1.65;
       }
 

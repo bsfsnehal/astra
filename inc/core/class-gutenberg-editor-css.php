@@ -517,7 +517,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$button_patterns_tablet_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
 						'border'  => 'none',
-						'padding' => '15px 30px',
+						'padding' => astra_apply_new_default_blog_values() ? '14px 28px' : '15px 30px',
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -533,7 +533,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$button_patterns_mobile_compat_css = array(
 					'.wp-block-button .wp-block-button__link' => array(
 						'border'  => 'none',
-						'padding' => '15px 30px',
+						'padding' => astra_apply_new_default_blog_values() ? '12px 24px' : '15px 30px',
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',

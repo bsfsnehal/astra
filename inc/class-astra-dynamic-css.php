@@ -547,12 +547,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			if ( true === astra_apply_new_default_blog_values() ) {
-				$css_output['entry-title a , .entry-title'] = array(
-					'font-weight' => '600',
+			if ( false === astra_apply_new_default_blog_values() ) {
+				$css_output['.entry-title a , .entry-title, .page-title']  = array(
+					'font-weight' => 'normal',
+				);
+				$css_output['.ast-archive-description .ast-archive-title'] = array(
+					'font-weight' => '300',
 				);
 			}
-
+			
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
 				$css_output['.single .ast-author-details .author-title'] = array(
@@ -1634,7 +1637,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.wp-block-button .wp-block-button__link' => array(
 							'font-size' => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
 							'border'    => 'none',
-							'padding'   => '15px 30px',
+							'padding'   => astra_apply_new_default_blog_values() ? '14px 28px' : '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -1648,7 +1651,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.wp-block-button .wp-block-button__link' => array(
 							'font-size' => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
 							'border'    => 'none',
-							'padding'   => '15px 30px',
+							'padding'   => astra_apply_new_default_blog_values() ? '12px 24px' : '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',

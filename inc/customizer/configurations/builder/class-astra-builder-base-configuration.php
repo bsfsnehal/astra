@@ -219,7 +219,6 @@ final class Astra_Builder_Base_Configuration {
 			'priority'        => 1,
 			'active_callback' => array( $this, 'ast_is_transparent_header' ),
 			'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for ' . esc_html( $component ) . ' for this page should be set from following link. </p></div>',
-			'context'         => Astra_Builder_Helper::$general_tab,
 		);
 
 		/**
@@ -235,7 +234,6 @@ final class Astra_Builder_Base_Configuration {
 			'linked'          => 'section-transparent-header',
 			'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
 			'active_callback' => array( $this, 'ast_is_transparent_header' ),
-			'context'         => Astra_Builder_Helper::$general_tab,
 		);
 
 		return $configs;

@@ -88,6 +88,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.0' => array(
 				'astra_headings_font_support',
 				'astra_remove_logo_max_width',
+				'astra_transparent_header_default_value',
 			),
 		);
 

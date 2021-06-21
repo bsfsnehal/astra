@@ -1,4 +1,5 @@
 v3.6.1 (Unreleased)
+- Improvement: When Transparent Header is active then added "transparent header enabled notice" in all builder elements.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.

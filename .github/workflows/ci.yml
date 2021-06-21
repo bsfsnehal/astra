@@ -4,11 +4,6 @@ name: CI
 on:
   pull_request:
       branches:
-      - next-release
-      - milestones
-      - release-candidate
-      - master
-      - dev
 
 jobs:
   Test:

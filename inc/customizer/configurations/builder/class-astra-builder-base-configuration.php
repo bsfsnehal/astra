@@ -206,34 +206,35 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public function prepare_transparent_header_notice( $_section, $suffix, $component = '' ) {
 
-		$configs = array();
+		$configs = array(
 
-		/**
-		 * Notice for Colors - Transparent header enabled on page.
-		 */
-		$configs[] = array(
-			'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-' . $suffix . ']',
-			'type'            => 'control',
-			'control'         => 'ast-description',
-			'section'         => $_section,
-			'priority'        => 1,
-			'active_callback' => array( $this, 'ast_is_transparent_header' ),
-			'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for ' . esc_html( $component ) . ' for this page should be set from following link. </p></div>',
-		);
+			/**
+			 * Notice for Colors - Transparent header enabled on page.
+			 */
+			array(
+				'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-' . $suffix . ']',
+				'type'            => 'control',
+				'control'         => 'ast-description',
+				'section'         => $_section,
+				'priority'        => 1,
+				'active_callback' => array( $this, 'ast_is_transparent_header' ),
+				'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for ' . esc_html( $component ) . ' for this page should be set from following link. </p></div>',
+			),
 
-		/**
-		* Option: Transparent Header Section - Link.
-		*/
-		$configs[] = array(
-			'name'            => ASTRA_THEME_SETTINGS . '[ast-transparent-header-notice-link-' . $suffix . ']',
-			'type'            => 'control',
-			'control'         => 'ast-customizer-link',
-			'section'         => $_section,
-			'priority'        => 1,
-			'link_type'       => 'section',
-			'linked'          => 'section-transparent-header',
-			'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
-			'active_callback' => array( $this, 'ast_is_transparent_header' ),
+			/**
+			* Option: Transparent Header Section - Link.
+			*/
+			array(
+				'name'            => ASTRA_THEME_SETTINGS . '[ast-transparent-header-notice-link-' . $suffix . ']',
+				'type'            => 'control',
+				'control'         => 'ast-customizer-link',
+				'section'         => $_section,
+				'priority'        => 1,
+				'link_type'       => 'section',
+				'linked'          => 'section-transparent-header',
+				'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+				'active_callback' => array( $this, 'ast_is_transparent_header' ),
+			)
 		);
 
 		return $configs;

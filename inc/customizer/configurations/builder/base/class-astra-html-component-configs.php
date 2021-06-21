@@ -190,13 +190,6 @@ class Astra_Html_Component_Configs {
 				),
 			);
 
-			if ( 'header' === $builder_type ) {
-				$_configs = array_merge(
-					$_configs,
-					astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'html-' . $index, __( 'HTML', 'astra' ) )
-				);
-			}
-
 			if ( 'footer' === $builder_type ) {
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-html-' . $index . '-alignment]',
@@ -215,6 +208,10 @@ class Astra_Html_Component_Configs {
 					),
 					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				);
+			}
+
+			if ( 'header' === $builder_type ) {
+				$html_config[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'html-' . $index, __( 'HTML', 'astra' ) );
 			}
 
 			$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );

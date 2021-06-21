@@ -190,7 +190,7 @@ async function setupBrowser() {
 async function siteReset() {
 	await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-theme' ), {
 		method: 'DELETE',
-	});
+	} );
 }
 
 /**

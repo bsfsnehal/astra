@@ -34,9 +34,13 @@ jobs:
       env:
         COMPOSE_INTERACTIVE_NO_CLI: true
 
-    - name: E2E Tests
-      run: npm run test:e2e:ci
+    - name: Lint JS
       if: always()
+      run: npm run lint:js
+
+    - name: E2E Tests
+      if: always()
+      run: npm run test:e2e:ci
 
     - uses: preactjs/compressed-size-action@v2
       if: always()

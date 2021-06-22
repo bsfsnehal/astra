@@ -800,9 +800,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-compress');
-	grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
@@ -855,9 +855,9 @@ module.exports = function (grunt) {
         grunt.task.run('json2php');
     });
 
-	// Grunt release - Create installable package of the local files
-	grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
-	grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
+    // Grunt release - Create installable package of the local files
+    grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+    grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {

@@ -567,6 +567,76 @@ module.exports = function (grunt) {
             }
         },
 
+		copy: {
+			main: {
+				options: {
+					mode: true
+				},
+				src: [
+					'**',
+					'!node_modules/**',
+					'!build/**',
+					'!css/sourcemap/**',
+					'!.git/**',
+					'!.github/**',
+					'!bin/**',
+					'!docs/**',
+					'!tests/**',
+					'!assets/dynamic-css.css',
+					'!contributing.md',
+					'!.gitlab-ci.yml',
+					'!cghooks.lock',
+					'!tests/**',
+					'!phpunit.xml.dist',
+					'!*.sh',
+					'!*.map',
+					'!Gruntfile.js',
+					'!package.json',
+					'!.gitignore',
+					'!phpunit.xml',
+					'!README.md',
+					'!sass/**',
+					'!codesniffer.ruleset.xml',
+					'!vendor/**',
+					'!composer.json',
+					'!composer.lock',
+					'!package-lock.json',
+					'!phpcs.xml.dist',
+					'!assets/fonts/google-fonts.json',
+					'!inc/customizer/extend-custom-controls/package.json',
+					'!inc/customizer/extend-custom-controls/package-lock.json',
+					'!inc/customizer/extend-custom-controls/src/**',
+					'!inc/customizer/extend-custom-controls/node_modules/**',
+					'!inc/customizer/extend-custom-controls/build/index.asset.php',
+					'!inc/customizer/extend-custom-controls/build/index.js.map',
+				],
+				dest: 'astra/'
+			}
+		},
+
+		compress: {
+			main: {
+				options: {
+					archive: 'astra-' + pkgInfo.version + '.zip',
+					mode: 'zip'
+				},
+				files: [
+					{
+						src: [
+							'./astra/**'
+						]
+
+					}
+				]
+			}
+		},
+
+		clean: {
+			main: ["astra"],
+			zip: ["*.zip"]
+
+		},
+
         makepot: {
             target: {
                 options: {
@@ -730,6 +800,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
@@ -781,6 +854,10 @@ module.exports = function (grunt) {
         grunt.task.run('download-google-fonts');
         grunt.task.run('json2php');
     });
+
+	// Grunt release - Create installable package of the local files
+	grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
+	grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {

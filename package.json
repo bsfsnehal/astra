@@ -43,5 +43,11 @@
     "env:reset-site": "wp-env clean all",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "wp-env": "wp-env"
+  },
+  "dependencies": {
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-compress": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0"
   }
 }

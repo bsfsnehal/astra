@@ -13,7 +13,7 @@
  * Adding argument checks to avoid rendering search-form markup from other places & to easily use get_search_form() function.
  *
  * @see https://themes.trac.wordpress.org/ticket/101061
- * @since x.x.x
+ * @since 3.6.1
  */
 $astra_search_input_placeholder = isset( $args['input_placeholder'] ) ? $args['input_placeholder'] : astra_default_strings( 'string-search-input-placeholder', false );
 $astra_search_show_input_submit = isset( $args['show_input_submit'] ) ? $args['show_input_submit'] : true;

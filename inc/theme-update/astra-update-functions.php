@@ -3068,6 +3068,11 @@ function astra_update_button_defaults_and_gb_button_patterns() {
 	}
 }
 
+/**
+ * Set default value for the transparent header.
+ *
+ * @return void
+ */
 function astra_transparent_header_default_value() {
 	$theme_options = get_option( 'astra-settings', array() );
 

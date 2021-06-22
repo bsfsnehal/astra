@@ -1,17 +1,14 @@
 v3.7.0 (Unreleased)
-- Improvement: Moved customizer related code from frontend JS file to customizer JS file.
-- Improvement: When Transparent Header is active then added "transparent header enabled notice" in all builder elements.
-- Fix: Avoided extra search-form markup and added compatibility with get_search_form().
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
+- Fix: Global headings font family not working in the Gutenberg editor.
 
 v3.6.1
 - Fix: Theme check warning - Replaced search form markup with get_search_form().
 - Fix: Both desktop and mobile headers appearing on desktop due to Astra's cache.
-- Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 
 v3.6.0
 - New: Performance - Load Google Font locally. (https://wpastra.com/docs/self-hosted-google-fonts/)

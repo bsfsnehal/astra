@@ -6,9 +6,13 @@
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 		<exclude name="PHPCompatibility.Keywords.NewKeywords.t_useFound" />
 		<exclude name="PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound" />
+
+		<exclude-pattern>tests/</exclude-pattern>
 	</rule>
 
-	<rule ref="WPThemeReview" />
+	<rule ref="WPThemeReview" >
+		<exclude-pattern>tests/</exclude-pattern>
+	</rule>
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />

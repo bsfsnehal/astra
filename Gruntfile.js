@@ -567,64 +567,65 @@ module.exports = function (grunt) {
             }
         },
 
-		copy: {
-			main: {
-				options: {
-					mode: true
-				},
-				src: [
-					'**',
-					'!node_modules/**',
-					'!build/**',
-					'!css/sourcemap/**',
-					'!.git/**',
-					'!.github/**',
-					'!bin/**',
-					'!docs/**',
-					'!tests/**',
-					'!assets/dynamic-css.css',
-					'!contributing.md',
-					'!.gitlab-ci.yml',
-					'!cghooks.lock',
-					'!tests/**',
-					'!phpunit.xml.dist',
-					'!*.sh',
-					'!*.map',
-					'!Gruntfile.js',
-					'!package.json',
-					'!.gitignore',
-					'!phpunit.xml',
-					'!README.md',
-					'!sass/**',
-					'!codesniffer.ruleset.xml',
-					'!vendor/**',
-					'!composer.json',
-					'!composer.lock',
-					'!package-lock.json',
-					'!phpcs.xml.dist',
-					'!assets/fonts/google-fonts.json',
-					'!inc/customizer/extend-custom-controls/package.json',
-					'!inc/customizer/extend-custom-controls/package-lock.json',
-					'!inc/customizer/extend-custom-controls/src/**',
-					'!inc/customizer/extend-custom-controls/node_modules/**',
-					'!inc/customizer/extend-custom-controls/build/index.asset.php',
-					'!inc/customizer/extend-custom-controls/build/index.js.map',
-				],
-				dest: 'astra/'
-			}
-		},
+        copy: {
+            main: {
+                options: {
+                    mode: true
+                },
+                src: [
+                    '**',
+                    '!node_modules/**',
+                    '!build/**',
+                    '!css/sourcemap/**',
+                    '!.git/**',
+                    '!.github/**',
+                    '!bin/**',
+                    '!docs/**',
+                    '!tests/**',
+                    '!assets/dynamic-css.css',
+                    '!contributing.md',
+                    '!.gitlab-ci.yml',
+                    '!cghooks.lock',
+                    '!tests/**',
+                    '!phpunit.xml.dist',
+                    '!*.sh',
+                    '!*.map',
+                    '!Gruntfile.js',
+                    '!package.json',
+                    '!.gitignore',
+                    '!phpunit.xml',
+                    '!README.md',
+                    '!artifacts',
+                    '!sass/**',
+                    '!codesniffer.ruleset.xml',
+                    '!vendor/**',
+                    '!composer.json',
+                    '!composer.lock',
+                    '!package-lock.json',
+                    '!phpcs.xml.dist',
+                    '!assets/fonts/google-fonts.json',
+                    '!inc/customizer/extend-custom-controls/package.json',
+                    '!inc/customizer/extend-custom-controls/package-lock.json',
+                    '!inc/customizer/extend-custom-controls/src/**',
+                    '!inc/customizer/extend-custom-controls/node_modules/**',
+                    '!inc/customizer/extend-custom-controls/build/index.asset.php',
+                    '!inc/customizer/extend-custom-controls/build/index.js.map',
+                ],
+                dest: 'astra/'
+            }
+        },
 
-		compress: {
-			main: {
-				options: {
-					archive: 'astra-' + pkgInfo.version + '.zip',
-					mode: 'zip'
-				},
-				files: [
-					{
-						src: [
-							'./astra/**'
-						]
+        compress: {
+            main: {
+                options: {
+                    archive: 'astra-' + pkgInfo.version + '.zip',
+                    mode: 'zip'
+                },
+                files: [
+                    {
+                        src: [
+                            './astra/**'
+                        ]
 
 					}
 				]

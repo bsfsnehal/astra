@@ -42,8 +42,6 @@
     "env:destroy": "wp-env destroy",
     "env:reset-site": "wp-env clean all",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
-    "wp-env": "wp-env",
-    "package": "cross-env rm astra.zip && rm -rf astra && vendor/bin/wp dist-archive . astra.zip",
-    "package-files": "cross-env npm run package && unzip astra.zip -d ."
+    "wp-env": "wp-env"
   }
 }

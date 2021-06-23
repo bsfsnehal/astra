@@ -430,7 +430,7 @@ class Astra_Social_Icon_Component_Configs {
 			);
 
 			if ( 'header' === $builder_type ) {
-				$social_configs[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'social-' . $index, __( 'Social Icons', 'astra' ) );
+				// $social_configs[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'social-' . $index, __( 'Social Icons', 'astra' ) );
 			}
 
 			if ( 'footer' === $builder_type ) {

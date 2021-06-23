@@ -23,6 +23,8 @@ const CustomizerLinkComponent = props => {
 		}
 	};
 
+	console.error( 'Customizer link - ' + props.control.params );
+
 	const {
 		linked,
 		link_text,

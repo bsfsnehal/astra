@@ -128,10 +128,10 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 
 		);
 
-		$_configs = array_merge(
-			$_configs,
-			astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'header-search', __( 'Search', 'astra' ) )
-		);
+		// $_configs = array_merge(
+		// 	$_configs,
+		// 	astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'header-search', __( 'Search', 'astra' ) )
+		// );
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 

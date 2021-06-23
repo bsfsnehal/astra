@@ -12,13 +12,15 @@ const DescriptionComponent = props => {
 		htmlLabel = <span className="customize-control-title">{props.control.params.label}</span>;
 	}
 
+	console.error( 'Description help - ' + props.control.params.help );
+
 	if (props.control.params.help) {
 		htmlHelp = <span className="ast-description">{ReactHtmlParser(props.control.params.help)}</span>;
 	}
 
 	if (props.control.params.description) {
 		htmlDescription =
-			<span className="description customize-control-description">{props.control.params.description}</span>;
+		<span className="description customize-control-description">{props.control.params.description}</span>;
 	}
 
 	return <Fragment>

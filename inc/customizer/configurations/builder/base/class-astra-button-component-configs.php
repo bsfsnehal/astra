@@ -416,7 +416,43 @@ class Astra_Button_Component_Configs {
 			}
 
 			if ( 'header' === $builder_type ) {
-				$button_config[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'button-' . $index, __( 'Button', 'astra' ) );
+
+				$instance = Astra_Builder_Base_Configuration::get_instance();
+
+				// $button_config[] = astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'button-' . $index, __( 'Button', 'astra' ) );
+
+				$button_config[] = array(
+
+					/**
+					 * Notice for Colors - Transparent header enabled on page.
+					 */
+					array(
+						'name'            => ASTRA_THEME_SETTINGS . '[ast-notice-header-transparent-button' . $index . ']',
+						'type'            => 'control',
+						'control'         => 'ast-description',
+						'section'         => $_section,
+						'priority'        => 1,
+						'context'           => Astra_Builder_Helper::$general_tab,
+						'active_callback' => array( $instance, 'ast_is_transparent_header' ),
+						'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for HEADER BUTTON  ' . $index . ' for this page should be set from following link. </p></div>',
+					),
+
+					/**
+					 * Option: Transparent Header Section - Link.
+					 */
+					array(
+						'name'            => ASTRA_THEME_SETTINGS . '[transparent-header-notice-link-button-' . $index . ']',
+						'type'            => 'control',
+						'control'         => 'ast-customizer-link',
+						'section'         => $_section,
+						'priority'        => 1,
+						'link_type'       => 'section',
+						'context'           => Astra_Builder_Helper::$general_tab,
+						'linked'          => 'section-transparent-header',
+						'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+						'active_callback' => array( $instance, 'ast_is_transparent_header' ),
+					)
+				);
 			}
 
 			$button_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section, $builder_type );

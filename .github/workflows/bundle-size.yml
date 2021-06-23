@@ -35,6 +35,9 @@ jobs:
     build:
         name: Check
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node: ['14.10']
         steps:
             - uses: actions/checkout@v2
               with:

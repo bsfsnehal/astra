@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 3.6.0\n"
+"Project-Id-Version: Astra 3.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/astra\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-06-16T09:00:59+00:00\n"
+"POT-Creation-Date: 2021-06-21T10:15:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -1940,11 +1940,10 @@ msgstr ""
 
 #: inc/core/builder/class-astra-builder-helper.php:656
 #: inc/core/builder/class-astra-builder-helper.php:718
-#: inc/core/common-functions.php:1182
 #: inc/customizer/configurations/builder/header/class-astra-header-search-component-configs.php:50
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:150
 #: inc/markup-extras.php:407
-#: searchform.php:19
+#: searchform.php:30
 msgid "Search"
 msgstr ""
 
@@ -2436,11 +2435,6 @@ msgid "Search Results for: %s"
 msgstr ""
 
 #: inc/core/common-functions.php:1179
-msgctxt "label"
-msgid "Search for:"
-msgstr ""
-
-#: inc/core/common-functions.php:1180
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
@@ -3915,11 +3909,11 @@ msgstr ""
 msgid "Footer Widget Area 4"
 msgstr ""
 
-#: searchform.php:15
+#: searchform.php:26
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:18
+#: searchform.php:29
 msgid "Search Submit"
 msgstr ""
 

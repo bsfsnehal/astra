@@ -1,9 +1,13 @@
-v3.6.1 (Unreleased)
+v3.7.0 (Unreleased)
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
+
+v3.6.1
+- Fix: Theme check warning - Replaced search form markup with get_search_form().
+- Fix: Both desktop and mobile headers appearing on desktop due to Astra's cache.
 
 v3.6.0
 - New: Performance - Load Google Font locally. (https://wpastra.com/docs/self-hosted-google-fonts/)

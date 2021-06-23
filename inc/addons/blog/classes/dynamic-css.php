@@ -23,6 +23,7 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 	$container_layout            = astra_get_option( 'site-content-layout' );
 	$blog_grid                   = astra_get_option( 'blog-grid' );
 	$blog_layout                 = astra_get_option( 'blog-layout' );
+	$margin_space                = astra_get_option( 'blog-space-bet-posts' ) ? '-1em' : '0';
 
 
 	$spacing_desktop = array(
@@ -167,8 +168,8 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 					'padding' => '0 1em 0',
 				),
 				'.ast-separate-container .ast-grid-' . $blog_grid . ' > .site-main > .ast-row' => array(
-					'margin-left'  => '-1em',
-					'margin-right' => '-1em',
+					'margin-left'  => esc_attr( $margin_space ),
+					'margin-right' => esc_attr( $margin_space ),
 					'display'      => 'flex',
 					'flex-flow'    => 'row wrap',
 					'align-items'  => 'stretch',

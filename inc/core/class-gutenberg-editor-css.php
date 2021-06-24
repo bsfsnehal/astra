@@ -482,7 +482,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				 *
 				 * @since x.x.x
 				 */
-				if ( ! Astra_Dynamic_CSS::update_gutenberg_outline_button_patterns_compat() ) {
+				if ( ! astra_apply_new_default_blog_values() ) {
 					$default_border_size = '';
 				} else {
 					$default_border_size = '2px';
@@ -507,7 +507,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if ( ! Astra_Dynamic_CSS::update_gutenberg_outline_button_patterns_compat() ) {
+				if ( ! astra_apply_new_default_blog_values() ) {
 					$button_patterns_compat_css['.wp-block-button .wp-block-button__link']                  = array(
 						'border'  => 'none',
 						'padding' => '15px 30px',
@@ -528,12 +528,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$css .= astra_parse_css( $button_patterns_compat_css );
 
-				if ( ! Astra_Dynamic_CSS::update_gutenberg_outline_button_patterns_compat() ) {
+				if ( ! astra_apply_new_default_blog_values() ) {
 					// Tablet CSS.
 					$button_patterns_tablet_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => '15px 30px',
+							'padding' => astra_apply_new_default_blog_values() ? '14px 28px' : '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -549,7 +549,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					$button_patterns_mobile_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => '15px 30px',
+							'padding' => astra_apply_new_default_blog_values() ? '12px 24px' : '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -582,7 +582,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 				}
 
-				if ( ! Astra_Dynamic_CSS::update_gutenberg_outline_button_patterns_compat() ) {
+				if ( ! astra_apply_new_default_blog_values() ) {
 					$gb_patterns_min_mobile_css['.editor-styles-wrapper p.has-background'] = array(
 						'padding' => '20px',
 					);

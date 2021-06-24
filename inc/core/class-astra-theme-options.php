@@ -97,26 +97,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			}
 
 			/**
-			 * Update button desktop padding values. To not update directly on existing users site, adding this condition.
+			 * Update Astra customizer default values. To not update directly on existing users site, added backwards.
 			 *
 			 * @since x.x.x
 			 */
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			if ( isset( $astra_settings['can-update-button-defaults-to-gb-support'] ) ) {
-				$button_desktop_padding_defaults = array(
-					'top'    => 10,
-					'right'  => 40,
-					'bottom' => 10,
-					'left'   => 40,
-				);
-			} else {
-				$button_desktop_padding_defaults = array(
-					'top'    => 15,
-					'right'  => 30,
-					'bottom' => 15,
-					'left'   => 30,
-				);
-			}
+			$apply_new_default_values = astra_apply_new_default_blog_values();
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(
@@ -131,9 +116,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
 					'blog-single-meta'                     => array(
-						'comments',
 						'category',
 						'author',
+						'date',
 					),
 					// Blog.
 					'blog-post-structure'                  => array(
@@ -144,9 +129,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
 					'blog-meta'                            => array(
-						'comments',
 						'category',
 						'author',
+						'date',
 					),
 					// Colors.
 					'text-color'                           => '#3a3a3a',
@@ -191,18 +176,23 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'button-bg-color'                      => '',
 					'button-bg-h-color'                    => '',
 					'theme-button-padding'                 => array(
-						'desktop'      => $button_desktop_padding_defaults,
+						'desktop'      => array(
+							'top'    => $apply_new_default_values ? 15 : 10,
+							'right'  => $apply_new_default_values ? 30 : 40,
+							'bottom' => $apply_new_default_values ? 15 : 10,
+							'left'   => $apply_new_default_values ? 30 : 40,
+						),
 						'tablet'       => array(
-							'top'    => '',
-							'right'  => '',
-							'bottom' => '',
-							'left'   => '',
+							'top'    => $apply_new_default_values ? 14 : '',
+							'right'  => $apply_new_default_values ? 28 : '',
+							'bottom' => $apply_new_default_values ? 14 : '',
+							'left'   => $apply_new_default_values ? 28 : '',
 						),
 						'mobile'       => array(
-							'top'    => '',
-							'right'  => '',
-							'bottom' => '',
-							'left'   => '',
+							'top'    => $apply_new_default_values ? 12 : '',
+							'right'  => $apply_new_default_values ? 24 : '',
+							'bottom' => $apply_new_default_values ? 12 : '',
+							'left'   => $apply_new_default_values ? 24 : '',
 						),
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
@@ -371,7 +361,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'body-font-variant'                    => '',
 					'body-font-weight'                     => 'inherit',
 					'font-size-body'                       => array(
-						'desktop'      => 15,
+						'desktop'      => $apply_new_default_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -379,15 +369,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 
-					'body-line-height'                     => '',
+					'body-line-height'                     => $apply_new_default_values ? 1.8 : '',
 					'para-margin-bottom'                   => '',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
-					'headings-font-weight'                 => 'inherit',
+					'headings-font-weight'                 => $apply_new_default_values ? 600 : 'inherit',
 					'headings-text-transform'              => '',
 					'headings-line-height'                 => '',
 					'font-size-site-title'                 => array(
-						'desktop'      => 35,
+						'desktop'      => $apply_new_default_values ? 26 : 35,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -419,7 +409,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-page-title'                 => array(
-						'desktop'      => 30,
+						'desktop'      => $apply_new_default_values ? 24 : 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -443,7 +433,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h3'                         => array(
-						'desktop'      => 25,
+						'desktop'      => $apply_new_default_values ? 26 : 25,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -451,7 +441,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h4'                         => array(
-						'desktop'      => 20,
+						'desktop'      => $apply_new_default_values ? 22 : 20,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -467,7 +457,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h6'                         => array(
-						'desktop'      => 15,
+						'desktop'      => $apply_new_default_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -476,7 +466,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					// Sidebar.
-					'site-sidebar-layout'                  => 'right-sidebar',
+					'site-sidebar-layout'                  => 'no-sidebar',
 					'site-sidebar-width'                   => 30,
 					'single-page-sidebar-layout'           => 'default',
 					'single-post-sidebar-layout'           => 'default',

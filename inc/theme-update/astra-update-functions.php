@@ -3086,16 +3086,16 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
- * Set flag to provide backward compatibility to not change directly on user's end.
+ * Set flag for updated default values for default blog post layout.
  *
  * @since x.x.x
  * @return void.
  */
-function astra_update_button_defaults_and_gb_button_patterns() {
+function astra_default_layout_updated_values() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['can-update-button-defaults-to-gb-support'] ) ) {
-		$theme_options['can-update-button-defaults-to-gb-support'] = false;
+	if ( ! isset( $theme_options['default-layout-updated-values'] ) ) {
+		$theme_options['default-layout-updated-values'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

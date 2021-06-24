@@ -93,6 +93,7 @@
 	    display: inline-flex;
 	    vertical-align: middle;
 	    align-items: center;
+		transition: all 0.2s linear;
 	}
 }
 .ast-grid-section-center {
@@ -208,14 +209,7 @@
  * For desktop view.
  */
 
-#ast-mobile-header {
-	display: none;
-}
-
 .ast-header-break-point {
-	#ast-desktop-header {
-		display: none;
-	}
 	#ast-mobile-header {
 		display: block;
 	}

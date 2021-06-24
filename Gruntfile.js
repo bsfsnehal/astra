@@ -581,6 +581,7 @@ module.exports = function (grunt) {
                     '!.github/**',
                     '!bin/**',
                     '!docs/**',
+                    '!psalm.xml',
                     '!tests/**',
                     '!assets/dynamic-css.css',
                     '!contributing.md',

@@ -48,10 +48,11 @@ class Astra_Header_Widget_Component_Loader {
 			'astra-header-widget-customizer-preview-js',
 			'AstraBuilderWidgetData',
 			array(
-				'header_widget_count' => defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets,
-				'tablet_break_point'  => astra_get_tablet_breakpoint(),
-				'mobile_break_point'  => astra_get_mobile_breakpoint(),
-				'is_flex_based_css'   => Astra_Builder_Helper::apply_flex_based_css(),
+				'header_widget_count'      => defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets,
+				'tablet_break_point'       => astra_get_tablet_breakpoint(),
+				'mobile_break_point'       => astra_get_mobile_breakpoint(),
+				'is_flex_based_css'        => Astra_Builder_Helper::apply_flex_based_css(),
+				'footer_with_margin_space' => astra_is_builder_widgets_have_margin_space(),
 			)
 		);
 	}

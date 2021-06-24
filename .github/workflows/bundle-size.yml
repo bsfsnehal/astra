@@ -37,11 +37,16 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-              node: ['14.10']
+              node: ['14.15']
         steps:
             - uses: actions/checkout@v2
               with:
                   fetch-depth: 1
+
+            - name: Use desired version of NodeJS
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node }}
 
             - name: Cache NPM packages
               uses: actions/cache@v2
@@ -73,4 +78,4 @@ jobs:
               run: npm run env:stop
               if: always()
               env:
-                COMPOSE_INTERACTIVE_]NO_CLI: true
+                COMPOSE_INTERACTIVE_NO_CLI: true

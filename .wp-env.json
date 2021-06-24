@@ -1,6 +1,6 @@
 {
   "core": null,
-  "themes": ["."],
+  "themes": ["./astra"],
   "plugins": [
     "./tests/e2e/e2e-plugin"
   ],

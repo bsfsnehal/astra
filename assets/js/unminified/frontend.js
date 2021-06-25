@@ -675,13 +675,6 @@ astraNavMenuToggle = function ( event ) {
 			}
 		}
 	}
-	if (__main_header_all[event_index].classList.contains('toggle-on')) {
-		__main_header_all[event_index].style.display = 'block';
-		body.classList.add("ast-main-header-nav-open");
-	} else {
-		__main_header_all[event_index].style.display = '';
-		body.classList.remove("ast-main-header-nav-open");
-	}
 }
 
 body.addEventListener("astra-header-responsive-enabled", function () {

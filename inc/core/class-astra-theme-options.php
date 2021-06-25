@@ -96,6 +96,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
+			/**
+			 * Update Astra customizer default values. To not update directly on existing users site, added backwards.
+			 *
+			 * @since x.x.x
+			 */
 			$apply_new_default_values = astra_apply_new_default_blog_values();
 
 			// Defaults list of options.

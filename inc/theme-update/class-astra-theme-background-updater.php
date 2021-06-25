@@ -98,6 +98,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.7.0' => array(
 				'astra_default_layout_updated_values',
+				'astra_clear_all_assets_cache',
 			),
 		);
 

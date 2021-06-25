@@ -7,6 +7,7 @@ v3.7.0 (Unreleased)
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 - Fix: Global headings font family not working in the Gutenberg editor.
+- Fix: Footer Builder - Widgets - Right margin space not working.
 - Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
 - Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 

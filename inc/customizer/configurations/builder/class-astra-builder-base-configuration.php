@@ -427,7 +427,7 @@ final class Astra_Builder_Base_Configuration {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => $_section,
 					'priority'          => 220,
-					'title'             => __( 'Space', 'astra' ),
+					'title'             => __( 'Margin', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(

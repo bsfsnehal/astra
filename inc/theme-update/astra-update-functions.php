@@ -3099,19 +3099,3 @@ function astra_clear_all_assets_cache() {
 		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
 	}
 }
-
-/**
- * Apply margin widget spacing CSS to for existing users only.
- *
- * @return void
- * @since x.x.x
- */
-function astra_migrate_widget_space_css() {
-	$theme_options = get_option( 'astra-settings' );
-
-	// Set flag to use padding CSS instead of margin for widgets.
-	if ( ! isset( $theme_options['builder-widgets-with-margin-space'] ) ) {
-		$theme_options['builder-widgets-with-margin-space'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}

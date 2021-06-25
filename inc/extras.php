@@ -657,14 +657,3 @@ function astra_get_transparent_header_default_value() {
 	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? false : true;
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
 }
-
-/**
- * Checking old user status here, as we are migrating widget space CSS from 'margin' to 'padding'.
- *
- * @since x.x.x
- */
-function astra_is_builder_widgets_have_margin_space() {
-	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['builder-widgets-with-margin-space'] = isset( $astra_settings['builder-widgets-with-margin-space'] ) ? true : false;
-	return apply_filters( 'astra_use_widget_spacing_with_margin', $astra_settings['builder-widgets-with-margin-space'] );
-}

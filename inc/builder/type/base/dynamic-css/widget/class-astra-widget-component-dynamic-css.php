@@ -75,21 +75,6 @@ class Astra_Widget_Component_Dynamic_CSS {
 				$builder_widget_selector = $selector . ' .' . $builder_type . '-widget-area-inner';
 			}
 
-			/**
-			 * Updating spacing CSS handle.
-			 */
-			$top_spacing_selector    = 'padding-top';
-			$bottom_spacing_selector = 'padding-bottom';
-			$right_spacing_selector  = 'padding-right';
-			$left_spacing_selector   = 'padding-left';
-
-			if ( astra_is_builder_widgets_have_margin_space() ) {
-				$top_spacing_selector    = 'margin-top';
-				$bottom_spacing_selector = 'margin-bottom';
-				$right_spacing_selector  = 'margin-right';
-				$left_spacing_selector   = 'margin-left';
-			}
-
 			$css_output_desktop = array(
 				$builder_widget_selector              => array(
 					'color'     => $text_color_desktop,
@@ -109,10 +94,10 @@ class Astra_Widget_Component_Dynamic_CSS {
 				),
 				$selector                             => array(
 					// Margin CSS.
-					$top_spacing_selector    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-					$bottom_spacing_selector => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-					$left_spacing_selector   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-					$right_spacing_selector  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 				),
 			);
 
@@ -135,10 +120,10 @@ class Astra_Widget_Component_Dynamic_CSS {
 				),
 				$selector                             => array(
 					// Margin CSS.
-					$top_spacing_selector    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-					$bottom_spacing_selector => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-					$left_spacing_selector   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-					$right_spacing_selector  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 				),
 			);
 
@@ -161,10 +146,10 @@ class Astra_Widget_Component_Dynamic_CSS {
 				),
 				$selector                             => array(
 					// Margin CSS.
-					$top_spacing_selector    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-					$bottom_spacing_selector => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-					$left_spacing_selector   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-					$right_spacing_selector  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+					'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+					'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+					'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+					'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 				),
 			);
 

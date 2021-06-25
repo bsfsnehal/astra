@@ -1042,10 +1042,10 @@ body {
 }
 
 .ast-blog-grid {
-  grid-column-gap: var(--postColumnGap);
+  grid-column-gap: var(--astGridColumnGap);
   display: grid;
-  grid-template-columns: repeat(var(--gridColumns), 1fr);
-  grid-row-gap: var(--postRowGap);
+  grid-template-columns: repeat(var(--astGridColumns), 1fr);
+  grid-row-gap: var(--astPostRowGap);
 }
 
 /*----------  Navigation  ----------*/

@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 				$blog_grid           = astra_get_option( 'blog-grid' );
 				$blog_grid_variables = array(
 					':root' => array(
-						'--gridColumns' => $blog_grid,
+						'--astGridColumns' => $blog_grid,
 					),
 				);
 				$dynamic_css        .= astra_parse_css( $blog_grid_variables );

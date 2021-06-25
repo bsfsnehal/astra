@@ -146,10 +146,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$css_file = 'fronetned';
 
-				if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-					$css_file = 'main';
-				} elseif ( astra_apply_blog_grid_css() ) {
+				if ( astra_apply_blog_grid_css() ) {
 					$css_file = 'main-grid';
+				} elseif ( Astra_Builder_Helper::apply_flex_based_css() ) {
+					$css_file = 'main';
 				}
 
 				$default_assets = array(

@@ -2383,10 +2383,6 @@ body .entry-content .wp-block-latest-posts li {
   width: 100%;
 }
 
-.footer-widget-area.widget-area.site-footer-focus-item {
-  width: auto;
-}
-
 #astra-footer-menu {
   margin: 0;
   list-style: none;

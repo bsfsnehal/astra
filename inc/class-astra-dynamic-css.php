@@ -750,6 +750,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
 
+
+			if ( self::is_support_footer_widget_right_margin() ) {
+				/**
+				 * Fix: Footer widget right margin space not working.
+				 */
+				$footer_right_margin_space_fix = array(
+					'.footer-widget-area.widget-area.site-footer-focus-item' => array(
+						'width' => 'auto',
+					),
+				);
+				$parse_css   .= astra_parse_css( $footer_right_margin_space_fix );
+			}
+
 			/*
 			* Fix the wide width issue in gutenberg
 			* check if the current user is existing user or new user.
@@ -2331,7 +2344,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
-			
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(
@@ -3345,6 +3358,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['can-remove-logo-max-width-css'] = isset( $astra_settings['can-remove-logo-max-width-css'] ) ? false : true;
 			return apply_filters( 'astra_remove_logo_max_width_css', $astra_settings['can-remove-logo-max-width-css'] );
+		}
+
+		/**
+		 * Whether to fix the footer right-margin space not working case or not.
+		 * As this is frontend reflecting change added this backwards for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function is_support_footer_widget_right_margin() {
+			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['support-footer-widget-right-margin'] = isset( $astra_settings['support-footer-widget-right-margin'] ) ? false : true;
+			return apply_filters( 'astra_apply_right_margin_footer_widget_css', $astra_settings['support-footer-widget-right-margin'] );
 		}
 
 		/**

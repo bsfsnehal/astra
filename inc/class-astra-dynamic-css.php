@@ -541,9 +541,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
 				':root'                                  => array(
-					'--postRowGap'    => '0px',
-					'--postColumnGap' => '0px',
-					'--gridColumns'   => '1',
+					'--astPostRowGap'    => '0px',
+					'--astGridColumnGap' => '0px',
+					'--astGridColumns'   => '1',
 				),
 			);
 

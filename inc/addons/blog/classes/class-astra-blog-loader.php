@@ -16,30 +16,13 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 	class Astra_Blog_Loader {
 
 		/**
-		 * Member Variable
-		 *
-		 * @var instance
-		 */
-		private static $instance;
-
-		/**
-		 *  Initiator
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
-
-		/**
 		 *  Constructor
 		 */
 		public function __construct() {
 
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
-			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			}
@@ -111,7 +94,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				'astra-blog-customizer-preview-js',
 				'astBlogGrid',
 				array(
-					'apply_flex_based_css' => Astra_Builder_Helper::apply_flex_based_css(),
+					'apply_grid_based_css' => astra_apply_blog_grid_css(),
 				) 
 			);
 		}
@@ -121,4 +104,4 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Blog_Loader::get_instance();
+new Astra_Blog_Loader();

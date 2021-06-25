@@ -156,6 +156,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['main-grid.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
                      /* Common Style felx based */
                      {
                         expand: true,
@@ -473,6 +480,10 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/main.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/main-grid.css',
+                        dest: 'assets/css/minified/main-grid.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',
                         dest: 'assets/css/minified/extend-customizer.min-rtl.css',
                     },
@@ -581,6 +592,8 @@ module.exports = function (grunt) {
                     '!.github/**',
                     '!bin/**',
                     '!docs/**',
+                    '!psalm.xml',
+                    '!tests/**',
                     '!assets/dynamic-css.css',
                     '!contributing.md',
                     '!.gitlab-ci.yml',
@@ -594,6 +607,7 @@ module.exports = function (grunt) {
                     '!.gitignore',
                     '!phpunit.xml',
                     '!README.md',
+                    '!artifacts',
                     '!sass/**',
                     '!codesniffer.ruleset.xml',
                     '!vendor/**',

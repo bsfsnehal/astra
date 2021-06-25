@@ -225,6 +225,10 @@ input[type="search"] {
   border: 0;
 }
 
+.search .site-main .ast-search-submit {
+  display: none;
+}
+
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -290,8 +294,78 @@ th {
   margin-left: -20px;
 }
 
+.ast-grid-common-col {
+  position: relative;
+  min-height: 1px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
 .ast-float {
   float: right;
+}
+
+@media (max-width: 992px) {
+  .ast-width-sm-25 {
+    width: 25%;
+  }
+  .ast-width-md-50 {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ast-width-md-25 {
+    width: 25%;
+  }
+}
+
+.ast-full-width {
+  width: 100%;
+}
+
+.ast-width-50 {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .ast-width-md-4 {
+    width: 33.3333333333%;
+  }
+  .ast-width-md-16 {
+    width: 16.6666666667%;
+  }
+  .ast-width-md-6 {
+    width: 50%;
+    float: right;
+  }
+  .ast-width-md-3 {
+    width: 25%;
+  }
+  .ast-width-md-66 {
+    width: 66.6666666667%;
+  }
+}
+
+@media (min-width: 769px) {
+  .ast-width-md-20 {
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .ast-width-lg-33 {
+    width: 33.3333333333%;
+  }
+  .ast-width-lg-16 {
+    width: 16.6666666667%;
+  }
+  .ast-width-lg-50 {
+    width: 50%;
+  }
+  .ast-width-lg-66 {
+    width: 66.6666666667%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -952,19 +1026,6 @@ body {
   display: block;
 }
 
-@media (min-width: 922px) {
-  .ast-container {
-    -js-display: flex;
-    display: flex;
-  }
-}
-
-@media (max-width: 921px) {
-  .ast-container {
-    flex-direction: column;
-  }
-}
-
 #primary,
 #secondary {
   width: 100%;
@@ -982,6 +1043,11 @@ body {
   padding: 4em 0;
   margin: 0;
   border: 0;
+}
+
+.ast-separate-container .site-main > .ast-row {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .ast-separate-container .ast-article-post,
@@ -1041,13 +1107,6 @@ body {
   .ast-left-sidebar #primary {
     padding-right: 30px;
   }
-}
-
-.ast-blog-grid {
-  grid-column-gap: var(--postColumnGap);
-  display: grid;
-  grid-template-columns: repeat(var(--gridColumns), 1fr);
-  grid-row-gap: var(--postRowGap);
 }
 
 /*----------  Navigation  ----------*/
@@ -1946,6 +2005,7 @@ body .entry-content .wp-block-latest-posts li {
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
+  transition: all 0.2s linear;
 }
 
 .ast-grid-section-center {
@@ -2716,10 +2776,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.5em;
 }
 
-.ast-blog-featured-section .gallery {
-  margin-bottom: 0;
-}
-
 .error404 .page-header {
   margin-bottom: 1.5em;
 }
@@ -2768,15 +2824,51 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
+.ast-page-builder-template .ast-article-post {
+  margin-bottom: 2.5em;
+}
+
+.ast-separate-container .ast-separate-posts.ast-article-post {
+  margin-bottom: 2em;
+}
+
+.ast-separate-container .ast-grid-1 .blog-layout-1 {
+  padding: 0;
+}
+
+.ast-separate-container .ast-grid-2 .ast-article-post,
+.ast-separate-container .ast-grid-3 .ast-article-post,
+.ast-separate-container .ast-grid-4 .ast-article-post {
+  background: transparent;
+}
+
 .ast-separate-container .blog-layout-1 {
   padding: 2.66666em;
   background: #ffffff;
 }
 
+.ast-separate-container .ast-grid-2 .blog-layout-1,
+.ast-separate-container .ast-grid-3 .blog-layout-1,
+.ast-separate-container .ast-grid-4 .blog-layout-1 {
+  padding: 1.5em;
+}
+
 @media (max-width: 1200px) {
+  .ast-separate-container .ast-grid-2 .ast-article-post:nth-child(2n+0), .ast-separate-container .ast-grid-2 .ast-article-post:nth-child(2n+1),
+  .ast-separate-container .ast-grid-3 .ast-article-post:nth-child(2n+0),
+  .ast-separate-container .ast-grid-3 .ast-article-post:nth-child(2n+1),
+  .ast-separate-container .ast-grid-4 .ast-article-post:nth-child(2n+0),
+  .ast-separate-container .ast-grid-4 .ast-article-post:nth-child(2n+1) {
+    padding: 0;
+  }
   .ast-separate-container .blog-layout-1 {
     padding: 1.5em;
   }
+}
+
+.ast-page-builder-template .ast-article-post .entry-header {
+  margin: auto auto 1em auto;
+  padding: 0;
 }
 
 .blog .posted-on {
@@ -3059,7 +3151,8 @@ input[type="color"]::-webkit-color-swatch {
   right: 0;
 }
 
-.blog-layout-1 .post-thumb {
+.blog-layout-1 .post-thumb,
+.blog-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
 }

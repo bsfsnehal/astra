@@ -2266,14 +2266,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
-					'.ast-container' => array(
+					'.site-content .ast-container' => array(
 						'display' => 'flex',
 					),
 				);
 				$parse_css             .= astra_parse_css( $max_site_container_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 				$min_site_container_css = array(
-					'.ast-container' => array(
+					'.site-content .ast-container' => array(
 						'flex-direction' => 'column',
 					),
 				);

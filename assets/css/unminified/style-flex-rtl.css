@@ -637,6 +637,36 @@ ins {
   text-decoration: none;
 }
 
+.astra-logo-svg {
+  height: calc( var(--maxHeight, 150px) - 215px);
+}
+
+ul, ol {
+  margin: 0 3em 1.5em 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-right: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
 table, th, td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -1294,8 +1324,8 @@ body {
 .main-header-menu .menu-link,
 .main-header-menu > a {
   text-decoration: none;
-  padding: 0 1em;
   display: inline-block;
+  padding: 0 1em;
   transition: all 0.2s linear;
 }
 
@@ -2889,11 +2919,6 @@ body .entry-content .wp-block-latest-posts li {
   margin-right: 0;
 }
 
-.ast-header-break-point .entry-content .alignwide {
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .entry-content .blocks-gallery-item img {
   margin-bottom: auto;
 }
@@ -3700,6 +3725,23 @@ input[type="color"]::-webkit-color-swatch {
     margin: 0;
     padding: 5em 6.67em 3.33333em;
   }
+}
+
+@media (min-width: 768px) {
+  .admin-bar {
+    --admin-bar:32px;
+  }
+}
+
+#page {
+  -js-display: flex;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--admin-bar, 0px));
+}
+
+#content {
+  flex: 1 0 auto;
 }
 
 /*--------------------------------------------------------------

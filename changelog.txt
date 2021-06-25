@@ -1,10 +1,15 @@
 v3.7.0 (Unreleased)
+- Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
+- Improvement: Moved customizer related code from frontend JS file to customizer JS file.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 - Fix: Global headings font family not working in the Gutenberg editor.
+- Fix: Footer Builder - Widgets - Right margin space not working.
+- Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
+- Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.

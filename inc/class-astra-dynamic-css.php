@@ -280,6 +280,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_text_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				// Spacing of Big Footer.
 				$small_footer_divider_color = astra_get_option( 'footer-sml-divider-color' );
@@ -329,6 +335,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'html'                                   => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				// root css for global palette style.
+				':root'                                  => Astra_Global_Palette::generate_global_palette_style(),
 				'a, .page-title'                         => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -754,6 +762,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
+
+
+			if ( self::is_support_footer_widget_right_margin() ) {
+				/**
+				 * Fix: Footer widget right margin space not working.
+				 */
+				$footer_right_margin_space_fix = array(
+					'.footer-widget-area.widget-area.site-footer-focus-item' => array(
+						'width' => 'auto',
+					),
+				);
+				$parse_css   .= astra_parse_css( $footer_right_margin_space_fix );
+			}
 
 			/*
 			* Fix the wide width issue in gutenberg
@@ -1227,7 +1248,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $outline_button_css );
 			}
-
 			if ( $is_widget_title_support_font_weight ) {
 				$widget_title_font_weight_support = array(
 					'h1.widget-title' => array(
@@ -1240,7 +1260,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-weight' => esc_attr( $h3_font_weight ),
 					),
 				);
-
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $widget_title_font_weight_support );
 			}
@@ -1503,7 +1522,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
+					),
+					'.menu-toggle:visited, button:visited, .ast-button:visited, .ast-custom-button-link:visited .ast-custom-button, .button:visited, input#submit:visited, input[type="button"]:visited, input[type="submit"]:visited, input[type="reset"]:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 
@@ -1557,8 +1579,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'color' === self::elementor_default_color_font_setting() ) {
 					// Check if Global Elementor - Theme Style - button color is set. If yes then remove ( :visited ) CSS for the compatibility.
+					$btn_text_visited_color_selectors = '';
 					if ( false === self::is_elementor_kit_button_color_set() ) {
-						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
+						$btn_text_color_selectors        .= '.elementor-button-wrapper .elementor-button';
+						$btn_text_visited_color_selectors = '.elementor-button-wrapper .elementor-button:visited';
 					} else {
 						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button';
 					}
@@ -1572,9 +1596,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'color'            => esc_attr( $btn_text_hover_color ),
 							'background-color' => esc_attr( $btn_bg_hover_color ),
 							'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
 						),
 					);
+
+					if ( '' !== $btn_text_visited_color_selectors ) {
+						$ele_btn_color_builder_desktop[ $btn_text_visited_color_selectors ] = array(
+							'color'            => esc_attr( $btn_visited_color ),
+							'background-color' => esc_attr( $btn_visited_bg_color ),
+						);
+					}
 
 					/* Parse CSS from array() */
 					$parse_css .= astra_parse_css( $ele_btn_color_builder_desktop );
@@ -1612,6 +1642,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+					),
+					'.wp-block-button .wp-block-button__link:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 					'.elementor-widget-heading h1.elementor-heading-title' => array(
 						'line-height' => esc_attr( $h1_line_height ),
@@ -1776,7 +1810,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-
+					),
+					'.menu-toggle:visited, button:visited, .ast-button:visited, .ast-custom-button-link:visited, .ast-custom-button-link:visited .ast-custom-button, .button:visited, input#submit:visited, input[type="button"]:visited, input[type="submit"]:visited, input[type="reset"]:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 			}
@@ -3291,6 +3328,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
+		 * Gutenberg outline buttons pattern compatibility changes.
+		 * With 'astra_gutenberg_patterns_compatibility' filter we added GB outline buttons with 15px-30px padding values to support button patterns. But in this case customizer button padding values not reflecting anymore, so reverting this change with managing backwards.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if's not.
+		 */
+		public static function update_gutenberg_outline_button_patterns_compat() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['can-update-button-defaults-to-gb-support'] = isset( $astra_settings['can-update-button-defaults-to-gb-support'] ) ? false : true;
+			return apply_filters( 'astra_update_buttons_default_padding', $astra_settings['can-update-button-defaults-to-gb-support'] );
+		}
+
+		/**
 		 * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
 		 *
 		 * 1. Adding Font-weight support to widget titles.
@@ -3317,6 +3367,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['can-remove-logo-max-width-css'] = isset( $astra_settings['can-remove-logo-max-width-css'] ) ? false : true;
 			return apply_filters( 'astra_remove_logo_max_width_css', $astra_settings['can-remove-logo-max-width-css'] );
+		}
+
+		/**
+		 * Whether to fix the footer right-margin space not working case or not.
+		 * As this is frontend reflecting change added this backwards for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function is_support_footer_widget_right_margin() {
+			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['support-footer-widget-right-margin'] = isset( $astra_settings['support-footer-widget-right-margin'] ) ? false : true;
+			return apply_filters( 'astra_apply_right_margin_footer_widget_css', $astra_settings['support-footer-widget-right-margin'] );
 		}
 
 		/**

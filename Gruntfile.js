@@ -639,16 +639,16 @@ module.exports = function (grunt) {
                             './astra/**'
                         ]
 
-                    }
-                ]
-            }
-        },
+					}
+				]
+			}
+		},
 
-        clean: {
-            main: ["astra"],
-            zip: ["*.zip"]
+		clean: {
+			main: ["astra"],
+			zip: ["*.zip"]
 
-        },
+		},
 
         makepot: {
             target: {

@@ -2975,13 +2975,13 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (min-width: 768px) {
   .admin-bar {
-    --admin-bar:32px;
+    --ast-admin-bar:32px;
   }
 }
 
 @media (max-width: 544px) {
   .admin-bar {
-    --admin-bar:0px;
+    --ast-admin-bar:0px;
   }
 }
 
@@ -2989,7 +2989,7 @@ input[type="color"]::-webkit-color-swatch {
   -js-display: flex;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--admin-bar, 0px));
+  min-height: calc(100vh - var(--ast-admin-bar, 0px));
 }
 
 #content {

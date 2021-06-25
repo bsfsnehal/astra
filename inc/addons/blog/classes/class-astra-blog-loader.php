@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				'astra-blog-customizer-preview-js',
 				'astBlogGrid',
 				array(
-					'apply_flex_based_css' => Astra_Builder_Helper::apply_flex_based_css(),
+					'apply_grid_based_css' => astra_apply_blog_grid_css(),
 				) 
 			);
 		}

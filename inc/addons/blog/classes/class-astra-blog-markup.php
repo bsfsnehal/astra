@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Blog_Markup' ) ) {
 				$blog_grid            = astra_get_option( 'blog-grid' );
 				$blog_space_bet_posts = astra_get_option( 'blog-space-bet-posts' );
 				
-				if ( self::is_blog_layout_1() && ! Astra_Builder_Helper::apply_flex_based_css() ) {
+				if ( self::is_blog_layout_1() && ! astra_apply_blog_grid_css() ) {
 					$classes[] = Astra_Builder_Helper::apply_flex_based_css() ? 'ast-width-md-' . ( 12 / $blog_grid ) : 'ast-col-md-' . ( 12 / $blog_grid );
 				}
 

@@ -2263,6 +2263,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+			
+			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+				$max_site_container_css = array(
+					'.site-content .ast-container' => array(
+						'display' => 'flex',
+					),
+				);
+				$parse_css             .= astra_parse_css( $max_site_container_css, astra_get_tablet_breakpoint( '', 1 ) );
+
+				$min_site_container_css = array(
+					'.site-content .ast-container' => array(
+						'flex-direction' => 'column',
+					),
+				);
+				$parse_css             .= astra_parse_css( $min_site_container_css, '', astra_get_tablet_breakpoint() );
+			}
 
 			if ( is_astra_addon_3_5_0_version() ) {
 				$mega_menu_css = array(
@@ -3227,7 +3243,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * 1. Adding Font-weight support to widget titles.
 		 * 2. Customizer font CSS not supporting in editor.
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function support_font_css_to_widget_and_in_editor() {
@@ -3241,7 +3257,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 *
 		 * @see https://github.com/brainstormforce/astra/commit/d09f63336b73d58c8f8951726edbc90671d7f419
 		 *
-		 * @since x.x.x
+		 * @since 3.6.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function remove_logo_max_width_mobile_static_css() {

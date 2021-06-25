@@ -209,19 +209,6 @@ final class Astra_Builder_Base_Configuration {
 		$configs = array(
 
 			/**
-			 * Notice for Colors - Transparent header enabled on page.
-			 */
-			array(
-				'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-' . $suffix . ']',
-				'type'            => 'control',
-				'control'         => 'ast-description',
-				'section'         => $_section,
-				'priority'        => 1,
-				'active_callback' => array( $this, 'ast_is_transparent_header' ),
-				'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for ' . esc_html( $component ) . ' for this page should be set from following link. </p></div>',
-			),
-
-			/**
 			* Option: Transparent Header Section - Link.
 			*/
 			array(
@@ -231,8 +218,10 @@ final class Astra_Builder_Base_Configuration {
 				'section'         => $_section,
 				'priority'        => 1,
 				'link_type'       => 'section',
+				'context'     	  => Astra_Builder_Helper::$general_tab,
 				'linked'          => 'section-transparent-header',
-				'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+				'notice_text'     => __( 'This page has transparent header enabled. To edit settings for this page go to ', 'astra' ),
+				'link_text'       => '<u>' . __( 'here.', 'astra' ) . '</u>',
 				'active_callback' => array( $this, 'ast_is_transparent_header' ),
 			)
 		);

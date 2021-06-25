@@ -596,6 +596,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 			$val['linked']    = sanitize_text_field( $val['linked'] );
 			$val['link_text'] = esc_html( $val['link_text'] );
 			$val['link_type'] = esc_html( $val['link_type'] );
+			$val['notice_text'] = isset( $val['notice_text'] ) ? sanitize_text_field( $val['notice_text'] ) : '';
 
 			return $val;
 		}

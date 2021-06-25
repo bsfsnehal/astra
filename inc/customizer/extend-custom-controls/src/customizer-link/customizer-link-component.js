@@ -26,11 +26,24 @@ const CustomizerLinkComponent = props => {
 	const {
 		linked,
 		link_text,
-		link_type
+		link_type,
+		notice_text
 	} = props.control.params;
 	let linkHtml = null;
 
-	if (linked && link_text) {
+	if( undefined !== notice_text && '' !== notice_text ) {
+		linkHtml = <div className="ast-notice-text-wrapper"> {notice_text}
+			<a href="#" onClick={() => {
+				onLinkClick();
+			}} data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
+						dangerouslySetInnerHTML={{
+							__html: link_text
+						}}>
+			</a>
+		</div>;
+	}
+
+	if (linked && link_text && ( undefined === notice_text || '' === notice_text ) ) {
 		linkHtml = <a href="#" onClick={() => {
 			onLinkClick();
 		}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}

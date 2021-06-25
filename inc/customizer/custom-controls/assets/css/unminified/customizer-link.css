@@ -6,3 +6,8 @@
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.ast-notice-text-wrapper {
+    color: #50575e;
+    line-height: 1.5;
+}

@@ -35,6 +35,13 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public $link_text = '';
 
 	/**
+	 * Notice text.
+	 *
+	 * @var string
+	 */
+	public $notice_text = '';
+
+	/**
 	 * Linked customizer section.
 	 *
 	 * @var string
@@ -56,6 +63,7 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 		$this->json['link_text'] = $this->link_text;
+		$this->json['notice_text'] = $this->notice_text;
 		$this->json['linked']    = $this->linked;
 		$this->json['link_type'] = $this->link_type;
 	}

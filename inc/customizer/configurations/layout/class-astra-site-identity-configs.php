@@ -228,7 +228,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
-				
+
 				/**
 				 * Option: Display Title
 				 */
@@ -372,42 +372,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							'section'   => 'title_tagline',
 							'priority'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 8 : 12,
 							'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array( Astra_Builder_Helper::$design_tab_config ) : '',
-						),
-					)
-				);
-			}
-
-			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
-				$_configs = array_merge(
-					$_configs,
-					array(
-						/**
-						 * Notice - Transparent meta header enabled on page.
-						 */
-						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-meta-enabled]',
-							'type'            => 'control',
-							'control'         => 'ast-description',
-							'section'         => 'section-header-builder-layout',
-							'priority'        => 1,
-							'active_callback' => array( $this, 'is_transparent_header_enabled' ),
-							'help'            => $this->get_help_text_notice( 'transparent-meta' ),
-						),
-
-						/**
-						 * Notice Link - Transparent meta header enabled on page.
-						 */
-						array(
-							'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-header-meta-link]',
-							'type'            => 'control',
-							'control'         => 'ast-customizer-link',
-							'section'         => 'section-header-builder-layout',
-							'priority'        => 1,
-							'link_type'       => 'section',
-							'linked'          => 'section-transparent-header',
-							'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
-							'active_callback' => array( $this, 'is_transparent_header_enabled' ),
 						),
 					)
 				);

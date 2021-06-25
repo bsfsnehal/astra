@@ -3778,6 +3778,12 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.ast-notice-text-wrapper {
+    color: #50575e;
+    line-height: 1.5;
+}
+
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;

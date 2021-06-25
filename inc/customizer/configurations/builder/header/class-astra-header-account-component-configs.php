@@ -483,10 +483,10 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			),
 		);
 
-		$_configs = array_merge(
-			$_configs,
-			astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'account', __( 'Account', 'astra' ) )
-		);
+		// $_configs = array_merge(
+		// 	$_configs,
+		// 	astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'account', __( 'Account', 'astra' ) )
+		// );
 
 		$_configs = array_merge(
 			$_configs,

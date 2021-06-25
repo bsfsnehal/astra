@@ -3086,7 +3086,7 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
- * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+ * Set flag for updated default values for default blog post layout.
  *
  * @since x.x.x
  * @return void.

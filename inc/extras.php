@@ -649,7 +649,7 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
- * Get compatibility for Old user to apply new default blog settings changes.
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
  * 
  * @since x.x.x 
  * @return string

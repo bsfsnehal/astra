@@ -3019,7 +3019,6 @@ function astra_site_title_tagline_responsive_control_migration() {
 }
 
 /**
- * Set flag to provide backward compatibility to not change directly on user's end.
  * Do not apply new font-weight heading support CSS in editor/frontend directly.
  *
  * 1. Adding Font-weight support to widget titles.
@@ -3101,7 +3100,36 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
- * Set flag to maintain backward compatibility for existing users.
+ * Set flag for updated default values for default blog post layout.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_default_layout_updated_values() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['default-layout-updated-values'] ) ) {
+		$theme_options['default-layout-updated-values'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_blog_grid_css_compatiblity() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-blog-grid-css'] ) ) {
+		$theme_options['apply-blog-grid-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/*
  * Fixing the case where footer widget's right margin space not working.
  *
  * @since x.x.x

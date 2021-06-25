@@ -567,7 +567,11 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 		(function (index) {
 			wp.customize( 'astra-settings[sidebar-widgets-' + builder_type + '-widget-' + index + '-margin]', function( value ) {
 				value.bind( function( margin ) {
-					var selector = '.' + builder_type + '-widget-area[data-section="sidebar-widgets-' + builder_type + '-widget-' + index + '"]';
+					var selector = '.' + builder_type + '-widget-area[data-section="sidebar-widgets-' + builder_type + '-widget-' + index + '"]',
+						topSpaceHandle = AstraBuilderWidgetData.footer_with_margin_space ? 'margin-top' : 'padding-top',
+						bottomSpaceHandle = AstraBuilderWidgetData.footer_with_margin_space ? 'margin-bottom' : 'padding-bottom',
+						rightSpaceHandle = AstraBuilderWidgetData.footer_with_margin_space ? 'margin-right' : 'padding-right',
+						leftSpaceHandle = AstraBuilderWidgetData.footer_with_margin_space ? 'margin-left' : 'padding-left';
 					if(
 						margin.desktop.bottom != '' || margin.desktop.top != '' || margin.desktop.left != '' || margin.desktop.right != '' ||
 						margin.tablet.bottom != '' || margin.tablet.top != '' || margin.tablet.left != '' || margin.tablet.right != '' ||
@@ -575,30 +579,30 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 					) {
 						var dynamicStyle = '';
 						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
+						dynamicStyle += leftSpaceHandle + ': ' + margin['desktop']['left'] + margin['desktop-unit'] + ';';
+						dynamicStyle += rightSpaceHandle + ': ' + margin['desktop']['right'] + margin['desktop-unit'] + ';';
+						dynamicStyle += topSpaceHandle + ': ' + margin['desktop']['top'] + margin['desktop-unit'] + ';';
+						dynamicStyle += bottomSpaceHandle + ': ' + margin['desktop']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 
 						dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
+						dynamicStyle += leftSpaceHandle + ': ' + margin['tablet']['left'] + margin['tablet-unit'] + ';';
+						dynamicStyle += rightSpaceHandle + ': ' + margin['tablet']['right'] + margin['tablet-unit'] + ';';
+						dynamicStyle += topSpaceHandle + ': ' + margin['tablet']['top'] + margin['desktop-unit'] + ';';
+						dynamicStyle += bottomSpaceHandle + ': ' + margin['tablet']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
 
 						dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 						dynamicStyle += selector + ' {';
-						dynamicStyle += 'margin-left: ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
-						dynamicStyle += 'margin-right: ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
-						dynamicStyle += 'margin-top: ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
-						dynamicStyle += 'margin-bottom: ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
+						dynamicStyle += leftSpaceHandle + ': ' + margin['mobile']['left'] + margin['mobile-unit'] + ';';
+						dynamicStyle += rightSpaceHandle + ': ' + margin['mobile']['right'] + margin['mobile-unit'] + ';';
+						dynamicStyle += topSpaceHandle + ': ' + margin['mobile']['top'] + margin['desktop-unit'] + ';';
+						dynamicStyle += bottomSpaceHandle + ': ' + margin['mobile']['bottom'] + margin['desktop-unit'] + ';';
 						dynamicStyle += '} ';
 						dynamicStyle += '} ';
-						astra_add_dynamic_css( 'sidebar-widgets-' + builder_type + '-widget-' + index + '-margin', dynamicStyle );
+						astra_add_dynamic_css( 'sidebar-widgets-' + builder_type + '-widget-' + index + '-space', dynamicStyle );
 					}
 				} );
 			} );

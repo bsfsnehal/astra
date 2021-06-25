@@ -4,9 +4,13 @@
 	<rule ref="PHPCompatibility">
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+
+		<exclude-pattern>tests/</exclude-pattern>
 	</rule>
 
-	<rule ref="WPThemeReview" />
+	<rule ref="WPThemeReview" >
+		<exclude-pattern>tests/</exclude-pattern>
+	</rule>
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />

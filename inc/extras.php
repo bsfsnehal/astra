@@ -649,9 +649,9 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
- * Check whether user is exising or new to apply the updated default values for default blog post layout.
- *
- * @since x.x.x
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ * 
+ * @since x.x.x 
  * @return string
  */
 function astra_apply_new_default_blog_values() {

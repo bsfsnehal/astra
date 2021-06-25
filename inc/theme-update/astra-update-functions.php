@@ -3099,3 +3099,18 @@ function astra_default_layout_updated_values() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_blog_grid_css_compatiblity() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-blog-grid-css'] ) ) {
+		$theme_options['apply-blog-grid-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

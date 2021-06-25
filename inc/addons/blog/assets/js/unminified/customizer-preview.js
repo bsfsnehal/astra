@@ -14,7 +14,7 @@
     wp.customize( 'astra-settings[blog-space-bet-posts]', function( value ) {
         value.bind( function( value ) {
 
-            if( ! astBlogGrid.apply_flex_based_css ){
+            if( ! astBlogGrid.apply_grid_based_css ){
                 if ( value ) {
                     jQuery( '.ast-archive-post' ).addClass('ast-separate-posts');
                 } else {

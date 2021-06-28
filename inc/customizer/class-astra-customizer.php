@@ -128,6 +128,16 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 			}
 
+			// Disable block editor for widgets in the customizer for WP 5.8 version.
+			if ( astra_wp_version_compare( '5.7.2', '>' ) ) {
+				add_action(
+					'widgets_init',
+					function() {
+						remove_theme_support( 'widgets-block-editor' );
+					} 
+				);
+			}
+
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 

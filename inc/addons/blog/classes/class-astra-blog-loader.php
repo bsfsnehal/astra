@@ -60,7 +60,6 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 			$defaults['blog-space-bet-posts']     = true;
 			$defaults['blog-grid']                = 3;
 			$defaults['blog-grid-layout']         = 1;
-			$defaults['blog-layout']              = 'blog-layout-1';
 			$defaults['blog-excerpt-count']       = 40;
 			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra-addon' );
 			$defaults['blog-post-inside-spacing'] = array(

@@ -43,13 +43,13 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		);
 	}
 
-	if ( 'blog-layout-1' == $blog_layout ) {
-		$blog_layouts = array(
+	if ( Astra_Blog_Markup::is_blog_layout_1() ) {
+		$blog_background_css = array(
 			'.ast-separate-container .blog-layout-1' => array(
 				'background-color' => '#ffffff',
 			),
 		);
-		$dynamic_css .= astra_parse_css( $blog_layouts );
+		$dynamic_css        .= astra_parse_css( $blog_background_css );
 	}
 
 	if ( $blog_grid > 1 ) {

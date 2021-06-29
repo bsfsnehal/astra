@@ -3133,7 +3133,7 @@ function astra_blog_grid_css_compatiblity() {
  * Fixing the case where footer widget's right margin space not working.
  *
  * @since x.x.x
- * @return void.
+ * @return void
  */
 function astra_fix_footer_widget_right_margin_case() {
 	$theme_options = get_option( 'astra-settings', array() );

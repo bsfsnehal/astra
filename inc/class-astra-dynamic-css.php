@@ -763,19 +763,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 			$parse_css                         .= astra_parse_css( $gtn_plugin_button_center_alignment );
 
-
-			if ( self::is_support_footer_widget_right_margin() ) {
-				/**
-				 * Fix: Footer widget right margin space not working.
-				 */
-				$footer_right_margin_space_fix = array(
-					'.footer-widget-area.widget-area.site-footer-focus-item' => array(
-						'width' => 'auto',
-					),
-				);
-				$parse_css   .= astra_parse_css( $footer_right_margin_space_fix );
-			}
-
 			/*
 			* Fix the wide width issue in gutenberg
 			* check if the current user is existing user or new user.
@@ -2574,7 +2561,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a:hover' => array(
 						'color' => esc_attr( $html_link_h_color ),
 					),
-					'.ast-theme-transparent-header .ast-header-search .astra-search-icon, .ast-theme-transparent-header .ast-header-search .search-field::placeholder'         => array(
+					'.ast-theme-transparent-header .ast-header-search .astra-search-icon, .ast-theme-transparent-header .ast-header-search .search-field::placeholder, .ast-theme-transparent-header .ast-header-search .ast-icon'         => array(
 						'color' => esc_attr( $search_icon_color ),
 					),
 					'.ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field::placeholder'         => array(
@@ -3370,19 +3357,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Whether to fix the footer right-margin space not working case or not.
-		 * As this is frontend reflecting change added this backwards for existing users.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function is_support_footer_widget_right_margin() {
-			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-footer-widget-right-margin'] = isset( $astra_settings['support-footer-widget-right-margin'] ) ? false : true;
-			return apply_filters( 'astra_apply_right_margin_footer_widget_css', $astra_settings['support-footer-widget-right-margin'] );
-		}
-
-		/**
 		 * Load sidebar static CSS when it is enabled.
 		 *
 		 * @since 3.0.0
@@ -3509,7 +3483,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				position: fixed;
 				display: block;
 				visibility: hidden;
-				overflow: hidden;
+				overflow: auto;
 				-webkit-overflow-scrolling: touch;
 				z-index: 9999;
 				background-color: #fff;

@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-				$css_file = 'fronetned';
+				$css_file = 'frontend';
 
 				if ( astra_apply_blog_grid_css() ) {
 					$css_file = 'main-grid';

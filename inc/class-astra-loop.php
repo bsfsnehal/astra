@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 				} else {
 					$blog_space_bet_posts = astra_get_option( 'blog-space-bet-posts' );
 					$blog_separator_class = ( $blog_space_bet_posts ) ? 'ast-separate-posts' : '';
-					echo '<div class="ast-blog-grid ' . esc_attr( $blog_separator_class ) . '">';
+					echo '<div class="ast-row ast-blog-grid ' . esc_attr( $blog_separator_class ) . '">';
 				}
 			}
 		}

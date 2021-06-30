@@ -587,6 +587,16 @@ function is_astra_addon_3_5_0_version() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Get a stylesheet URL for a webfont.
  *
  * @since 3.6.0
@@ -639,11 +649,35 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
 /**
  * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
- * 
- * @since 3.6.0 
+ *
+ * @since 3.6.0
  */
 function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? false : true;
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
+}
+
+/**
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ * 
+ * @since x.x.x 
+ * @return string
+ */
+function astra_apply_new_default_blog_values() {
+	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}
+
+/**
+ * Get compatibility for Old user to apply the blog grid bse css changes.
+ * 
+ * @since x.x.x 
+ * @return string
+ */
+function astra_apply_blog_grid_css() {
+	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
+	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
 }

@@ -13,11 +13,6 @@ if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
 
 	$component_slug = get_query_var( 'type' );
 }
-$advanced_footer_meta = astra_get_option_meta( 'footer-adv-display' );
-
-if ( 'disabled' == apply_filters( 'astra_disabled_footer_widgets', $advanced_footer_meta ) && preg_match( '/widget/', $component_slug ) ) {
-	return;
-}
 
 switch ( $component_slug ) {
 

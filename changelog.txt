@@ -11,7 +11,10 @@ v3.7.0 (Unreleased)
 - Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
 - Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 - Fix: Search icon color is not applying to the Standard and Transparent Header Search Box style.
-- Fix: Builder - WooCommerce & EDD cart - Cart and Checkout buttons not visible when multiple products added to cart flyout.
+- Fix: 'Disable Footer' option is missing in Page meta settings for new Header Footer builder.
+- Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
+- Fix: 'Disable Footer' option is missing in Page meta settings for new Header Footer builder.
+- Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
 
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.

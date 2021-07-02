@@ -661,7 +661,7 @@ function astra_apply_new_default_blog_values() {
 }
 
 /**
- * Get compatibility for Old user to apply the blog grid bse css changes.
+ * Get flag for Blog/Archive Grid based CSS compatiblity.
  * 
  * @since x.x.x 
  * @return string

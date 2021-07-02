@@ -751,6 +751,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			*/
 			if ( self::gtn_image_group_css_comp() ) {
 
+				$container_layout = astra_get_content_layout();
+
 				if ( 'content-boxed-container' == $container_layout || 'boxed-container' == $container_layout ) {
 					$parse_css .= astra_parse_css(
 						array(
@@ -790,6 +792,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( self::gtn_group_cover_css_comp() ) {
+
+				$container_layout = astra_get_content_layout();
 
 				if ( 'no-sidebar' !== astra_page_layout() ) {
 
@@ -1095,13 +1099,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $mobile_screen_media_text_block_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( self::gutenberg_core_patterns_compat() ) {
+			/**
+			 * When supporting GB button outline patterns in v3.3.0 we have given 2px as default border for GB outline button, where we restrict button border for flat type buttons.
+			 * But now while reverting this change there is no need of default border because whatever customizer border will set it should behave accordingly. Although it is empty ('') WP applying 2px as default border for outline buttons.
+			 *
+			 * @since x.x.x
+			 */
+			if ( astra_apply_new_default_blog_values() ) {
+				$default_border_size = '';
+			} else {
+				$default_border_size = '2px';
+			}
 
-				// Outline Gutenberg button compatibility CSS.
-				$theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
-				$theme_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
-				$theme_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '2px';
-				$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
+			// Outline Gutenberg button compatibility CSS.
+			$theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size;
+			$theme_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size;
+			$theme_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : $default_border_size;
+			$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : $default_border_size;
+
+			if ( self::gutenberg_core_patterns_compat() ) {
 
 				$outline_button_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
@@ -1131,29 +1147,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $outline_button_css );
 
-				// Tablet CSS.
-				$outline_button_tablet_css = array(
-					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
-						'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
-						'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
-						'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
-					),
-				);
+				if ( ! astra_apply_new_default_blog_values() ) {
 
-				$parse_css .= astra_parse_css( $outline_button_tablet_css, '', astra_get_tablet_breakpoint() );
+					// Tablet CSS.
+					$outline_button_tablet_css = array(
+						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
+							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+							'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+						),
+					);
 
-				// Mobile CSS.
-				$outline_button_mobile_css = array(
-					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
-						'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
-						'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
-						'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
-					),
-				);
+					$parse_css .= astra_parse_css( $outline_button_tablet_css, '', astra_get_tablet_breakpoint() );
 
-				$parse_css .= astra_parse_css( $outline_button_mobile_css, '', astra_get_mobile_breakpoint() );
+					// Mobile CSS.
+					$outline_button_mobile_css = array(
+						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
+							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
+							'padding-right'  => 'calc(30px - ' . (int) $theme_btn_right_border . 'px)',
+							'padding-bottom' => 'calc(15px - ' . (int) $theme_btn_bottom_border . 'px)',
+							'padding-left'   => 'calc(30px - ' . (int) $theme_btn_left_border . 'px)',
+						),
+					);
+
+					$parse_css .= astra_parse_css( $outline_button_mobile_css, '', astra_get_mobile_breakpoint() );
+				}
 
 				if ( $is_site_rtl ) {
 					$gb_patterns_min_mobile_css = array(
@@ -1162,9 +1181,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.entry-content > .alignright'   => array(
 							'margin-right' => '20px',
-						),
-						'.wp-block-group.has-background' => array(
-							'padding' => '20px',
 						),
 					);
 				} else {
@@ -1175,14 +1191,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.entry-content > .alignright'   => array(
 							'margin-left' => '20px',
 						),
-						'.wp-block-group.has-background' => array(
-							'padding' => '20px',
-						),
+					);
+				}
+
+				if ( ! astra_apply_new_default_blog_values() ) {
+					$gb_patterns_min_mobile_css['.wp-block-group.has-background'] = array(
+						'padding' => '20px',
 					);
 				}
 
 				/* Parse CSS from array() -> min-width: (mobile-breakpoint) px CSS  */
 				$parse_css .= astra_parse_css( $gb_patterns_min_mobile_css, astra_get_mobile_breakpoint() );
+			}
+
+			if ( astra_apply_new_default_blog_values() ) {
+				$outline_button_css = array(
+					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
+						'border-top-width'    => esc_attr( $theme_btn_top_border ),
+						'border-right-width'  => esc_attr( $theme_btn_right_border ),
+						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
+						'border-left-width'   => esc_attr( $theme_btn_left_border ),
+					),
+				);
+
+				/* Parse CSS from array() -> All media CSS */
+				$parse_css .= astra_parse_css( $outline_button_css );
 			}
 
 			if ( $is_widget_title_support_font_weight ) {
@@ -1588,7 +1621,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( self::gutenberg_core_patterns_compat() ) {
+				if ( self::gutenberg_core_patterns_compat() && ! astra_apply_new_default_blog_values() ) {
 					$theme_outline_gb_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
 					$theme_outline_gb_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
 					$theme_outline_gb_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
@@ -1648,12 +1681,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 				} else {
+
+					if ( astra_apply_new_default_blog_values() ) {
+						$default_border_size = '';
+					} else {
+						$default_border_size = '0';
+					}
+
 					$global_button_page_builder_desktop['.wp-block-button .wp-block-button__link'] = array(
 						'border-style'        => 'solid',
-						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
-						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
-						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
-						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
+						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size,
+						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size,
+						'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : $default_border_size,
+						'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : $default_border_size,
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'background-color'    => esc_attr( $btn_bg_color ),
 						'color'               => esc_attr( $btn_text_color ),

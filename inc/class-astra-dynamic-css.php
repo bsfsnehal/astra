@@ -3580,7 +3580,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			body.admin-bar .astra-cart-drawer {
-				top: 46px;
+				padding-top: 32px;
+			}
+			body.admin-bar .astra-cart-drawer .astra-cart-drawer-close {
+				top: 32px;
+			}
+			@media (max-width: 782px) {
+				body.admin-bar .astra-cart-drawer {
+					padding-top: 46px;
+				}
+				body.admin-bar .astra-cart-drawer .astra-cart-drawer-close {
+					top: 46px;
+				}
 			}
 
 			.ast-mobile-cart-active body.ast-hfb-header {

@@ -8,7 +8,8 @@
     "wp-coding-standards/wpcs": "^2.1.0",
     "wptrt/wpthemereview": "^0.2.0",
     "php-stubs/woocommerce-stubs": "^5.2",
-    "humanmade/psalm-plugin-wordpress": "^2.0"
+    "humanmade/psalm-plugin-wordpress": "^2.0",
+    "php-stubs/generator": "^0.6.0"
   },
   "extra": {
     "hooks": {
@@ -23,6 +24,7 @@
     "post-update-cmd": "vendor/bin/cghooks update",
     "format": "vendor/bin/phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
     "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
-    "psalm": "./vendor/bin/psalm"
+    "psalm": "./vendor/bin/psalm",
+    "update-stubs": "rm tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php"
   }
 }

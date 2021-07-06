@@ -33,16 +33,21 @@
                 <directory name="."/>
             </errorLevel>
         </MissingReturnType>
-		<InvalidReturnType>
+        <InvalidReturnType>
             <errorLevel type="suppress">
                 <directory name="."/>
             </errorLevel>
         </InvalidReturnType>
-		<UnresolvableInclude>
+        <UnresolvableInclude>
             <errorLevel type="suppress">
                 <file name="functions.php"/>
             </errorLevel>
         </UnresolvableInclude>
+        <MissingPropertyType>
+            <errorLevel type="suppress">
+                <directory name="."/>
+            </errorLevel>
+        </MissingPropertyType>
     </issueHandlers>
     <plugins>
         <pluginClass xmlns="https://getpsalm.org/schema/config" class="PsalmWordPress\Plugin"/>

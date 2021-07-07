@@ -1281,6 +1281,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'is_block_widget'  => astra_has_widgets_block_editor(),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,

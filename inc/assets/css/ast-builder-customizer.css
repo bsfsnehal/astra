@@ -358,7 +358,7 @@
     color: #777777;
 }
 
-.active-builder-item .ahfb-builder-item-icon .dashicons-no-alt, .ahfb-builder-item-icon:hover .dashicons-no-alt, .ahfb-builder-item:hover .ahfb-builder-item-icon .dashicons-no-alt {
+.active-builder-item .ahfb-builder-item-icon .dashicons-no-alt, .ahfb-builder-item-icon:hover .dashicons-no-alt, .ahfb-builder-item:hover .ahfb-builder-item-icon .dashicons-no-alt, .ahfb-builder-item:hover .ahfb-builder-item-icon .dashicons-admin-settings,.ahfb-builder-item:hover .ahfb-builder-item-icon .dashicons-admin-generic  {
     color: #111111;
 }
 
@@ -5016,4 +5016,15 @@ i.fipicon-angle-left:before {
 .ast-box-shadow-inset-wrapper .components-base-control__label,
 .ast-box-shadow-inset-wrapper .components-input-control__label {
     font-weight: 600;
+}
+
+.ahfb-builder-item-icon .dashicons-admin-settings, .ahfb-builder-item-icon .dashicons-admin-generic{
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+	line-height: 20px;
+}
+
+.ahfb-builder-item > .ahfb-builder-item-icon.ahfb-setting-icon {
+    margin-right: -12px;
 }

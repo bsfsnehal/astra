@@ -659,3 +659,17 @@ function astra_button_default_padding_updated() {
 	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
 	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
 }
+
+/**
+ * Check is WordPress version is greater than or equal to beta 5.8 version.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_has_widgets_block_editor() {
+	if ( ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) )
+	|| version_compare( get_bloginfo( 'version' ), '5.8-alpha', '>=' ) ) {
+		return true;
+	}
+	return false;
+}

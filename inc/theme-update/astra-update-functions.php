@@ -3144,7 +3144,7 @@ function astra_blog_grid_css_compatiblity() {
 	}
 }
 
-/*
+/**
  * Fixing the case where footer widget's right margin space not working.
  *
  * @since x.x.x

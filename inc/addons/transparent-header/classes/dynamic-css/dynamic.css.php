@@ -107,7 +107,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$css_output = array(
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
 			'width'  => astra_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
-			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['desktop-svg-height'] : '', 'px' ), 
+			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['desktop-svg-height'] : '', 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
 			' max-width' => astra_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
@@ -119,7 +119,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$tablet_css_output = array(
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
 			'width'  => astra_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
-			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['tablet-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['tablet-svg-height'] : '', 'px' ), 
+			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['tablet-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['tablet-svg-height'] : '', 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
 			' max-width' => astra_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
@@ -131,7 +131,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$mobile_css_output = array(
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
 			'width'  => astra_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
-			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['mobile-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['mobile-svg-height'] : '', 'px' ), 
+			'height' => astra_get_css_value( ( ! empty( $transparent_header_logo_width['mobile-svg-height'] ) && ! is_customize_preview() ) ? $transparent_header_logo_width['mobile-svg-height'] : '', 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
 			' max-width' => astra_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
@@ -432,7 +432,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		$header_child_selector = '[CLASS*="-header-wrap"]:last-child > [CLASS*="-header-bar"]';
 	}
 
-	if ( 'both' === $transparent_header_devices ) {
+	if ( 'both' === $transparent_header_devices && $transparent_header_separator ) {
 
 		$selector = '.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
@@ -451,7 +451,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		);
 	}
 
-	if ( 'mobile' === $transparent_header_devices ) {
+	if ( 'mobile' === $transparent_header_devices && $transparent_header_separator ) {
 
 		$selector = '.ast-theme-transparent-header.ast-header-break-point .main-header-bar';
 
@@ -472,7 +472,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		);
 	}
 
-	if ( 'desktop' === $transparent_header_devices ) {
+	if ( 'desktop' === $transparent_header_devices && $transparent_header_separator ) {
 
 		$selector = '.ast-theme-transparent-header .main-header-bar';
 

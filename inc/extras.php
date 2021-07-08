@@ -659,6 +659,18 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_isset_sticky_footer() {
+	$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['stick-footer-at-bottom'] = isset( $astra_settings['stick-footer-at-bottom'] ) ? false : true;
+	return apply_filters( 'astra_stick_footer_at_bottom', $astra_settings['stick-footer-at-bottom'] );
+}
+
+/**
  * Check is WordPress version is greater than or equal to beta 5.8 version.
  *
  * @since x.x.x
@@ -676,7 +688,7 @@ function astra_has_widgets_block_editor() {
  * Check whether user is exising or new to apply the updated default values for default blog post layout..
  *
  * @since x.x.x
- * @return string
+ * @return boolean
  */
 function astra_apply_new_default_blog_values() {
 	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
@@ -688,7 +700,7 @@ function astra_apply_new_default_blog_values() {
  * Get compatibility for Old user to apply the blog grid bse css changes.
  *
  * @since x.x.x
- * @return string
+ * @return boolean
  */
 function astra_apply_blog_grid_css() {
 	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );

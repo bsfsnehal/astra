@@ -1,4 +1,5 @@
 v3.7.0 (Unreleased)
+- Improvement: Stick Footer to bottom when page content is Less.
 - Improvement: Added theme support for the Rank Math breadcrumb SEO schema.
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Improvement: Moved customizer related code from frontend JS file to customizer JS file.

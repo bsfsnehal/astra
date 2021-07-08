@@ -27,7 +27,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			}
 
-			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
+			add_action( 'customize_register', array( $this, 'blog_addon_customizer_configs' ), 2 );
 
 		}
 
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function new_customize_register( $wp_customize ) {
+		public function blog_addon_customizer_configs( $wp_customize ) {
 
 			/**
 			 * Sections
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				'astBlogGrid',
 				array(
 					'apply_grid_based_css' => astra_apply_blog_grid_css(),
-				) 
+				)
 			);
 		}
 	}

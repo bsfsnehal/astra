@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 				add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 			}
 
-			add_action( 'customize_register', array( $this, 'new_customize_register' ), 2 );
+			add_action( 'customize_register', array( $this, 'blog_addon_customizer_configs' ), 2 );
 
 		}
 
@@ -60,7 +60,6 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 			$defaults['blog-space-bet-posts']     = true;
 			$defaults['blog-grid']                = 3;
 			$defaults['blog-grid-layout']         = 1;
-			$defaults['blog-layout']              = 'blog-layout-1';
 			$defaults['blog-excerpt-count']       = 40;
 			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra-addon' );
 			$defaults['blog-post-inside-spacing'] = array(
@@ -94,7 +93,7 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function new_customize_register( $wp_customize ) {
+		public function blog_addon_customizer_configs( $wp_customize ) {
 
 			/**
 			 * Sections

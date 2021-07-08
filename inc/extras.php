@@ -654,7 +654,7 @@ function astra_get_transparent_header_default_value() {
  * @since x.x.x
  */
 function astra_isset_sticky_footer() {
-	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['stick-footer-at-bottom'] = isset( $astra_settings['stick-footer-at-bottom'] ) ? false : true;
 	return apply_filters( 'astra_stick_footer_at_bottom', $astra_settings['stick-footer-at-bottom'] );
 }

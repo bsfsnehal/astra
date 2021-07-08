@@ -80,7 +80,6 @@
 
 .page-title {
     margin-bottom: 1em;
-    font-weight: normal;
 }
 
 .entry-title {
@@ -99,14 +98,10 @@
     margin-bottom: 3em;
 }
 
-.blog-layout-1 {
-
-    /* 2 - Blog Thumbnail Styles */
-    .post-thumb {
-        padding-left: 0;
-        padding-right: 0;
-        position: relative;
-    }
+.blog-layout-1 .post-thumb {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
 }
 
 .ast-page-builder-template .ast-article-post {

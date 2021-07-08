@@ -1,4 +1,5 @@
 v3.7.0 (Unreleased)
+- Improvement: Added theme support for the Rank Math breadcrumb SEO schema.
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Improvement: Moved customizer related code from frontend JS file to customizer JS file.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
@@ -12,6 +13,9 @@ v3.7.0 (Unreleased)
 - Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 - Fix: Search icon color is not applying to the Standard and Transparent Header Search Box style.
 - Fix: Builder - WooCommerce & EDD cart - Cart and Checkout buttons not visible when multiple products added to cart flyout.
+- Fix: Removed the spacing applied for the menu items in the customizer section.
+- Fix: 'Disable Footer' option is missing in Page meta settings for new Header Footer builder.
+- Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
 - Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
 v3.6.2

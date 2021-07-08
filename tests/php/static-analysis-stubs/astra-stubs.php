@@ -416,7 +416,7 @@ namespace {
         /**
          * Header Cart Extra Icons markup
          *
-         * @return void
+         * @return void;
          */
         public function header_cart_icon_markup()
         {
@@ -426,7 +426,7 @@ namespace {
          *
          * @param array $classes Default argument array.
          *
-         * @return array
+         * @return array;
          */
         public function header_cart_icon_class($classes)
         {
@@ -528,9 +528,23 @@ namespace {
          *
          * @param Array $classes product classes.
          *
-         * @return array
+         * @return array.
          */
         public function shop_page_products_item_class($classes = '')
+        {
+        }
+        /**
+         * Get grid columns for either Archive|Single product.
+         * Introducing this function to reduce lot of CSS we write for 'grid-template-columns' for every count (till 6).
+         *
+         * @param string $type - WooCommerce page type Archive/Single.
+         * @param string $device - Device specific grid option.
+         * @param int    $default - Default grid count (fallback basically).
+         *
+         * @return int grid count.
+         * @since 3.4.3
+         */
+        public function get_grid_column_count($type = 'archive', $device = 'desktop', $default = 2)
         {
         }
         /**
@@ -538,7 +552,7 @@ namespace {
          *
          * @param Array $classes product classes.
          *
-         * @return array
+         * @return array.
          */
         public function single_product_class($classes)
         {
@@ -1049,6 +1063,16 @@ namespace {
         public function vc_default_setting()
         {
         }
+        /**
+         * Add assets in theme
+         *
+         * @param array $assets list of theme assets (JS & CSS).
+         * @return array List of updated assets.
+         * @since 3.5.0
+         */
+        public function add_styles($assets)
+        {
+        }
     }
     /**
      * Astra Site Origin Compatibility
@@ -1327,7 +1351,7 @@ namespace {
         /**
          * Header Cart Extra Icons markup
          *
-         * @return void
+         * @return void;
          */
         public function header_cart_icon_markup()
         {
@@ -1337,7 +1361,7 @@ namespace {
          *
          * @param array $classes Default argument array.
          *
-         * @return array
+         * @return array;
          */
         public function header_cart_icon_class($classes)
         {
@@ -1492,7 +1516,7 @@ namespace {
          *
          * @param Array $classes product classes.
          *
-         * @return array
+         * @return array.
          */
         public function edd_products_item_class($classes = '')
         {
@@ -1502,7 +1526,7 @@ namespace {
          *
          * @param Array $classes product classes.
          *
-         * @return array
+         * @return array.
          */
         public function edd_single_product_class($classes)
         {
@@ -2093,6 +2117,16 @@ namespace {
          * @return void
          */
         public function beaver_builder_default_setting()
+        {
+        }
+        /**
+         * Add assets in theme
+         *
+         * @param array $assets list of theme assets (JS & CSS).
+         * @return array List of updated assets.
+         * @since 3.5.0
+         */
+        public function add_styles($assets)
         {
         }
     }
@@ -2924,6 +2958,16 @@ namespace {
         public static function enqueue_theme_assets()
         {
         }
+        /**
+         * Enqueue galleries relates CSS on gallery_style filter.
+         *
+         * @param string $gallery_style gallery style and div.
+         * @since 3.5.0
+         * @return string
+         */
+        public function enqueue_galleries_style($gallery_style)
+        {
+        }
     }
     /**
      * Class Astra_Attr
@@ -3105,7 +3149,7 @@ namespace {
         /** 
          * Layout-5 grid css backward comaptibility.
          *
-         * @return string
+         * @return string.
          */
         public function ast_layout_5_grid()
         {
@@ -3113,7 +3157,7 @@ namespace {
         /** 
          * Layout-6 grid css backward comaptibility.
          *
-         * @return string
+         * @return string.
          */
         public function ast_layout_6_grid()
         {
@@ -3123,7 +3167,7 @@ namespace {
          * 
          * @since 3.3.0
          * @param array $args div attributes.
-         * @return array
+         * @return array.
          */
         public function footer_widget_div_open($args)
         {
@@ -3143,7 +3187,7 @@ namespace {
          *
          * @param array $args attributes.
          * @since 3.3.0
-         * @return string
+         * @return string.
          */
         public function footer_widget_area_inner($args)
         {
@@ -3153,7 +3197,7 @@ namespace {
          *
          * @param array $args Attributes.
          * @since 3.3.0
-         * @return string
+         * @return string.
          */
         public function header_widget_area_inner($args)
         {
@@ -3163,7 +3207,7 @@ namespace {
          * 
          * @since 3.3.0
          * @param array $args div attributes.
-         * @return array
+         * @return array.
          */
         public function header_widget_div_open($args)
         {
@@ -3822,23 +3866,6 @@ namespace {
         }
     }
     /**
-     * Register Related Posts Configurations.
-     */
-    class Astra_Related_Posts_Configs extends \Astra_Customizer_Config_Base
-    {
-        /**
-         * Register Related Posts Configurations.
-         *
-         * @param Array                $configurations Astra Customizer Configurations.
-         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-         * @since 3.4.0
-         * @return Array Astra Customizer Configurations with updated configurations.
-         */
-        public function register_configuration($configurations, $wp_customize)
-        {
-        }
-    }
-    /**
      * Register Header Layout Customizer Configurations.
      */
     class Astra_Header_Layout_Configs extends \Astra_Customizer_Config_Base
@@ -3953,6 +3980,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Astra Performance Configurations.
+     */
+    class Astra_Performance_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra Performance Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 3.6.0
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -5077,6 +5121,17 @@ namespace {
          * Constructor
          */
         public function __construct()
+        {
+        }
+        /**
+         * Reset font folder
+         *
+         * @access public
+         * @return void
+         *
+         * @since 3.6.0
+         */
+        public function regenerate_astra_fonts_folder()
         {
         }
         /**
@@ -7844,7 +7899,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case'));
         /**
          *  Constructor
          */
@@ -8725,6 +8780,29 @@ namespace {
         {
         }
         /**
+         * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
+         *
+         * 1. Adding Font-weight support to widget titles.
+         * 2. Customizer font CSS not supporting in editor.
+         *
+         * @since 3.6.0
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function support_font_css_to_widget_and_in_editor()
+        {
+        }
+        /**
+         * Whether to remove or not following CSS which restricts logo size on responsive devices.
+         *
+         * @see https://github.com/brainstormforce/astra/commit/d09f63336b73d58c8f8951726edbc90671d7f419
+         *
+         * @since 3.6.0
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function remove_logo_max_width_mobile_static_css()
+        {
+        }
+        /**
          * Load sidebar static CSS when it is enabled.
          *
          * @since 3.0.0
@@ -8739,16 +8817,6 @@ namespace {
          * @return string static css for Woocommerce and EDD card.
          */
         public static function load_cart_static_css()
-        {
-        }
-        /**
-         * Load static Related Posts CSS.
-         *
-         * @since 3.4.0
-         *
-         * @return string static css for Related Posts section.
-         */
-        public static function related_posts_static_css()
         {
         }
     }
@@ -8820,7 +8888,7 @@ namespace {
         /**
          * Meta Option
          *
-         * @var array $meta_option
+         * @var $meta_option
          */
         private static $meta_option;
         /**
@@ -8881,6 +8949,330 @@ namespace {
          * @return void
          */
         public function save_meta_box($post_id)
+        {
+        }
+    }
+    /**
+     * Download webfonts locally.
+     *
+     * @package WPTT/webfont-loader
+     * @license https://opensource.org/licenses/MIT
+     *
+     * @since 3.6.0
+     */
+    /**
+     * Download webfonts locally.
+     */
+    class Astra_WebFont_Loader
+    {
+        /**
+         * The font-format.
+         *
+         * Use "woff" or "woff2".
+         * This will change the user-agent user to make the request.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $font_format = 'woff2';
+        /**
+         * The remote URL.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $remote_url;
+        /**
+         * Base path.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $base_path;
+        /**
+         * Base URL.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $base_url;
+        /**
+         * Subfolder name.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $subfolder_name;
+        /**
+         * The fonts folder.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $fonts_folder;
+        /**
+         * The local stylesheet's path.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $local_stylesheet_path;
+        /**
+         * The local stylesheet's URL.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $local_stylesheet_url;
+        /**
+         * The remote CSS.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $remote_styles;
+        /**
+         * The final CSS.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @var string
+         */
+        protected $css;
+        /**
+         * Cleanup routine frequency.
+         */
+        const CLEANUP_FREQUENCY = 'monthly';
+        /**
+         * Constructor.
+         *
+         * Get a new instance of the object for a new URL.
+         *
+         * @access public
+         * @since 3.6.0
+         * @param string $url The remote URL.
+         */
+        public function __construct($url = '')
+        {
+        }
+        /**
+         * Get the local URL which contains the styles.
+         *
+         * Fallback to the remote URL if we were unable to write the file locally.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_url()
+        {
+        }
+        /**
+         * Get the local stylesheet URL.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_local_stylesheet_url()
+        {
+        }
+        /**
+         * Get styles with fonts downloaded locally.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_styles()
+        {
+        }
+        /**
+         * Get local stylesheet contents.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string|false Returns the remote URL contents.
+         */
+        public function get_local_stylesheet_contents()
+        {
+        }
+        /**
+         * Get remote file contents.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string Returns the remote URL contents.
+         */
+        public function get_remote_url_contents()
+        {
+        }
+        /**
+         * Download files mentioned in our CSS locally.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return array Returns an array of remote URLs and their local counterparts.
+         */
+        public function get_local_files_from_css()
+        {
+        }
+        /**
+         * Get the font files and preload them.
+         *
+         * @access public
+         */
+        public function preload_local_fonts()
+        {
+        }
+        /**
+         * Get font files from the CSS.
+         *
+         * @access public
+         * @since 3.6.0
+         * @param string $remote_styles Remote stylesheet data.
+         *
+         * @return array Returns an array of font-families and the font-files used.
+         */
+        public function get_remote_files_from_css($remote_styles = '')
+        {
+        }
+        /**
+         * Write the CSS to the filesystem.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @return string|false Returns the absolute path of the file on success, or false on fail.
+         */
+        protected function write_stylesheet()
+        {
+        }
+        /**
+         * Get the stylesheet path.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_local_stylesheet_path()
+        {
+        }
+        /**
+         * Get the local stylesheet filename.
+         *
+         * This is a hash, generated from the site-URL, the wp-content path and the URL.
+         * This way we can avoid issues with sites changing their URL, or the wp-content path etc.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_local_stylesheet_filename()
+        {
+        }
+        /**
+         * Set the font-format to be used.
+         *
+         * @access public
+         * @since 3.6.0
+         * @param string $format The format to be used. Use "woff" or "woff2".
+         * @return void
+         */
+        public function set_font_format($format = 'woff2')
+        {
+        }
+        /**
+         * Check if the local stylesheet exists.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return bool
+         */
+        public function local_file_exists()
+        {
+        }
+        /**
+         * Get the base path.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_base_path()
+        {
+        }
+        /**
+         * Get the base URL.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_base_url()
+        {
+        }
+        /**
+         * Get the subfolder name.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return string
+         */
+        public function get_subfolder_name()
+        {
+        }
+        /**
+         * Get the folder for fonts.
+         *
+         * @access public
+         * @return string
+         */
+        public function get_fonts_folder()
+        {
+        }
+        /**
+         * Schedule a cleanup.
+         *
+         * Deletes the fonts files on a regular basis.
+         * This way font files will get updated regularly,
+         * and we avoid edge cases where unused files remain in the server.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return void
+         */
+        public function schedule_cleanup()
+        {
+        }
+        /**
+         * Delete the fonts folder.
+         *
+         * This runs as part of a cleanup routine.
+         *
+         * @access public
+         * @since 3.6.0
+         * @return bool
+         */
+        public function astra_delete_fonts_folder()
+        {
+        }
+        /**
+         * Get the filesystem.
+         *
+         * @access protected
+         * @since 3.6.0
+         * @return \WP_Filesystem_Base
+         */
+        protected function get_filesystem()
         {
         }
     }
@@ -9265,7 +9657,7 @@ namespace {
          * @param array $classes Default argument array.
          *
          * @since 1.4.0
-         * @return array
+         * @return array;
          */
         public function menu_toggle_classes($classes)
         {
@@ -9307,6 +9699,178 @@ namespace {
          * @return array
          */
         public function add_body_class($classes)
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since 3.5.0
+     */
+    class Astra_Related_Posts_Loader
+    {
+        /**
+         *  Constructor
+         *
+         * @since 3.5.0
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Enqueue google fonts.
+         *
+         * @return void
+         */
+        public function add_fonts()
+        {
+        }
+        /**
+         * Set Options Default Values
+         *
+         * @param  array $defaults  Astra options default value array.
+         * @return array
+         */
+        public function theme_defaults($defaults)
+        {
+        }
+        /**
+         * Add postMessage support for site title and description for the Theme Customizer.
+         *
+         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         *
+         * @since 3.5.0
+         */
+        public function related_posts_customize_register($wp_customize)
+        {
+        }
+        /**
+         * Render the Related Posts title for the selective refresh partial.
+         *
+         * @since 3.5.0
+         */
+        public function render_related_posts_title()
+        {
+        }
+    }
+    /**
+     * Register Related Posts Configurations.
+     */
+    class Astra_Related_Posts_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Related Posts Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 3.5.0
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Breadcrumbs Markup Initial Setup
+     *
+     * @since 3.5.0
+     */
+    class Astra_Related_Posts_Markup
+    {
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Enable/Disable Single Post -> Related Posts section.
+         *
+         * @since 3.5.0
+         * @return void
+         */
+        public function astra_related_posts_markup()
+        {
+        }
+        /**
+         * Related Posts markup.
+         *
+         * @since 3.5.0
+         * @return bool
+         */
+        public function astra_get_related_posts()
+        {
+        }
+        /**
+         * Render Post CTA button HTML marup.
+         *
+         * @param int $current_post_id current post ID.
+         *
+         * @since 3.5.0
+         */
+        public function astra_get_related_post_read_more($current_post_id)
+        {
+        }
+        /**
+         * Related Posts Excerpt markup.
+         *
+         * @param int $current_post_id current post ID.
+         *
+         * @since 3.5.0
+         */
+        public function astra_get_related_post_excerpt($current_post_id)
+        {
+        }
+        /**
+         * Render Post Title HTML.
+         *
+         * @param int $current_post_id current post ID.
+         *
+         * @since 3.5.0
+         */
+        public function astra_get_related_post_title($current_post_id)
+        {
+        }
+        /**
+         * Render Featured Image HTML.
+         *
+         * @param int     $current_post_id current post ID.
+         * @param string  $before Markup before thumbnail image.
+         * @param string  $after  Markup after thumbnail image.
+         * @param boolean $echo   Output print or return.
+         * @return string|null
+         *
+         * @since 3.5.0
+         */
+        public function astra_get_related_post_featured_image($current_post_id, $before = '', $after = '', $echo = \true)
+        {
+        }
+        /**
+         * Get related posts based on configurations.
+         *
+         * @param int $post_id Current Post ID.
+         *
+         * @since 3.5.0
+         *
+         * @return WP_Query|bool
+         */
+        public function astra_get_related_posts_by_query($post_id)
+        {
+        }
+    }
+    /**
+     * Related Posts Initial Setup
+     *
+     * @since 3.5.0
+     */
+    class Astra_Related_Posts
+    {
+        /**
+         * Constructor function that initializes required actions and hooks
+         *
+         * @since 3.5.0
+         */
+        public function __construct()
         {
         }
     }
@@ -10014,6 +10578,16 @@ namespace {
          * @return array
          */
         public static function footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+        {
+        }
+        /**
+         * Different logo for mobile static CSS.
+         * 
+         * @param string $dynamic_css Appended dynamic CSS.
+         * @since 3.5.0
+         * @return string
+         */
+        public static function mobile_header_logo_css($dynamic_css)
         {
         }
         /**
@@ -11168,6 +11742,25 @@ namespace {
     {
     }
     /**
+     * Inline On Mobile - Dynamic CSS.
+     *
+     * @param string $dynamic_css Dynamic CSS.
+     * @since 3.5.0
+     * @return string
+     */
+    function astra_inline_on_mobile_css($dynamic_css)
+    {
+    }
+    /**
+     * Astra Icons - Dynamic CSS.
+     *
+     * @param string $dynamic_css Dynamic CSS.
+     * @since 3.5.0
+     */
+    function astra_icons_static_css($dynamic_css)
+    {
+    }
+    /**
      * Pagination - Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -11195,6 +11788,15 @@ namespace {
      * @since 3.3.0
      */
     function astra_container_layout_css()
+    {
+    }
+    /**
+     * Old Header Menu Last Item - Dynamic CSS.
+     *
+     * @param string $dynamic_css 
+     * @since 3.5.0
+     */
+    function astra_old_header_custom_menu_css($dynamic_css)
     {
     }
     /**
@@ -12473,14 +13075,14 @@ namespace {
     }
     /**
      * Common function to check is pagination is enabled on current page.
-     * 
+     *
      * @since 3.0.1
      * @return boolean
      */
     function is_astra_pagination_enabled()
     {
     }
-    /** 
+    /**
      * Verify is current post comments are enabled or not for applying dynamic CSS.
      *
      * @since 3.0.1
@@ -13191,6 +13793,76 @@ namespace {
     {
     }
     /**
+     * Update existing 'Grid Column Layout' option in responsive way in Related Posts.
+     * Till this update 3.5.0 we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
+     *
+     * @since 3.5.0
+     * @return void.
+     */
+    function astra_update_related_posts_grid_layout()
+    {
+    }
+    /**
+     * Migrate Site Title & Site Tagline options to new responsive array.
+     *
+     * @since 3.5.0
+     *
+     * @return void
+     */
+    function astra_site_title_tagline_responsive_control_migration()
+    {
+    }
+    /**
+     * Do not apply new font-weight heading support CSS in editor/frontend directly.
+     *
+     * 1. Adding Font-weight support to widget titles.
+     * 2. Customizer font CSS not supporting in editor.
+     *
+     * @since 3.6.0
+     *
+     * @return void
+     */
+    function astra_headings_font_support()
+    {
+    }
+    /**
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * @since 3.6.0
+     * @return void.
+     */
+    function astra_remove_logo_max_width()
+    {
+    }
+    /**
+     * Set flag to maintain backward compatibility for existing users for Transparent Header border bottom default value i.e from '' to 0.
+     *
+     * @since 3.6.0
+     * @return void.
+     */
+    function astra_transparent_header_default_value()
+    {
+    }
+    /**
+     * Clear Astra + Astra Pro assets cache.
+     *
+     * @since 3.6.1
+     * @return void.
+     */
+    function astra_clear_all_assets_cache()
+    {
+    }
+    /**
+     * Set flag to maintain backward compatibility for existing users.
+     * Fixing the case where footer widget's right margin space not working.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_fix_footer_widget_right_margin_case()
+    {
+    }
+    /**
      * Function to get Body Font Family
      *
      * @since 1.0.0
@@ -13404,6 +14076,45 @@ namespace {
      * @return bool
      */
     function astra_target_rules_for_related_posts()
+    {
+    }
+    /**
+     * Check the Astra addon 3.5.0 version is using or not.
+     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
+     *
+     * @since  3.5.0
+     */
+    function is_astra_addon_3_5_0_version()
+    {
+    }
+    /**
+     * Get a stylesheet URL for a webfont.
+     *
+     * @since 3.6.0
+     *
+     * @param string $url    The URL of the remote webfont.
+     * @param string $format The font-format. If you need to support IE, change this to "woff".
+     *
+     * @return string Returns the CSS.
+     */
+    function ast_get_webfont_url($url, $format = 'woff2')
+    {
+    }
+    /**
+     * Get the file preloads.
+     *
+     * @param string $url    The URL of the remote webfont.
+     * @param string $format The font-format. If you need to support IE, change this to "woff".
+     */
+    function ast_load_preload_local_fonts($url, $format = 'woff2')
+    {
+    }
+    /**
+     * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
+     *
+     * @since 3.6.0
+     */
+    function astra_get_transparent_header_default_value()
     {
     }
     /**
@@ -13641,6 +14352,16 @@ namespace {
     {
     }
     /**
+     * Create instance of Astra_WebFont_Loader class.
+     *
+     * @param string $font_url Google font URL to set data.
+     * @return object
+     * @since 3.6.0
+     */
+    function astra_webfont_loader_instance($font_url = '')
+    {
+    }
+    /**
      * Related Posts - Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -13652,87 +14373,24 @@ namespace {
     {
     }
     /**
-     * Get related posts based on configurations.
+     * Related Posts - Static CSS
      *
-     * @param int $post_id Current Post ID.
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @return String Generated dynamic CSS for Related Posts.
      *
-     * @since 3.4.0
-     *
-     * @return WP_Query|bool
+     * @since 3.5.0
      */
-    function astra_get_related_posts_by_query($post_id)
+    function astra_related_posts_static_css($dynamic_css)
     {
     }
     /**
-     * Render Featured Image HTML.
+     * Whether to fix the footer right-margin space not working case or not.
+     * As this is frontend reflecting change added this backwards for existing users.
      *
-     * @param int     $current_post_id current post ID.
-     * @param string  $before Markup before thumbnail image.
-     * @param string  $after  Markup after thumbnail image.
-     * @param boolean $echo   Output print or return.
-     * @return string|null
-     *
-     * @since 3.4.0
+     * @since x.x.x
+     * @return boolean false if it is an existing user, true if not.
      */
-    function astra_get_related_post_featured_image($current_post_id, $before = '', $after = '', $echo = \true)
-    {
-    }
-    /**
-     * Render Post Title HTML.
-     *
-     * @param int $current_post_id current post ID.
-     *
-     * @since 3.4.0
-     */
-    function astra_get_related_post_title($current_post_id)
-    {
-    }
-    /**
-     * Related Posts Excerpt markup.
-     *
-     * @param int $current_post_id current post ID.
-     *
-     * @since 3.4.0
-     */
-    function astra_get_related_post_excerpt($current_post_id)
-    {
-    }
-    /**
-     * Render Post CTA button HTML marup.
-     *
-     * @param int $current_post_id current post ID.
-     *
-     * @since 3.4.0
-     */
-    function astra_get_related_post_read_more($current_post_id)
-    {
-    }
-    /**
-     * Related Posts markup.
-     *
-     * @since 3.4.0
-     * @return bool
-     */
-    function astra_get_related_posts()
-    {
-    }
-    /**
-     * Enable/Disable Single Post -> Related Posts section.
-     *
-     * @since 3.4.0
-     * @return void
-     */
-    function astra_related_posts_markup()
-    {
-    }
-    /**
-     * Adds custom classes to the array of body classes.
-     *
-     * @since 3.4.0
-     * @param array $classes Classes for the body element.
-     * @return array
-     */
-    function astra_related_posts_body_class($classes)
+    function is_support_footer_widget_right_margin()
     {
     }
     /**
@@ -13805,6 +14463,15 @@ namespace {
      * @since 3.0.0
      */
     function astra_hb_footer_menu_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Footer menu static CSS
+     * 
+     * @since 3.5.0
+     * @return string
+     */
+    function footer_menu_static_css()
     {
     }
     /**
@@ -13940,6 +14607,15 @@ namespace {
     {
     }
     /**
+     * Search Component static CSS.
+     * 
+     * @return string
+     * @since 3.5.0
+     */
+    function astra_search_static_css()
+    {
+    }
+    /**
      * Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -13973,6 +14649,15 @@ namespace {
      * @since 3.0.0
      */
     function astra_hb_menu_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Load Menu hover style static CSS if any one of the menu hover style is selected.
+     * 
+     * @return string
+     * @since 3.5.0
+     */
+    function astra_menu_hover_style_css()
     {
     }
     /**
@@ -14099,4 +14784,20 @@ namespace {
      * @package Astra Builder
      */
     $mobile_header_type = \astra_get_option('mobile-header-type');
+    /**
+     * Search Form for Astra theme.
+     *
+     * @package     Astra
+     * @author      Brainstorm Force
+     * @copyright   Copyright (c) 2020, Brainstorm Force
+     * @link        https://www.brainstormforce.com
+     * @since       Astra 3.3.0
+     */
+    /**
+     * Adding argument checks to avoid rendering search-form markup from other places & to easily use get_search_form() function.
+     *
+     * @see https://themes.trac.wordpress.org/ticket/101061
+     * @since 3.6.1
+     */
+    $astra_search_input_placeholder = isset($args['input_placeholder']) ? $args['input_placeholder'] : \astra_default_strings('string-search-input-placeholder', \false);
 }

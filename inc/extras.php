@@ -659,9 +659,23 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
+ * Check is WordPress version is greater than or equal to beta 5.8 version.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_has_widgets_block_editor() {
+	if ( ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) )
+	|| version_compare( get_bloginfo( 'version' ), '5.8-alpha', '>=' ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Check whether user is exising or new to apply the updated default values for default blog post layout..
- * 
- * @since x.x.x 
+ *
+ * @since x.x.x
  * @return string
  */
 function astra_apply_new_default_blog_values() {
@@ -672,8 +686,8 @@ function astra_apply_new_default_blog_values() {
 
 /**
  * Get compatibility for Old user to apply the blog grid bse css changes.
- * 
- * @since x.x.x 
+ *
+ * @since x.x.x
  * @return string
  */
 function astra_apply_blog_grid_css() {

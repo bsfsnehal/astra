@@ -4531,29 +4531,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-@media (min-width: 768px) {
-  .admin-bar {
-    --ast-admin-bar:32px;
-  }
-}
-
-@media (max-width: 544px) {
-  .admin-bar {
-    --ast-admin-bar:0px;
-  }
-}
-
-#page {
-  -js-display: flex;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - var(--ast-admin-bar, 0px));
-}
-
-#content {
-  flex: 1 0 auto;
-}
-
 /*--------------------------------------------------------------
 ## Single Blog Post Layouts
 --------------------------------------------------------------*/

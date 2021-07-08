@@ -58,25 +58,3 @@
 		}
 	}
 }
-
-@media ( min-width: $mx-col-md ){
-	.admin-bar {
-		--ast-admin-bar:32px;
-	}
-}
-
-@media ( max-width: $mx-col-sm ){
-	.admin-bar {
-		--ast-admin-bar:0px;
-	}
-}
-
-
-#page{ 
-	display: flex;
- 	flex-direction: column;
- 	min-height: calc(100vh - var(--ast-admin-bar, 0px))
-}
-#content{
- 	flex: 1 0 auto
-}

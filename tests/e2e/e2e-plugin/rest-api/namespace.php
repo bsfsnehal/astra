@@ -30,7 +30,7 @@ function bootstrap() : void {
 function rest_route() : void {
 	register_rest_route(
 		REST_NAMESPACE,
-		REST_BASE . '/reset-theme',
+		REST_BASE . '/reset-site',
 		array(
 			array(
 				'methods'             => WP_Rest_Server::DELETABLE,
@@ -40,6 +40,15 @@ function rest_route() : void {
 					delete_option( 'site_title' );
 					delete_option( 'site_icon' );
 					update_option( 'blogdescription', 'Astra Test Enviornment' );
+
+					$all_users = get_users();
+					require_once ABSPATH . 'wp-admin/includes/user.php';
+					foreach ( $all_users as $user ) {
+						if ( 1 === (int) $user->data->ID ) {
+							continue;
+						}
+						wp_delete_user( $user->data->ID );
+					}
 
 					return rest_ensure_response(
 						array(

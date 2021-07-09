@@ -188,7 +188,7 @@ async function setupBrowser() {
  * Reset the site to default settings.
  */
 async function siteReset() {
-	await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-theme' ), {
+	await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
 		method: 'DELETE',
 	} );
 }

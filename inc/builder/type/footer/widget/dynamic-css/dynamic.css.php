@@ -17,7 +17,8 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_widget_dynamic_css' );
 
 /**
  * Whether to fix the footer right-margin space not working case or not.
- * As this is frontend reflecting change added this backwards for existing users.
+ *
+ * As this affects the frontend, added this backward compatibility for existing users.
  *
  * @since x.x.x
  * @return boolean false if it is an existing user, true if not.

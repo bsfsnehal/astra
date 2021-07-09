@@ -422,10 +422,10 @@ function AstraHandleResizeEvent() {
 			menu_dropdown_close.click();
 		}
 		document.body.classList.remove( 'ast-main-header-nav-open', 'ast-popup-nav-open' );
-	}
 
-	if( menu_offcanvas_close && null === elementor_editor ) {
-		menu_offcanvas_close.click();
+		if( menu_offcanvas_close && null === elementor_editor ) {
+			menu_offcanvas_close.click();
+		}
 	}
 	updateHeaderBreakPoint();
 

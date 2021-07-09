@@ -48,7 +48,7 @@ function astra_blog_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'background-color' => '#ffffff',
 			),
 		);
-		$dynamic_css .= astra_parse_css( $blog_background_css );
+		$dynamic_css .= astra_parse_css( $blog_layouts );
 	}
 
 	if ( $blog_grid > 1 ) {

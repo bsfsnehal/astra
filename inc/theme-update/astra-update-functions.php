@@ -3100,6 +3100,21 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_update_sticky_footer_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['stick-footer-at-bottom'] ) ) {
+		$theme_options['stick-footer-at-bottom'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag for updated default values for default blog post layout.
  *
  * @since x.x.x

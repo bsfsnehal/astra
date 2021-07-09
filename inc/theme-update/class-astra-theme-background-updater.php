@@ -95,6 +95,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_clear_all_assets_cache',
 			),
 			'3.7.0' => array(
+				'astra_update_sticky_footer_flag',
 				'astra_default_layout_updated_values',
 				'astra_clear_all_assets_cache',
 				'astra_fix_footer_widget_right_margin_case',

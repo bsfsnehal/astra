@@ -1121,9 +1121,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * When supporting GB button outline patterns in v3.3.0 we have given 2px as default border for GB outline button, where we restrict button border for flat type buttons.
 			 * But now while reverting this change there is no need of default border because whatever customizer border will set it should behave accordingly. Although it is empty ('') WP applying 2px as default border for outline buttons.
 			 *
-			 * @since x.x.x
+			 * @since 3.6.3
 			 */
-			if ( astra_apply_new_default_blog_values() ) {
+			if ( astra_update_default_button_padding_values() ) {
 				$default_border_size = '';
 			} else {
 				$default_border_size = '2px';
@@ -1165,8 +1165,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $outline_button_css );
 
-				if ( ! astra_apply_new_default_blog_values() ) {
-
+				if ( ! astra_update_default_button_padding_values() ) {
 					// Tablet CSS.
 					$outline_button_tablet_css = array(
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
@@ -1212,7 +1211,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				}
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_update_default_button_padding_values() ) {
 					$gb_patterns_min_mobile_css['.wp-block-group.has-background'] = array(
 						'padding' => '20px',
 					);
@@ -1222,7 +1221,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $gb_patterns_min_mobile_css, astra_get_mobile_breakpoint() );
 			}
 
-			if ( astra_apply_new_default_blog_values() ) {
+			if ( astra_update_default_button_padding_values() ) {
 				$outline_button_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'border-top-width'    => esc_attr( $theme_btn_top_border ),
@@ -1235,6 +1234,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> All media CSS */
 				$parse_css .= astra_parse_css( $outline_button_css );
 			}
+
 			if ( $is_widget_title_support_font_weight ) {
 				$widget_title_font_weight_support = array(
 					'h1.widget-title' => array(
@@ -1252,7 +1252,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$article_post_selector = ( ! astra_apply_blog_grid_css() ) ? '.ast-separate-container .ast-article-post,' : '';
-				
+
 			$static_layout_css = array(
 				$article_post_selector . '.ast-separate-container .ast-article-single' => array(
 					'padding' => '1.5em 2.14em',
@@ -1654,7 +1654,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( self::gutenberg_core_patterns_compat() && ! astra_apply_new_default_blog_values() ) {
+				if ( self::gutenberg_core_patterns_compat() && ! astra_update_default_button_padding_values() ) {
 					$theme_outline_gb_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '2px';
 					$theme_outline_gb_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '2px';
 					$theme_outline_gb_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '2px';
@@ -1715,7 +1715,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				} else {
 
-					if ( astra_apply_new_default_blog_values() ) {
+					if ( astra_update_default_button_padding_values() ) {
 						$default_border_size = '';
 					} else {
 						$default_border_size = '0';
@@ -2340,7 +2340,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
-			
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() || astra_apply_blog_grid_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(

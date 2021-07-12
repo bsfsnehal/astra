@@ -495,9 +495,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				 * When supporting GB button outline patterns in v3.3.0 we have given 2px as default border for GB outline button, where we restrict button border for flat type buttons.
 				 * But now while reverting this change there is no need of default border because whatever customizer border will set it should behave accordingly. Although it is empty ('') WP applying 2px as default border for outline buttons.
 				 *
-				 * @since x.x.x
+				 * @since 3.6.3
 				 */
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_update_default_button_padding_values() ) {
 					$default_border_size = '';
 				} else {
 					$default_border_size = '2px';
@@ -522,7 +522,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_update_default_button_padding_values() ) {
 					$button_patterns_compat_css['.wp-block-button .wp-block-button__link']                  = array(
 						'border'  => 'none',
 						'padding' => '15px 30px',
@@ -543,12 +543,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$css .= astra_parse_css( $button_patterns_compat_css );
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_update_default_button_padding_values() ) {
 					// Tablet CSS.
 					$button_patterns_tablet_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => astra_apply_new_default_blog_values() ? '14px 28px' : '15px 30px',
+							'padding' => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -564,7 +564,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					$button_patterns_mobile_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => astra_apply_new_default_blog_values() ? '12px 24px' : '15px 30px',
+							'padding' => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 				}
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_update_default_button_padding_values() ) {
 					$gb_patterns_min_mobile_css['.editor-styles-wrapper p.has-background'] = array(
 						'padding' => '20px',
 					);

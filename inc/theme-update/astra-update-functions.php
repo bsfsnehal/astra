@@ -3100,6 +3100,21 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
+ * Set flag for updated default values for buttons & add GB Buttons padding support.
+ *
+ * @since 3.6.3
+ * @return void.
+ */
+function astra_button_default_values_updated() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['button-default-values-updated'] ) ) {
+		$theme_options['button-default-values-updated'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
  *
  * @since x.x.x

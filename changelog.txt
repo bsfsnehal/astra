@@ -21,6 +21,10 @@ v3.7.0 (Unreleased)
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
 - Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
+v3.6.3
+- Improvement: Global button default padding values updated from 10px-40px to 15px-30px.
+- Fix: Global button padding settings not working for Gutenberg buttons. ( https://wpastra.com/docs/apply-default-button-padding/ )
+
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.
 - Fix: Related Posts articles showing meta structure based on current active post.

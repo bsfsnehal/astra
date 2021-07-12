@@ -639,11 +639,26 @@ function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
 /**
  * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
- * 
- * @since 3.6.0 
+ *
+ * @since 3.6.0
  */
 function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? false : true;
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
+}
+
+/**
+ * Check is WordPress version is greater than or equal to beta 5.8 version. 
+ *
+ * @since x.x.x 
+ * @return boolean
+ */
+function astra_has_widgets_block_editor() {
+	if ( ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) ) 
+	|| version_compare( get_bloginfo( 'version' ), '5.8-alpha', '>=' ) ) {
+		return true;
+	}
+	return false;
+
 }

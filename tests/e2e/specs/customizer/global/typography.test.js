@@ -4,7 +4,7 @@ import {
 	setPostContent,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { setCustomize } from '../../../utils/set-customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../utils/post';
 
 describe( 'Global Typography settings in the customizer', () => {
@@ -31,7 +31,7 @@ describe( 'Global Typography settings in the customizer', () => {
 		await createNewPost( { postType: 'post', title: 'Typography Test' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
-		page.goto( createURL( '/typography-test/' ), {
+		await page.goto( createURL( '/typography-test/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.entry-content' );
@@ -57,7 +57,7 @@ describe( 'Global Typography settings in the customizer', () => {
 		};
 
 		await setCustomize( globalTypegraphy );
-		page.goto( createURL( '/' ), { waitUntil: 'networkidle0' } );
+		await page.goto( createURL( '/' ), { waitUntil: 'networkidle0' } );
 		await page.waitForSelector( '.entry-content' );
 
 		await expect( {
@@ -70,17 +70,17 @@ describe( 'Global Typography settings in the customizer', () => {
 		const headingTypography = {
 			'body-font-family': 'inherit',
 			'body-font-weight': '400',
-			'headings-font-family': "'Ubuntu',sans-serif",
+			'headings-font-family': "'Tulpen One', display",
 			'headings-font-weight': '400',
 		};
 
 		await setCustomize( headingTypography );
-		page.goto( createURL( '/' ), { waitUntil: 'networkidle0' } );
+		await page.goto( createURL( '/' ), { waitUntil: 'networkidle0' } );
 		await page.waitForSelector( '.entry-content' );
 
 		await expect( {
 			selector: '.site-title a',
 			property: 'font-family',
-		} ).cssValueToBe( 'Ubuntu, sans-serif' );
+		} ).cssValueToBe( `${ headingTypography[ 'headings-font-family' ] }` );
 	} );
 } );

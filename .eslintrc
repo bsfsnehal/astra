@@ -15,6 +15,11 @@
         "plugin:@wordpress/eslint-plugin/test-e2e",
         "plugin:jest/all"
       ],
+      "settings": {
+        "jest": {
+          "version": 26
+        }
+      },
       "rules": {
         "jest/lowercase-name": [
           "error",

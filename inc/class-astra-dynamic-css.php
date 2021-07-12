@@ -2263,17 +2263,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
-			
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
-					'.ast-container' => array(
+					'.site-content .ast-container' => array(
 						'display' => 'flex',
 					),
 				);
 				$parse_css             .= astra_parse_css( $max_site_container_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 				$min_site_container_css = array(
-					'.ast-container' => array(
+					'.site-content .ast-container' => array(
 						'flex-direction' => 'column',
 					),
 				);
@@ -2484,7 +2484,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a:hover' => array(
 						'color' => esc_attr( $html_link_h_color ),
 					),
-					'.ast-theme-transparent-header .ast-header-search .astra-search-icon, .ast-theme-transparent-header .ast-header-search .search-field::placeholder'         => array(
+					'.ast-theme-transparent-header .ast-header-search .astra-search-icon, .ast-theme-transparent-header .ast-header-search .search-field::placeholder, .ast-theme-transparent-header .ast-header-search .ast-icon'         => array(
 						'color' => esc_attr( $search_icon_color ),
 					),
 					'.ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field, .ast-theme-transparent-header .ast-header-search .ast-search-menu-icon .search-field::placeholder'         => array(
@@ -3393,7 +3393,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				position: fixed;
 				display: block;
 				visibility: hidden;
-				overflow: hidden;
+				overflow: auto;
 				-webkit-overflow-scrolling: touch;
 				z-index: 9999;
 				background-color: #fff;
@@ -3490,7 +3490,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			body.admin-bar .astra-cart-drawer {
-				top: 46px;
+				padding-top: 32px;
+			}
+			body.admin-bar .astra-cart-drawer .astra-cart-drawer-close {
+				top: 32px;
+			}
+			@media (max-width: 782px) {
+				body.admin-bar .astra-cart-drawer {
+					padding-top: 46px;
+				}
+				body.admin-bar .astra-cart-drawer .astra-cart-drawer-close {
+					top: 46px;
+				}
 			}
 
 			.ast-mobile-cart-active body.ast-hfb-header {

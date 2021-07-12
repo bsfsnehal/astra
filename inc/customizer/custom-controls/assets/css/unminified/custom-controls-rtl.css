@@ -3759,7 +3759,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   border-radius: 0;
 }
 
-.customize-control-ast-hidden {
+.customize-control.customize-control-ast-hidden {
   margin-top: 0;
 }
 
@@ -3804,7 +3804,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   display: block !important;
 }
 
-.customize-control {
+.customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
   margin-top: 25px;
@@ -5521,7 +5521,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   border-radius: 0;
 }
 
-.customize-control-ast-hidden {
+.customize-control.customize-control-ast-hidden {
   margin-top: 0;
 }
 

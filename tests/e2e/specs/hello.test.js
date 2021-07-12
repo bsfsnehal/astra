@@ -9,6 +9,6 @@ describe( 'Hello World', () => {
 		const nodes = await page.$x(
 			'//h2[contains(text(), "Welcome to WordPress!")]',
 		);
-		expect( nodes ).not.toHaveLength( 0 );
+		await expect( nodes ).not.toHaveLength( 0 );
 	} );
 } );

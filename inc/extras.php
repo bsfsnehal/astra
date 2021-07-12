@@ -587,6 +587,16 @@ function is_astra_addon_3_5_0_version() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Get a stylesheet URL for a webfont.
  *
  * @since 3.6.0
@@ -658,4 +668,54 @@ function astra_update_default_button_padding_values() {
 	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['button-default-values-updated'] = isset( $astra_settings['button-default-values-updated'] ) ? $astra_settings['button-default-values-updated'] : true;
 	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['button-default-values-updated'] );
+}
+
+/**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_isset_sticky_footer() {
+	$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['stick-footer-at-bottom'] = isset( $astra_settings['stick-footer-at-bottom'] ) ? false : true;
+	return apply_filters( 'astra_stick_footer_at_bottom', $astra_settings['stick-footer-at-bottom'] );
+}
+
+/**
+ * Check is WordPress version is greater than or equal to beta 5.8 version.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_has_widgets_block_editor() {
+	if ( ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) )
+	|| version_compare( get_bloginfo( 'version' ), '5.8-alpha', '>=' ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_new_default_blog_values() {
+	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}
+
+/**
+ * Get compatibility for Old user to apply the blog grid bse css changes.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_blog_grid_css() {
+	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
+	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
 }

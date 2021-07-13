@@ -162,3 +162,14 @@ input[type="text"] {
         margin-right: 20px;
     }
  }
+
+ .wp-customizer li:not(.customize-control-sidebar_block_editor){
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6{
+		font-weight: 600;
+	} 
+}

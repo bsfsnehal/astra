@@ -59,6 +59,7 @@
     "format": "wp-scripts format tests/",
     "lint:css": "wp-scripts lint-style tests/",
     "lint:js": "wp-scripts lint-js tests/",
+    "lint:js:fix": "npm run format && wp-scripts lint-js tests/ --fix",
     "env:activate-astra": "wp-env run cli wp theme activate astra",
     "env:deactivate-gutenberg": "wp-env run cli wp plugin deactivate gutenberg",
     "env:start": "grunt release-no-clean && wp-env start && npm run env:activate-astra",

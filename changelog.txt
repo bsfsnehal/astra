@@ -19,7 +19,6 @@ v3.7.0 (Unreleased)
 - Fix: 'Disable Footer' option is missing in Page meta settings for new Header Footer builder.
 - Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
-- Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.

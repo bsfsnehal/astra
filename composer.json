@@ -1,15 +1,18 @@
 {
   "name": "brainstormforce/astra",
   "description": "A very lightweight and beautiful theme made to work with Page Builders",
+  "require": {
+    "brainstormforce/astra-notices": "^1.1"
+  },
   "require-dev": {
     "brainmaestro/composer-git-hooks": "^2.6",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "humanmade/psalm-plugin-wordpress": "^2.0",
+    "php-stubs/generator": "^0.6.0",
+    "php-stubs/woocommerce-stubs": "^5.2",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-coding-standards/wpcs": "^2.1.0",
-    "wptrt/wpthemereview": "^0.2.0",
-    "php-stubs/woocommerce-stubs": "^5.2",
-    "humanmade/psalm-plugin-wordpress": "^2.0",
-    "php-stubs/generator": "^0.6.0"
+    "wptrt/wpthemereview": "^0.2.0"
   },
   "extra": {
     "hooks": {
@@ -17,8 +20,19 @@
         "echo committing as $(git config user.name)",
         "sh bin/block-commits-with-merge-conflict.sh"
       ]
+    },
+    "installer-paths": {
+      "inc/lib/{$name}/": [
+        "brainstormforce/astra-notices"
+      ]
     }
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:brainstormforce/astra-notices.git"
+    }
+  ],
   "scripts": {
     "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
     "post-update-cmd": "vendor/bin/cghooks update",

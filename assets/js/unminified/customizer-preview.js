@@ -974,10 +974,10 @@ function wordpress_5_8_compat() {
 		setting.bind( function( value ) {
 			var dynamicStyle = '';
 			if ( value ) {
-				dynamicStyle = ' .entry-content a { text-decoration: underline; } ';
+				dynamicStyle = '.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a) { text-decoration: underline; } ';
 				astra_add_dynamic_css( 'underline-content-links', dynamicStyle );
 			} else {
-				dynamicStyle = ' .entry-content a { text-decoration: unset; } ';
+				dynamicStyle = '.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a) { text-decoration: unset; } ';
 				astra_add_dynamic_css( 'underline-content-links', dynamicStyle );
 			}
 		} );

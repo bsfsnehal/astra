@@ -719,15 +719,3 @@ function astra_button_default_padding_updated() {
 	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
 	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
 }
-
-/**
- * Check whether user is exising or new to enable underline setting & supportive dynamic CSS for that.
- *
- * @since x.x.x
- * @return string
- */
-function astra_underline_content_links() {
-	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['ast-underline-content-links'] = isset( $astra_settings['ast-underline-content-links'] ) ? false : true;
-	return apply_filters( 'astra_apply_underline_content_links', $astra_settings['ast-underline-content-links'] );
-}

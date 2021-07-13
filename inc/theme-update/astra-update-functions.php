@@ -3123,8 +3123,8 @@ function astra_button_default_values_updated() {
 function astra_update_underline_link_setting() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['ast-underline-content-links'] ) ) {
-		$theme_options['ast-underline-content-links'] = false;
+	if ( ! isset( $theme_options['underline-content-links'] ) ) {
+		$theme_options['underline-content-links'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

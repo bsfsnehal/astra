@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 * @since 3.6.3
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
-			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+			$palette_css_var_prefix   = Astra_Global_Palette::get_css_variable_prefix();
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(

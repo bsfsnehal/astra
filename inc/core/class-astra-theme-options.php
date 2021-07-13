@@ -99,26 +99,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			/**
 			 * Update Astra customizer default values. To not update directly on existing users site, added backwards.
 			 *
-			 * @since x.x.x
+			 * @since 3.6.3
 			 */
-			$apply_new_default_values = astra_apply_new_default_blog_values();
-			$astra_settings           = get_option( ASTRA_THEME_SETTINGS );
-			if ( isset( $astra_settings['can-update-button-defaults-to-gb-support'] ) ) {
-				$button_desktop_padding_defaults = array(
-					'top'    => 10,
-					'right'  => 40,
-					'bottom' => 10,
-					'left'   => 40,
-				);
-			} else {
-				$button_desktop_padding_defaults = array(
-					'top'    => 15,
-					'right'  => 30,
-					'bottom' => 15,
-					'left'   => 30,
-				);
-			}
-			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+			$apply_new_default_values = astra_button_default_padding_updated();
+			$palette_css_var_prefix   = Astra_Global_Palette::get_css_variable_prefix();
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(

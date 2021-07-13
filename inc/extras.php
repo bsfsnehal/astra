@@ -707,3 +707,15 @@ function astra_apply_blog_grid_css() {
 	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
 	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
 }
+
+/**
+ * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
+ *
+ * @since 3.6.3
+ * @return string
+ */
+function astra_button_default_padding_updated() {
+	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
+	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
+}

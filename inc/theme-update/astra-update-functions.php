@@ -3100,6 +3100,53 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
+ * Set flag for updated default values for buttons & add GB Buttons padding support.
+ *
+ * @since 3.6.3
+ * @return void.
+ */
+function astra_button_default_values_updated() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['btn-default-padding-updated'] ) ) {
+		$theme_options['btn-default-padding-updated'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users.
+ * Fixing the case where footer widget's right margin space not working.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_fix_footer_widget_right_margin_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
+		$theme_options['support-footer-widget-right-margin'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_support_wp_5_8() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['astra-suport-wp-5-8'] ) ) {
+		$theme_options['astra-suport-wp-5-8'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
  *
  * @since x.x.x
@@ -3115,21 +3162,6 @@ function astra_update_sticky_footer_flag() {
 }
 
 /**
- * Set flag for updated default values for default blog post layout.
- *
- * @since x.x.x
- * @return void.
- */
-function astra_default_layout_updated_values() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['default-layout-updated-values'] ) ) {
-		$theme_options['default-layout-updated-values'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
  *
  * @since x.x.x
@@ -3140,21 +3172,6 @@ function astra_blog_grid_css_compatiblity() {
 
 	if ( ! isset( $theme_options['apply-blog-grid-css'] ) ) {
 		$theme_options['apply-blog-grid-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Fixing the case where footer widget's right margin space not working.
- *
- * @since x.x.x
- * @return void
- */
-function astra_fix_footer_widget_right_margin_case() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
-		$theme_options['support-footer-widget-right-margin'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

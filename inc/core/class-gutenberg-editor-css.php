@@ -416,11 +416,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '1px';
 
 			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+
+				$is_support_wp_5_8            = Astra_Dynamic_CSS::is_wordpress_5_8_support_enabled();
+				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
+				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
+
 				$button_desktop_css = array(
 					/**
 					 * Gutenberg button compatibility for default styling.
 					 */
-					'.wp-block-button .wp-block-button__link' => array(
+					'.wp-block-button .wp-block-button__link' . $search_button_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => $theme_btn_top_border,
 						'border-right-width'  => $theme_btn_right_border,
@@ -441,7 +446,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					),
-					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
+					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' . $search_button_hover_selector => array(
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
@@ -451,6 +456,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
+
+				if ( $is_support_wp_5_8 ) {
+					$button_desktop_css['.wp-block-search .wp-block-search__input, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper'] = array(
+						'border-color' => '#eaeaea',
+						'background'   => '#fafafa',
+					);
+					$button_desktop_css['.block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__input']                       = array(
+						'padding' => '15px',
+					);
+					$button_desktop_css['.wp-block-search__button svg'] = array(
+						'fill' => 'currentColor',
+					);
+				}
 
 				$css .= astra_parse_css( $button_desktop_css );
 
@@ -495,12 +513,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				 * When supporting GB button outline patterns in v3.3.0 we have given 2px as default border for GB outline button, where we restrict button border for flat type buttons.
 				 * But now while reverting this change there is no need of default border because whatever customizer border will set it should behave accordingly. Although it is empty ('') WP applying 2px as default border for outline buttons.
 				 *
-				 * @since x.x.x
+				 * @since 3.6.3
 				 */
-				if ( ! astra_apply_new_default_blog_values() ) {
+				$default_border_size = '2px';
+				if ( ! astra_button_default_padding_updated() ) {
 					$default_border_size = '';
-				} else {
-					$default_border_size = '2px';
 				}
 
 				// Outline Gutenberg button compatibility CSS.
@@ -522,7 +539,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_button_default_padding_updated() ) {
 					$button_patterns_compat_css['.wp-block-button .wp-block-button__link']                  = array(
 						'border'  => 'none',
 						'padding' => '15px 30px',
@@ -543,12 +560,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$css .= astra_parse_css( $button_patterns_compat_css );
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_button_default_padding_updated() ) {
 					// Tablet CSS.
 					$button_patterns_tablet_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => astra_apply_new_default_blog_values() ? '14px 28px' : '15px 30px',
+							'padding' => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -564,7 +581,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					$button_patterns_mobile_compat_css = array(
 						'.wp-block-button .wp-block-button__link' => array(
 							'border'  => 'none',
-							'padding' => astra_apply_new_default_blog_values() ? '12px 24px' : '15px 30px',
+							'padding' => '15px 30px',
 						),
 						'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 							'padding-top'    => 'calc(15px - ' . (int) $theme_btn_top_border . 'px)',
@@ -597,7 +614,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 				}
 
-				if ( ! astra_apply_new_default_blog_values() ) {
+				if ( ! astra_button_default_padding_updated() ) {
 					$gb_patterns_min_mobile_css['.editor-styles-wrapper p.has-background'] = array(
 						'padding' => '20px',
 					);

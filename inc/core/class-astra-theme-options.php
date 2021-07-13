@@ -375,6 +375,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					'body-line-height'                     => $apply_new_default_values ? 1.8 : '',
 					'para-margin-bottom'                   => '',
+					'underline-content-links'              => true,
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
 					'headings-font-weight'                 => $apply_new_default_values ? 600 : 'inherit',

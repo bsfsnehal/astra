@@ -969,6 +969,20 @@ function wordpress_5_8_compat() {
 		} );
 	} );
 
+	// Add preview underline in customizer for content links.
+	wp.customize( 'astra-settings[underline-content-links]', function( setting ) {
+		setting.bind( function( value ) {
+			var dynamicStyle = '';
+			if ( value ) {
+				dynamicStyle = '.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a) { text-decoration: underline; } ';
+				astra_add_dynamic_css( 'underline-content-links', dynamicStyle );
+			} else {
+				dynamicStyle = '.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a) { text-decoration: unset; } ';
+				astra_add_dynamic_css( 'underline-content-links', dynamicStyle );
+			}
+		} );
+	} );
+
 	if ( astraCustomizer.page_builder_button_style_css ) {
 		if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
 			if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'typo' == astraCustomizer.elementor_default_color_font_setting ) {

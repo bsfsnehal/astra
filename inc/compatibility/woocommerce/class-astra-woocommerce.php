@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
@@ -875,6 +875,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			$css_output = array(
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
@@ -889,6 +895,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
+				),
+				'.woocommerce a.button:visited, .woocommerce button.button:visited, .woocommerce .woocommerce-message a.button:visited, .woocommerce #respond input#submit:visited, .woocommerce #respond input#submit.alt:visited, .woocommerce a.button.alt:visited, .woocommerce button.button.alt:visited, .woocommerce input.button.alt:visited, .woocommerce input.button:visited, .woocommerce button.button.alt.disabled:visited, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:visited, .woocommerce nav.woocommerce-pagination ul li a:visited' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
 				),
 				'.woocommerce-message, .woocommerce-info' => array(
 					'border-top-color' => $link_color,
@@ -1537,13 +1547,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( ! is_shop() && ! is_product() ) {
 
-				$css_output .= astra_parse_css( 
+				$css_output .= astra_parse_css(
 					array(
 						'.widget_product_search button' => array(
 							'flex'    => '0 0 auto',
 							'padding' => '10px 20px;',
 						),
-					) 
+					)
 				);
 			}
 

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.6.4' );
+define( 'ASTRA_THEME_VERSION', '3.7.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -58,11 +58,13 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/custom-menu-old-header.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/container-layouts.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/astra-icons.php';
+require_once ASTRA_THEME_DIR . 'inc/dynamic-css/wordpress-compat.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/inline-on-mobile.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
+require_once ASTRA_THEME_DIR . 'inc/class-astra-global-palette.php';
 
 /**
  * Custom template tags for this theme.
@@ -107,7 +109,7 @@ if ( is_admin() ) {
 	 * Admin Menu Settings
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
-	require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
+	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
 
 	/**
 	 * Metabox additions.
@@ -150,6 +152,11 @@ require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-tr
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
 require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
+
+// blog options compatibility with add-on version.
+if ( ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.4.0', '>' ) ) || ! defined( 'ASTRA_EXT_VER' ) ) {
+	require_once ASTRA_THEME_DIR . 'inc/addons/blog/class-astra-blog.php';
+}
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {

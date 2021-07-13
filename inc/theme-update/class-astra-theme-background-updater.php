@@ -88,6 +88,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.0' => array(
 				'astra_headings_font_support',
 				'astra_remove_logo_max_width',
+				'astra_update_button_defaults_and_gb_button_patterns',
 				'astra_transparent_header_default_value',
 			),
 			'3.6.1' => array(
@@ -99,6 +100,13 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.6.4' => array(
 				'astra_update_underline_link_setting',
+			),
+			'3.7.0' => array(
+				'astra_update_sticky_footer_flag',
+				'astra_blog_grid_css_compatiblity',
+				'astra_fix_footer_widget_right_margin_case',
+				'astra_support_wp_5_8',
+				'astra_clear_all_assets_cache',
 			),
 		);
 
@@ -130,7 +138,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 *
 		 * @since 2.3.0
 		 *
-		 * @return true if there is a problem spawning a call to Wp-Cron system.
+		 * @return bool true if there is a problem spawning a call to WP-Cron system, else false.
 		 */
 		public function test_cron() {
 

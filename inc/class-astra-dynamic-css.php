@@ -542,7 +542,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			// Default widget title color.
-			if ( self::is_support_link_default_color() ) {
+			if ( self::has_default_widget_title_color() ) {
 				// Widget Title.
 				$css_output['.widget-title'] = array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
@@ -2723,7 +2723,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
 		 */
-		public function is_support_link_default_color() {
+		public static function has_default_widget_title_color() {
 			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
 			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );

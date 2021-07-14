@@ -3180,7 +3180,7 @@ function astra_update_sticky_footer_flag() {
  * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
  *
  * @since x.x.x
- * @return void.
+ * @return void
  */
 function astra_blog_grid_css_compatiblity() {
 	$theme_options = get_option( 'astra-settings', array() );

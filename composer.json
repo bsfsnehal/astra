@@ -27,18 +27,12 @@
       ]
     }
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:brainstormforce/astra-notices.git"
-    }
-  ],
   "scripts": {
     "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
     "post-update-cmd": "vendor/bin/cghooks update",
     "format": "vendor/bin/phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
     "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
     "psalm": "./vendor/bin/psalm",
-    "update-stubs": "rm tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php"
+    "update-stubs": "rm tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && vendor/bin/generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php"
   }
 }

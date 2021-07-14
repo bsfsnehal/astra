@@ -39,31 +39,32 @@ if ( ! class_exists( 'Astra_Blog_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$astra_apply_new_default_blog_values = astra_apply_new_default_blog_values();
 			// Blog / Archive.
 			$defaults['blog-space-bet-posts']     = true;
-			$defaults['blog-grid']                = 3;
+			$defaults['blog-grid']                = $astra_apply_new_default_blog_values ? 3 : 1;
 			$defaults['blog-grid-layout']         = 1;
 			$defaults['blog-layout']              = 'blog-layout-1';
-			$defaults['blog-excerpt-count']       = astra_apply_new_default_blog_values() ? 40 : 55;
-			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra' );
+			$defaults['blog-excerpt-count']       = $astra_apply_new_default_blog_values ? 40 : 55;
+			$defaults['blog-read-more-text']      = __( 'Read More »', 'astra-addon' );
 			$defaults['blog-post-inside-spacing'] = array(
 				'desktop'      => array(
-					'top'    => 30,
-					'right'  => 30,
-					'bottom' => 30,
-					'left'   => 30,
+					'top'    => $astra_apply_new_default_blog_values ? 30 : '',
+					'right'  => $astra_apply_new_default_blog_values ? 30 : '',
+					'bottom' => $astra_apply_new_default_blog_values ? 30 : '',
+					'left'   => $astra_apply_new_default_blog_values ? 30 : '',
 				),
 				'tablet'       => array(
-					'top'    => 30,
-					'right'  => 30,
-					'bottom' => 30,
-					'left'   => 30,
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
 				),
 				'mobile'       => array(
-					'top'    => 30,
-					'right'  => 30,
-					'bottom' => 30,
-					'left'   => 30,
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
 				),
 				'desktop-unit' => 'px',
 				'tablet-unit'  => 'px',

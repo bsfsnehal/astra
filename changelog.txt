@@ -21,14 +21,11 @@ v3.7.0 (Unreleased)
 - Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
 - Fix: Sidebar block editor width changes on the widgets page.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
-<<<<<<< HEAD
 
 v3.6.4
-=======
 - Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
 v3.6.3
->>>>>>> d2af3cd03c5eeb37c98a0211b4f4ba2247c4be68
 - Improvement: Introducing content links underline option.
 
 v3.6.3

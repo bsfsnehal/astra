@@ -2822,6 +2822,15 @@ namespace {
         {
         }
         /**
+         * For existing users, do not reflect direct change.
+         *
+         * @since x.x.x
+         * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
+         */
+        public static function is_wordpress_5_8_support_enabled()
+        {
+        }
+        /**
          * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
          *
          * @since 2.3.3
@@ -11151,7 +11160,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case', 'astra_support_wp_5_8'));
         /**
          *  Constructor
          */
@@ -13561,6 +13570,15 @@ namespace {
     {
     }
     /**
+     * Astra WordPress compatibility - Dynamic CSS.
+     *
+     * @param string $dynamic_css Dynamic CSS.
+     * @since x.x.x
+     */
+    function astra_wordpress_compat_css($dynamic_css)
+    {
+    }
+    /**
      * Function to get Body Font Family
      *
      * @since 1.0.0
@@ -13816,21 +13834,21 @@ namespace {
     {
     }
     /**
-     * Check is WordPress version is greater than or equal to beta 5.8 version.
-     *
-     * @since x.x.x
-     * @return boolean
-     */
-    function astra_has_widgets_block_editor()
-    {
-    }
-    /**
      * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
      *
      * @since 3.6.3
      * @return string
      */
     function astra_button_default_padding_updated()
+    {
+    }
+    /**
+     * Check is WordPress version is greater than or equal to beta 5.8 version.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_has_widgets_block_editor()
     {
     }
     /**
@@ -14756,20 +14774,10 @@ namespace {
     {
     }
     /**
-     * Set flag to maintain backward compatibility for existing users.
-     * Fixing the case where footer widget's right margin space not working.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_fix_footer_widget_right_margin_case()
-    {
-    }
-    /**
      * Set flag for updated default values for buttons & add GB Buttons padding support.
      *
      * @since 3.6.3
-     * @return void
+     * @return void.
      */
     function astra_button_default_values_updated()
     {
@@ -14781,6 +14789,25 @@ namespace {
      * @return void
      */
     function astra_update_underline_link_setting()
+    {
+    }
+    /**
+     * Set flag to maintain backward compatibility for existing users.
+     * Fixing the case where footer widget's right margin space not working.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_fix_footer_widget_right_margin_case()
+    {
+    }
+    /**
+     * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_support_wp_5_8()
     {
     }
     /**

@@ -693,7 +693,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
-
 			if ( ! $sanitize_callback ) {
 				$config = $this->sanitize_control( $config );
 			}
@@ -1365,7 +1364,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
 				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_core_patterns_compat(),
+				'updated_gb_outline_button_patterns'   => astra_apply_new_default_blog_values(),
 				'font_weights_widget_title_support'    => Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor(),
+				'is_wp_5_8_compat'                     => Astra_Dynamic_CSS::is_wordpress_5_8_support_enabled(),
 				'updated_gb_outline_button_patterns'   => astra_button_default_padding_updated(),
 			);
 

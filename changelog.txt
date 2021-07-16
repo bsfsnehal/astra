@@ -1,4 +1,5 @@
 v3.7.0 (Unreleased)
+- Improvement: Compatibility with the WordPress 5.8.
 - Improvement: Added theme support for the Rank Math breadcrumb SEO schema.
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.

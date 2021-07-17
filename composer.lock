@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f045eba7a6014aa3575d8f1554f04217",
+    "content-hash": "41fdb433026707d8f52e2f35d2d0c3e8",
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
             "version": "1.1.8",
             "source": {
                 "type": "git",
-                "url": "git@github.com:brainstormforce/astra-notices.git",
+                "url": "https://github.com/brainstormforce/astra-notices.git",
                 "reference": "9e46068fa861816d88cae4bbed86adac30743809"
             },
             "dist": {
@@ -31,17 +31,7 @@
                 "wp-coding-standards/wpcs": "^2.3"
             },
             "type": "wordpress-plugin",
-            "scripts": {
-                "format": [
-                    "vendor/bin/phpcbf"
-                ],
-                "lint": [
-                    "vendor/bin/phpcs"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL v3"
             ],
@@ -53,8 +43,8 @@
             ],
             "description": "Easily create admin notices",
             "support": {
-                "source": "https://github.com/brainstormforce/astra-notices/tree/1.1.8",
-                "issues": "https://github.com/brainstormforce/astra-notices/issues"
+                "issues": "https://github.com/brainstormforce/astra-notices/issues",
+                "source": "https://github.com/brainstormforce/astra-notices/tree/1.1.8"
             },
             "time": "2021-07-07T09:51:07+00:00"
         },
@@ -1214,16 +1204,16 @@
         },
         {
             "name": "php-stubs/woocommerce-stubs",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "f0f6a806d92d8918d0dfccde5c7300ce182aec0d"
+                "reference": "b80d16b146a6858b4c53afff116c7af7d59afad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/f0f6a806d92d8918d0dfccde5c7300ce182aec0d",
-                "reference": "f0f6a806d92d8918d0dfccde5c7300ce182aec0d",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/b80d16b146a6858b4c53afff116c7af7d59afad5",
+                "reference": "b80d16b146a6858b4c53afff116c7af7d59afad5",
                 "shasum": ""
             },
             "require": {
@@ -1252,9 +1242,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/woocommerce-stubs/issues",
-                "source": "https://github.com/php-stubs/woocommerce-stubs/tree/v5.4.0"
+                "source": "https://github.com/php-stubs/woocommerce-stubs/tree/v5.5.0"
             },
-            "time": "2021-06-09T05:54:56+00:00"
+            "time": "2021-07-12T13:57:36+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",

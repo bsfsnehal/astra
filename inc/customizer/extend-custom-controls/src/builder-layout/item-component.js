@@ -111,7 +111,7 @@ const ItemComponent = props => {
 				e.stopPropagation();
 				props.focusItem( undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : '' );
 				} }>
-			<Dashicon icon="dashicon dashicons dashicons-admin-generic"/>
+			<Dashicon data-tooltip={ __('General', 'astra') } icon="dashicon dashicons dashicons-admin-generic"/>
 		</Button>
 		)}
 
@@ -120,7 +120,7 @@ const ItemComponent = props => {
 				e.stopPropagation();
 				props.focusItem( undefined !== choices[props.item] && undefined !== choices[props.item].section ? 'astra-' + choices[props.item].section : '' );
 				} }>
-			<Dashicon icon="dashicon dashicons dashicons-admin-settings"/>
+			<Dashicon data-tooltip={ __('Design', 'astra') } icon="dashicon dashicons dashicons-admin-settings"/>
 		</Button>
 		)}
 

@@ -7,6 +7,7 @@ mix.webpackConfig( () => {
 		plugins: [
 			new RTLCSSPlugin( {
 				filename: '[name]-rtl.css',
+				minify: false,
 			} ),
 		],
 	};

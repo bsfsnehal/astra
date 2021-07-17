@@ -2,16 +2,17 @@ const mix = require( 'laravel-mix' );
 const RTLCSSPlugin = require( 'rtlcss-webpack-mix-plugin' );
 require( '@tinypixelco/laravel-mix-wp-blocks' );
 
-mix.webpackConfig( () => {
-	return {
-		plugins: [
-			new RTLCSSPlugin( {
-				filename: '[name]-rtl.css',
-				minify: false,
-			} ),
-		],
-	};
-} );
+mix
+	.webpackConfig( () => {
+		return {
+			plugins: [
+				new RTLCSSPlugin( {
+					filename: '[name]-rtl.css',
+					minify: false,
+				} ),
+			],
+		};
+	} );
 
 mix
 	.sass( 'sass/style.scss', 'assets/css/unminified' )

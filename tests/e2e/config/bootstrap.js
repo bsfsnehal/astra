@@ -171,7 +171,9 @@ async function runAxeTests() {
 		return;
 	}
 
-	await expect( page ).toPassAxeTests();
+	await expect( page ).toPassAxeTests( {
+		exclude: '#wpadminbar',
+	} );
 }
 
 /**

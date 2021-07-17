@@ -14,9 +14,13 @@ mix.webpackConfig( () => {
 
 mix
 	.sass( 'sass/style.scss', 'assets/css/unminified' )
+	.sass( 'sass/style-flex.scss', 'assets/css/unminified' )
 	.sass( 'sass/main.scss', 'assets/css/unminified' )
 	.sass( 'sass/frontend.scss', 'assets/css/unminified' )
+	.sass( 'sass/site/navigation/menu-animation.scss', 'assets/css/unminified' )
 	.sass( 'sass/media/galleries.scss', 'assets/css/unminified' )
+	.sass( 'sass/editor-style.scss', 'assets/css/unminified' )
+	.sass( 'sass/admin/block-editor-styles.scss', 'inc/assets/css' )
 	.sass( 'sass/site/compatibility/bne-flyout.scss', 'assets/css/unminified/compatibility' )
 	.sass( 'sass/site/compatibility/contact-form-7-main.scss', 'assets/css/unminified/compatibility' )
 	.sass( 'sass/site/compatibility/contact-form-7.scss', 'assets/css/unminified/compatibility' )

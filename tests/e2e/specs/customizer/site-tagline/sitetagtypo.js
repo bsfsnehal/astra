@@ -15,8 +15,8 @@ describe( 'Site tagline typography settings in the customizer', () => {
 
 			'font-size-site-tagline': {
 				desktop:'50',
-				tablet: '12',
-				mobile: '10',
+				tablet: '20',
+				mobile: '15',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -36,7 +36,7 @@ describe( 'Site tagline typography settings in the customizer', () => {
 			`${ sitetaglinetypography[ 'font-size-site-tagline' ].desktop }${ sitetaglinetypography[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
 		);
 
-		await setBrowserViewport( '921px' );
+		await setBrowserViewport( 'medium' );
 
 		await expect( {
 			selector: '.site-header .site-description',
@@ -44,9 +44,10 @@ describe( 'Site tagline typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ sitetaglinetypography[ 'font-size-site-tagline' ].tablet }${ sitetaglinetypography[ 'font-size-site-tagline' ][ 'tablet-unit' ] }`,
 		);
+		await setBrowserViewport( 'small' );
 
 		await expect( {
-			selector: '.ast-mobile-header .site-header .site-description',
+			selector: '.site-header .site-description',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ sitetaglinetypography[ 'font-size-site-tagline' ].mobile }${ sitetaglinetypography[ 'font-size-site-tagline' ][ 'mobile-unit' ] }`,

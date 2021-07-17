@@ -18,6 +18,14 @@ v3.7.0 (Unreleased)
 - Fix: Sidebar block editor width changes on the widgets page.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
 
+v3.6.5
+- Improvement: Added default styling for - Site Logo, Site Tagline, Login/out, Search blocks.
+- Improvement: Widget Element - block editor and design section added.
+- Fix: Customizer not working due to conflict with block editor JS.
+- Fix: Alignement of title and content in the editor.
+- Fix: WP 5.8 UI conflict with extra control spacing and section title font in the customizer.
+- Fix: Widget page block editor width not appearing properly.
+
 v3.6.4
 - Improvement: Introducing content links underline option.
 

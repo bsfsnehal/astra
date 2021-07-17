@@ -54,6 +54,7 @@
     "postcss": "^8.3.5",
     "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
     "postcss-loader": "^6.1.1",
+    "rtlcss-webpack-mix-plugin": "^1.0.1",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "webpack": "^5.45.1",

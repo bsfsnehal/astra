@@ -192,6 +192,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$primary_submenu_b_color      = astra_get_option( 'primary-submenu-b-color', $theme_color );
 			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
+			// Astra and WordPress-5.8 compatibility.
+			$is_wp_5_8_support_enabled = self::is_block_editor_support_enabled();
+
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				// Footer Bar Colors.
 				$footer_bg_obj       = astra_get_option( 'footer-bg-obj' );
@@ -1468,11 +1471,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			if ( self::page_builder_button_style_css() ) {
 
+				$search_button_selector       = $is_wp_5_8_support_enabled ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
+				$search_button_hover_selector = $is_wp_5_8_support_enabled ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
+
 				/**
 				 * Global button CSS - Desktop.
 				 */
 				$global_button_desktop = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
@@ -1493,7 +1499,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
-					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover , input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover , input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' . $search_button_hover_selector => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
@@ -1747,11 +1753,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', astra_get_mobile_breakpoint() );
 			} else {
 
+				$search_button_selector       = $is_wp_5_8_support_enabled ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
+				$search_button_hover_selector = $is_wp_5_8_support_enabled ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
+
 				/**
 				 * Global button CSS - Desktop.
 				 */
 				$global_button_desktop = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector => array(
 						'color'            => esc_attr( $btn_text_color ),
 						'border-color'     => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 						'background-color' => esc_attr( $btn_bg_color ),
@@ -1766,7 +1775,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform'   => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 					),
-					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' . $search_button_hover_selector => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
@@ -3209,6 +3218,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			return false;
 
+		}
+
+		/**
+		 * For existing users, do not reflect direct change.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
+		 */
+		public static function is_block_editor_support_enabled() {
+			$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['astra-support-block-editor'] = ( isset( $astra_settings['astra-support-block-editor'] ) && false === $astra_settings['astra-support-block-editor'] ) ? false : true;
+			return apply_filters( 'astra_has_block_editor_support', $astra_settings['astra-support-block-editor'] );
 		}
 
 		/**

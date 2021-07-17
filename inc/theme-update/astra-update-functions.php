@@ -3086,22 +3086,6 @@ function astra_clear_all_assets_cache() {
 }
 
 /**
- * Set flag to maintain backward compatibility for existing users.
- * Fixing the case where footer widget's right margin space not working.
- *
- * @since x.x.x
- * @return void
- */
-function astra_fix_footer_widget_right_margin_case() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
-		$theme_options['support-footer-widget-right-margin'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Set flag for updated default values for buttons & add GB Buttons padding support.
  *
  * @since 3.6.3
@@ -3127,6 +3111,38 @@ function astra_update_underline_link_setting() {
 
 	if ( ! isset( $theme_options['underline-content-links'] ) ) {
 		$theme_options['underline-content-links'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users.
+ * Fixing the case where footer widget's right margin space not working.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_fix_footer_widget_right_margin_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
+		$theme_options['support-footer-widget-right-margin'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_support_block_editor() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['astra-support-block-editor'] ) ) {
+		$theme_options['astra-support-block-editor'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

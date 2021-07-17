@@ -649,6 +649,18 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
+ * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
+ *
+ * @since 3.6.3
+ * @return string
+ */
+function astra_button_default_padding_updated() {
+	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
+	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
+}
+
+/**
  * Check is WordPress version is greater than or equal to beta 5.8 version.
  *
  * @since x.x.x
@@ -660,16 +672,4 @@ function astra_has_widgets_block_editor() {
 		return true;
 	}
 	return false;
-}
-
-/**
- * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
- *
- * @since 3.6.3
- * @return string
- */
-function astra_button_default_padding_updated() {
-	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
-	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
 }

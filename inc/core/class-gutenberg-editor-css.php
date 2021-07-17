@@ -414,11 +414,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '1px';
 
 			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
+
+				$is_support_wp_5_8            = Astra_Dynamic_CSS::is_block_editor_support_enabled();
+				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
+				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
+
 				$button_desktop_css = array(
 					/**
 					 * Gutenberg button compatibility for default styling.
 					 */
-					'.wp-block-button .wp-block-button__link' => array(
+					'.wp-block-button .wp-block-button__link' . $search_button_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => $theme_btn_top_border,
 						'border-right-width'  => $theme_btn_right_border,
@@ -439,12 +444,25 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					),
-					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' => array(
+					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' . $search_button_hover_selector => array(
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
 					),
 				);
+
+				if ( $is_support_wp_5_8 ) {
+					$button_desktop_css['.wp-block-search .wp-block-search__input, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper'] = array(
+						'border-color' => '#eaeaea',
+						'background'   => '#fafafa',
+					);
+					$button_desktop_css['.block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__input']                       = array(
+						'padding' => '15px',
+					);
+					$button_desktop_css['.wp-block-search__button svg'] = array(
+						'fill' => 'currentColor',
+					);
+				}
 
 				$css .= astra_parse_css( $button_desktop_css );
 

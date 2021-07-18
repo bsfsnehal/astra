@@ -173,6 +173,9 @@ async function runAxeTests() {
 
 	await expect( page ).toPassAxeTests( {
 		exclude: '#wpadminbar',
+		disabledRules: [
+			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
+		],
 	} );
 }
 

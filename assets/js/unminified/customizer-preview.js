@@ -1585,3 +1585,15 @@ function wordpress_5_8_compat() {
     );
 
 } )( jQuery );
+
+document.addEventListener( 'astPartialContentRendered', function() {
+
+	body.classList.remove("ast-main-header-nav-open");
+
+	document.addEventListener( 'astMobileHeaderTypeChange', updateHeaderType, false );
+
+	init();
+
+	accountPopupTrigger();
+
+} );

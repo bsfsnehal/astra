@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_dynamic_theme_css', 'astra_wordpress_compat_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_block_editor_compatibility_css' );
 
 /**
  * Astra WordPress compatibility - Dynamic CSS.
@@ -18,11 +18,11 @@ add_filter( 'astra_dynamic_theme_css', 'astra_wordpress_compat_css' );
  * @param string $dynamic_css Dynamic CSS.
  * @since x.x.x
  */
-function astra_wordpress_compat_css( $dynamic_css ) {
+function astra_block_editor_compatibility_css( $dynamic_css ) {
 
-	if ( Astra_Dynamic_CSS::is_wordpress_5_8_support_enabled() ) {
+	if ( Astra_Dynamic_CSS::is_block_editor_support_enabled() ) {
 
-		$desktop_css = '
+		$compatibility_css = '
 		.wp-block-search {
 			margin-bottom: 20px;
 		}
@@ -60,7 +60,7 @@ function astra_wordpress_compat_css( $dynamic_css ) {
 			vertical-align: middle;
 		}';
 
-		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $desktop_css );
+		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
 	}
 
 	return $dynamic_css;

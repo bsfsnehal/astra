@@ -426,7 +426,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( Astra_Dynamic_CSS::page_builder_button_style_css() ) {
 
-				$is_support_wp_5_8            = Astra_Dynamic_CSS::is_wordpress_5_8_support_enabled();
+				$is_support_wp_5_8            = Astra_Dynamic_CSS::is_block_editor_support_enabled();
 				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 

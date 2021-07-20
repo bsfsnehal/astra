@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$primary_submenu_item_b_color = astra_get_option( 'primary-submenu-item-b-color', '#eaeaea' );
 
 			// Astra and WordPress-5.8 compatibility.
-			$is_wp_5_8_support_enabled = self::is_wordpress_5_8_support_enabled();
+			$is_wp_5_8_support_enabled = self::is_block_editor_support_enabled();
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				// Footer Bar Colors.
@@ -3264,10 +3264,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
 		 */
-		public static function is_wordpress_5_8_support_enabled() {
+		public static function is_block_editor_support_enabled() {
 			$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['astra-suport-wp-5-8'] = ( isset( $astra_settings['astra-suport-wp-5-8'] ) && false === $astra_settings['astra-suport-wp-5-8'] ) ? false : true;
-			return apply_filters( 'astra_wordpress_5_8_support', $astra_settings['astra-suport-wp-5-8'] );
+			$astra_settings['astra-support-block-editor'] = ( isset( $astra_settings['astra-support-block-editor'] ) && false === $astra_settings['astra-support-block-editor'] ) ? false : true;
+			return apply_filters( 'astra_has_block_editor_support', $astra_settings['astra-support-block-editor'] );
 		}
 
 		/**

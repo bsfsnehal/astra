@@ -3103,7 +3103,7 @@ function astra_clear_all_assets_cache() {
  * Set flag for updated default values for buttons & add GB Buttons padding support.
  *
  * @since 3.6.3
- * @return void.
+ * @return void
  */
 function astra_button_default_values_updated() {
 	$theme_options = get_option( 'astra-settings', array() );
@@ -3151,12 +3151,12 @@ function astra_fix_footer_widget_right_margin_case() {
  * @since x.x.x
  * @return void
  */
-function astra_support_wp_5_8() {
+function astra_support_block_editor() {
 	$theme_options = get_option( 'astra-settings' );
 
 	// Set flag on existing user's site to not reflect changes directly.
-	if ( ! isset( $theme_options['astra-suport-wp-5-8'] ) ) {
-		$theme_options['astra-suport-wp-5-8'] = false;
+	if ( ! isset( $theme_options['astra-support-block-editor'] ) ) {
+		$theme_options['astra-support-block-editor'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

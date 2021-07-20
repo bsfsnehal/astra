@@ -1,5 +1,6 @@
 import {
 	createURL,
+	setBrowserViewport,
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
 
@@ -18,7 +19,12 @@ describe( 'Primary Menu desktop typography and color settings in the customizer'
 				'mobile-unit': 'px',
 			},
 			'header-menu1-line-height': `0.99`,
-            'header-menu1-color-responsive': {'desktop':'rgb(199, 40, 40)'},
+            'header-menu1-color-responsive': {
+            	'desktop':'rgb(199, 40, 40)',
+            	'tablet':'rgb(200, 40, 40)',
+            	'mobile':'rgb(250, 40, 40)',
+
+            },
 		};
 
 		await setCustomize( primarymenutypography );
@@ -32,14 +38,7 @@ describe( 'Primary Menu desktop typography and color settings in the customizer'
 			property: 'font-family',
 		} ).cssValueToBe( `${ primarymenutypography[ 'header-menu1-font-family' ] }` 
         );
-
-		await expect( {
-			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
-			property: 'font-size',
-		} ).cssValueToBe(
-			`${ primarymenutypography[ 'header-menu1-font-size' ].desktop }${ primarymenutypography[ 'header-menu1-font-size' ][ 'desktop-unit' ] }`,
-		);
-
+        
 		await expect( {
 			selector: '.ast-builder-menu-1 .main-header-menu .menu-item > .menu-link',
 			property: 'font-weight',
@@ -52,5 +51,45 @@ describe( 'Primary Menu desktop typography and color settings in the customizer'
 			property: 'color',
 		} ).cssValueToBe( `${ primarymenutypography['header-menu1-color-responsive'].desktop }` 
         );
+
+		await expect( {
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ primarymenutypography[ 'header-menu1-font-size' ].desktop }${ primarymenutypography[ 'header-menu1-font-size' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'medium' );
+
+		await expect( {
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ primarymenutypography[ 'header-menu1-font-size' ].tablet }${ primarymenutypography[ 'header-menu1-font-size' ][ 'tablet-unit' ] }`,
+		);
+
+		await expect( {
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+			property: 'color',
+		} ).cssValueToBe( `${ primarymenutypography['header-menu1-color-responsive'].tablet }` 
+        );
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ primarymenutypography[ 'header-menu1-font-size' ].mobile }${ primarymenutypography[ 'header-menu1-font-size' ][ 'mobile-unit' ] }`,
+		);
+
+		await expect( {
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+			property: 'color',
+		} ).cssValueToBe( `${ primarymenutypography['header-menu1-color-responsive'].mobile }` 
+        );
+
 	} );
+
+
 } );

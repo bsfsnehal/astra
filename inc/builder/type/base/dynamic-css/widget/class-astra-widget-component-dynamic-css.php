@@ -41,7 +41,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 				continue;
 			}
 
-			$_section = 'sidebar-widgets-' . $builder_type . '-widget-' . $index;
+			$_section = ( ! astra_has_widgets_block_editor() ) ? 'sidebar-widgets-' . $builder_type . '-widget-' . $index : 'astra-sidebar-widgets-' . $builder_type . '-widget-' . $index;
 
 			$selector = '.' . $builder_type . '-widget-area[data-section="sidebar-widgets-' . $builder_type . '-widget-' . $index . '"]';
 

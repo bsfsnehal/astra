@@ -81,11 +81,15 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	);
 
 	// Apply border only when it has positive value.
-	if ( $hbb_header_divider ) {
+	if ( '' !== $hbb_header_divider && $hbb_header_divider ) {
 		$common_css_output['.ast-below-header-bar'] = array(
 			'border-bottom-width' => astra_get_css_value( $hbb_header_divider, 'px' ),
 			'border-bottom-color' => esc_attr( $hbb_border_color ),
 			'border-bottom-style' => 'solid',
+		);
+	} else {
+		$common_css_output['.ast-below-header-bar'] = array(
+			'border-bottom-style' => 'none',
 		);
 	}
 

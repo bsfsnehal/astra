@@ -171,5 +171,16 @@ input[type="text"] {
 	h5,
 	h6{
 		font-weight: 600;
-	} 
+	}
+}
+
+/* Customizer - widget appender bottom space CSS */
+.block-list-appender {
+    margin-bottom: 20px;
+}
+
+.block-editor-block-inspector{
+    .block-editor-block-card{
+        margin-top: 12px;
+    }
 }

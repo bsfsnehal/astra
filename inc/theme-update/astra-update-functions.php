@@ -3058,6 +3058,20 @@ function astra_remove_logo_max_width() {
  * @since 3.6.0
  * @return void.
  */
+function astra_update_button_defaults_and_gb_button_patterns() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-update-button-defaults-to-gb-support'] ) ) {
+		$theme_options['can-update-button-defaults-to-gb-support'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set default value for the transparent header.
+ *
+ * @return void
+ */
 function astra_transparent_header_default_value() {
 	$theme_options = get_option( 'astra-settings', array() );
 
@@ -3134,15 +3148,59 @@ function astra_fix_footer_widget_right_margin_case() {
 /**
  * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
  *
- * @since x.x.x
+ * @since 3.6.5
  * @return void
  */
 function astra_support_block_editor() {
 	$theme_options = get_option( 'astra-settings' );
-
 	// Set flag on existing user's site to not reflect changes directly.
-	if ( ! isset( $theme_options['astra-support-block-editor'] ) ) {
-		$theme_options['astra-support-block-editor'] = false;
+	if ( ! isset( $theme_options['support-block-editor'] ) ) {
+		$theme_options['support-block-editor'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_update_sticky_footer_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['stick-footer-at-bottom'] ) ) {
+		$theme_options['stick-footer-at-bottom'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_blog_grid_css_compatiblity() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-blog-grid-css'] ) ) {
+		$theme_options['apply-blog-grid-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_remove_elementor_toc_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
+		$theme_options['remove-elementor-toc-margin-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

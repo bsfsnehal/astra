@@ -1,7 +1,7 @@
-v3.7.0 (Unreleased)
-- Improvement: Compatibility with WordPress 5.8.
-- Improvement: Added theme support for the Rank Math breadcrumb SEO schema.
+v3.6.6 (Unreleased)
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
+- Improvement: Moved customizer related code from frontend JS file to customizer JS file.
+- Improvement: Stick Footer to bottom when page content is Less.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
@@ -9,6 +9,8 @@ v3.7.0 (Unreleased)
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 - Fix: Global headings font family not working in the Gutenberg editor.
 - Fix: Footer Builder - Widgets - Right margin space not working.
+- Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
+- Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 - Fix: Search icon color is not applying to the Standard and Transparent Header Search Box style.
 - Fix: Removed the spacing applied for the menu items in the customizer section.
 - Fix: Builder - WooCommerce & EDD cart - Cart and Checkout buttons not visible when multiple products added to cart flyout.
@@ -18,8 +20,23 @@ v3.7.0 (Unreleased)
 - Fix: Sidebar block editor width changes on the widgets page.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
 - Fix: Customizer builder section not scrollable when multiple elements dropped in builder area.
+- Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget.
+
+v3.6.5
+- Improvement: Compatibility with WordPress 5.8.
+- Improvement: Added default styling for - Site Logo, Site Tagline, Login/out and Search blocks.
+- Improvement: Widget Element - block editor and design section added.
+- Improvement: Theme support added for Rank Math plugin - breadcrumbs module.
+- Fix: Customizer not working due to conflict with block editor JS.
+- Fix: Alignment of title and content in the editor.
+- Fix: WP 5.8 UI conflict with extra control spacing and section title font in the customizer.
+- Fix: Widget page block editor width not appearing properly.
+- Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
 v3.6.4
+- Fix: Headers showing border even though its not set from customizer in FireFox browser.
+
+v3.6.3
 - Improvement: Introducing content links underline option.
 
 v3.6.3

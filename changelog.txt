@@ -19,6 +19,7 @@ v3.6.6 (Unreleased)
 - Fix: Removed 'Disable Footer Widgets' option in Page meta settings for new Header Footer builder.
 - Fix: Sidebar block editor width changes on the widgets page.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
+- Fix: Customizer builder section not scrollable when multiple elements dropped in builder area.
 - Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget.
 
 v3.6.5

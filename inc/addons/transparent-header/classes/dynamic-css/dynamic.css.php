@@ -345,7 +345,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	/* Parse CSS from array() */
 	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
-		$css .= astra_parse_css( $transparent_header_base, astra_get_tablet_breakpoint() );
+		$css .= astra_parse_css( $transparent_header_base, strval( astra_get_tablet_breakpoint() ) );
 
 		// If Transparent header is active on mobile + desktop, enqueue CSS without media queeries.
 		// If only for desktop add media query for the transparent header.
@@ -458,7 +458,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 					),
 				)
 			);
-		}   
+		}
 	}
 
 	if ( 'mobile' === $transparent_header_devices ) {
@@ -491,7 +491,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'',
 				astra_get_tablet_breakpoint()
 			);
-		}   
+		}
 	}
 
 	if ( 'desktop' === $transparent_header_devices ) {
@@ -503,26 +503,22 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		}
 
 		if ( '' !== $transparent_header_separator && 'inherit' !== $transparent_header_separator ) {
-			$css .= astra_parse_css(
-				array(
-					$selector => array(
-						'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
-						'border-bottom-style' => 'solid',
-						'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
-					),
+			$transparent_header_base = array(
+				$selector => array(
+					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-style' => 'solid',
+					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
 				),
-				astra_get_tablet_breakpoint()
 			);
 		} else {
-			$css .= astra_parse_css(
-				array(
-					$selector => array(
-						'border-bottom-style' => 'none',
-					),
+			$transparent_header_base = array(
+				$selector => array(
+					'border-bottom-style' => 'none',
 				),
-				astra_get_tablet_breakpoint()
 			);
 		}
+
+		$css .= astra_parse_css( $transparent_header_base, strval( astra_get_tablet_breakpoint() ) );
 	}
 
 	$dynamic_css .= $css;

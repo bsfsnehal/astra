@@ -1,3 +1,21 @@
+v3.6.5
+- Improvement: Compatibility with WordPress 5.8.
+- Improvement: Added default styling for - Site Logo, Site Tagline, Login/out and Search blocks.
+- Improvement: Widget Element - block editor and design section added.
+- Improvement: Theme support added for Rank Math plugin - breadcrumbs module.
+- Fix: Customizer not working due to conflict with block editor JS.
+- Fix: Alignment of title and content in the editor.
+- Fix: WP 5.8 UI conflict with extra control spacing and section title font in the customizer.
+- Fix: Widget page block editor width not appearing properly.
+- Fix: Headers showing border even though its not set from customizer in FireFox browser.
+
+v3.6.4
+- Improvement: Introducing content links underline option.
+
+v3.6.3
+- Improvement: Global button default padding values updated.
+- Fix: Global button padding settings not working for Gutenberg buttons. ( https://wpastra.com/docs/apply-default-button-padding/ )
+
 v3.6.2
 - Fix: Enable 'Preload Local Fonts' option affects on height of Gutenberg Cover edit block.
 - Fix: Related Posts articles showing meta structure based on current active post.

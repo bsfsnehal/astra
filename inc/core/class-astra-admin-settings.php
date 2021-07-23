@@ -139,10 +139,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
 			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
-			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
+			add_action( 'admin_init', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
-			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
+			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
 		}
 
 		/**

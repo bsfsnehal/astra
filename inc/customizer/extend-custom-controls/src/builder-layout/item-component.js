@@ -106,6 +106,24 @@ const ItemComponent = props => {
 			</div>
 		}
 
+		{ astra.customizer.is_block_widget && props.item.includes('widget') &&(
+		<Button	className="ahfb-builder-item-icon ahfb-setting-icon" onClick={ (e) => {
+				e.stopPropagation();
+				props.focusItem( undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : '' );
+				} }>
+			<Dashicon data-tooltip={ __('General', 'astra') } icon="dashicon dashicons dashicons-admin-generic"/>
+		</Button>
+		)}
+
+		{astra.customizer.is_block_widget && props.item.includes('widget') &&(
+		<Button	className="ahfb-builder-item-icon ahfb-setting-icon" onClick={ (e) => {
+				e.stopPropagation();
+				props.focusItem( undefined !== choices[props.item] && undefined !== choices[props.item].section ? 'astra-' + choices[props.item].section : '' );
+				} }>
+			<Dashicon data-tooltip={ __('Design', 'astra') } icon="dashicon dashicons dashicons-admin-settings"/>
+		</Button>
+		)}
+
 		<Button className="ahfb-builder-item-icon" onClick={e => {
 			e.stopPropagation();
 			props.removeItem(props.item);

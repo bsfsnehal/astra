@@ -3116,6 +3116,22 @@ function astra_update_underline_link_setting() {
 }
 
 /**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since 3.6.5
+ * @return void
+ */
+function astra_support_block_editor() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['support-block-editor'] ) ) {
+		$theme_options['support-block-editor'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to maintain backward compatibility for existing users.
  * Fixing the case where footer widget's right margin space not working.
  *
@@ -3132,17 +3148,16 @@ function astra_fix_footer_widget_right_margin_case() {
 }
 
 /**
- * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @since x.x.x
  * @return void
  */
-function astra_support_block_editor() {
-	$theme_options = get_option( 'astra-settings' );
+function astra_remove_elementor_toc_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
 
-	// Set flag on existing user's site to not reflect changes directly.
-	if ( ! isset( $theme_options['astra-support-block-editor'] ) ) {
-		$theme_options['astra-support-block-editor'] = false;
+	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
+		$theme_options['remove-elementor-toc-margin-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

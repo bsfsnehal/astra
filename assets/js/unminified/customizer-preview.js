@@ -625,8 +625,8 @@ function isJsonString( str ) {
 	return true;
 }
 
-function wordpress_5_8_compat() {
-	return astraCustomizer.is_wp_5_8_compat || false;
+function hasWordPressWidgetBlockEditor() {
+	return astraCustomizer.has_block_editor_support || false;
 }
 
 ( function( $ ) {
@@ -857,7 +857,7 @@ function wordpress_5_8_compat() {
 	wp.customize( 'astra-settings[button-radius]', function( setting ) {
 		setting.bind( function( border ) {
 
-			var search_button_selector = wordpress_5_8_compat() ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
+			var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
 
 			var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' + search_button_selector + '{ border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
@@ -1318,7 +1318,7 @@ function wordpress_5_8_compat() {
 				if( astraCustomizer.gb_outline_buttons_patterns_support && ! astraCustomizer.updated_gb_outline_button_patterns ) {
 					wp.customize.preview.send( 'refresh' );
 				} else {
-					var search_button_selector = wordpress_5_8_compat() ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
+					var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
 					var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector + search_button_selector;
 						dynamicStyle += '{';
 						dynamicStyle += 'border-top-width:'  + border.top + 'px;';
@@ -1334,7 +1334,7 @@ function wordpress_5_8_compat() {
 		} );
 	} );
 
-	var search_button_selector = wordpress_5_8_compat() ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
+	var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
 
 	astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector + search_button_selector, 'padding', [ 'top', 'bottom' ] );
 
@@ -1394,8 +1394,8 @@ function wordpress_5_8_compat() {
 	// Site Tagline - Text Transform
 	astra_css( 'astra-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
 
-	var search_button_selector = wordpress_5_8_compat() ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
-	var search_button_hover_selector = wordpress_5_8_compat() ? ', .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .site-content form.wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '' ;
+	var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
+	var search_button_hover_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '' ;
 
 	if ( astraCustomizer.page_builder_button_style_css ) {
 

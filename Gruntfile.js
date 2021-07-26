@@ -792,7 +792,7 @@ module.exports = function (grunt) {
     // Load grunt tasks
     grunt.loadNpmTasks('grunt-rtlcss');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('@lodder/grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');

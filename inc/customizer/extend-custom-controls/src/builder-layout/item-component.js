@@ -105,7 +105,7 @@ const ItemComponent = props => {
 				}
 			</div>
 		}
-		
+
 		{ astra.customizer.is_block_widget && props.item.includes('widget') &&(
 		<Button	className="ahfb-builder-item-icon ahfb-setting-icon" onClick={ (e) => {
 				e.stopPropagation();

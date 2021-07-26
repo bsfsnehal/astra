@@ -100,9 +100,12 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.4' => array(
 				'astra_update_underline_link_setting',
 			),
-			'3.7.0' => array(
-				'astra_fix_footer_widget_right_margin_case',
+			'3.6.5' => array(
 				'astra_support_block_editor',
+			),
+			'3.6.6' => array(
+				'astra_fix_footer_widget_right_margin_case',
+				'astra_remove_elementor_toc_margin',
 			),
 		);
 

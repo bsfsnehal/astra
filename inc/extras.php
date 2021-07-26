@@ -663,7 +663,7 @@ function astra_button_default_padding_updated() {
 /**
  * Check is WordPress version is greater than or equal to beta 5.8 version.
  *
- * @since x.x.x
+ * @since 3.6.5
  * @return boolean
  */
 function astra_has_widgets_block_editor() {
@@ -672,4 +672,16 @@ function astra_has_widgets_block_editor() {
 		return true;
 	}
 	return false;
+}
+
+/**
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_can_remove_elementor_toc_margin_space() {
+	$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
+	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
 }

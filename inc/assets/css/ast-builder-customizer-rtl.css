@@ -657,6 +657,7 @@
     transform: none;
     height: 100%;
     visibility: visible;
+    overflow: visible;
     top: 75px;
 }
 
@@ -5019,10 +5020,11 @@ i.fipicon-angle-left:before {
 }
 
 .ahfb-builder-item-icon .dashicons-admin-settings, .ahfb-builder-item-icon .dashicons-admin-generic{
-    width: 14px;
-    height: 14px;
-    font-size: 14px;
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
 	line-height: 14px;
+	color: #777777;
 }
 
 .ahfb-builder-item > .ahfb-builder-item-icon.ahfb-setting-icon {

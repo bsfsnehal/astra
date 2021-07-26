@@ -175,7 +175,7 @@ async function runAxeTests() {
 		options: {
 			runOnly: {
 				type: 'tag',
-				values: [ 'wcag2a' ],
+				values: [ 'wcag2a', 'wcag2aa' ],
 			},
 		},
 		exclude: [ [

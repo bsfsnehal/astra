@@ -172,6 +172,12 @@ async function runAxeTests() {
 	}
 
 	await expect( page ).toPassAxeTests( {
+		options: {
+			runOnly: {
+				type: 'tag',
+				values: [ 'wcag2a' ],
+			},
+		},
 		exclude: [ [
 			[ '#wpadminbar' ],
 			[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.

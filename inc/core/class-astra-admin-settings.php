@@ -107,18 +107,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				add_action( 'admin_head', __CLASS__ . '::admin_submenu_css' );
 			}
 
-			$requested_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
-			if ( strpos( $requested_page, self::$plugin_slug ) !== false ) {
+			// Let extensions hook into saving.
+			do_action( 'astra_admin_settings_scripts' );
 
-				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-
-				// Let extensions hook into saving.
-				do_action( 'astra_admin_settings_scripts' );
-
-				if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.5.0', '<' ) ) {
-					self::save_settings();
-				}
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.5.0', '<' ) ) {
+				self::save_settings();
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );

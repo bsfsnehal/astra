@@ -20,6 +20,7 @@ v3.6.6 (Unreleased)
 - Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: “Search” string in Search Form is not translatable.
 - Fix: Transparent header showing border even if it is not set from customizer in FireFox browser.
+- Fix: Installing Starter Templates plugin notice's "Get Started" button not working.
 
 v3.6.5
 - Improvement: Compatibility with WordPress 5.8.

@@ -1,3 +1,6 @@
+v3.7.1 (Unreleased)
+- Improvement: Builder - Removed design specific options from widgets in WordPress 5.8.
+
 v3.6.6 (Unreleased)
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Improvement: Moved customizer related code from frontend JS file to customizer JS file.

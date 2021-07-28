@@ -26,6 +26,8 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
+		$hex = apply_filters( 'astra_before_foreground_color_generation', $hex );
+
 		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
@@ -1180,7 +1182,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 				'data_attributes'   => apply_filters( 'astra_search_field_toggle_data_attrs', '' ),
 				'input_value'       => get_search_query(),
 				'show_input_submit' => false,
-			) 
+			)
 		);
 
 		/**

@@ -546,7 +546,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			// Default widget content color.
-			if ( self::is_support_link_default_color() ) {
+			if ( self::has_support_link_default_color() ) {
 				// Widget Title.
 				$css_output['.textwidget'] = array(
 					'color' => esc_attr( $text_color ),
@@ -2720,7 +2720,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
 		 */
-		public function is_support_link_default_color() {
+		public static function has_support_link_default_color() {
 			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
 			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );

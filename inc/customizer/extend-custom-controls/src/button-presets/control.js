@@ -8,8 +8,6 @@ export const ButtonPresetControl = wp.customize.astraControl.extend( {
 	ready : function() {
 		'use strict';
 		let control = this;
-		jQuery(document).mouseup(function(e) {
-
-		});
+		window.cachedBtnBGColor = '';
 	},
 } );

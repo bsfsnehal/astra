@@ -13,10 +13,9 @@ const ButtonPresetsComponent = (props) => {
 	const onChangePreset = (presetKey) => {
 		let borderRadius = options[presetKey]["border-radius"];
 		let btnBackgroundColor = options[presetKey]["button-bg-color"];
-		let btnColor = options[presetKey]["button-color"];
 		let borderWidth = options[presetKey]["border-size"];
 		let padding = options[presetKey]["button-padding"];
-		let borderColor = options[presetKey]["border-color"];
+		let btnTextColor = options[presetKey]["button-color"];
 
 		/// Padding
 		props.customizer
@@ -37,16 +36,41 @@ const ButtonPresetsComponent = (props) => {
 			.control("astra-settings[theme-button-border-group-border-size]")
 			.setting.set(borderWidth);
 
-		// Button Background color
-		props.customizer
-			.control("astra-settings[button-bg-color]")
-			.setting.set(btnBackgroundColor);
+		if( '' !== btnBackgroundColor ) {
 
-		props.customizer
-			.control("astra-settings[button-color]")
-			.setting.set(btnColor);
+			let cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
-		props.customizer.control( "astra-settings[theme-button-border-group-border-color]" ).setting.set( borderColor );
+			// Set button background color cached in window variable while switching to transparent button preset.
+			if( 'rgba(0,0,0,0)' == btnBackgroundColor && 'rgba(0,0,0,0)' !== cachedValue ) {
+				window.cachedBtnBGColor = cachedValue;
+			}
+
+			// Set Button Background color
+			props.customizer.control("astra-settings[button-bg-color]").setting.set( btnBackgroundColor );
+		} else {
+
+			let cachedValue = window.cachedBtnBGColor;
+			let optionValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
+
+			// Set option value in window cached variable if value is not transparent.
+			if( cachedValue != optionValue && 'rgba(0,0,0,0)' !== optionValue ) {
+				window.cachedBtnBGColor = optionValue;
+				cachedValue  = window.cachedBtnBGColor;
+			}
+
+			props.customizer.control("astra-settings[button-bg-color]").setting.set( cachedValue );
+		}
+
+		let btnTextOptionVal = props.customizer.control("astra-settings[button-color]").setting.get();
+
+		if( '' == btnTextOptionVal ) {
+			props.customizer.control("astra-settings[button-color]").setting.set( btnTextColor );
+		}
+
+		// If button text option value is equal to default button color set text color to blank.
+		if( options['button_04']['button-color'] == btnTextOptionVal && '' == btnTextColor ) {
+			props.customizer.control("astra-settings[button-color]").setting.set( '' );
+		}
 
 		setState( presetKey );
 		props.control.setting.set( presetKey );

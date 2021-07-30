@@ -130,7 +130,6 @@
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
-			console.log(  fontValue );
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
 
@@ -201,8 +200,6 @@
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
-
-			console.log( fontValue );
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 			var weightObject = AstTypography._getWeightObject( fontValue );
@@ -295,8 +292,6 @@
 			}
 		}
 	};
-
-	$( function() { AstTypography.init(); } );
 
 })( jQuery );
 

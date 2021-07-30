@@ -532,11 +532,11 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h6"        => 1.2,
 					),
 				),
-				'section'   => 'section-typography',
-				'transport' => 'postMessage',
-				'priority'  => 5,
-				'title'     => __( 'Typography Presets', 'astra' ),
-				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				'section'     => 'section-typography',
+				'transport'   => 'postMessage',
+				'priority'    => 5,
+				'title'       => __( 'Presets', 'astra' ),
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 		);

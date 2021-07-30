@@ -75,7 +75,7 @@ function astra_related_posts_css( $dynamic_css ) {
 
 		// Related Posts -> Color dyanamic stylings.
 		$related_posts_title_color           = astra_get_option( 'related-posts-title-color' );
-		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', $container_bg_color );
+		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', $content_bg_obj );
 		$related_post_text_color             = astra_get_option( 'related-posts-text-color' );
 		$related_posts_meta_color            = astra_get_option( 'related-posts-meta-color' );
 		$related_posts_link_color            = astra_get_option( 'related-posts-link-color' );
@@ -93,9 +93,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			'.ast-related-posts-inner-section .ast-date-meta .posted-on .date-month, .ast-related-posts-inner-section .ast-date-meta .posted-on .date-year' => array(
 				'color' => astra_get_foreground_color( $link_color ),
 			),
-			'.ast-single-related-posts-container' => array(
-				'background-color' => esc_attr( $related_posts_bg_color ),
-			),
+			'.ast-single-related-posts-container' => astra_get_responsive_background_obj( $related_posts_bg_color, 'desktop' ),
 			/**
 			 * Related Posts - Section Title
 			 */

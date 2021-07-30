@@ -575,6 +575,8 @@ module.exports = function (grunt) {
                     '!.github/**',
                     '!bin/**',
                     '!docs/**',
+                    '!psalm.xml',
+                    '!tests/**',
                     '!assets/dynamic-css.css',
                     '!contributing.md',
                     '!.gitlab-ci.yml',
@@ -588,6 +590,7 @@ module.exports = function (grunt) {
                     '!.gitignore',
                     '!phpunit.xml',
                     '!README.md',
+                    '!artifacts',
                     '!sass/**',
                     '!codesniffer.ruleset.xml',
                     '!vendor/**',
@@ -789,7 +792,7 @@ module.exports = function (grunt) {
     // Load grunt tasks
     grunt.loadNpmTasks('grunt-rtlcss');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('@lodder/grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');

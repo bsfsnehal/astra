@@ -440,6 +440,23 @@
         }
     },
     {
+        "Andada Pro": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Andika": {
             "variants": [
                 "regular"
@@ -793,6 +810,17 @@
                 "500",
                 "600",
                 "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Atkinson Hyperlegible": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -1623,6 +1651,16 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Bona Nova": {
+            "variants": [
+                "regular",
+                "italic",
+                "700"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -3127,6 +3165,22 @@
         }
     },
     {
+        "Encode Sans SC": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Encode Sans Semi Condensed": {
             "variants": [
                 "100",
@@ -3442,6 +3496,14 @@
         }
     },
     {
+        "Festive": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Finger Paint": {
             "variants": [
                 "regular"
@@ -3714,6 +3776,14 @@
         }
     },
     {
+        "Fuggles": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "GFS Didot": {
             "variants": [
                 "regular"
@@ -3842,6 +3912,31 @@
             "variants": [
                 "regular",
                 "italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Georama": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -3991,6 +4086,23 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Gowun Batang": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Gowun Dodum": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4157,6 +4269,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Hahmlet": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -5373,7 +5501,7 @@
                 "800italic",
                 "900italic"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -6601,6 +6729,14 @@
         }
     },
     {
+        "MonteCarlo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Montez": {
             "variants": [
                 "regular"
@@ -7491,6 +7627,14 @@
         }
     },
     {
+        "Otomanopee One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Over the Rainbow": {
             "variants": [
                 "regular"
@@ -7690,6 +7834,14 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Palette Mosaic": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -8231,6 +8383,14 @@
         }
     },
     {
+        "Qahiri": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Quando": {
             "variants": [
                 "regular"
@@ -8442,7 +8602,12 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -8528,7 +8693,10 @@
     {
         "Reem Kufi": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -8880,6 +9048,29 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "STIX Two Math": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "STIX Two Text": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -9817,6 +10008,14 @@
         }
     },
     {
+        "Style Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Stylish": {
             "variants": [
                 "regular"
@@ -10208,6 +10407,31 @@
         }
     },
     {
+        "Tourney": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Trade Winds": {
             "variants": [
                 "regular"
@@ -10358,6 +10582,14 @@
                 "700italic"
             ],
             "category": "monospace"
+        }
+    },
+    {
+        "Uchen": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -10645,6 +10877,15 @@
         }
     },
     {
+        "WindSong": {
+            "variants": [
+                "regular",
+                "500"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Wire One": {
             "variants": [
                 "regular"
@@ -10753,13 +10994,26 @@
         }
     },
     {
+        "Yomogi": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Yrsa": {
             "variants": [
                 "300",
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -10798,6 +11052,23 @@
     },
     {
         "Zen Dots": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Zen Loop": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Zen Tokyo Zoo": {
             "variants": [
                 "regular"
             ],

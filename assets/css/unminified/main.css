@@ -903,13 +903,6 @@ input[type="submit"]:focus {
   transition: all 0.2s linear;
 }
 
-.site-title a,
-.site-title a:focus,
-.site-title a:hover,
-.site-title a:visited {
-  color: #222;
-}
-
 .site-description a,
 .site-description a:focus,
 .site-description a:hover,
@@ -1029,19 +1022,6 @@ body {
 
 #page {
   display: block;
-}
-
-@media (min-width: 922px) {
-  .ast-container {
-    -js-display: flex;
-    display: flex;
-  }
-}
-
-@media (max-width: 921px) {
-  .ast-container {
-    flex-direction: column;
-  }
 }
 
 #primary,
@@ -2125,15 +2105,7 @@ body .entry-content .wp-block-latest-posts li {
 /**
  * Astra HF Builder - Footer Components Compatibility CSS.
  */
-.site-footer-focus-item {
-  width: 100%;
-}
-
-.ast-footer-copyright {
-  width: 100%;
-}
-
-.ast-footer-social-wrap {
+.site-footer-focus-item, .ast-footer-copyright, .ast-footer-social-wrap {
   width: 100%;
 }
 

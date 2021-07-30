@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -174,15 +174,29 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-selector',
 					'choices'    => array(
-						'h1'      => __( 'H1', 'astra' ),
-						'h2'      => __( 'H2', 'astra' ),
-						'h3'      => __( 'H3', 'astra' ),
-						'h4'      => __( 'H4', 'astra' ),
-						'h5'      => __( 'H5', 'astra' ),
-						'h6'      => __( 'H6', 'astra' )
+						'h1' => __( 'H1', 'astra' ),
+						'h2' => __( 'H2', 'astra' ),
+						'h3' => __( 'H3', 'astra' ),
+						'h4' => __( 'H4', 'astra' ),
+						'h5' => __( 'H5', 'astra' ),
+						'h6' => __( 'H6', 'astra' ),
 					),
 					'responsive' => false,
-					'renderAs'   => 'text'
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Option: Underline links in entry-content.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[underline-content-links]',
+					'default'   => astra_get_option( 'underline-content-links' ),
+					'type'      => 'control',
+					'control'   => 'ast-toggle-control',
+					'section'   => 'section-body-typo',
+					'priority'  => 27,
+					'title'     => __( 'Underline Content Links', 'astra' ),
+					'transport' => 'postMessage',
 				),
 
 				/**

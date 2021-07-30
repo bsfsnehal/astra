@@ -940,7 +940,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			if( astra_is_content_bg_option_to_load() ) {
+			if ( astra_is_content_bg_option_to_load() ) {
 
 				$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
 

@@ -80,10 +80,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
 			// Color Options.
-			$text_color       = astra_get_option( 'text-color' );
-			$theme_color      = astra_get_option( 'theme-color' );
-			$link_color       = astra_get_option( 'link-color', $theme_color );
-			$link_hover_color = astra_get_option( 'link-h-color' );
+			$text_color         = astra_get_option( 'text-color' );
+			$theme_color        = astra_get_option( 'theme-color' );
+			$link_color         = astra_get_option( 'link-color', $theme_color );
+			$link_hover_color   = astra_get_option( 'link-h-color' );
+			$heading_base_color = astra_get_option( 'heading-base-color' );
 
 			// Typography.
 			$body_font_size          = astra_get_option( 'font-size-body' );
@@ -517,11 +518,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
 				),
 
-				// Widget Title.
-				'.widget-title'                          => array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-					'color'     => esc_attr( $text_color ),
-				),
 				'#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -553,6 +549,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Widget Title.
 				$css_output['.textwidget'] = array(
 					'color' => esc_attr( $text_color ),
+				);
+			}
+
+			// Default widget title color.
+			if ( self::has_default_widget_title_color() ) {
+				// Widget Title.
+				$css_output['.widget-title'] = array(
+					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
+					'color'     => esc_attr( $heading_base_color ),
+				);
+			} else {
+				// Widget Title.
+				$css_output['.widget-title'] = array(
+					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
+					'color'     => esc_attr( $text_color ),
 				);
 			}
 
@@ -2794,6 +2805,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function has_support_link_default_color() {
+			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
+			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
+		}
+
+		/**
+		 * Whether to apply link default color or not.
+		 * As this is frontend reflecting change added this backwards for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function has_default_widget_title_color() {
 			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
 			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );

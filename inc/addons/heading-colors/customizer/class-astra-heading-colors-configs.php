@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-h1' ),
-					'context'  => array(
+					'context'   => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'context'  => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'ast-select',
-					'context'  => array(
+					'context'   => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -300,7 +300,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-h3' ),
 					'title'             => __( 'Weight', 'astra' ),
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -353,7 +353,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'section'           => 'section-typography',
 					'title'             => __( 'Line Height', 'astra' ),
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',

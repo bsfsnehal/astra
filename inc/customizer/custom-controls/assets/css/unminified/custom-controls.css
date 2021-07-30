@@ -956,6 +956,10 @@
     left: 0;
     right: 0;
     bottom: 0;
+	display: none;
+}
+.astra-color-picker-wrap.picker-open{
+	display: block;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;

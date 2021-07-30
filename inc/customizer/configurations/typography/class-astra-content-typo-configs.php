@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h1' ),
 					'transport'   => 'postMessage',
-					'context'  => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h2' ),
 					'transport'   => 'postMessage',
-					'context'   => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'priority'    => 28,
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
-					'context'   => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',

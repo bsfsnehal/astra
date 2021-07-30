@@ -658,8 +658,13 @@ function astra_get_transparent_header_default_value() {
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
 }
 
+/**
+ * Check if content bg options can be loaded.
+ *
+ * @since x.x.x
+ */
 function astra_is_content_bg_option_to_load() {
-	if( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
 		return false;
 	}
 	return true;

@@ -707,3 +707,15 @@ function astra_can_remove_elementor_toc_margin_space() {
 	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
 	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
 }
+
+/*
+ * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+ *
+ * @since x.x.x
+ */
+function astra_is_h4_to_h6_typo_option_to_load() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+		return false;
+	}
+	return true;
+}

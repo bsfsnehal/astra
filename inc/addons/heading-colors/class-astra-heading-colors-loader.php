@@ -53,6 +53,22 @@ class Astra_Heading_Colors_Loader {
 		$font_weight_h3 = astra_get_option( 'font-weight-h3' );
 		Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
+		if( astra_is_h4_to_h6_typo_option_to_load() ) {
+
+			$font_family_h4 = astra_get_option( 'font-family-h4' );
+			$font_weight_h4 = astra_get_option( 'font-weight-h4' );
+			Astra_Fonts::add_font( $font_family_h4, $font_weight_h4 );
+
+			$font_family_h5 = astra_get_option( 'font-family-h5' );
+			$font_weight_h5 = astra_get_option( 'font-weight-h5' );
+			Astra_Fonts::add_font( $font_family_h5, $font_weight_h5 );
+
+			$font_family_h6 = astra_get_option( 'font-family-h6' );
+			$font_weight_h6 = astra_get_option( 'font-weight-h6' );
+			Astra_Fonts::add_font( $font_family_h6, $font_weight_h6 );
+
+		}
+
 		$theme_btn_font_family = astra_get_option( 'font-family-button' );
 		$theme_btn_font_weight = astra_get_option( 'font-weight-button' );
 		Astra_Fonts::add_font( $theme_btn_font_family, $theme_btn_font_weight );

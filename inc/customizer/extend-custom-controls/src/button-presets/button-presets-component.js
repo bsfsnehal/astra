@@ -88,6 +88,7 @@ const ButtonPresetsComponent = (props) => {
 					className={
 						"ast-btn-style-item " + (state === key ? "active" : "")
 					}
+					key={key}
 					dangerouslySetInnerHTML={{
 						__html: window.svgIcons[presetData.src],
 					}}

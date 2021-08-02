@@ -20,6 +20,8 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
  */
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
+	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+
 	/**
 	 * Header Builder - Desktop Defaults.
 	 */
@@ -568,7 +570,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer Copyright.
 	 */
 	$defaults['footer-copyright-editor']                 = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
-	$defaults['footer-copyright-color']                  = '#3a3a3a';
+	$defaults['footer-copyright-color']                  = 'var(' . $palette_css_var_prefix . '3)';
 	$defaults['line-height-section-footer-copyright']    = 2;
 	$defaults['footer-copyright-alignment']              = array(
 		'desktop' => 'center',

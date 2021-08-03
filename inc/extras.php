@@ -697,6 +697,9 @@ function astra_has_widgets_block_editor() {
 }
 
 /**
+<<<<<<< HEAD
+ * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+=======
  * Check whether user is exising or new to apply the updated default values for default blog post layout..
  *
  * @since x.x.x
@@ -722,8 +725,21 @@ function astra_apply_blog_grid_css() {
 
 /**
  * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+>>>>>>> e78a148b8a2f29938dfb1d2c74fdc592a2d26cf9
  *
  * @since x.x.x
+ */
+function astra_is_h4_to_h6_typo_option_to_load() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/*
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ *
+ * @since 3.6.7
  * @return boolean
  */
 function astra_can_remove_elementor_toc_margin_space() {

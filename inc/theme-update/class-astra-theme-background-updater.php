@@ -104,6 +104,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.5' => array(
 				'astra_support_block_editor',
 			),
+			'3.6.7' => array(
+				'astra_fix_footer_widget_right_margin_case',
+				'astra_remove_elementor_toc_margin',
+				'astra_clear_all_assets_cache',
+			),
 			'3.7.0' => array(
 				'astra_update_sticky_footer_flag',
 				'astra_blog_grid_css_compatiblity',

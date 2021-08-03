@@ -183,7 +183,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Force Astra welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
-				wp_enqueue_script( 'astra-admin-settings' );
+				self::load_astra_admin_script();
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
@@ -461,6 +461,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				return;
 			}
 
+			self::load_astra_admin_script();
+
+			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+				// For starter site plugin popup detail "Details &#187;" on Astra Options page.
+				wp_enqueue_script( 'plugin-install' );
+				wp_enqueue_script( 'thickbox' );
+				wp_enqueue_style( 'thickbox' );
+			}
+		}
+
+		/**
+		 * Get register & enqueue astra-admin scripts.
+		 *
+		 * @since 3.6.6
+		 */
+		public static function load_astra_admin_script() {
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 			$localize = array(
@@ -482,15 +498,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
-
-			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				// For starter site plugin popup detail "Details &#187;" on Astra Options page.
-				wp_enqueue_script( 'plugin-install' );
-				wp_enqueue_script( 'thickbox' );
-				wp_enqueue_style( 'thickbox' );
-			}
 		}
-
 
 		/**
 		 * Get and return page URL

@@ -1,3 +1,6 @@
+v3.6.7
+- Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
+- Improvement: Changed the screen reader text tag from 'h2' to 'span' for better SEO.
 v3.7.1 (Unreleased)
 - Improvement: Builder - Removed design specific options from widgets in WordPress 5.8.
 
@@ -11,6 +14,7 @@ v3.6.6 (Unreleased)
 - Fix: Added dynamic breakpoint support for the responsive view of the sidebar and main content.
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 - Fix: Global headings font family not working in the Gutenberg editor.
+- Fix: Footer Builder - Widgets - Right margin space not working. ( https://wpastra.com/docs/fix-footer-widget-right-margin/ )
 - Fix: Footer Builder - Widgets - Right margin space not working.
 - Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
 - Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
@@ -23,10 +27,14 @@ v3.6.6 (Unreleased)
 - Fix: Sidebar block editor width changes on the widgets page.
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
 - Fix: Customizer builder section not scrollable when multiple elements dropped in builder area.
+- Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget. ( https://wpastra.com/docs/remove-spacing-elementor-toc/ )
 - Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget.
 - Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: “Search” string in Search Form is not translatable.
 - Fix: Transparent header showing border even if it is not set from customizer in FireFox browser.
+
+v3.6.6
+- Fix: Installing Starter Templates plugin notice's "Get Started" button not working.
 
 v3.6.5
 - Improvement: Compatibility with WordPress 5.8.

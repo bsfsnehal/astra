@@ -3149,7 +3149,7 @@ function astra_support_block_editor() {
  * Set flag to maintain backward compatibility for existing users.
  * Fixing the case where footer widget's right margin space not working.
  *
- * @since x.x.x
+ * @since 3.6.7
  * @return void
  */
 function astra_fix_footer_widget_right_margin_case() {
@@ -3194,7 +3194,7 @@ function astra_blog_grid_css_compatiblity() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.7
  * @return void
  */
 function astra_remove_elementor_toc_margin() {

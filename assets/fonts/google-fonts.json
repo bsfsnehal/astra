@@ -440,6 +440,23 @@
         }
     },
     {
+        "Andada Pro": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Andika": {
             "variants": [
                 "regular"
@@ -793,6 +810,17 @@
                 "500",
                 "600",
                 "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Atkinson Hyperlegible": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -3889,6 +3917,31 @@
         }
     },
     {
+        "Georama": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Geostar": {
             "variants": [
                 "regular"
@@ -4033,6 +4086,23 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Gowun Batang": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Gowun Dodum": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -4199,6 +4269,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Hahmlet": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -6643,6 +6729,14 @@
         }
     },
     {
+        "MonteCarlo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Montez": {
             "variants": [
                 "regular"
@@ -7743,6 +7837,14 @@
         }
     },
     {
+        "Palette Mosaic": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Pangolin": {
             "variants": [
                 "regular"
@@ -8500,7 +8602,12 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -8947,6 +9054,21 @@
         "STIX Two Math": {
             "variants": [
                 "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "STIX Two Text": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -9886,6 +10008,14 @@
         }
     },
     {
+        "Style Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Stylish": {
             "variants": [
                 "regular"
@@ -10747,6 +10877,15 @@
         }
     },
     {
+        "WindSong": {
+            "variants": [
+                "regular",
+                "500"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Wire One": {
             "variants": [
                 "regular"
@@ -10869,7 +11008,12 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }

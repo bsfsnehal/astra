@@ -52,7 +52,7 @@ expect.extend( {
  * Sanitize the given css value for the property.
  *
  * @param {string} cssProperty CSS Property
- * @param {string} cssValue CSS Value for the property.
+ * @param {string} cssValue    CSS Value for the property.
  * @return {string} Sanitized CSS Value.
  */
 const sanitizeValue = ( cssProperty, cssValue ) => {

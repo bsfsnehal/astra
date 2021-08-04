@@ -296,7 +296,7 @@ final class Astra_Builder_Base_Configuration {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
 					'rgba'       => true,
 				),
 				/**
@@ -401,7 +401,7 @@ final class Astra_Builder_Base_Configuration {
 							'center' => 'align-center',
 							'right'  => 'align-right',
 						),
-						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+						'divider'   => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
 					),
 				);
 			}

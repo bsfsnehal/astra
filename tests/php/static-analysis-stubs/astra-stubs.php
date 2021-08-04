@@ -2822,6 +2822,15 @@ namespace {
         {
         }
         /**
+         * For existing users, do not reflect direct change.
+         *
+         * @since 3.6.6
+         * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
+         */
+        public static function is_wordpress_5_8_support_enabled()
+        {
+        }
+        /**
          * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
          *
          * @since 2.3.3
@@ -9330,6 +9339,186 @@ namespace {
         }
     }
     /**
+     * Astra_Notices
+     *
+     * @since 1.0.0
+     */
+    class Astra_Notices
+    {
+        /**
+         * Notices
+         *
+         * @access private
+         * @var array Notices.
+         * @since 1.0.0
+         */
+        private static $version = '1.1.8';
+        /**
+         * Notices
+         *
+         * @access private
+         * @var array Notices.
+         * @since 1.0.0
+         */
+        private static $notices = array();
+        /**
+         * Instance
+         *
+         * @access private
+         * @var object Class object.
+         * @since 1.0.0
+         */
+        private static $instance;
+        /**
+         * Initiator
+         *
+         * @since 1.0.0
+         * @return object initialized object of class.
+         */
+        public static function get_instance()
+        {
+        }
+        /**
+         * Constructor
+         *
+         * @since 1.0.0
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Filters and Returns a list of allowed tags and attributes for a given context.
+         *
+         * @param array  $allowedposttags array of allowed tags.
+         * @param string $context Context type (explicit).
+         * @since 1.0.0
+         * @return array
+         */
+        public function add_data_attributes($allowedposttags, $context)
+        {
+        }
+        /**
+         * Add Notice.
+         *
+         * @since 1.0.0
+         * @param array $args Notice arguments.
+         * @return void
+         */
+        public static function add_notice($args = array())
+        {
+        }
+        /**
+         * Dismiss Notice.
+         *
+         * @since 1.0.0
+         * @return void
+         */
+        public function dismiss_notice()
+        {
+        }
+        /**
+         * Enqueue Scripts.
+         *
+         * @since 1.0.0
+         * @return void
+         */
+        public function enqueue_scripts()
+        {
+        }
+        /**
+         * Sort the notices based on the given priority of the notice.
+         * This function is called from usort()
+         *
+         * @since 1.5.2
+         * @param array $notice_1 First notice.
+         * @param array $notice_2 Second Notice.
+         * @return array
+         */
+        public function sort_notices($notice_1, $notice_2)
+        {
+        }
+        /**
+         * Get all registered notices.
+         * Since v1.1.8 it is recommended to register the notices on
+         *
+         * @return array|null
+         */
+        private function get_notices()
+        {
+        }
+        /**
+         * Get notice by notice_id
+         *
+         * @param string $notice_id Notice id.
+         *
+         * @return array notice based on the notice id.
+         */
+        private function get_notice_by_id($notice_id)
+        {
+        }
+        /**
+         * Display the notices in the WordPress admin.
+         *
+         * @since 1.0.0
+         * @return void
+         */
+        public function show_notices()
+        {
+        }
+        /**
+         * Render a notice.
+         *
+         * @since 1.0.0
+         * @param  array $notice Notice markup.
+         * @return void
+         */
+        public static function markup($notice = array())
+        {
+        }
+        /**
+         * Get wrapper classes for a notice.
+         *
+         * @since 1.0.0
+         *
+         * @param  array $notice Notice arguments.
+         * @return array       Notice wrapper classes.
+         */
+        private static function get_wrap_classes($notice)
+        {
+        }
+        /**
+         * Get HTML ID for a given notice.
+         *
+         * @since 1.0.0
+         *
+         * @param  array $notice Notice arguments.
+         * @param  int   $key    Notice array index.
+         * @return string HTML if for the notice.
+         */
+        private static function get_notice_id($notice, $key)
+        {
+        }
+        /**
+         * Check if the notice is expires.
+         *
+         * @since 1.0.0
+         *
+         * @param  array $notice Notice arguments.
+         * @return boolean
+         */
+        private static function is_expired($notice)
+        {
+        }
+        /**
+         * Get base URL for the astra-notices.
+         *
+         * @return mixed URL.
+         */
+        public static function get_url()
+        {
+        }
+    }
+    /**
      * Abstract Astra_WP_Async_Request class.
      *
      * @abstract
@@ -9696,166 +9885,6 @@ namespace {
          * @return mixed
          */
         protected abstract function task($item);
-    }
-    /**
-     * Astra_Notices
-     *
-     * @since 1.4.0
-     */
-    class Astra_Notices
-    {
-        /**
-         * Notices
-         *
-         * @access private
-         * @var array Notices.
-         * @since 1.4.0
-         */
-        private static $version = '1.1.5';
-        /**
-         * Notices
-         *
-         * @access private
-         * @var array Notices.
-         * @since 1.4.0
-         */
-        private static $notices = array();
-        /**
-         * Instance
-         *
-         * @access private
-         * @var object Class object.
-         * @since 1.4.0
-         */
-        private static $instance;
-        /**
-         * Initiator
-         *
-         * @since 1.4.0
-         * @return object initialized object of class.
-         */
-        public static function get_instance()
-        {
-        }
-        /**
-         * Constructor
-         *
-         * @since 1.4.0
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Filters and Returns a list of allowed tags and attributes for a given context.
-         *
-         * @param Array  $allowedposttags Array of allowed tags.
-         * @param String $context Context type (explicit).
-         * @since 1.4.0
-         * @return Array
-         */
-        public function add_data_attributes($allowedposttags, $context)
-        {
-        }
-        /**
-         * Add Notice.
-         *
-         * @since 1.4.0
-         * @param array $args Notice arguments.
-         * @return void
-         */
-        public static function add_notice($args = array())
-        {
-        }
-        /**
-         * Dismiss Notice.
-         *
-         * @since 1.4.0
-         * @return void
-         */
-        public function dismiss_notice()
-        {
-        }
-        /**
-         * Enqueue Scripts.
-         *
-         * @since 1.4.0
-         * @return void
-         */
-        public function enqueue_scripts()
-        {
-        }
-        /**
-         * Rating priority sort
-         *
-         * @since 1.5.2
-         * @param array $array1 array one.
-         * @param array $array2 array two.
-         * @return array
-         */
-        public function sort_notices($array1, $array2)
-        {
-        }
-        /**
-         * Notice Types
-         *
-         * @since 1.4.0
-         * @return void
-         */
-        public function show_notices()
-        {
-        }
-        /**
-         * Markup Notice.
-         *
-         * @since 1.4.0
-         * @param  array $notice Notice markup.
-         * @return void
-         */
-        public static function markup($notice = array())
-        {
-        }
-        /**
-         * Notice classes.
-         *
-         * @since 1.4.0
-         *
-         * @param  array $notice Notice arguments.
-         * @return array       Notice wrapper classes.
-         */
-        private static function get_wrap_classes($notice)
-        {
-        }
-        /**
-         * Get Notice ID.
-         *
-         * @since 1.4.0
-         *
-         * @param  array $notice Notice arguments.
-         * @param  int   $key     Notice array index.
-         * @return string       Notice id.
-         */
-        private static function get_notice_id($notice, $key)
-        {
-        }
-        /**
-         * Is notice expired?
-         *
-         * @since 1.4.0
-         *
-         * @param  array $notice Notice arguments.
-         * @return boolean
-         */
-        private static function is_expired($notice)
-        {
-        }
-        /**
-         * Get URI
-         *
-         * @return mixed URL.
-         */
-        public static function _get_uri()
-        {
-        }
     }
     /**
      * Download webfonts locally.
@@ -11131,7 +11160,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case', 'astra_support_wp_5_8'));
         /**
          *  Constructor
          */
@@ -12005,7 +12034,7 @@ namespace {
      *
      * As this affects the frontend, added this backward compatibility for existing users.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return boolean false if it is an existing user, true if not.
      */
     function is_support_footer_widget_right_margin()
@@ -13541,6 +13570,15 @@ namespace {
     {
     }
     /**
+     * Astra WordPress compatibility - Dynamic CSS.
+     *
+     * @param string $dynamic_css Dynamic CSS.
+     * @since 3.6.6
+     */
+    function astra_wordpress_compat_css($dynamic_css)
+    {
+    }
+    /**
      * Function to get Body Font Family
      *
      * @since 1.0.0
@@ -13796,9 +13834,18 @@ namespace {
     {
     }
     /**
-     * Check is WordPress version is greater than or equal to beta 5.8 version. 
+     * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
      *
-     * @since x.x.x 
+     * @since 3.6.3
+     * @return string
+     */
+    function astra_button_default_padding_updated()
+    {
+    }
+    /**
+     * Check is WordPress version is greater than or equal to beta 5.8 version.
+     *
+     * @since 3.6.6
      * @return boolean
      */
     function astra_has_widgets_block_editor()
@@ -14727,13 +14774,40 @@ namespace {
     {
     }
     /**
+     * Set flag for updated default values for buttons & add GB Buttons padding support.
+     *
+     * @since 3.6.3
+     * @return void.
+     */
+    function astra_button_default_values_updated()
+    {
+    }
+    /**
+     * Set flag for old users, to not directly apply underline to content links.
+     *
+     * @since 3.6.4
+     * @return void
+     */
+    function astra_update_underline_link_setting()
+    {
+    }
+    /**
      * Set flag to maintain backward compatibility for existing users.
      * Fixing the case where footer widget's right margin space not working.
      *
-     * @since x.x.x
+     * @since 3.6.6
      * @return void
      */
     function astra_fix_footer_widget_right_margin_case()
+    {
+    }
+    /**
+     * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+     *
+     * @since 3.6.6
+     * @return void
+     */
+    function astra_support_wp_5_8()
     {
     }
     /**

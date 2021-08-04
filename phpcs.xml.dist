@@ -43,5 +43,5 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<!-- Exclude Libraries -->
-	<exclude-pattern>*/inc/lib/batch-processing/*</exclude-pattern>
+	<exclude-pattern>*/inc/lib/*</exclude-pattern>
 </ruleset>

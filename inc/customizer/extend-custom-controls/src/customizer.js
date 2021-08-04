@@ -440,7 +440,7 @@
 
 						var result = false,
 							setting = getSetting(rule['setting']);
-
+						
 						if ('undefined' == typeof setting) {
 							return false;
 						}
@@ -451,9 +451,22 @@
 						if (undefined == operator || '=' == operator) {
 							operator = '==';
 						}
+						
 						if(typeof currentValue === 'object' && undefined !== currentValue[rule['setting-key']]){
 							currentValue = currentValue[rule['setting-key']];
 						}
+						// Here need to refactor the logic add key in settings config to identify the check of postion of elements.
+						if(typeof currentValue === 'object' ){
+							var arr = ['above','primary','below'];
+							$.each(arr,function(key,val){
+								$.each( currentValue[val] , function( key, zone){
+									if( zone.indexOf(comparedValue) > -1 ){
+										currentValue = comparedValue;
+									}
+								});
+							});
+						}
+
 						switch (operator) {
 							case '>':
 								result = currentValue > comparedValue;
@@ -527,8 +540,9 @@
 
 								var result = compareByOperator(rule);
 								displayed = compareByRelation(relation, displayed, result);
+								
 							}
-
+// console.log(rule['setting']);
 						});
 
 						return displayed;

@@ -587,6 +587,16 @@ function is_astra_addon_3_5_0_version() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Get a stylesheet URL for a webfont.
  *
  * @since 3.6.0
@@ -661,6 +671,18 @@ function astra_button_default_padding_updated() {
 }
 
 /**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_isset_sticky_footer() {
+	$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['stick-footer-at-bottom'] = isset( $astra_settings['stick-footer-at-bottom'] ) ? false : true;
+	return apply_filters( 'astra_stick_footer_at_bottom', $astra_settings['stick-footer-at-bottom'] );
+}
+
+/**
  * Check is WordPress version is greater than or equal to beta 5.8 version.
  *
  * @since 3.6.5
@@ -675,6 +697,46 @@ function astra_has_widgets_block_editor() {
 }
 
 /**
+<<<<<<< HEAD
+ * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+=======
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_new_default_blog_values() {
+	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}
+
+/**
+ * Get compatibility for Old user to apply the blog grid bse css changes.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_blog_grid_css() {
+	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
+	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
+}
+
+/**
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+>>>>>>> e78a148b8a2f29938dfb1d2c74fdc592a2d26cf9
+ *
+ * @since x.x.x
+ */
+function astra_is_h4_to_h6_typo_option_to_load() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/*
  * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
  *
  * @since 3.6.7
@@ -684,4 +746,41 @@ function astra_can_remove_elementor_toc_margin_space() {
 	$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
 	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
+}
+
+/**
+ * Check whether widget specific config, dynamic CSS, preview JS needs to remove or not. Following cases considered while implementing this.
+ *
+ * 1. Is user is from old Astra setup.
+ * 2. Check if user is new but on lesser WordPress 5.8 versions.
+ * 3. User is new with block widget editor.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_remove_widget_design_options() {
+	$astra_settings                                 = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['remove-widget-design-options'] = isset( $astra_settings['remove-widget-design-options'] ) ? false : true;
+
+	// True -> Hide widget sections, False -> Display widget sections.
+	$is_widget_design_sections_hidden = true;
+
+	if ( ! $astra_settings['remove-widget-design-options'] ) {
+		// For old users we will show widget design options by anyways.
+		$is_widget_design_sections_hidden = false;
+	} else {
+		// Considering the user is new now.
+		if ( $astra_settings['remove-widget-design-options'] ) {
+			// User was on WP-5.8 lesser version previously and he may update their WordPress to 5.8 in future. So we display the options in this case.
+			$is_widget_design_sections_hidden = false;
+		} elseif ( astra_has_widgets_block_editor() ) {
+			// User is new & having block widgets active. So we will hide those options.
+			$is_widget_design_sections_hidden = true;
+		} else {
+			// Setting up flag because user is on lesser WP versions and may update WP to 5.8.
+			astra_update_option( 'remove-widget-design-options', true );
+		}
+	}
+
+	return apply_filters( 'astra_show_widget_design_options', $is_widget_design_sections_hidden );
 }

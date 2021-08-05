@@ -139,6 +139,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
 			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
+			add_action( 'astra_notice_before_markup_astra-sites-on-active', __CLASS__ . '::load_astra_admin_script' );
+
 			add_action( 'admin_init', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
@@ -183,7 +185,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Force Astra welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
-				self::load_astra_admin_script();
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
@@ -460,8 +461,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
-
-			self::load_astra_admin_script();
 
 			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 				// For starter site plugin popup detail "Details &#187;" on Astra Options page.

@@ -412,6 +412,17 @@ function siteTitleDependentControls(control){
     var dynamicStyle = '.preview-desktop #customize-control-blogname, .preview-desktop #customize-control-astra-settings-site-identity-title-color-group, .preview-desktop #customize-control-astra-settings-site-title-typography { display: ' + desktopToggleVal + ';} .preview-tablet #customize-control-blogname, .preview-tablet #customize-control-astra-settings-site-identity-title-color-group, .preview-tablet #customize-control-astra-settings-site-title-typography { display: ' + tabletToggleVal + ';} .preview-mobile #customize-control-blogname, .preview-mobile #customize-control-astra-settings-site-identity-title-color-group, .preview-mobile #customize-control-astra-settings-site-title-typography { display: ' + mobileToggleVal + ';}';
     responsive_helper_dynamic_css( 'site-title-controls-visibility', dynamicStyle );
 
+    if( 0 < document.getElementsByClassName('ahfb-header-builder-is-active').length ){
+        var hideControls = [];
+        hideControls.push(document.querySelector('#customize-control-astra-settings-site-identity-title-color-group'));
+        hideControls.push(document.querySelector('#customize-control-astra-settings-site-title-typography'));
+        hideControls.forEach(hideControl => {
+            if( null !== hideControl ){
+                jQuery(hideControl).hide();
+            }
+        });
+    }
+
     inlineLogoTitleToggleVisibility();
 }
 
@@ -427,6 +438,17 @@ function siteTaglineDependentControls(control){
 
     var dynamicStyle = '.preview-desktop #customize-control-blogdescription, .preview-desktop #customize-control-astra-settings-ast-site-title-tagline-divider, .preview-desktop #customize-control-astra-settings-header-color-site-tagline, .preview-desktop #customize-control-astra-settings-site-tagline-typography { display: ' + desktopToggleVal + ';} .preview-tablet #customize-control-blogdescription, .preview-tablet #customize-control-astra-settings-ast-site-title-tagline-divider, .preview-tablet #customize-control-astra-settings-header-color-site-tagline, .preview-tablet #customize-control-astra-settings-site-tagline-typography { display: ' + tabletToggleVal + ';} .preview-mobile #customize-control-blogdescription, .preview-mobile #customize-control-astra-settings-ast-site-title-tagline-divider, .preview-mobile #customize-control-astra-settings-header-color-site-tagline, .preview-mobile #customize-control-astra-settings-site-tagline-typography { display: ' + mobileToggleVal + ';}';
     responsive_helper_dynamic_css( 'site-tagline-controls-visibility', dynamicStyle );
+
+    if( 0 < document.getElementsByClassName('ahfb-header-builder-is-active').length ){
+        var hideControls = [];
+        hideControls.push(document.querySelector('#customize-control-astra-settings-header-color-site-tagline'));
+        hideControls.push(document.querySelector('#customize-control-astra-settings-site-tagline-typography'));
+        hideControls.forEach(hideControl => {
+            if( null !== hideControl ){
+                jQuery(hideControl).hide();
+            }
+        });
+    }
 
     inlineLogoTitleToggleVisibility();
 }

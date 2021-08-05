@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2021, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,14 +18,14 @@ define( 'ASTRA_RELATED_POSTS_DIR', ASTRA_THEME_DIR . 'inc/modules/related-posts/
 /**
  * Related Posts Initial Setup
  *
- * @since x.x.x
+ * @since 3.5.0
  */
 class Astra_Related_Posts {
 
 	/**
 	 * Constructor function that initializes required actions and hooks
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function __construct() {
 

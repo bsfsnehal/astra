@@ -1,0 +1,50 @@
+name: Update Astra dev docs
+
+# Run the deployment only when code is pushed to the `master` branch.
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Get npm cache directory
+      id: npm-cache
+      run: echo "::set-output name=dir::$(npm config get cache)"
+
+    - name: Configure npm cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.npm-cache.outputs.dir }}
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-
+
+    - name: Build
+      run: npm install && grunt release-no-clean
+
+    - name: Rsync Deployment
+      uses: burnett01/rsync-deployments@5.0
+      with:
+        switches: -avzr --delete
+        path: astra/
+        remote_path: ${{ secrets.DEVELOPER_DOC_SSH_PATH }}wp-content/themes/astra/
+        remote_host: ${{ secrets.SSH_HOST }}
+        remote_user: ${{ secrets.SSH_USERNAME }}
+        remote_key: ${{ secrets.SSH_KEY }}
+
+    - name: Cleanup
+      run: rm -rf astra/
+
+    - name: Update dev docs for Astra Theme
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: wp parser create ${{ secrets.DEVELOPER_DOC_SSH_PATH }}wp-content/themes/astra --user=1 --url=https://developers.wpastra.com/astra-theme/ --path=${{ secrets.DEVELOPER_DOC_SSH_PATH }}

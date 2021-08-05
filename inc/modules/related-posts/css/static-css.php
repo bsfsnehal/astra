@@ -4,7 +4,7 @@
  *
  * @package astra
  *
- * @since x.x.x
+ * @since 3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_related_posts_static_css', 11 );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @return String Generated dynamic CSS for Related Posts.
  *
- * @since x.x.x
+ * @since 3.5.0
  */
 function astra_related_posts_static_css( $dynamic_css ) {
 

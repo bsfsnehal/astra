@@ -228,7 +228,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
-
+				
 				/**
 				 * Option: Display Title
 				 */
@@ -308,10 +308,10 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 			 * We adding this control only to maintain backwards. Remove this condition after 2-3 updates of add-on.
 			 * Moving Site Title color & Tagline color option into theme.
 			 *
-			 * @since x.x.x
+			 * @since 3.5.0
 			 */
 			$load_site_tagline_color_controls = true;
-			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.0', '<' ) ) {
+			if ( is_astra_addon_3_5_0_version() ) {
 				$load_site_tagline_color_controls = false;
 			}
 
@@ -368,7 +368,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							'control'   => 'ast-color',
 							'transport' => 'postMessage',
 							'default'   => astra_get_option( 'header-color-site-tagline' ),
-							'title'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Tagline', 'astra-addon' ) : __( 'Color', 'astra-addon' ),
+							'title'     => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? __( 'Tagline', 'astra' ) : __( 'Color', 'astra' ),
 							'section'   => 'title_tagline',
 							'priority'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 8 : 12,
 							'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array( Astra_Builder_Helper::$design_tab_config ) : '',

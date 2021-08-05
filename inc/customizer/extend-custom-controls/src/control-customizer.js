@@ -73,6 +73,76 @@
 		});
 
 		/**
+		 * Trigger on ast-header-responsive-logo-width change.
+		 */
+		 api('astra-settings[ast-header-responsive-logo-width]', function (value) {
+			value.bind(function (currVal) {
+
+				const customizer_preview_container =  document.getElementById('customize-preview');
+				let iframe 						   = customizer_preview_container.getElementsByTagName('iframe')[0];
+				let htmlContent 				   = iframe.contentDocument || iframe.contentWindow.document;
+
+				setTimeout(function () {
+					if( null !== htmlContent.querySelector('.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)') ) {
+						let existingValues 	    = api('astra-settings[ast-header-responsive-logo-width]').get();
+						let desktopHeight       = htmlContent.querySelector('#ast-desktop-header .astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)').clientHeight;
+						let mobileTabletHeight  = htmlContent.querySelector('#ast-mobile-header .astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)').clientHeight;
+						let selectedDevice = wp.customize.previewedDevice.get();
+						switch (selectedDevice) {
+							case 'desktop':
+								existingValues['desktop-svg-height'] = ( desktopHeight > 0 ) ? desktopHeight : '';
+								break;
+							case 'tablet':
+								existingValues['tablet-svg-height']  = ( mobileTabletHeight > 0) ? mobileTabletHeight : '';
+								break;
+							case 'mobile':
+								existingValues['mobile-svg-height']  = ( mobileTabletHeight > 0 ) ? mobileTabletHeight : '' ;
+								break;
+							default:
+								break;
+						}
+						api('astra-settings[ast-header-responsive-logo-width]').set( existingValues );
+					}
+				}, 250);
+			});
+		});
+
+		/**
+		 * Trigger on transparent-header-logo-width change.
+		 */
+		 api('astra-settings[transparent-header-logo-width]', function (value) {
+			value.bind(function (currVal) {
+
+				const customizer_preview_container =  document.getElementById('customize-preview');
+				let iframe 						 = customizer_preview_container.getElementsByTagName('iframe')[0];
+				let htmlContent 				 = iframe.contentDocument || iframe.contentWindow.document;
+				
+				setTimeout(function () {
+					if( null !== htmlContent.querySelector('.transparent-custom-logo .astra-logo-svg') ) {
+						let existingValues 	    = api('astra-settings[transparent-header-logo-width]').get();
+						let desktopHeight       = htmlContent.querySelector('#ast-desktop-header .transparent-custom-logo .astra-logo-svg').clientHeight;
+						let mobileTabletHeight  = htmlContent.querySelector('#ast-mobile-header .transparent-custom-logo .astra-logo-svg').clientHeight;
+						let selectedDevice = wp.customize.previewedDevice.get();
+						switch (selectedDevice) {
+							case 'desktop':
+								existingValues['desktop-svg-height'] = ( desktopHeight > 0 ) ? desktopHeight : '';
+								break;
+							case 'tablet':
+								existingValues['tablet-svg-height']  = ( mobileTabletHeight > 0 ) ? mobileTabletHeight : '';
+								break;
+							case 'mobile':
+								existingValues['mobile-svg-height']  = ( mobileTabletHeight > 0 ) ? mobileTabletHeight : '';
+								break;
+							default:
+								break;
+						}
+						api('astra-settings[transparent-header-logo-width]').set( existingValues );
+					}
+				}, 250);	
+			});
+		});
+
+		/**
 		 * Pass data to previewer when device changed.
 		 */
 

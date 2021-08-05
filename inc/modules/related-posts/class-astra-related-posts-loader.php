@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2021, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 3.5.0
  */
 class Astra_Related_Posts_Loader {
 
 	/**
 	 *  Constructor
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function __construct() {
 
@@ -166,7 +166,7 @@ class Astra_Related_Posts_Loader {
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function related_posts_customize_register( $wp_customize ) {
 
@@ -181,7 +181,7 @@ class Astra_Related_Posts_Loader {
 	/**
 	 * Render the Related Posts title for the selective refresh partial.
 	 *
-	 * @since x.x.x
+	 * @since 3.5.0
 	 */
 	public function render_related_posts_title() {
 		return astra_get_option( 'related-posts-title' );

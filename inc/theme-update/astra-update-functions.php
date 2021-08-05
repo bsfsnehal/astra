@@ -2943,9 +2943,9 @@ function astra_update_cart_style() {
 
 /**
  * Update existing 'Grid Column Layout' option in responsive way in Related Posts.
- * Till this update x.x.x we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
+ * Till this update 3.5.0 we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
  *
- * @since x.x.x
+ * @since 3.5.0
  * @return void.
  */
 function astra_update_related_posts_grid_layout() {
@@ -2995,7 +2995,7 @@ function astra_update_related_posts_grid_layout() {
 /**
  * Migrate Site Title & Site Tagline options to new responsive array.
  *
- * @since x.x.x
+ * @since 3.5.0
  *
  * @return void
  */
@@ -3016,4 +3016,148 @@ function astra_site_title_tagline_responsive_control_migration() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Do not apply new font-weight heading support CSS in editor/frontend directly.
+ *
+ * 1. Adding Font-weight support to widget titles.
+ * 2. Customizer font CSS not supporting in editor.
+ *
+ * @since 3.6.0
+ *
+ * @return void
+ */
+function astra_headings_font_support() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-support-widget-and-editor-fonts'] ) ) {
+		$theme_options['can-support-widget-and-editor-fonts'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since 3.6.0
+ * @return void.
+ */
+function astra_remove_logo_max_width() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-remove-logo-max-width-css'] ) ) {
+		$theme_options['can-remove-logo-max-width-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users for Transparent Header border bottom default value i.e from '' to 0.
+ *
+ * @since 3.6.0
+ * @return void.
+ */
+function astra_transparent_header_default_value() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['transparent-header-default-border'] ) ) {
+		$theme_options['transparent-header-default-border'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Clear Astra + Astra Pro assets cache.
+ *
+ * @since 3.6.1
+ * @return void.
+ */
+function astra_clear_all_assets_cache() {
+	if ( class_exists( 'Astra_Cache_Base' ) ) {
+		// Clear Astra theme cache.
+		$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
+		$astra_cache_base_instance->refresh_assets( 'astra' );
+
+		// Clear Astra Addon's cache.
+		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
+		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+	}
+}
+
+/**
+ * Set flag for updated default values for buttons & add GB Buttons padding support.
+ *
+ * @since 3.6.3
+ * @return void
+ */
+function astra_button_default_values_updated() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['btn-default-padding-updated'] ) ) {
+		$theme_options['btn-default-padding-updated'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag for old users, to not directly apply underline to content links.
+ *
+ * @since 3.6.4
+ * @return void
+ */
+function astra_update_underline_link_setting() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['underline-content-links'] ) ) {
+		$theme_options['underline-content-links'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since 3.6.5
+ * @return void
+ */
+function astra_support_block_editor() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['support-block-editor'] ) ) {
+		$theme_options['support-block-editor'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users.
+ * Fixing the case where footer widget's right margin space not working.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_fix_footer_widget_right_margin_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
+		$theme_options['support-footer-widget-right-margin'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_remove_elementor_toc_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
+		$theme_options['remove-elementor-toc-margin-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
 }

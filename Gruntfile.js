@@ -164,6 +164,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+                    {
+                        expand: true,
+                        cwd: 'sass/media/',
+                        src: ['galleries.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
 
                     /* Compatibility */
                     {
@@ -171,6 +178,13 @@ module.exports = function (grunt) {
                         cwd: 'sass/site/compatibility/',
                         src: ['**.scss'],
                         dest: 'assets/css/unminified/compatibility',
+                        ext: '.css'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'sass/site/compatibility/page-builder/',
+                        src: ['**.scss'],
+                        dest: 'assets/css/unminified/compatibility/page-builder/',
                         ext: '.css'
                     },
                     {
@@ -528,8 +542,20 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
                     },
                     {
+                        src: 'assets/css/unminified/compatibility/page-builder/bb-plugin-rtl.css',
+                        dest: 'assets/css/minified/compatibility/page-builder/bb-plugin.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/compatibility/page-builder/vc-plugin-rtl.css',
+                        dest: 'assets/css/minified/compatibility/page-builder/vc-plugin.min-rtl.css',
+                    },
+                    {
                         src: 'assets/css/unminified/compatibility/edd-rtl.css',
                         dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/galleries-rtl.css',
+                        dest: 'assets/css/minified/galleries.min-rtl.css',
                     },
                 ]
             }
@@ -549,6 +575,8 @@ module.exports = function (grunt) {
                     '!.github/**',
                     '!bin/**',
                     '!docs/**',
+                    '!psalm.xml',
+                    '!tests/**',
                     '!assets/dynamic-css.css',
                     '!contributing.md',
                     '!.gitlab-ci.yml',
@@ -562,6 +590,7 @@ module.exports = function (grunt) {
                     '!.gitignore',
                     '!phpunit.xml',
                     '!README.md',
+                    '!artifacts',
                     '!sass/**',
                     '!codesniffer.ruleset.xml',
                     '!vendor/**',
@@ -763,7 +792,7 @@ module.exports = function (grunt) {
     // Load grunt tasks
     grunt.loadNpmTasks('grunt-rtlcss');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('@lodder/grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -824,7 +853,7 @@ module.exports = function (grunt) {
 
     // Grunt release - Create installable package of the local files
     grunt.registerTask('release', ['clean:zip', 'copy:main', 'compress:main', 'clean:main']);
-    grunt.registerTask('release-no-clean', ['clean:zip', 'copy:main']);
+    grunt.registerTask('release-no-clean', ['clean:main', 'clean:zip', 'copy:main']);
 
     // Bump Version - `grunt version-bump --ver=<version-number>`
     grunt.registerTask('version-bump', function (ver) {

@@ -1297,7 +1297,7 @@ p.demo_store a,
   background-color: #77a464;
   color: white;
   -webkit-font-smoothing: antialiased;
-  z-index: 99;
+  z-index: 9;
 }
 
 .woocommerce .products ul,

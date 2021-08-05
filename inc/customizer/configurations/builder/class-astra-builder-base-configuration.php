@@ -265,15 +265,15 @@ final class Astra_Builder_Base_Configuration {
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ?
 				Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_widgets;
 		}
-
+		$astra_has_widgets_block_editor = astra_has_widgets_block_editor();
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
 
-			$_section = 'sidebar-widgets-' . $type . '-widget-' . $index;
+			$_section = ( ! $astra_has_widgets_block_editor ) ? 'sidebar-widgets-' . $type . '-widget-' . $index : 'astra-sidebar-widgets-' . $type . '-widget-' . $index;
 
 			$html_config[] = array(
 
 				array(
-					'name'        => 'sidebar-widgets-' . $type . '-widget-' . $index,
+					'name'        => $_section,
 					'type'        => 'section',
 					'priority'    => 5,
 					'title'       => __( 'Widget ', 'astra' ) . $index,
@@ -296,7 +296,7 @@ final class Astra_Builder_Base_Configuration {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
 					'rgba'       => true,
 				),
 				/**
@@ -401,7 +401,7 @@ final class Astra_Builder_Base_Configuration {
 							'center' => 'align-center',
 							'right'  => 'align-right',
 						),
-						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+						'divider'   => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
 					),
 				);
 			}

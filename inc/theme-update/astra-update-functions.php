@@ -3210,7 +3210,7 @@ function astra_remove_elementor_toc_margin() {
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
  *
- * @since x.x.x
+ * @since 3.6.8
  * @return void
  */
 function astra_set_removal_widget_design_options_flag() {

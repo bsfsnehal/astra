@@ -143,7 +143,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -157,7 +156,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'transport'         => 'postMessage',
 					'section'           => 'section-typography',
-					'priority'          => 31,
+					'priority'          => 25,
 					'title'             => __( 'Paragraph Margin Bottom', 'astra' ),
 					'suffix'            => 'em',
 					'lazy'              => true,
@@ -166,7 +165,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -174,19 +173,18 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'       => 'control',
 					'section'    => 'section-typography',
 					'priority'   => 27,
-					'title'      => __( '', 'astra' ),
 					'transport'  => 'postMessage',
 					'control'    => 'ast-selector',
 					'choices'    => array(
-						'h1'      => __( 'H1', 'astra' ),
-						'h2'      => __( 'H2', 'astra' ),
-						'h3'      => __( 'H3', 'astra' ),
-						'h4'      => __( 'H4', 'astra' ),
-						'h5'      => __( 'H5', 'astra' ),
-						'h6'      => __( 'H6', 'astra' )
+						'h1' => __( 'H1', 'astra' ),
+						'h2' => __( 'H2', 'astra' ),
+						'h3' => __( 'H3', 'astra' ),
+						'h4' => __( 'H4', 'astra' ),
+						'h5' => __( 'H5', 'astra' ),
+						'h6' => __( 'H6', 'astra' ),
 					),
 					'responsive' => false,
-					'renderAs'   => 'text'
+					'renderAs'   => 'text',
 				),
 
 				/**
@@ -292,7 +290,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' )
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

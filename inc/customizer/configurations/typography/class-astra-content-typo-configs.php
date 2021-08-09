@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-h1' ),
-					'context'  => array(
+					'context'   => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'context'  => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'ast-select',
-					'context'  => array(
+					'context'   => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h1' ),
 					'transport'   => 'postMessage',
-					'context'  => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'   => astra_get_option( 'text-transform-h2' ),
 					'title'     => __( 'Text Transform', 'astra' ),
 					'type'      => 'control',
-					'lazy'              => true,
+					'lazy'      => true,
 					'context'   => array(
 						'',
 						array(
@@ -249,7 +249,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
-					'transport' => 'postMessage',
 				),
 
 				/**
@@ -263,7 +262,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h2' ),
 					'transport'   => 'postMessage',
-					'context'   => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -348,7 +347,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-h3' ),
 					'title'             => __( 'Weight', 'astra' ),
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -369,7 +368,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h3]',
 					'type'      => 'control',
 					'section'   => 'section-typography',
-					'lazy'              => true,
+					'lazy'      => true,
 					'title'     => __( 'Text Transform', 'astra' ),
 					'default'   => astra_get_option( 'text-transform-h3' ),
 					'transport' => 'postMessage',
@@ -390,7 +389,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
-					'transport' => 'postMessage',
 				),
 				/**
 				 * Option: Heading 3 (H3) Font Size
@@ -404,7 +402,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
-					'context'   => array(
+					'context'     => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -432,7 +430,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'           => 'section-typography',
 					'lazy'              => true,
 					'title'             => __( 'Line Height', 'astra' ),
-					'context'   => array(
+					'context'           => array(
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',

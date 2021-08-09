@@ -732,7 +732,7 @@ function astra_is_h4_to_h6_typo_option_to_load() {
 	return true;
 }
 
-/*
+/**
  * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
  *
  * @since 3.6.7

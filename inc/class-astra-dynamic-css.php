@@ -491,8 +491,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h4, .entry-content h4, .entry-content h4 a',
 					'h4, .entry-content h4'
 				)                                        => array(
-					'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
-					'line-height' => esc_attr( $h4_line_height ),
+					'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+					'line-height'    => esc_attr( $h4_line_height ),
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
 					'text-transform' => esc_attr( $h4_text_transform ),
@@ -503,8 +503,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h5, .entry-content h5, .entry-content h5 a',
 					'h5, .entry-content h5'
 				)                                        => array(
-					'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
-					'line-height' => esc_attr( $h5_line_height ),
+					'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+					'line-height'    => esc_attr( $h5_line_height ),
 					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
 					'text-transform' => esc_attr( $h5_text_transform ),
@@ -515,8 +515,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6, .entry-content h6 a',
 					'h6, .entry-content h6'
 				)                                        => array(
-					'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
-					'line-height' => esc_attr( $h6_line_height ),
+					'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+					'line-height'    => esc_attr( $h6_line_height ),
 					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
 					'text-transform' => esc_attr( $h6_text_transform ),

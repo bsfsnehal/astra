@@ -224,7 +224,6 @@
 				for (const [section_id, config] of Object.entries(controls)) {
 
 					if( true === lazy && ( config.hasOwnProperty('lazy') && true === config.lazy ) ) {
-						console.log( "is lazy" );
 						this.addControl(config.id, config);
 						continue;
 					}

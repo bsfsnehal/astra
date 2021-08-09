@@ -22,7 +22,6 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	private static $instance = null;
 
-
 	/**
 	 *  Initiator
 	 */
@@ -186,6 +185,61 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Check if transparent header is enabled on the page being previewed.
+	 *
+	 * @since  x.x.x
+	 * @return boolean True - If Transparent Header is enabled, False if not.
+	 */
+	public function ast_is_transparent_header() {
+		return Astra_Ext_Transparent_Header_Markup::is_transparent_header();
+	}
+
+	/**
+	 * Prepare transparent header notices for header components.
+	 *
+	 * @param string $_section section id.
+	 * @param string $suffix Component unique ID.
+	 * @param string $component Component name.
+	 * @return array
+	 *
+	 * @since x.x.x
+	 */
+	public function prepare_transparent_header_notice( $_section, $suffix, $component = '' ) {
+
+		$configs = array();
+
+		/**
+		 * Notice for Colors - Transparent header enabled on page.
+		 */
+		$configs[] = array(
+			'name'            => ASTRA_THEME_SETTINGS . '[ast-callback-notice-header-transparent-' . $suffix . ']',
+			'type'            => 'control',
+			'control'         => 'ast-description',
+			'section'         => $_section,
+			'priority'        => 1,
+			'active_callback' => array( $this, 'ast_is_transparent_header' ),
+			'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>This page has transparent header enabled.</p> <p> The options for ' . esc_html( $component ) . ' for this page should be set from following link. </p></div>',
+		);
+
+		/**
+		* Option: Transparent Header Section - Link.
+		*/
+		$configs[] = array(
+			'name'            => ASTRA_THEME_SETTINGS . '[ast-transparent-header-notice-link-' . $suffix . ']',
+			'type'            => 'control',
+			'control'         => 'ast-customizer-link',
+			'section'         => $_section,
+			'priority'        => 1,
+			'link_type'       => 'section',
+			'linked'          => 'section-transparent-header',
+			'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+			'active_callback' => array( $this, 'ast_is_transparent_header' ),
+		);
+
+		return $configs;
+	}
+
+	/**
 	 * Prepare Visibility options.
 	 *
 	 * @param string $_section section id.
@@ -284,84 +338,6 @@ final class Astra_Builder_Base_Configuration {
 				),
 
 				/**
-				 * Option: Widget title color.
-				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
-					'title'      => __( 'Title Color', 'astra' ),
-					'type'       => 'control',
-					'section'    => $_section,
-					'priority'   => 7,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
-					'rgba'       => true,
-				),
-				/**
-				 * Option: Widget Color.
-				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color]',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-color' ),
-					'title'      => __( 'Content Color', 'astra' ),
-					'type'       => 'control',
-					'section'    => $_section,
-					'priority'   => 7,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'rgba'       => true,
-				),
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
-					'type'       => 'control',
-					'control'    => 'ast-color-group',
-					'title'      => __( 'Link Color', 'astra' ),
-					'section'    => $_section,
-					'transport'  => 'postMessage',
-					'priority'   => 7,
-					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
-				 * Option: Widget link color.
-				 */
-				array(
-					'name'       => $type . '-widget-' . $index . '-link-color',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-link-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
-					'type'       => 'sub-control',
-					'section'    => $_section,
-					'priority'   => 3,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'rgba'       => true,
-					'title'      => __( 'Normal', 'astra' ),
-				),
-
-				/**
-				 * Option: Widget link color.
-				 */
-				array(
-					'name'       => $type . '-widget-' . $index . '-link-h-color',
-					'default'    => astra_get_option( $type . '-widget-' . $index . '-link-h-color' ),
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
-					'type'       => 'sub-control',
-					'section'    => $_section,
-					'priority'   => 1,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
-					'responsive' => true,
-					'rgba'       => true,
-					'title'      => __( 'Hover', 'astra' ),
-				),
-
-				/**
 				 * Option: Margin
 				 */
 				array(
@@ -406,128 +382,213 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
+			if ( ! astra_remove_widget_design_options() ) {
+
 				$html_config[] = array(
 
 					/**
-					 * Option: Widget Title Typography
+					 * Option: Widget title color.
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
-						'default'   => astra_get_option( $type . '-widget-' . $index . '-text-typography' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Title Font', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'priority'  => 90,
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
-					),
-
-
-					/**
-					 * Option: Widget Title Font Size
-					 */
-					array(
-						'name'        => $type . '-widget-' . $index . '-font-size',
-						'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
-						'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
-						'transport'   => 'postMessage',
-						'title'       => __( 'Size', 'astra' ),
-						'type'        => 'sub-control',
-						'section'     => $_section,
-						'control'     => 'ast-responsive',
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'priority'    => 2,
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
+						'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
+						'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
+						'title'      => __( 'Title Color', 'astra' ),
+						'type'       => 'control',
+						'section'    => $_section,
+						'priority'   => 7,
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'responsive' => true,
+						'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
+						'rgba'       => true,
 					),
 
 					/**
-					 * Option: Widget Content Typography
+					 * Option: Widget Color.
 					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
-						'default'   => astra_get_option( $type . '-widget-' . $index . '-content-typography' ),
-						'type'      => 'control',
-						'control'   => 'ast-settings-group',
-						'title'     => __( 'Content Font', 'astra' ),
-						'section'   => $_section,
-						'transport' => 'postMessage',
-						'priority'  => 91,
+						'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-color]',
+						'default'    => astra_get_option( $type . '-widget-' . $index . '-color' ),
+						'title'      => __( 'Content Color', 'astra' ),
+						'type'       => 'control',
+						'section'    => $_section,
+						'priority'   => 7,
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'responsive' => true,
+						'rgba'       => true,
+					),
+					array(
+						'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
+						'default'    => astra_get_option( $type . '-widget-' . $index . '-color-group' ),
+						'type'       => 'control',
+						'control'    => 'ast-color-group',
+						'title'      => __( 'Link Color', 'astra' ),
+						'section'    => $_section,
+						'transport'  => 'postMessage',
+						'priority'   => 7,
+						'responsive' => true,
+						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**
-					 * Option: Widget Content Font Size
+					 * Option: Widget link color.
 					 */
 					array(
-						'name'        => $type . '-widget-' . $index . '-content-font-size',
-						'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
-						'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
-						'transport'   => 'postMessage',
-						'title'       => __( 'Size', 'astra' ),
-						'type'        => 'sub-control',
-						'section'     => $_section,
-						'control'     => 'ast-responsive',
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'priority'    => 2,
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
+						'name'       => $type . '-widget-' . $index . '-link-color',
+						'default'    => astra_get_option( $type . '-widget-' . $index . '-link-color' ),
+						'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
+						'type'       => 'sub-control',
+						'section'    => $_section,
+						'priority'   => 3,
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'responsive' => true,
+						'rgba'       => true,
+						'title'      => __( 'Normal', 'astra' ),
+					),
+
+					/**
+					 * Option: Widget link color.
+					 */
+					array(
+						'name'       => $type . '-widget-' . $index . '-link-h-color',
+						'default'    => astra_get_option( $type . '-widget-' . $index . '-link-h-color' ),
+						'parent'     => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-link-color-group]',
+						'type'       => 'sub-control',
+						'section'    => $_section,
+						'priority'   => 1,
+						'transport'  => 'postMessage',
+						'control'    => 'ast-responsive-color',
+						'responsive' => true,
+						'rgba'       => true,
+						'title'      => __( 'Hover', 'astra' ),
 					),
 				);
-			} else {
-				$html_config[] = array(
 
-					/**
-					 * Option: Widget Title Font Size
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-font-size]',
-						'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
-						'transport'   => 'postMessage',
-						'title'       => __( 'Title Font Size', 'astra' ),
-						'type'        => 'control',
-						'section'     => $_section,
-						'control'     => 'ast-responsive',
-						'input_attrs' => array(
-							'min' => 0,
-						),
-						'priority'    => 90,
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-					),
+				if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
+					$html_config[] = array(
 
-					/**
-					 * Option: Widget Content Font Size
-					 */
-					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-font-size]',
-						'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
-						'transport'   => 'postMessage',
-						'title'       => __( 'Content Font Size', 'astra' ),
-						'type'        => 'control',
-						'section'     => $_section,
-						'control'     => 'ast-responsive',
-						'input_attrs' => array(
-							'min' => 0,
+						/**
+						 * Option: Widget Title Typography
+						 */
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
+							'default'   => astra_get_option( $type . '-widget-' . $index . '-text-typography' ),
+							'type'      => 'control',
+							'control'   => 'ast-settings-group',
+							'title'     => __( 'Title Font', 'astra' ),
+							'section'   => $_section,
+							'transport' => 'postMessage',
+							'priority'  => 90,
+							'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 						),
-						'priority'    => 91,
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
+
+
+						/**
+						 * Option: Widget Title Font Size
+						 */
+						array(
+							'name'        => $type . '-widget-' . $index . '-font-size',
+							'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
+							'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
+							'transport'   => 'postMessage',
+							'title'       => __( 'Size', 'astra' ),
+							'type'        => 'sub-control',
+							'section'     => $_section,
+							'control'     => 'ast-responsive',
+							'input_attrs' => array(
+								'min' => 0,
+							),
+							'priority'    => 2,
+							'units'       => array(
+								'px' => 'px',
+								'em' => 'em',
+							),
 						),
-					),
-				);
+
+						/**
+						 * Option: Widget Content Typography
+						 */
+						array(
+							'name'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
+							'default'   => astra_get_option( $type . '-widget-' . $index . '-content-typography' ),
+							'type'      => 'control',
+							'control'   => 'ast-settings-group',
+							'title'     => __( 'Content Font', 'astra' ),
+							'section'   => $_section,
+							'transport' => 'postMessage',
+							'priority'  => 91,
+						),
+
+						/**
+						 * Option: Widget Content Font Size
+						 */
+						array(
+							'name'        => $type . '-widget-' . $index . '-content-font-size',
+							'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
+							'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
+							'transport'   => 'postMessage',
+							'title'       => __( 'Size', 'astra' ),
+							'type'        => 'sub-control',
+							'section'     => $_section,
+							'control'     => 'ast-responsive',
+							'input_attrs' => array(
+								'min' => 0,
+							),
+							'priority'    => 2,
+							'units'       => array(
+								'px' => 'px',
+								'em' => 'em',
+							),
+						),
+					);
+				} else {
+					$html_config[] = array(
+
+						/**
+						 * Option: Widget Title Font Size
+						 */
+						array(
+							'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-font-size]',
+							'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
+							'transport'   => 'postMessage',
+							'title'       => __( 'Title Font Size', 'astra' ),
+							'type'        => 'control',
+							'section'     => $_section,
+							'control'     => 'ast-responsive',
+							'input_attrs' => array(
+								'min' => 0,
+							),
+							'priority'    => 90,
+							'units'       => array(
+								'px' => 'px',
+								'em' => 'em',
+							),
+						),
+
+						/**
+						 * Option: Widget Content Font Size
+						 */
+						array(
+							'name'        => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-font-size]',
+							'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
+							'transport'   => 'postMessage',
+							'title'       => __( 'Content Font Size', 'astra' ),
+							'type'        => 'control',
+							'section'     => $_section,
+							'control'     => 'ast-responsive',
+							'input_attrs' => array(
+								'min' => 0,
+							),
+							'priority'    => 91,
+							'units'       => array(
+								'px' => 'px',
+								'em' => 'em',
+							),
+						),
+					);
+				}
 			}
 
 			$html_config[] = self::prepare_visibility_tab( $_section, $type );
@@ -544,4 +605,8 @@ final class Astra_Builder_Base_Configuration {
  *  Prepare if class 'Astra_Builder_Base_Configuration' exist.
  *  Kicking this off by calling 'get_instance()' method
  */
-Astra_Builder_Base_Configuration::get_instance();
+function astra_builder_base_configuration_instance() {
+	return Astra_Builder_Base_Configuration::get_instance();
+}
+
+astra_builder_base_configuration_instance();

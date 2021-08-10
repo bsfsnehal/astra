@@ -113,6 +113,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_set_removal_widget_design_options_flag',
 				'astra_clear_all_assets_cache',
 			),
+			'3.6.9' => array(
+				'astra_unset_builder_elements_underline',
+			),
 			'3.7.0' => array(
 				'astra_update_sticky_footer_flag',
 				'astra_blog_grid_css_compatiblity',

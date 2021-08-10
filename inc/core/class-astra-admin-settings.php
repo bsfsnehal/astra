@@ -468,6 +468,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_enqueue_script( 'thickbox' );
 				wp_enqueue_style( 'thickbox' );
 			}
+
+			// Script.
+			wp_enqueue_script( 'astra-admin-settings' );
 		}
 
 		/**
@@ -476,6 +479,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 3.6.6
 		 */
 		public static function load_astra_admin_script() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 			$localize = array(

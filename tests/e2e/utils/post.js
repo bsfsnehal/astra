@@ -28,4 +28,8 @@ export const TPOGRAPHY_TEST_POST_CONTENT = `<!-- wp:paragraph -->
 
 <!-- wp:heading {"level":6} -->
 <h6>Heading 6</h6>
-<!-- /wp:heading -->`;
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li><li>List Item 4</li><li>List item 5</li></ul>
+<!-- /wp:list -->`;

@@ -3135,7 +3135,7 @@ function astra_support_block_editor() {
  * Set flag to maintain backward compatibility for existing users.
  * Fixing the case where footer widget's right margin space not working.
  *
- * @since x.x.x
+ * @since 3.6.7
  * @return void
  */
 function astra_fix_footer_widget_right_margin_case() {
@@ -3150,7 +3150,7 @@ function astra_fix_footer_widget_right_margin_case() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.7
  * @return void
  */
 function astra_remove_elementor_toc_margin() {
@@ -3158,6 +3158,22 @@ function astra_remove_elementor_toc_margin() {
 
 	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
 		$theme_options['remove-elementor-toc-margin-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
+ *
+ * @since 3.6.8
+ * @return void
+ */
+function astra_set_removal_widget_design_options_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-widget-design-options'] ) ) {
+		$theme_options['remove-widget-design-options'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

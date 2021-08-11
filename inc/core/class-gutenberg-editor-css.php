@@ -178,12 +178,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			$css = '';
 
 			$desktop_css = array(
 				'html'                                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				':root'                                   => Astra_Global_Palette::generate_global_palette_style(),
 				'a'                                       => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -303,6 +310,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				),
+				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:visited' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
+				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
@@ -367,6 +378,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( $content_links_underline ) {
 				$desktop_css['.edit-post-visual-editor a'] = array(
 					'text-decoration' => 'underline',
+				);
+
+				$excluding_anchor_selectors = Astra_Dynamic_CSS::unset_builder_elements_underline() ? '.edit-post-visual-editor a.uagb-tabs-list, .edit-post-visual-editor .uagb-ifb-cta a, .edit-post-visual-editor a.uagb-marketing-btn__link, .edit-post-visual-editor .uagb-post-grid a, .edit-post-visual-editor .uagb-toc__wrap a, .edit-post-visual-editor .uagb-taxomony-box a, .edit-post-visual-editor .uagb_review_block a' : '';
+
+				$desktop_css[ $excluding_anchor_selectors ] = array(
+					'text-decoration' => 'none',
 				);
 			}
 
@@ -448,6 +465,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
+					),
+					'.wp-block-button .wp-block-button__link:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 

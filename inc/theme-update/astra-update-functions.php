@@ -3179,3 +3179,18 @@ function astra_set_removal_widget_design_options_flag() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply direct reflections on site, setting up flag here before updating font-size for buttons for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_may_update_button_font_size() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['button-default-empty-font-size'] ) ) {
+		$theme_options['button-default-empty-font-size'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

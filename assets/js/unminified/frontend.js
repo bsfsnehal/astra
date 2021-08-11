@@ -275,7 +275,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' ),
-				popupInner = document.querySelector( '.ast-mobile-popup-inner' ),
+				popupInner = document.querySelector( '.ast-mobile-popup-inner' );
+
+				if ( undefined === popupInner || null === popupInner  ){
+					return; // if toggel button component is not loaded.
+				}
 				popupLinks = popupInner.getElementsByTagName('a');
 
 			for ( var item = 0;  item < popupTriggerMobile.length; item++ ) {
@@ -445,7 +449,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		updateHeaderBreakPoint();
-		
+
 		if ( 'dropdown' === mobileHeaderType ) {
 			AstraToggleSetup();
 		}

@@ -3088,15 +3088,17 @@ function astra_transparent_header_default_value() {
  * @return void.
  */
 function astra_clear_all_assets_cache() {
-	if ( class_exists( 'Astra_Cache_Base' ) ) {
-		// Clear Astra theme cache.
-		$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
-		$astra_cache_base_instance->refresh_assets( 'astra' );
-
-		// Clear Astra Addon's cache.
-		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
-		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+	if ( ! class_exists( 'Astra_Cache_Base' ) ) {
+		return;
 	}
+	// Clear Astra theme asset cache.
+	$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
+	$astra_cache_base_instance->refresh_assets( 'astra' );
+
+	// Clear Astra Addon's static and dynamic CSS asset cache.
+	astra_clear_assets_cache();
+	$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
+	$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
 }
 
 /**
@@ -3218,6 +3220,21 @@ function astra_set_removal_widget_design_options_flag() {
 
 	if ( ! isset( $theme_options['remove-widget-design-options'] ) ) {
 		$theme_options['remove-widget-design-options'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_may_update_button_font_size() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['button-default-empty-font-size'] ) ) {
+		$theme_options['button-default-empty-font-size'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

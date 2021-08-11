@@ -1,7 +1,8 @@
 v3.6.9
+- Improvement: Clear asset cache of theme and addon on every new update of theme.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
-- Fix: WooCommerce - Cart icon looking weird on Tab & Mobile devices.
+- Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.

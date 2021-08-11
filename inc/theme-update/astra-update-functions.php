@@ -3074,15 +3074,17 @@ function astra_transparent_header_default_value() {
  * @return void.
  */
 function astra_clear_all_assets_cache() {
-	if ( class_exists( 'Astra_Cache_Base' ) ) {
-		// Clear Astra theme cache.
-		$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
-		$astra_cache_base_instance->refresh_assets( 'astra' );
-
-		// Clear Astra Addon's cache.
-		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
-		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+	if ( ! class_exists( 'Astra_Cache_Base' ) ) {
+		return;
 	}
+	// Clear Astra theme asset cache.
+	$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
+	$astra_cache_base_instance->refresh_assets( 'astra' );
+
+	// Clear Astra Addon's static and dynamic CSS asset cache.
+	astra_clear_assets_cache();
+	$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
+	$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
 }
 
 /**

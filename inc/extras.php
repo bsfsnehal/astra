@@ -697,6 +697,18 @@ function astra_has_widgets_block_editor() {
 }
 
 /**
+ * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+ *
+ * @since x.x.x
+ */
+function astra_maybe_load_h4_to_h6_typo_options() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
  *
  * @since 3.6.7

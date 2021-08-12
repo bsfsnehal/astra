@@ -109,8 +109,6 @@
 			var fontSelect          = api.control( this.id ).container.find( 'select' ),
 			variants            	= fontSelect.data( 'connected-variant' );
 
-			console.log( this.id );
-
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
 
 			if ( 'undefined' != typeof variants ) {
@@ -286,8 +284,8 @@
 
 			$( "[data-name='"+ optionName + "']" ).val(value);
 			if( isSelect2 ) {
-    			$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
-			} else {
+    			       $( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+			} else { 
 				$( "[data-name='"+ optionName + "']" ).trigger('change');
 			}
 		}

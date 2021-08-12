@@ -1352,18 +1352,34 @@ function hasWordPressWidgetBlockEditor() {
 	 */
 	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
 		value.bind( function( border ) {
+
+			var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
+			var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector + search_button_selector;
+
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 				if( astraCustomizer.gb_outline_buttons_patterns_support && ! astraCustomizer.updated_gb_outline_button_patterns ) {
 					wp.customize.preview.send( 'refresh' );
 				} else {
-					var search_button_selector = hasWordPressWidgetBlockEditor() ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '' ;
-					var dynamicStyle = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector + search_button_selector;
 						dynamicStyle += '{';
 						dynamicStyle += 'border-top-width:'  + border.top + 'px;';
 						dynamicStyle += 'border-right-width:'  + border.right + 'px;';
 						dynamicStyle += 'border-left-width:'   + border.left + 'px;';
 						dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
 						dynamicStyle += 'border-style: solid;';
+						dynamicStyle += '}';
+
+					astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+				}
+			} else {
+
+				if( astraCustomizer.gb_outline_buttons_patterns_support && ! astraCustomizer.updated_gb_outline_button_patterns ) {
+					wp.customize.preview.send( 'refresh' );
+				} else {
+						dynamicStyle += '{';
+						dynamicStyle += 'border-top-width: 0;';
+						dynamicStyle += 'border-right-width: 0;';
+						dynamicStyle += 'border-left-width: 0;';
+						dynamicStyle += 'border-bottom-width: 0;';
 						dynamicStyle += '}';
 
 					astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );

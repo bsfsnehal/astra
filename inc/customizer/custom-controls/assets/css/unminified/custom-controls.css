@@ -379,6 +379,15 @@
     fill:#82878C;
 }
 
+.ast-reset-btn-preset-wrap{
+	position: absolute;
+    display: inline-block;
+    line-height: 1;
+    right: 0;
+	top: 0;
+}
+
+
 
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;

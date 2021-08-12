@@ -129,9 +129,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
-									'right'  => 22,
+									'right'  => 20,
 									'bottom' => 10,
-									'left'   => 22,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
@@ -237,9 +237,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
-									'right'  => 22,
+									'right'  => 20,
 									'bottom' => 10,
-									'left'   => 22,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
@@ -425,7 +425,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'     => astra_get_option( 'button-radius' ),
 					'type'        => 'control',
 					'section'     => 'section-buttons',
-					'transport'   => 'postMessage',
 					'control'     => 'ast-slider',
 					'priority'    => 19,
 					'suffix'      => 'px',

@@ -3074,6 +3074,10 @@ input[type="text"].select2-search__field {
   border-radius: 100%;
 }
 
+.astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
+	box-shadow: none;
+}
+
 .astra-popover-color .components-custom-gradient-picker {
   margin-top: 0;
 }
@@ -4898,6 +4902,10 @@ input[type="text"].select2-search__field {
   width: 100%;
   height: 100%;
   border-radius: 100%;
+}
+
+.astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
+	box-shadow: none;
 }
 
 .astra-popover-color .components-custom-gradient-picker {

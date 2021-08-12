@@ -375,26 +375,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			// Default site title color.
-			if ( self::has_support_link_default_color() ) {
-				$default_title_color = array(
-					'.site-title a, .site-title a:focus, .site-title a:visited' => array(
-						'color' => astra_get_option( 'link-color' ),
-					),
-					'.site-title a:hover' => array(
-						'color' => astra_get_option( 'link-h-color' ),
-					),
-				);
-				$parse_css           = astra_parse_css( $default_title_color );
-			} else {
-				$default_title_color = array(
-					'.site-title a, .site-title a:hover, .site-title a:focus, .site-title a:visited'       => array(
-						'color' => '#222',
-					),
-				);
-				$parse_css           = astra_parse_css( $default_title_color );
-			}
-
 			$css_output = array(
 
 				// HTML.
@@ -621,8 +601,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
+			if( astra_has_global_color_format_support() ) {
+				$css_output['.ast-archive-title'] = array(
+					'color' => esc_attr( $heading_base_color ),
+				);
+			}
+
 			// Default widget title color.
-			if ( self::has_default_widget_title_color() ) {
+			if ( astra_has_global_color_format_support() ) {
 				// Widget Title.
 				$css_output['.widget-title'] = array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
@@ -712,7 +698,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $css_output );
+			$parse_css = astra_parse_css( $css_output );
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
@@ -2575,11 +2561,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$social_bg_color       = astra_get_option( 'transparent-header-social-icons-bg-color' );
 				$social_bg_hover_color = astra_get_option( 'transparent-header-social-icons-bg-h-color' );
 
-				$widget_title_color      = astra_get_option( 'transparent-header-widget-title-color' );
-				$widget_content_color    = astra_get_option( 'transparent-header-widget-content-color' );
-				$widget_link_color       = astra_get_option( 'transparent-header-widget-link-color' );
-				$widget_link_hover_color = astra_get_option( 'transparent-header-widget-link-h-color' );
-
 				$button_color      = astra_get_option( 'transparent-header-button-text-color' );
 				$button_h_color    = astra_get_option( 'transparent-header-button-text-h-color' );
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
@@ -2658,18 +2639,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
 						'color' => esc_attr( $social_hover_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .widget-title' => array(
-						'color' => esc_attr( $widget_title_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner' => array(
-						'color' => esc_attr( $widget_content_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a' => array(
-						'color' => esc_attr( $widget_link_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' => array(
-						'color' => esc_attr( $widget_link_hover_color ),
-					),
 					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' => array(
 						'color'      => esc_attr( $button_color ),
 						'background' => esc_attr( $button_bg_color ),
@@ -2703,21 +2672,42 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
-				} else {
-					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
-				}
+				if ( ! astra_remove_widget_design_options() ) {
 
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector ]              = array(
-					'color' => esc_attr( $widget_content_color ),
-				);
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a' ]       = array(
-					'color' => esc_attr( $widget_link_color ),
-				);
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a:hover' ] = array(
-					'color' => esc_attr( $widget_link_hover_color ),
-				);
+					$widget_title_color      = astra_get_option( 'transparent-header-widget-title-color' );
+					$widget_content_color    = astra_get_option( 'transparent-header-widget-content-color' );
+					$widget_link_color       = astra_get_option( 'transparent-header-widget-link-color' );
+					$widget_link_hover_color = astra_get_option( 'transparent-header-widget-link-h-color' );
+
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .widget-title']                     = array(
+						'color' => esc_attr( $widget_title_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner']         = array(
+						'color' => esc_attr( $widget_content_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a']       = array(
+						'color' => esc_attr( $widget_link_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover'] = array(
+						'color' => esc_attr( $widget_link_hover_color ),
+					);
+
+					if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+						$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
+					} else {
+						$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
+					}
+
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector ]              = array(
+						'color' => esc_attr( $widget_content_color ),
+					);
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a' ]       = array(
+						'color' => esc_attr( $widget_link_color ),
+					);
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a:hover' ] = array(
+						'color' => esc_attr( $widget_link_hover_color ),
+					);
+				}
 
 				if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
 
@@ -2864,32 +2854,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
-		}
-
-		/**
-		 * Whether to apply link default color or not.
-		 * As this is frontend reflecting change added this backwards for existing users.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function has_default_widget_title_color() {
-			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
-			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
-		}
-
-		/**
-		 * Whether to apply link default color or not.
-		 * As this is frontend reflecting change added this backwards for existing users.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function has_support_link_default_color() {
-			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
-			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
 		}
 
 		/**

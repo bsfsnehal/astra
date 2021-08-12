@@ -15,7 +15,6 @@ import {
  * @param {string}  [object.firstName] First name.
  * @param {string}  [object.lastName]  Last name.
  * @param {string}  [object.role]      Role. Defaults to Administrator.
- *
  * @return {string} Password for the newly created user account.
  */
 export async function createUser(

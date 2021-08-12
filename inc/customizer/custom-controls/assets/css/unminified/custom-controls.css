@@ -1531,9 +1531,6 @@ input[type="text"].select2-search__field {
     line-height: 2.15384615;
     min-height: 30px;
 }
-.ast-reset-btn-preset-wrap{
-	margin-top: 15px;
-}
 
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;

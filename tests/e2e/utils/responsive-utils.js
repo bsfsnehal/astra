@@ -1,6 +1,7 @@
-import { getCssProperty, remToPixels } from './get-css-property';
+import { getCssProperty } from './get-css-property';
 import { getCustomizrSettings } from './customize';
 import { PREDEFINED_DIMENSIONS } from './set-browser-viewport';
+import { remToPixels } from './rem-to-pixel';
 
 export const getCurrentDeviceSize = async () => {
 	const screenWidth = await page.evaluate( () => {

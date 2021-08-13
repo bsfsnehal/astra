@@ -107,6 +107,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_set_removal_widget_design_options_flag',
 			),
 			'3.6.9' => array(
+				'astra_zero_font_size_comp',
 				'astra_unset_builder_elements_underline',
 			),
 		);

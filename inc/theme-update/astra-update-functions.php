@@ -3181,7 +3181,21 @@ function astra_set_removal_widget_design_options_flag() {
 }
 
 /**
- * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Apply zero font size for new users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_zero_font_size_comp() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['astra-zero-font-size-case-css'] ) ) {
+		$theme_options['astra-zero-font-size-case-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @since x.x.x
  * @return void

@@ -98,7 +98,7 @@ function rest_route() : void {
 					return rest_ensure_response(
 						array(
 							'success' => true,
-							'settings' => astra_get_option( $response['key'] )
+							'settings' => astra_get_option( $response['key'] ),
 						)
 					);
 				},

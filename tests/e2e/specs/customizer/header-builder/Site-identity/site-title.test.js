@@ -1,5 +1,7 @@
-import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
 describe( 'Site Title Typography settings and color settings in the customizer', () => {
 	it( 'site title typography and color should apply corectly', async () => {
@@ -48,7 +50,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			selector: '.site-title',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ sitetitleTypography[ 'font-size-site-title' ].tablet }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`,
+			`${ await responsiveFontSize( sitetitleTypography[ 'font-size-site-title' ].tablet ) }${ sitetitleTypography[ 'font-size-site-title' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
@@ -57,7 +59,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			selector: '.site-title',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ sitetitleTypography[ 'font-size-site-title' ].mobile }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`,
+			`${ await responsiveFontSize( sitetitleTypography[ 'font-size-site-title' ].mobile ) }${ sitetitleTypography[ 'font-size-site-title' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );

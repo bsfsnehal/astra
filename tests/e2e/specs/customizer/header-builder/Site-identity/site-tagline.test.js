@@ -1,5 +1,7 @@
-import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
 describe( 'Site Tagline Typography settings and color settings in the customizer', () => {
 	it( 'site tagline typography and color should apply corectly', async () => {
@@ -56,7 +58,7 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			selector: '.site-header .site-description',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ siteTagline[ 'font-size-site-tagline' ].tablet }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+			`${ await responsiveFontSize( siteTagline[ 'font-size-site-tagline' ].tablet ) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
@@ -65,7 +67,7 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			selector: '.site-header .site-description',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ siteTagline[ 'font-size-site-tagline' ].mobile }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+			`${ await responsiveFontSize( siteTagline[ 'font-size-site-tagline' ].mobile ) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
 		);
 	} );
 } );

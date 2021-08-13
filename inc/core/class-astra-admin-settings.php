@@ -438,6 +438,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
 					'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
+					'ajax_nonce'                         => wp_create_nonce( 'astra-builder-module-nonce' ),
+					'old_header_footer'                  => __( 'Use Old Header/Footer', 'astra' ),
+					'migrate_to_builder'                 => __( 'Use New Header/Footer Builder', 'astra' ),
 				);
 
 				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
@@ -468,6 +471,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_enqueue_script( 'thickbox' );
 				wp_enqueue_style( 'thickbox' );
 			}
+
+			// Script.
+			wp_enqueue_script( 'astra-admin-settings' );
 		}
 
 		/**
@@ -476,6 +482,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 3.6.6
 		 */
 		public static function load_astra_admin_script() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
 			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 			$localize = array(

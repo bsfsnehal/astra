@@ -1,4 +1,4 @@
-import { createURL, setBrowserViewport, } from '@wordpress/e2e-test-utils';
+import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/set-customize';
 
 describe( 'Site Tagline Typography settings and color settings in the customizer', () => {
@@ -49,7 +49,7 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 		} ).cssValueToBe(
 			`${ siteTagline[ 'font-size-site-tagline' ].desktop }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
 		);
-		
+
 		await setBrowserViewport( 'medium' );
 
 		await expect( {
@@ -60,13 +60,12 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 		);
 
 		await setBrowserViewport( 'small' );
-		
+
 		await expect( {
 			selector: '.site-header .site-description',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ siteTagline[ 'font-size-site-tagline' ].mobile }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
 		);
-
 	} );
 } );

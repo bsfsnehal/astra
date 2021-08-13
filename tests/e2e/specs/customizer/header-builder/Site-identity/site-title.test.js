@@ -1,4 +1,4 @@
-import { createURL, setBrowserViewport, } from '@wordpress/e2e-test-utils';
+import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/set-customize';
 
 describe( 'Site Title Typography settings and color settings in the customizer', () => {
@@ -27,7 +27,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		} );
 
 		await page.waitForSelector( '#ast-desktop-header .site-title a' );
-		
+
 		await expect( {
 			selector: '#ast-desktop-header .site-title a',
 			property: 'color',
@@ -41,9 +41,9 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		} ).cssValueToBe(
 			`${ sitetitleTypography[ 'font-size-site-title' ].desktop }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`,
 		);
-		
+
 		await setBrowserViewport( 'medium' );
-		
+
 		await expect( {
 			selector: '.site-title',
 			property: 'font-size',
@@ -52,7 +52,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		);
 
 		await setBrowserViewport( 'small' );
-		
+
 		await expect( {
 			selector: '.site-title',
 			property: 'font-size',

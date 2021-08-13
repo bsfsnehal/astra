@@ -16,15 +16,15 @@ export const getCurrentDeviceSize = async () => {
 };
 
 /**
- * Convert font-size set in the customizer to it's appropriate responsive value.
+ * Convert font-size set in the customizer to its appropriate responsive value.
  *
- * Traditionally Astra applies the responsive font-sizes a but differently.
- * Any unit that you apply in the customizer, Astra converts it to rem when applying the font-size.
+ * Astra applies the responsive font sizes a bit differently -
+ * Any unit that you apply in the customizer, Astra converts it to `rem` when applying the font size.
  *
- * Astra also reduces the font-size of the <html> element on tablet and mobile devices,
+ * Astra also reduces the font size of the <html> element on tablet and mobile devices,
  * which affects the actual value that is applied by the browser in the frontend.
  *
- * This function can be used when testing responsive fint-sizes in e2e tests.
+ * This function can be used when testing responsive font sizes in e2e tests.
  * This will find the difference in the values set in the customizer and actually applied in the frontend by the browser.
  *
  * @param {string} fontSize - The font-size to be converted to the responsive.

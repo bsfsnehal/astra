@@ -723,3 +723,7 @@ h6 {
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }
+
+.block-editor-block-list__layout .block-editor-block-list__block:not([contenteditable]):hover:after {
+  box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
+}

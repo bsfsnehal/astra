@@ -90,8 +90,25 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_remove_logo_max_width',
 				'astra_transparent_header_default_value',
 			),
-			'3.6.1' => array(
-				'astra_clear_all_assets_cache',
+			'3.6.3' => array(
+				'astra_button_default_values_updated',
+			),
+			'3.6.4' => array(
+				'astra_update_underline_link_setting',
+			),
+			'3.6.5' => array(
+				'astra_support_block_editor',
+			),
+			'3.6.7' => array(
+				'astra_fix_footer_widget_right_margin_case',
+				'astra_remove_elementor_toc_margin',
+			),
+			'3.6.8' => array(
+				'astra_set_removal_widget_design_options_flag',
+			),
+			'3.6.9' => array(
+				'astra_zero_font_size_comp',
+				'astra_unset_builder_elements_underline',
 			),
 		);
 
@@ -348,7 +365,6 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			// If equals then return.
 			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
-				do_action( 'astra_theme_update_after' );
 				astra_update_option( 'is_theme_queue_running', false );
 				return;
 			}

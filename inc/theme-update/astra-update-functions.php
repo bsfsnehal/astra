@@ -3074,13 +3074,137 @@ function astra_transparent_header_default_value() {
  * @return void.
  */
 function astra_clear_all_assets_cache() {
-	if ( class_exists( 'Astra_Cache_Base' ) ) {
-		// Clear Astra theme cache.
-		$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
-		$astra_cache_base_instance->refresh_assets( 'astra' );
+	if ( ! class_exists( 'Astra_Cache_Base' ) ) {
+		return;
+	}
+	// Clear Astra theme asset cache.
+	$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
+	$astra_cache_base_instance->refresh_assets( 'astra' );
 
-		// Clear Astra Addon's cache.
-		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
-		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+	// Clear Astra Addon's static and dynamic CSS asset cache.
+	astra_clear_assets_cache();
+	$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
+	$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+}
+
+/**
+ * Set flag for updated default values for buttons & add GB Buttons padding support.
+ *
+ * @since 3.6.3
+ * @return void
+ */
+function astra_button_default_values_updated() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['btn-default-padding-updated'] ) ) {
+		$theme_options['btn-default-padding-updated'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag for old users, to not directly apply underline to content links.
+ *
+ * @since 3.6.4
+ * @return void
+ */
+function astra_update_underline_link_setting() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['underline-content-links'] ) ) {
+		$theme_options['underline-content-links'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since 3.6.5
+ * @return void
+ */
+function astra_support_block_editor() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['support-block-editor'] ) ) {
+		$theme_options['support-block-editor'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users.
+ * Fixing the case where footer widget's right margin space not working.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_fix_footer_widget_right_margin_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
+		$theme_options['support-footer-widget-right-margin'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_remove_elementor_toc_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
+		$theme_options['remove-elementor-toc-margin-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
+ *
+ * @since 3.6.8
+ * @return void
+ */
+function astra_set_removal_widget_design_options_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-widget-design-options'] ) ) {
+		$theme_options['remove-widget-design-options'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Apply zero font size for new users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_zero_font_size_comp() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['astra-zero-font-size-case-css'] ) ) {
+		$theme_options['astra-zero-font-size-case-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_unset_builder_elements_underline() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['unset-builder-elements-underline'] ) ) {
+		$theme_options['unset-builder-elements-underline'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }

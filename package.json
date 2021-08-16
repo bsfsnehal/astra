@@ -47,7 +47,7 @@
     "minimist": ">=1.2.3",
     "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
+    "postcss-flexibility": "https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
   },
   "scripts": {
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",

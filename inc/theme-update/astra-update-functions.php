@@ -3208,3 +3208,17 @@ function astra_unset_builder_elements_underline() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_improve_gutenberg_editor_ui() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['improve-gutenberg-ui'] ) ) {
+		$theme_options['improve-gutenberg-ui'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

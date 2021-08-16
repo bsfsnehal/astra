@@ -60,7 +60,30 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			vertical-align: middle;
 		}';
 
-		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+	}
+
+	if( astra_can_improve_gutenberg_blocks_ui() ) {
+		$compatibility_css = '
+		.wp-block-pullquote blockquote::before {
+			background: #f5f5f5;
+			border-radius: 50%;
+			content: "”";
+			display: block;
+			font-size: 6.2rem;
+			line-height: 1.2;
+			font-weight: 500;
+			margin: 0 auto;
+			text-align: left;
+			height: 4.4rem;
+			width: 4.4rem;
+		}
+		figure.wp-block-pullquote.is-style-solid-color blockquote {
+			max-width: 100%;
+			text-align: inherit;
+		}';
+
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
 	}
 
 	return $dynamic_css;

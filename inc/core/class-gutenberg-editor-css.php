@@ -380,6 +380,29 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $desktop_css );
 
+			if( astra_can_improve_gutenberg_blocks_ui() ) {
+				$compatibility_css = '
+				.editor-styles-wrapper .wp-block-pullquote blockquote::before {
+					background: #f5f5f5;
+					border-radius: 50%;
+					content: "”";
+					display: block;
+					font-size: 6.2rem;
+					line-height: 1.2;
+					font-weight: 500;
+					margin: 0 auto;
+					text-align: left;
+					height: 4.4rem;
+					width: 4.4rem;
+				}
+				.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote {
+					max-width: 100%;
+					text-align: inherit;
+				}';
+
+				$css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+			}
+
 			/**
 			 * Global button CSS - Tablet.
 			 */

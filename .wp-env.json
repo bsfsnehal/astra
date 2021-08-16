@@ -1,8 +1,9 @@
 {
   "core": null,
-  "themes": ["./astra"],
+  "themes": ["."],
   "plugins": [
-    "./tests/e2e/e2e-plugin"
+    "./tests/e2e/e2e-plugin",
+    "https://gutenbergtimes.com/wp-content/uploads/2020/11/gutenberg.zip"
   ],
   "config": {
     "WP_DEBUG_LOG": true

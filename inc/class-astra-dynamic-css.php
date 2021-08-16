@@ -563,10 +563,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$content_links_underline = astra_get_option( 'underline-content-links' );
 
 			if ( $content_links_underline ) {
-				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)']                          = array(
+				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)'] = array(
 					'text-decoration' => 'underline',
 				);
-				$css_output['.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button'] = array(
+
+				$reset_underline_from_anchors = self::unset_builder_elements_underline();
+
+				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button';
+
+				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
+
+				$css_output[ $excluding_anchor_selectors ] = array(
 					'text-decoration' => 'none',
 				);
 			}
@@ -3337,6 +3344,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['can-remove-logo-max-width-css'] = isset( $astra_settings['can-remove-logo-max-width-css'] ) ? false : true;
 			return apply_filters( 'astra_remove_logo_max_width_css', $astra_settings['can-remove-logo-max-width-css'] );
+		}
+
+		/**
+		 * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
+		 *
+		 * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
+		 * 2. UABB : Button, Slide Box CTA, Flip box CTA, Info Banner, Posts, Info Circle, Call to Action, Subscribe Form.
+		 *
+		 * @since x.x.x
+		 */
+		public static function unset_builder_elements_underline() {
+			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
+			$unset_builder_elements_underline = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
+			return apply_filters( 'astra_unset_builder_elements_underline', $unset_builder_elements_underline );
 		}
 
 		/**

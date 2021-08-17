@@ -609,6 +609,7 @@ function astra_is_elemetor_active() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
@@ -725,7 +726,7 @@ function astra_apply_blog_grid_css() {
  *
  * @since x.x.x
  */
-function astra_is_h4_to_h6_typo_option_to_load() {
+function astra_maybe_load_h4_to_h6_typo_options() {
 	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
 		return false;
 	}

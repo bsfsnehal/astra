@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h1',
 						),
 					),
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h1',
 						),
 					),
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h1',
 						),
 					),
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h1',
 						),
 					),
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h1',
 						),
 					),
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h2',
 						),
 					),
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h2',
 						),
 					),
@@ -235,7 +235,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h2',
 						),
 					),
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h2',
 						),
 					),
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h2',
 						),
 					),
@@ -326,7 +326,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h3',
 						),
 					),
@@ -351,7 +351,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h3',
 						),
 					),
@@ -377,7 +377,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h3',
 						),
 					),
@@ -406,7 +406,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h3',
 						),
 					),
@@ -434,7 +434,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-							'operator' => '==',
+							'operator' => '===',
 							'value'    => 'h3',
 						),
 					),

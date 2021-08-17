@@ -9,6 +9,7 @@
  * @since       Astra 3.7.0
  */
 
+/** @psalm-suppress ParadoxicalCondition **/ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -50,7 +51,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h4',
 					),
 				),
@@ -75,7 +76,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h4',
 					),
 				),
@@ -105,7 +106,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h4',
 					),
 				),
@@ -126,7 +127,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h4',
 					),
 				),
@@ -165,7 +166,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h4',
 					),
 				),
@@ -189,7 +190,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h5',
 					),
 				),
@@ -214,7 +215,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h5',
 					),
 				),
@@ -244,7 +245,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h5',
 					),
 				),
@@ -265,7 +266,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h5',
 					),
 				),
@@ -305,7 +306,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h5',
 					),
 				),
@@ -329,7 +330,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h6',
 					),
 				),
@@ -350,7 +351,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h6',
 					),
 				),
@@ -384,7 +385,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h6',
 					),
 				),
@@ -414,7 +415,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h6',
 					),
 				),
@@ -444,7 +445,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'',
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
-						'operator' => '==',
+						'operator' => '===',
 						'value'    => 'h6',
 					),
 				),

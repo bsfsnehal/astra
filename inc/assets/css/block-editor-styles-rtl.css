@@ -723,3 +723,7 @@ h6 {
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }
+
+.block-editor-block-list__block.wp-block.wp-social-link {
+  font-size: inherit;
+}

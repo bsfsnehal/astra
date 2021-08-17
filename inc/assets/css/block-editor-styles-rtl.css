@@ -723,3 +723,7 @@ h6 {
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }
+
+.wp-block-spacer .components-resizable-box__container {
+  background: #f5f5f5;
+}

@@ -25,6 +25,25 @@ const ColorGroupComponent = props => {
 	tooltips = [],
 	colorGroupType = [];
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
+					colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
+					colorGroupDefaults[value.name] = value.default;
+					tooltips[value.name] = value.title;
+					colorGroupType[value.name] = value.control_type;
+				});
+
+				setState( colorGroup );
+				setFlag( 1 ); // This is used to Re render component on first custom event.
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
@@ -33,11 +52,14 @@ const ColorGroupComponent = props => {
 	});
 
 	const[ colorGroupState , setState ] = useState(colorGroup);
+	const[ flag , setFlag ] = useState(0);
 
 	const handleChangeComplete = ( key, color='', device='', backgroundType='' ) => {
 		let updateState = {
 			...colorGroupState
 		};
+
+		console.log( "in handlechange" );
 
 		let value;
 
@@ -224,6 +246,9 @@ const ColorGroupComponent = props => {
 	}
 
 	const renderInputHtml = ( device ) => {
+
+		console.log( "in renderInputHTML" );
+
 		if( responsive ){
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
@@ -330,8 +355,9 @@ const ColorGroupComponent = props => {
 			}
 		}
 		const multipleGroup = Object.entries( colorGroupState ).length > 2 ? 'ast-color-multiple-group-reset' :'';
+		const responsiveness = responsive ? 'ast-responsive-colors-group-set' : 'ast-single-colors-group-set';
 
-		return <div className={`ast-color-btn-reset-wrap ${ multipleGroup } ast-color-group-reset `}>
+		return <div className={`ast-color-btn-reset-wrap ${ multipleGroup } ast-color-group-reset ${ responsiveness } `}>
 			<button
 				className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
 				disabled={ resetFlag } onClick={ e => {
@@ -369,4 +395,4 @@ ColorGroupComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo(  ColorGroupComponent );
+export default ColorGroupComponent;

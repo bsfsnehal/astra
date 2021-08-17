@@ -398,7 +398,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote {
 					max-width: 100%;
 					text-align: inherit;
+				}
+				ul.wp-block-categories__list {
+					list-style-type: none;
 				}';
+
+				if( $is_site_rtl ) {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-right: 20px;
+					}';
+				} else {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-left: 20px;
+					}';
+				}
 
 				$css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
 			}

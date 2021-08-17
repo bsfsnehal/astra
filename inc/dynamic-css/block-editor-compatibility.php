@@ -82,6 +82,9 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		figure.wp-block-pullquote.is-style-solid-color blockquote {
 			max-width: 100%;
 			text-align: inherit;
+		}
+		ul.wp-block-categories-list.wp-block-categories {
+			list-style-type: none;
 		}';
 
 		if( $is_site_rtl ) {

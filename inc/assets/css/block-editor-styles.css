@@ -724,6 +724,6 @@ h6 {
   margin: -0.5em -0.5em 0 0;
 }
 
-.edit-post-visual-editor pre.wp-block {
+.edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
   padding-left: 20px;
 }

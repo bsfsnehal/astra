@@ -723,3 +723,8 @@ h6 {
   left: auto;
   margin: -0.5em -0.5em 0 0;
 }
+
+.components-popover .components-popover__content {
+  overflow: inherit;
+  min-width: 290px;
+}

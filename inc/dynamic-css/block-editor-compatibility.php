@@ -83,7 +83,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			max-width: 100%;
 			text-align: inherit;
 		}
-		ul.wp-block-categories-list.wp-block-categories {
+		ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
 			list-style-type: none;
 		}';
 

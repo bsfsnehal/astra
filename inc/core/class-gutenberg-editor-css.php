@@ -399,7 +399,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					max-width: 100%;
 					text-align: inherit;
 				}
-				ul.wp-block-categories__list {
+				ul.wp-block-categories__list, ul.wp-block-archives-list {
 					list-style-type: none;
 				}';
 

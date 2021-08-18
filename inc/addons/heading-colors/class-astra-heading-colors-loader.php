@@ -140,10 +140,10 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Theme button Font Defaults
 		 */
-		$defaults['font-weight-button']    = 'inherit';
-		$defaults['font-family-button']    = 'inherit';
+		$defaults['font-weight-button'] = 'inherit';
+		$defaults['font-family-button'] = 'inherit';
 		if ( $update_button_size_default ) {
-			$defaults['font-size-button']      = array(
+			$defaults['font-size-button'] = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -152,7 +152,7 @@ class Astra_Heading_Colors_Loader {
 				'mobile-unit'  => 'px',
 			);
 		} else {
-			$defaults['font-size-button']      = array(
+			$defaults['font-size-button'] = array(
 				'desktop'      => 15,
 				'tablet'       => '',
 				'mobile'       => '',

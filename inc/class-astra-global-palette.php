@@ -211,7 +211,7 @@ class Astra_Global_Palette {
 
 			$editor_palette[] = array(
 				'name'  => $label,
-				'slug'  => str_replace( "--", "", self::get_css_variable_prefix() ) . $key,
+				'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
 				'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
 			);
 			$color_index++;

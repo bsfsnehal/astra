@@ -88,6 +88,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.6.0' => array(
 				'astra_headings_font_support',
 				'astra_remove_logo_max_width',
+				'astra_update_button_defaults_and_gb_button_patterns',
 				'astra_transparent_header_default_value',
 			),
 			'3.6.3' => array(
@@ -107,8 +108,19 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_set_removal_widget_design_options_flag',
 			),
 			'3.6.9' => array(
+				'astra_may_update_button_font_size',
 				'astra_zero_font_size_comp',
 				'astra_unset_builder_elements_underline',
+			),
+			'3.7.0' => array(
+				'astra_update_sticky_footer_flag',
+				'astra_blog_grid_css_compatiblity',
+				'astra_fix_footer_widget_right_margin_case',
+				'astra_remove_elementor_toc_margin',
+				'astra_clear_all_assets_cache',
+			),
+			'3.7.0' => array(
+				'astra_global_color_compatibility',
 			),
 		);
 
@@ -203,7 +215,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 
 			$fallback    = $this->test_cron();
 			$db_migrated = $this->check_if_data_migrated();
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$is_queue_running = astra_get_option( 'is_theme_queue_running', false );
 
 			$fallback = ( $db_migrated ) ? $db_migrated : $fallback;
@@ -226,6 +238,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		public function is_new_install() {
 
 			// Get auto saved version number.
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			if ( false === $saved_version ) {
@@ -303,6 +316,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public function is_db_version_updated() {
 			// Get auto saved version number.
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			return version_compare( $saved_version, ASTRA_THEME_VERSION, '=' );
@@ -353,6 +367,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			do_action( 'astra_theme_update_before' );
 
 			// Get auto saved version number.
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$saved_version = astra_get_option( 'theme-auto-version', false );
 
 			if ( false === $saved_version ) {

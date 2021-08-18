@@ -11,11 +11,23 @@
 .ast-btn-preset-wrap .ast-btn-style-item svg{
 	fill: #A0A5AA;
 }
-.ast-btn-preset-wrap .ast-btn-style-item.active svg,
-.ast-btn-preset-wrap .ast-btn-style-item.active:hover svg{
-	fill: #0274BE;
-}
 .ast-btn-preset-wrap .ast-btn-style-item:hover svg{
-    fill:#82878C;
+	fill: #848484;
 }
 
+.ast-btn-preset-wrap .ast-btn-style-item svg:hover{
+	fill: #616161;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item.active svg,
+.ast-btn-preset-wrap .ast-btn-style-item.active svg:hover{
+	fill: #1e8cbe;
+}
+
+.ast-reset-btn-preset-wrap{
+	position: absolute;
+    display: inline-block;
+    line-height: 1;
+    right: 0;
+	top: 0;
+}

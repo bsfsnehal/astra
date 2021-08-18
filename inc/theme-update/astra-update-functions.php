@@ -3209,6 +3209,21 @@ function astra_remove_elementor_toc_margin() {
 }
 
 /**
+ * Link default color compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_global_color_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-global-color-format'] ) ) {
+		$theme_options['support-global-color-format'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
  *

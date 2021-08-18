@@ -57,19 +57,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Text Color
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
-					'default'  => astra_get_option( 'text-color' ),
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'  => $_section,
-					'priority' => 5,
-					'title'    => __( 'Text Color', 'astra' ),
-				),
-
-				/**
 				 * Option: Theme Color
 				 */
 				array(
@@ -104,8 +91,22 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'default'  => astra_get_option( 'link-h-color' ),
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'priority' => 15,
+					'priority' => 5,
 					'title'    => __( 'Link Hover Color', 'astra' ),
+				),
+
+				/**
+				 * Option: Text Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
+					'default'  => astra_get_option( 'text-color' ),
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'  => $_section,
+					'priority' => 6,
+					'title'    => __( 'Text Color', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 

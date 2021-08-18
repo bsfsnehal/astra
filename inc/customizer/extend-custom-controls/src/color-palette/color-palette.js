@@ -81,7 +81,7 @@ const ColorPaletteComponent = (props) => {
 			...state,
 		};
 
-		let resetValue =
+		const resetValue =
 			defaultValue.palettes[updateState.currentPalette][index];
 
 		updateState.palettes[updateState.currentPalette][index] = resetValue;
@@ -92,7 +92,7 @@ const ColorPaletteComponent = (props) => {
 		<>
 			<div className="ast-single-palette-wrap">
 				{state.palettes[state.currentPalette].map((value, index) => {
-					let paletteLables = astra.customizer.globalPaletteLabels;
+					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
 						<Tooltip key={index} text={paletteLables[index]} position="top center">
 							<div className="ast-color-picker-wrap">

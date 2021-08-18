@@ -7,7 +7,10 @@
 
 namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
 
+// @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
 use Astra_Global_Palette;
+use Elementor\Core\Settings\Manager as SettingsManager;
+// @codingStandardsIgnoreEnd PHPCompatibility.Keywords.NewKeywords.t_useFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
@@ -386,7 +389,12 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * @return void
 		 */
 		public function elementor_add_scripts() {
-			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor.css', array(), ASTRA_THEME_VERSION );
+
+			$editor_preferences = SettingsManager::get_settings_managers( 'editorPreferences' );
+			$theme              = $editor_preferences->get_model()->get_settings( 'ui_theme' );
+			$style              = 'dark' == $theme ? '-dark' : '';
+
+			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor' . $style . '.css', array(), ASTRA_THEME_VERSION );
 		}
 	}
 

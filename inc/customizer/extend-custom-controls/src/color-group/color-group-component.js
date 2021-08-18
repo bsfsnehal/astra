@@ -247,8 +247,6 @@ const ColorGroupComponent = props => {
 
 	const renderInputHtml = ( device ) => {
 
-		console.log( "in renderInputHTML" );
-
 		if( responsive ){
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');

@@ -1,7 +1,7 @@
 .ast-btn-preset-wrap {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
-	gap: 14px;
+	gap: 12px;
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item{
@@ -9,6 +9,9 @@
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item svg{
+	fill: #A0A5AA;
+}
+.ast-btn-preset-wrap .ast-btn-style-item:hover svg{
 	fill: #848484;
 }
 
@@ -28,5 +31,3 @@
     left: 0;
 	top: 0;
 }
-
-

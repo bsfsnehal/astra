@@ -14,7 +14,7 @@ const SliderComponent = props => {
 	const linkRemoteUpdate = () => {
 
 		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
-			if ( e.detail === 'btn-preset' ) {
+			if ( e.detail === 'btn-preset' || e.detail === 'typography' ) {
 				let value = props.control.setting.get();
 				setPropsValue( value );
 			}

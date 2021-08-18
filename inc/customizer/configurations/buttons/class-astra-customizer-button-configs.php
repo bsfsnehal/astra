@@ -156,10 +156,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'button_04' => array(
 							'src'               => 'btn-preset-04',
 							'border-size'       => array(
-								'top'    => 2,
-								'right'  => 2,
-								'bottom' => 2,
-								'left'   => 2,
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
 							),
 							'border-radius'     => 0,
 							'button-padding'    => array(
@@ -192,10 +192,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'button_05' => array(
 							'src'               => 'btn-preset-05',
 							'border-size'       => array(
-								'top'    => 2,
-								'right'  => 2,
-								'bottom' => 2,
-								'left'   => 2,
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
 							),
 							'border-radius'     => 3,
 							'button-padding'    => array(
@@ -228,10 +228,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'button_06' => array(
 							'src'               => 'btn-preset-06',
 							'border-size'       => array(
-								'top'    => 2,
-								'right'  => 2,
-								'bottom' => 2,
-								'left'   => 2,
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
 							),
 							'border-radius'     => 30,
 							'button-padding'    => array(

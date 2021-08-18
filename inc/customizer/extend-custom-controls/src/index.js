@@ -75,6 +75,7 @@ wp.customize.controlConstructor['ast-button-presets'] = ButtonPresetControl;
 wp.customize.controlConstructor['ast-typography-presets'] = TypographyPresetControl;
 wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
+
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';

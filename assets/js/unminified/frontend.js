@@ -305,10 +305,55 @@ function init( mobileHeaderType ) {
 			if ( event.keyCode === 27 ) {
 				event.preventDefault();
 				document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
+				updateTrigger(this);
+			});
+
+			// Close Popup if esc is pressed.
+			document.addEventListener( 'keyup', function (event) {
+				// 27 is keymap for esc key.
+				if ( event.keyCode === 27 ) {
+					event.preventDefault();
+					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
+					updateTrigger();
+				}
+			});
+
+			// Close Popup on outside click.
+			document.addEventListener('click', function (event) {
+
+				var target = event.target;
+				var modal = document.querySelector( '.ast-mobile-popup-drawer.active .ast-mobile-popup-overlay' );
+				if ( target === modal ) {
+					document.getElementById( 'ast-mobile-popup' ).classList.remove( 'active', 'show' );
+					updateTrigger();
+				}
+			});
+
+			// Close Popup on # link click inside Popup.
+			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
+				if( null !== popupLinks[link].getAttribute("href") && '#' == popupLinks[link].getAttribute("href") && !popupLinks[link].parentElement.classList.contains('menu-item-has-children')){
+					popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
+					popupLinks[link].headerType = 'off-canvas';
+				}
 				updateTrigger();
 			}
 		});
 
+			AstraToggleSetup();
+		} else if ( 'dropdown' === mobileHeaderType ) {
+
+			var mobileDropdownContent = document.querySelector( '.ast-mobile-header-content' ),
+			    desktopDropdownContent = document.querySelector( '.ast-desktop-header-content' ),
+				mobileLinks = mobileDropdownContent.getElementsByTagName('a'),
+				desktopLinks = desktopDropdownContent.getElementsByTagName('a');
+
+			// Close Popup on # link click inside Popup.
+			for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
+				if( null !== mobileLinks[link].getAttribute("href") && '#' == mobileLinks[link].getAttribute("href") && !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') ){
+					mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
+					mobileLinks[link].headerType = 'dropdown';
+				}
+			}
 		// Close Popup on outside click.
 		document.addEventListener('click', function (event) {
 

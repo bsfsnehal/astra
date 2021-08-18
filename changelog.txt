@@ -4,6 +4,7 @@ v3.6.9
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
+- Fix: Dropdown target as link not working if the menu item has a link. 
 - Fix: WooCommerce - Cart count is overlapping on submenu section.
 
 v3.6.8

@@ -1,4 +1,5 @@
 v3.6.9
+- Improvement : Gutenberg editor overall UI/UX improved.
 - Improvement : Font size '0' will applicable for the fonts.
 - Improvement: Clear asset cache of theme and addon on every new update of theme.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )

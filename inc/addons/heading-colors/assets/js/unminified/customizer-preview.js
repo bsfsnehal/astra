@@ -13,7 +13,7 @@
 	var headingSelectors = 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6';
 
 	if( astraHeadingColorOptions.maybeApplyHeadingColorForTitle ) {
-		headingSelectors += ',.ast-archive-title';
+		headingSelectors += ',.ast-archive-title, .entry-title a';
 	}
 
 	/**

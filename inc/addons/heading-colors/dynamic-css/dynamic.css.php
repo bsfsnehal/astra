@@ -45,6 +45,14 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 		),
 	);
 
+	if( astra_has_global_color_format_support() ) {
+		$css_output['.entry-title a'] = array(
+			'color' => esc_attr( $heading_base_color )
+		);
+	}
+
+	error_log( print_r( astra_has_global_color_format_support(), true  ) );
+
 	/* Parse CSS from array() */
 	$css_output = astra_parse_css( $css_output );
 

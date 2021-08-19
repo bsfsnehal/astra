@@ -128,6 +128,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
+			$h4_font_family    = '';
+			$h4_font_weight    = '';
+			$h4_line_height    = '';
+			$h4_text_transform = '';
+
+			$h5_font_family    = '';
+			$h5_font_weight    = '';
+			$h5_line_height    = '';
+			$h5_text_transform = '';
+
+			$h6_font_family    = '';
+			$h6_font_weight    = '';
+			$h6_line_height    = '';
+			$h6_text_transform = '';
+
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
@@ -182,7 +197,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Fallback for H6 - headings typography.
 			$h6_line_height = $headings_line_height;
 
-			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 
 				$h4_font_family    = astra_get_option( 'font-family-h4' );
 				$h4_font_weight    = astra_get_option( 'font-weight-h4' );
@@ -354,7 +369,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$blog_max_width                         = astra_get_option( 'blog-max-width' );
 			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
 			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
 
 			if ( ! $btn_style_color ) {
@@ -378,36 +393,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			$h4_properties =  array(
-				'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+			$h4_properties = array(
+				'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
 			$h5_properties = array(
-				'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+				'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
 			$h6_properties = array(
-				'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+				'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
-			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 				$h4_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
 					'text-transform' => esc_attr( $h4_text_transform ),
-					'line-height'    => esc_attr( $h4_line_height )
+					'line-height'    => esc_attr( $h4_line_height ),
 				);
 
 				$h4_properties = array_merge( $h4_properties, $h4_font_properties );
 
-				$h5_font_properties= array(
+				$h5_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
 					'text-transform' => esc_attr( $h5_text_transform ),
-					'line-height'    => esc_attr( $h5_line_height )
+					'line-height'    => esc_attr( $h5_line_height ),
 				);
 
 				$h5_properties = array_merge( $h5_properties, $h5_font_properties );
@@ -416,7 +431,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
 					'text-transform' => esc_attr( $h6_text_transform ),
-					'line-height'    => esc_attr( $h6_line_height )
+					'line-height'    => esc_attr( $h6_line_height ),
 				);
 
 				$h6_properties = array_merge( $h6_properties, $h6_font_properties );
@@ -630,7 +645,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
-			if( astra_has_global_color_format_support() ) {
+			if ( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(
 					'color' => esc_attr( $heading_base_color ),
 				);
@@ -646,6 +661,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				// Widget Title.
 				$css_output['.widget-title'] = array(
+					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
 					'color'     => esc_attr( $text_color ),
 				);

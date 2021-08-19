@@ -609,6 +609,7 @@ function is_astra_addon_3_5_0_version() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
@@ -739,7 +740,7 @@ function astra_is_h4_to_h6_typo_option_to_load() {
  * @return boolean false if it is an existing user, true for new user.
  */
 function astra_has_global_color_format_support() {
-	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
 	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
 }

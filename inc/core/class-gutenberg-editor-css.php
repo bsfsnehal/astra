@@ -949,6 +949,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$boxed_container_tablet['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
 
 				$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
+
+				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
+				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
 			$css .= astra_parse_css( $boxed_container );

@@ -157,6 +157,7 @@
     transform: translate(50%, -50%);
     text-align: center;
 	font-size: 12px;
+	mix-blend-mode: difference;
 }
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;

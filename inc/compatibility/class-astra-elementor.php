@@ -7,8 +7,10 @@
 
 namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
 
+// @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
 use Astra_Global_Palette;
 use Elementor\Core\Settings\Manager as SettingsManager;
+// @codingStandardsIgnoreEnd PHPCompatibility.Keywords.NewKeywords.t_useFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {

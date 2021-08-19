@@ -9,14 +9,16 @@
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item svg{
-	fill: #A0A5AA;
+	fill: #646970;
 }
+
+.ast-btn-preset-wrap .ast-btn-style-item svg:hover{
+	fill: #565b62;
+}
+
 .ast-btn-preset-wrap .ast-btn-style-item.active svg,
-.ast-btn-preset-wrap .ast-btn-style-item.active:hover svg{
-	fill: #0274BE;
-}
-.ast-btn-preset-wrap .ast-btn-style-item:hover svg{
-    fill:#82878C;
+.ast-btn-preset-wrap .ast-btn-style-item.active svg:hover{
+	fill: #2271b1;
 }
 
 .ast-reset-btn-preset-wrap{
@@ -26,5 +28,9 @@
     left: 0;
 	top: 0;
 }
-
+.ast-reset-btn-preset-wrap .components-button.is-secondary,
+.ast-reset-btn-preset-wrap .components-button.is-secondary:hover{
+	box-shadow: none;
+	background: transparent;
+}
 

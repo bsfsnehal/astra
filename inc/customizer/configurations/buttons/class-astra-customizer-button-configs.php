@@ -38,8 +38,8 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			$_configs = array(
 				array(
-					'name'      => 'astra-button-presets',
-					'default'   => get_option( 'astra-button-presets' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[button-preset-style]',
+					'default'   => astra_get_option( 'button-preset-style' ),
 					'type'      => 'control',
 					'control'   => 'ast-button-presets',
 					'title'     => __( 'Button Styles', 'astra' ),
@@ -264,7 +264,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'button-color'      => '#0170B9',
 						),
 					),
-					'transport' => 'postMessage',
 					'priority'  => 18,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),

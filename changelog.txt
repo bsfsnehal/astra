@@ -6,6 +6,8 @@ v3.6.9
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
 - Fix: WooCommerce - Cart count is overlapping on submenu section.
 - Fix: Desktop logo width is applying on the mobile devices for a moment.
+- Fix: Social icon does not change in customizer preview.
+
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.

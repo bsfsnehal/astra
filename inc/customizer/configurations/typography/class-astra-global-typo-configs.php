@@ -473,7 +473,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						'line-height-h6'        => 1.2,
 					),
 				),
-				'section'   => 'section-typography',
+				'section'   => astra_maybe_load_h4_to_h6_typo_options() ? 'section-typography' : 'section-body-typo',
 				'transport' => 'postMessage',
 				'priority'  => 5,
 				'title'     => __( 'Presets', 'astra' ),

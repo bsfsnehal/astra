@@ -23,28 +23,34 @@ jobs:
           base-branch-regex: '[A-Za-z\d-_.\\/]+'
           head-branch-regex: '[A-Za-z\d-_.\\/]+'
           title-template: 'Build: Release PR'
-          body-template: |
+          title-update-action: 'replace'
+          body-uppercase-base-match: false
+
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
             ### Description
-            - Final release PR. Please check all the checklist below before merging.
+            - Final release PR. Please check all the checklist below in the same sequence before merging.
             ---
 
             ### Checklist:
             - [ ] Finalize changelog.txt
             - [ ] Add doc links in the changelog.txt
-            - [ ] Change minimum addon update version - ASTRA_EXT_MIN_VER
+            - [ ] Update Graupi
+            - [ ] Update BSF Analytics
+            - [ ] PHPCS
             - [ ] Run to update packages        : `npm audit fix`
             - [ ] Run to produce minified files : `grunt minify`
-            - [ ] Run to update Google Fonts    : `grunt google-fonts`
-            - [ ] PHPCS - vendor/bin/phpcs
+            - [ ] Change minimum theme version - const - ASTRA_THEME_MIN_VER
             - [ ] Run to update version number  : `grunt version-bump --ver=<version-number>`
             - [ ] Check the Background Process function version
             - [ ] Update - Tested Upto - style.css & readme.txt
             - [ ] Update Readme.txt file and then run: `grunt readme`
-            - [ ] Generate POT file             : `wp i18n make-pot wp-content/themes/astra wp-content/themes/astra/languages/astra.pot`
+            - [ ] Generate POT file             : `grunt i18n`
+            - [ ] Upload languages POT file on translation brainstrom force website - https://translate.brainstormforce.com/glotpress/projects/astra-addon/import-originals/
+            - [ ] Export translation files and update them in languages folder of Astra Addon
             - [ ] Add draft Release notes on github
             - [ ] Add draft changelogs to wpastra.com
             - [ ] Open PR to backport branch to `next-release`
-            ---
-          body-update-action: 'prefix'
-          title-update-action: 'prefix'
-          body-uppercase-base-match: false

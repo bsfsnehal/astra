@@ -36,7 +36,7 @@ jobs:
             ### Checklist:
             - [ ] Finalize changelog.txt
             - [ ] Add doc links in the changelog.txt
-            - [ ] Change minimum addon update version - ASTRA_EXT_MIN_VER
+            - [ ] Change minimum addon update version - `ASTRA_EXT_MIN_VER`
             - [ ] Run to update packages        : `npm audit fix`
             - [ ] Run to produce minified files : `grunt minify`
             - [ ] Run to update Google Fonts    : `grunt google-fonts`

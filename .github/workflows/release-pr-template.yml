@@ -16,6 +16,7 @@ jobs:
           if [[ ${{ github.base_ref }} == master || ${{ github.base_ref }} == release-candidate || ${{ github.base_ref }} == next-release ]]; then
               echo ::set-output name=match::true
           fi
+
       - uses: tzkhan/pr-update-action@v2
         if: steps.check-branch.outputs.match == 'true'
         with:
@@ -23,13 +24,13 @@ jobs:
           base-branch-regex: '[A-Za-z\d-_.\\/]+'
           head-branch-regex: '[A-Za-z\d-_.\\/]+'
           title-template: 'Build: Release PR'
-          title-update-action: 'replace'
+          title-update-action: 'prefix'
           body-uppercase-base-match: false
 
-      - name: Add comment
-        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+      - uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+        if: steps.check-branch.outputs.match == 'true'
         with:
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.number }}
           body: |
             ### Description
             - Final release PR. Please check all the checklist below in the same sequence before merging.

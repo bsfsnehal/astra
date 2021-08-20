@@ -563,10 +563,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$content_links_underline = astra_get_option( 'underline-content-links' );
 
 			if ( $content_links_underline ) {
-				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)']                          = array(
+				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)'] = array(
 					'text-decoration' => 'underline',
 				);
-				$css_output['.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button'] = array(
+
+				$reset_underline_from_anchors = self::unset_builder_elements_underline();
+
+				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button';
+
+				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
+
+				$css_output[ $excluding_anchor_selectors ] = array(
 					'text-decoration' => 'none',
 				);
 			}
@@ -2263,7 +2270,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-single-post .entry-title, .page-title' => array(
 					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
-				'.ast-header-break-point .site-branding img, .ast-header-break-point .custom-logo-link img' => array(
+				'header .custom-logo-link img, .ast-header-break-point .site-branding img, .ast-header-break-point .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 				'.astra-logo-svg'                => array(
@@ -2485,11 +2492,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$social_bg_color       = astra_get_option( 'transparent-header-social-icons-bg-color' );
 				$social_bg_hover_color = astra_get_option( 'transparent-header-social-icons-bg-h-color' );
 
-				$widget_title_color      = astra_get_option( 'transparent-header-widget-title-color' );
-				$widget_content_color    = astra_get_option( 'transparent-header-widget-content-color' );
-				$widget_link_color       = astra_get_option( 'transparent-header-widget-link-color' );
-				$widget_link_hover_color = astra_get_option( 'transparent-header-widget-link-h-color' );
-
 				$button_color      = astra_get_option( 'transparent-header-button-text-color' );
 				$button_h_color    = astra_get_option( 'transparent-header-button-text-h-color' );
 				$button_bg_color   = astra_get_option( 'transparent-header-button-bg-color' );
@@ -2568,18 +2570,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
 						'color' => esc_attr( $social_hover_color['desktop'] ),
 					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .widget-title' => array(
-						'color' => esc_attr( $widget_title_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner' => array(
-						'color' => esc_attr( $widget_content_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a' => array(
-						'color' => esc_attr( $widget_link_color ),
-					),
-					'.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover' => array(
-						'color' => esc_attr( $widget_link_hover_color ),
-					),
 					'.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button' => array(
 						'color'      => esc_attr( $button_color ),
 						'background' => esc_attr( $button_bg_color ),
@@ -2613,21 +2603,42 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
-				} else {
-					$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
-				}
+				if ( ! astra_remove_widget_design_options() ) {
 
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector ]              = array(
-					'color' => esc_attr( $widget_content_color ),
-				);
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a' ]       = array(
-					'color' => esc_attr( $widget_link_color ),
-				);
-				$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a:hover' ] = array(
-					'color' => esc_attr( $widget_link_hover_color ),
-				);
+					$widget_title_color      = astra_get_option( 'transparent-header-widget-title-color' );
+					$widget_content_color    = astra_get_option( 'transparent-header-widget-content-color' );
+					$widget_link_color       = astra_get_option( 'transparent-header-widget-link-color' );
+					$widget_link_hover_color = astra_get_option( 'transparent-header-widget-link-h-color' );
+
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .widget-title']                     = array(
+						'color' => esc_attr( $widget_title_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner']         = array(
+						'color' => esc_attr( $widget_content_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a']       = array(
+						'color' => esc_attr( $widget_link_color ),
+					);
+					$transparent_header_builder_desktop_css['.ast-theme-transparent-header .widget-area.header-widget-area .header-widget-area-inner a:hover'] = array(
+						'color' => esc_attr( $widget_link_hover_color ),
+					);
+
+					if ( Astra_Builder_Helper::apply_flex_based_css() ) {
+						$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area.header-widget-area-inner';
+					} else {
+						$transparent_header_widget_selector = '.ast-theme-transparent-header .widget-area.header-widget-area. header-widget-area-inner';
+					}
+
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector ]              = array(
+						'color' => esc_attr( $widget_content_color ),
+					);
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a' ]       = array(
+						'color' => esc_attr( $widget_link_color ),
+					);
+					$transparent_header_builder_desktop_css[ $transparent_header_widget_selector . ' a:hover' ] = array(
+						'color' => esc_attr( $widget_link_hover_color ),
+					);
+				}
 
 				if ( Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header', 'mobile' ) ) {
 
@@ -3336,6 +3347,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
+		 * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
+		 *
+		 * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
+		 * 2. UABB : Button, Slide Box CTA, Flip box CTA, Info Banner, Posts, Info Circle, Call to Action, Subscribe Form.
+		 *
+		 * @since x.x.x
+		 */
+		public static function unset_builder_elements_underline() {
+			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
+			$unset_builder_elements_underline = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
+			return apply_filters( 'astra_unset_builder_elements_underline', $unset_builder_elements_underline );
+		}
+
+		/**
 		 * Load sidebar static CSS when it is enabled.
 		 *
 		 * @since 3.0.0
@@ -3447,10 +3472,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-header-break-point.ast-header-custom-item-outside .ast-edd-header-cart-info-wrap,
 			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
 				display: none;
-			}
-			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
-			ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
-				line-height: 1.8;
 			}
 
 			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon,
@@ -3609,7 +3630,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 4;
+					z-index: 3;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3666,7 +3687,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 4;
+					z-index: 3;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3697,14 +3718,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-					width: 2em;
-					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;
 					vertical-align: middle;
 					text-align: right;
 				}';
 			}
+
+			$cart_static_css .= '
+				.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
+				.ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
+					line-height: 1.8;
+				}';
 			// This CSS requires in case of :before Astra icons. But in case of SVGs this loads twice that's why removed this from static & loading conditionally.
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				$cart_static_css .= '

@@ -43,6 +43,12 @@ jobs:
             - name: Install Dependencies
               run: npm install
 
+            - name: Setup custom wp-env for theme-check
+              run: cp .github/.wp-env-themecheck.json .wp-env.json
+
+            - name: Build the Astra theme
+              run: grunt release-no-clean
+
             - name: Start Local Environment
               run: npm run env:start
               env:

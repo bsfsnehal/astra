@@ -16,7 +16,6 @@ jobs:
           if [[ ${{ github.base_ref }} == master || ${{ github.base_ref }} == release-candidate || ${{ github.base_ref }} == next-release ]]; then
               echo ::set-output name=match::true
           fi
-
       - uses: tzkhan/pr-update-action@v2
         if: steps.check-branch.outputs.match == 'true'
         with:
@@ -25,33 +24,30 @@ jobs:
           head-branch-regex: '[A-Za-z\d-_.\\/]+'
           title-template: 'Build: Release PR'
           title-update-action: 'prefix'
-          body-uppercase-base-match: false
 
       - uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
         if: steps.check-branch.outputs.match == 'true'
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            ### Description
-            - Final release PR. Please check all the checklist below in the same sequence before merging.
+            ### Final release PR. Please check all the checklist below before merging.
             ---
 
             ### Checklist:
             - [ ] Finalize changelog.txt
             - [ ] Add doc links in the changelog.txt
-            - [ ] Update Graupi
-            - [ ] Update BSF Analytics
-            - [ ] PHPCS
+            - [ ] Change minimum addon update version - ASTRA_EXT_MIN_VER
             - [ ] Run to update packages        : `npm audit fix`
             - [ ] Run to produce minified files : `grunt minify`
-            - [ ] Change minimum theme version - const - ASTRA_THEME_MIN_VER
+            - [ ] Run to update Google Fonts    : `grunt google-fonts`
+            - [ ] PHPCS - vendor/bin/phpcs
             - [ ] Run to update version number  : `grunt version-bump --ver=<version-number>`
             - [ ] Check the Background Process function version
             - [ ] Update - Tested Upto - style.css & readme.txt
             - [ ] Update Readme.txt file and then run: `grunt readme`
-            - [ ] Generate POT file             : `grunt i18n`
-            - [ ] Upload languages POT file on translation brainstrom force website - https://translate.brainstormforce.com/glotpress/projects/astra-addon/import-originals/
-            - [ ] Export translation files and update them in languages folder of Astra Addon
+            - [ ] Generate POT file             : `wp i18n make-pot wp-content/themes/astra wp-content/themes/astra/languages/astra.pot`
+            - [ ] Make sure all the GitHub PR checks are passed
             - [ ] Add draft Release notes on github
             - [ ] Add draft changelogs to wpastra.com
             - [ ] Open PR to backport branch to `next-release`
+            ---

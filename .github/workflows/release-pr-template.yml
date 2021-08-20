@@ -1,4 +1,4 @@
-name: PR update
+name: Adding Release PR checklist to the comment
 
 on:
   pull_request:

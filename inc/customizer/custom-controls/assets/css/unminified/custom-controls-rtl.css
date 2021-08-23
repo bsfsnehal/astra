@@ -1611,7 +1611,6 @@
 	background: transparent;
 }
 
-
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -3651,7 +3650,7 @@ input[type="text"].select2-search__field {
     margin-bottom: 0;
     display: none;
 }
-
+  
 .ast-responsive-toggle-btns > li.active {
     display: inline-block;
 }

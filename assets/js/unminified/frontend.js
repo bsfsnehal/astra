@@ -450,9 +450,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		updateHeaderBreakPoint();
 
-		if ( 'dropdown' === mobileHeaderType ) {
-			AstraToggleSetup();
-		}
+		AstraToggleSetup();
+
 	}
 
 	window.addEventListener('resize', function(){

@@ -854,7 +854,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -1929,6 +1929,17 @@ namespace {
          * Remove UABB Global Setting Option
          */
         public function remove_uabb_global_setting()
+        {
+        }
+        /**
+         * UABB Button :visited color support
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         * @return String Generated dynamic CSS for UABB Button :visited.
+         *
+         * @since x.x.x
+         */
+        public function default_type_button_visited_colors($dynamic_css)
         {
         }
         /**
@@ -3599,9 +3610,9 @@ namespace {
         /**
          * Check if component placed on the builder.
          *
-         * @param integer $component_id component id.
-         * @param string  $builder_type builder type.
-         * @param string  $device Device type (mobile, desktop and both).
+         * @param string $component_id component id.
+         * @param string $builder_type builder type.
+         * @param string $device Device type (mobile, desktop and both).
          * @return bool
          */
         public static function is_component_loaded($component_id, $builder_type = 'header', $device = 'both')
@@ -4708,6 +4719,28 @@ namespace {
          * @return array
          */
         public static function prepare_typography_options($section_id, $required_condition = array())
+        {
+        }
+        /**
+         * Check if transparent header is enabled on the page being previewed.
+         *
+         * @since  x.x.x
+         * @return boolean True - If Transparent Header is enabled, False if not.
+         */
+        public function ast_is_transparent_header()
+        {
+        }
+        /**
+         * Prepare transparent header notices for header components.
+         *
+         * @param string $_section section id.
+         * @param string $suffix Component unique ID.
+         * @param string $component Component name.
+         * @return array
+         *
+         * @since x.x.x
+         */
+        public function prepare_transparent_header_notice($_section, $suffix, $component = '')
         {
         }
         /**
@@ -6504,6 +6537,177 @@ namespace {
         }
     }
     /**
+     * Register General Customizer Configurations.
+     */
+    class Astra_Customizer_Blog_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register General Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Blog_Loader
+    {
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Set Options Default Values
+         *
+         * @param  array $defaults  Astra options default value array.
+         * @return array
+         */
+        public function theme_defaults($defaults)
+        {
+        }
+        /**
+         * Register panel, section and controls
+         *
+         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         */
+        public function blog_addon_customizer_configs($wp_customize)
+        {
+        }
+        /**
+         * Customizer Preview
+         */
+        public function preview_scripts()
+        {
+        }
+    }
+    /**
+     * Blog Pro Markup Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Blog_Markup
+    {
+        /**
+         * Member Variable
+         *
+         * @var object instance
+         */
+        private static $instance;
+        /**
+         * Initiator
+         */
+        public static function get_instance()
+        {
+        }
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Add Blog Grid Class
+         *
+         * @since x.x.x
+         * @param array $classes Body Class Array.
+         * @return array
+         */
+        public function astra_primary_class_blog_grid($classes)
+        {
+        }
+        /**
+         * Add Body Classes
+         *
+         * @param array $classes Body Class Array.
+         * @return array
+         */
+        public function astra_blog_body_classes($classes)
+        {
+        }
+        /**
+         * Update grid columns base on selected grid layout columns.
+         *
+         * @since x.x.x
+         * @param string $dynamic_css inline css.
+         * @return string.
+         */
+        public function astra_blog_grid_css($dynamic_css)
+        {
+        }
+        /**
+         * Add Post Class Blog Grid
+         *
+         * @since x.x.x
+         * @param array $classes Body Class Array.
+         * @return array
+         */
+        public function astra_post_class_blog_grid($classes)
+        {
+        }
+        /**
+         * Init action.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function init_action()
+        {
+        }
+        /**
+         * Excerpt count.
+         *
+         * @since x.x.x
+         * @param int $length default count of words.
+         * @return int count of words
+         */
+        public function custom_excerpt_length($length)
+        {
+        }
+        /**
+         * Read more text.
+         *
+         * @since x.x.x
+         * @param string $text default read more text.
+         * @return string read more text
+         */
+        public function read_more_text($text)
+        {
+        }
+        /**
+         * Check is blog layout 1 is selected or add-on is deactivated.
+         * 
+         * @since x.x.x
+         * @return boolean
+         */
+        public static function is_blog_layout_1()
+        {
+        }
+    }
+    /**
+     * Blog Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Blog
+    {
+        /**
+         * Constructor function that initializes required actions and hooks
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
      * Customizer Initialization
      *
      * @since 1.7.0
@@ -7984,7 +8188,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'), '3.6.8' => array('astra_set_removal_widget_design_options_flag', 'astra_clear_all_assets_cache'), '3.7.0' => array('astra_global_color_compatibility'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_update_button_defaults_and_gb_button_patterns', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_may_update_button_font_size', 'astra_zero_font_size_comp', 'astra_unset_builder_elements_underline'), '3.7.0' => array('astra_update_sticky_footer_flag', 'astra_blog_grid_css_compatiblity', 'astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'), '3.7.0' => array('astra_global_color_compatibility'));
         /**
          *  Constructor
          */
@@ -8074,112 +8278,6 @@ namespace {
          * @param string|null $version New Astra theme version or null.
          */
         public static function update_db_version($version = \null)
-        {
-        }
-    }
-    /**
-     * Global palette class
-     */
-    class Astra_Global_Palette
-    {
-        /**
-         * Constructor
-         *
-         * @since x.x.x
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Get CSS variable prefix used for styling.
-         *
-         * @since x.x.x
-         * @return string variable prefix
-         */
-        public static function get_css_variable_prefix()
-        {
-        }
-        /**
-         * Localize variables used in the customizer.
-         *
-         * @since x.x.x
-         * @param object $object localize object.
-         * @return array $object localize object.
-         */
-        public function localize_variables($object)
-        {
-        }
-        /**
-         * Default global palette options.
-         *
-         * @since x.x.x
-         * @return array Palette options.
-         */
-        public static function get_default_color_palette()
-        {
-        }
-        /**
-         * Get labels for palette colors.
-         *
-         * @since x.x.x
-         * @return array Palette labels.
-         */
-        public static function get_palette_labels()
-        {
-        }
-        /**
-         * Get slugs for palette colors.
-         *
-         * @since x.x.x
-         * @return array Palette slugs.
-         */
-        public static function get_palette_slugs()
-        {
-        }
-        /**
-         * Include required files.
-         *
-         * @since x.x.x
-         */
-        public function includes()
-        {
-        }
-        /**
-         * Generate palette CSS required to display on front end.
-         *
-         * @since x.x.x
-         * @return array palette style array.
-         */
-        public static function generate_global_palette_style()
-        {
-        }
-        /**
-         * Modify color palette from Gutenberg.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function support_editor_color_palette()
-        {
-        }
-        /**
-         * Format color palette data required to pass for Gutenberg palette.
-         *
-         * @since x.x.x
-         * @param array $global_palette global palette data.
-         * @return bool
-         */
-        public function format_global_palette($global_palette)
-        {
-        }
-        /**
-         * Pass hex value for global palette to process forground color.
-         *
-         * @since x.x.x
-         * @param string $color hex color / css variable.
-         * @return string
-         */
-        public function get_color_by_palette_variable($color)
         {
         }
     }
@@ -8980,6 +9078,16 @@ namespace {
         {
         }
         /**
+         * Gutenberg outline buttons pattern compatibility changes.
+         * With 'astra_gutenberg_patterns_compatibility' filter we added GB outline buttons with 15px-30px padding values to support button patterns. But in this case customizer button padding values not reflecting anymore, so reverting this change with managing backwards.
+         *
+         * @since x.x.x
+         * @return boolean false if it is an existing user, true if's not.
+         */
+        public static function update_gutenberg_outline_button_patterns_compat()
+        {
+        }
+        /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *
          * 1. Adding Font-weight support to widget titles.
@@ -9000,6 +9108,17 @@ namespace {
          * @return boolean false if it is an existing user, true if not.
          */
         public static function remove_logo_max_width_mobile_static_css()
+        {
+        }
+        /**
+         * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
+         *
+         * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
+         * 2. UABB : Button, Slide Box CTA, Flip box CTA, Info Banner, Posts, Info Circle, Call to Action, Subscribe Form.
+         *
+         * @since x.x.x
+         */
+        public static function unset_builder_elements_underline()
         {
         }
         /**
@@ -12040,13 +12159,13 @@ namespace {
     {
     }
     /**
-     * Generate editor style on front end compatible for global palette.
+     * Generate palette CSS variable styles on the front end.
      *
      * @since x.x.x
      * @param string $dynamic_css dynamic css.
      * @return array
      */
-    function astra_generate_palette_editor_style($dynamic_css)
+    function astra_generate_global_palette_style($dynamic_css)
     {
     }
     /**
@@ -13348,6 +13467,15 @@ namespace {
     {
     }
     /**
+     * Dont apply zero size to existing user.
+     *
+     * @since x.x.x
+     * @return boolean false if it is an existing user , true if not.
+     */
+    function astra_zero_font_size_case()
+    {
+    }
+    /**
      * Astra Filter Deprecated
      *
      * @since 1.1.1
@@ -13498,6 +13626,13 @@ namespace {
      * @since 1.0.0
      */
     function astra_register_menu_locations()
+    {
+    }
+    /**
+     *  Prepare if class 'Astra_Builder_Base_Configuration' exist.
+     *  Kicking this off by calling 'get_instance()' method
+     */
+    function astra_builder_base_configuration_instance()
     {
     }
     /**
@@ -13664,6 +13799,16 @@ namespace {
      * @return String Generated dynamic CSS.
      */
     function astra_ext_transparent_below_header_sections_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return string
+     */
+    function astra_blog_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
     /**
@@ -14096,6 +14241,14 @@ namespace {
      * @since 3.6.0
      * @return void.
      */
+    function astra_update_button_defaults_and_gb_button_patterns()
+    {
+    }
+    /**
+     * Set default value for the transparent header.
+     *
+     * @return void
+     */
     function astra_transparent_header_default_value()
     {
     }
@@ -14146,6 +14299,24 @@ namespace {
     {
     }
     /**
+     * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+     *
+     * @since x.x.x
+     * @return void.
+     */
+    function astra_update_sticky_footer_flag()
+    {
+    }
+    /**
+     * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_blog_grid_css_compatiblity()
+    {
+    }
+    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * @since 3.6.7
@@ -14171,6 +14342,32 @@ namespace {
      * @return void
      */
     function astra_set_removal_widget_design_options_flag()
+    {
+    }
+    /**
+     * Apply zero font size for new users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_zero_font_size_comp()
+    {
+    }
+    /** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_may_update_button_font_size()
+    {
+    }
+    /**
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_unset_builder_elements_underline()
     {
     }
     /**
@@ -14455,6 +14652,15 @@ namespace {
     {
     }
     /**
+     * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_isset_sticky_footer()
+    {
+    }
+    /**
      * Check is WordPress version is greater than or equal to beta 5.8 version.
      *
      * @since 3.6.5
@@ -14464,7 +14670,25 @@ namespace {
     {
     }
     /**
-     * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+     * Check whether user is exising or new to apply the updated default values for default blog post layout..
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_apply_new_default_blog_values()
+    {
+    }
+    /**
+     * Get compatibility for Old user to apply the blog grid bse css changes.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_apply_blog_grid_css()
+    {
+    }
+    /**
+     * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
      *
      * @since x.x.x
      */
@@ -14500,6 +14724,15 @@ namespace {
      * @return boolean
      */
     function astra_remove_widget_design_options()
+    {
+    }
+    /**
+     * Clear Astra + Astra Pro assets cache.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_clear_theme_addon_asset_cache()
     {
     }
     /**

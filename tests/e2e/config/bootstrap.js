@@ -15,6 +15,7 @@ import {
 	isOfflineMode,
 	setBrowserViewport,
 	trashAllPosts,
+	deactivatePlugin,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';
@@ -167,11 +168,19 @@ function observeConsoleLogging() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTests() {
-	if ( true ) {
+	if ( await page.$( 'body.wp-admin' ) ) {
 		return;
 	}
 
-	await expect( page ).toPassAxeTests();
+	await expect( page ).toPassAxeTests( {
+		exclude: [ [
+			[ '#wpadminbar' ],
+			[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
+		] ],
+		disabledRules: [
+			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
+		],
+	} );
 }
 
 /**
@@ -204,6 +213,7 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
+	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
 	await siteReset();
 	await page.setDefaultNavigationTimeout( 10000 );

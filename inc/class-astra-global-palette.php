@@ -211,13 +211,12 @@ class Astra_Global_Palette {
 					$extra_color_index++;
 				}
 
-				$editor_palette[] = array(
-					'name'  => $label,
-					'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
-					'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
-				);
-				$color_index++;
-			}
+			$editor_palette[] = array(
+				'name'  => $label,
+				'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
+				'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
+			);
+			$color_index++;
 		}
 
 		return $editor_palette;

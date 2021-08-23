@@ -394,7 +394,6 @@
 	background: transparent;
 }
 
-
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -492,7 +491,7 @@
   left: 132px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-colors-group-set {
   left: 112px;
 }
 
@@ -531,6 +530,10 @@
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
   top: 73px;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  left: 112px;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
@@ -1706,7 +1709,7 @@
   left: 132px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-colors-group-set {
   left: 112px;
 }
 
@@ -1745,6 +1748,10 @@
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
   top: 73px;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  left: 112px;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
@@ -3644,7 +3651,7 @@ input[type="text"].select2-search__field {
     margin-bottom: 0;
     display: none;
 }
-  
+
 .ast-responsive-toggle-btns > li.active {
     display: inline-block;
 }

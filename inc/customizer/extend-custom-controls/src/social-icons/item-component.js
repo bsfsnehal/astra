@@ -20,10 +20,10 @@ const ItemComponent = props => {
 	const icon = props.item.id.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
 	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
 
-	const[ selectedIcon , setselectedIcon ] = useState(
+	const[ selectedIcon , setSelectedIcon ] = useState(
 		Icons[icon]
 	)
-	console.log(Icons[icon]);
+	
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({
@@ -71,7 +71,7 @@ const ItemComponent = props => {
 				value={props.item.icon}
 				onChange={ value => {
 					 props.onChangeIcon(value, props.index); 
-					 setselectedIcon( Icons[value] );
+					 setSelectedIcon( Icons[value] );
 					} }
 				isMulti={false}
 				noSelectedPlaceholder= { __( "Select Icon" ) }

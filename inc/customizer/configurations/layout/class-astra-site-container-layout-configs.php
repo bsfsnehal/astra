@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'section'   => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
-					'title'     => __( 'Content Background', 'astra-addon' ),
+					'title'     => __( 'Content Background', 'astra' ),
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),

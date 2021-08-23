@@ -8188,7 +8188,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_update_button_defaults_and_gb_button_patterns', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_may_update_button_font_size', 'astra_zero_font_size_comp', 'astra_unset_builder_elements_underline'), '3.7.0' => array('astra_update_sticky_footer_flag', 'astra_blog_grid_css_compatiblity', 'astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_update_button_defaults_and_gb_button_patterns', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_may_update_button_font_size', 'astra_zero_font_size_comp', 'astra_unset_builder_elements_underline'), '3.7.0' => array('astra_update_sticky_footer_flag', 'astra_blog_grid_css_compatiblity', 'astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'), '3.7.0' => array('astra_global_color_compatibility'));
         /**
          *  Constructor
          */
@@ -8278,112 +8278,6 @@ namespace {
          * @param string|null $version New Astra theme version or null.
          */
         public static function update_db_version($version = \null)
-        {
-        }
-    }
-    /**
-     * Global palette class
-     */
-    class Astra_Global_Palette
-    {
-        /**
-         * Constructor
-         *
-         * @since x.x.x
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Get CSS variable prefix used for styling.
-         *
-         * @since x.x.x
-         * @return string variable prefix
-         */
-        public static function get_css_variable_prefix()
-        {
-        }
-        /**
-         * Localize variables used in the customizer.
-         *
-         * @since x.x.x
-         * @param object $object localize object.
-         * @return array $object localize object.
-         */
-        public function localize_variables($object)
-        {
-        }
-        /**
-         * Default global palette options.
-         *
-         * @since x.x.x
-         * @return array Palette options.
-         */
-        public static function get_default_color_palette()
-        {
-        }
-        /**
-         * Get labels for palette colors.
-         *
-         * @since x.x.x
-         * @return array Palette labels.
-         */
-        public static function get_palette_labels()
-        {
-        }
-        /**
-         * Get slugs for palette colors.
-         *
-         * @since x.x.x
-         * @return array Palette slugs.
-         */
-        public static function get_palette_slugs()
-        {
-        }
-        /**
-         * Include required files.
-         *
-         * @since x.x.x
-         */
-        public function includes()
-        {
-        }
-        /**
-         * Generate palette CSS required to display on front end.
-         *
-         * @since x.x.x
-         * @return array palette style array.
-         */
-        public static function generate_global_palette_style()
-        {
-        }
-        /**
-         * Modify color palette from Gutenberg.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function support_editor_color_palette()
-        {
-        }
-        /**
-         * Format color palette data required to pass for Gutenberg palette.
-         *
-         * @since x.x.x
-         * @param array $global_palette global palette data.
-         * @return bool
-         */
-        public function format_global_palette($global_palette)
-        {
-        }
-        /**
-         * Pass hex value for global palette to process forground color.
-         *
-         * @since x.x.x
-         * @param string $color hex color / css variable.
-         * @return string
-         */
-        public function get_color_by_palette_variable($color)
         {
         }
     }
@@ -12215,6 +12109,17 @@ namespace {
     {
     }
     /**
+     * Content Background - Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @return String Generated dynamic CSS for content background.
+     *
+     * @since 3.2.0
+     */
+    function astra_content_background_css($dynamic_css)
+    {
+    }
+    /**
      * Pagination - Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -12254,13 +12159,13 @@ namespace {
     {
     }
     /**
-     * Generate editor style on front end compatible for global palette.
+     * Generate palette CSS variable styles on the front end.
      *
      * @since x.x.x
      * @param string $dynamic_css dynamic css.
      * @return array
      */
-    function astra_generate_palette_editor_style($dynamic_css)
+    function astra_generate_global_palette_style($dynamic_css)
     {
     }
     /**
@@ -14421,6 +14326,15 @@ namespace {
     {
     }
     /**
+     * Link default color compatibility.
+     *
+     * @since x.x.x
+     * @return void.
+     */
+    function astra_global_color_compatibility()
+    {
+    }
+    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
      *
@@ -14673,21 +14587,21 @@ namespace {
     {
     }
     /**
-     * Check the Astra addon 3.5.0 version is using or not.
-     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
-     *
-     * @since  3.5.0
-     */
-    function is_astra_addon_3_5_0_version()
-    {
-    }
-    /**
      * Check if elementor plugin is active on the site.
      *
      * @since x.x.x
      * @return bool
      */
     function astra_is_elemetor_active()
+    {
+    }
+    /**
+     * Check the Astra addon 3.5.0 version is using or not.
+     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
+     *
+     * @since  3.5.0
+     */
+    function is_astra_addon_3_5_0_version()
     {
     }
     /**
@@ -14718,6 +14632,14 @@ namespace {
      * @since 3.6.0
      */
     function astra_get_transparent_header_default_value()
+    {
+    }
+    /**
+     * Check if content bg options can be loaded.
+     *
+     * @since x.x.x
+     */
+    function astra_is_content_bg_option_to_load()
     {
     }
     /**
@@ -14780,6 +14702,15 @@ namespace {
      * @return boolean
      */
     function astra_can_remove_elementor_toc_margin_space()
+    {
+    }
+    /**
+     * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
+     *
+     * @since x.x.x
+     * @return boolean false if it is an existing user, true for new user.
+     */
+    function astra_has_global_color_format_support()
     {
     }
     /**

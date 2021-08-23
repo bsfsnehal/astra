@@ -127,4 +127,4 @@ BorderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default BorderComponent;
+export default React.memo( BorderComponent );

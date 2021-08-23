@@ -103,4 +103,4 @@ SliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default SliderComponent;
+export default React.memo( SliderComponent );

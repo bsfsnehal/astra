@@ -1484,15 +1484,144 @@ function hasWordPressWidgetBlockEditor() {
 			btn_border_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
 		}
 
-		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_color_ele + search_button_selector );
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector;
 
+		wp.customize( 'astra-settings[button-preset-style]', function( setting ) {
+			setting.bind( function( value ) {
+
+				var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
+				var buttonTextColor = wp.customize( 'astra-settings[button-color]' ).get();
+				var themeColor = wp.customize( 'astra-settings[theme-color]' ).get();
+
+				if( 'button_04' === value || 'button_05' === value || 'button_06' === value ) {
+
+					var buttonBorderColor = wp.customize( 'astra-settings[theme-button-border-group-border-color]' ).get();
+
+					if( '' === buttonBorderColor ) {
+						jQuery( 'style#astra-settings-theme-button-border-group-border-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-theme-button-border-group-border-color">'
+							+ btnSelector + '	{ border-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor && '' !== buttonBGColor ) {
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor && '' === buttonBGColor ) {
+
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + themeColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					// Remove old.
+					jQuery( 'style#astra-settings-button-preset-style-background-color' ).remove();
+
+					// Concat and append new <style>.
+					jQuery( 'head' ).append(
+						'<style id="aastra-settings-button-preset-style-background-color">'
+						+ btnSelector + '	{ background: transparent }'
+						+ '</style>'
+					);
+				} else {
+
+					jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+					jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+					if( '' === buttonTextColor && '' === buttonBGColor ) {
+						jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-bg-color-background-color">'
+							+ btnSelector + '	{ background-color: ' + themeColor + ' }'
+							+ '</style>'
+						);
+					} else {
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-bg-color-background-color">'
+							+ btnSelector + '	{ background-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor ) {
+						jQuery( 'style#astra-settings-button-color-color' ).remove();
+					}
+				}
+
+			} );
+		} );
+
+		wp.customize( 'astra-settings[button-color]', function( setting ) {
+			setting.bind( function( value ) {
+
+				if( '' === value ) {
+
+					var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
+
+					// If button has outline preset.
+					if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
+
+						var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
+
+						jQuery( 'style#astra-settings-button-outline-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-color-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					} else {
+						jQuery( 'style#astra-settings-button-color-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-color-color">'
+							+ btnSelector + '	{ color: ' + value + ' }'
+							+ '</style>'
+						);
+					}
+
+				} else {
+
+					jQuery( 'style#astra-settings-button-color-color' ).remove();
+
+					// Theme Button - Background Color
+					jQuery( 'head' ).append(
+						'<style id="astra-settings-button-color-color">'
+						+ btnSelector + '	{ color: ' + value + ' }'
+						+ '</style>'
+					);
+				}
+
+			} );
+		} );
 
 		wp.customize( 'astra-settings[button-bg-color]', function( setting ) {
 			setting.bind( function( value ) {
 
 				var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
+				var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
 
+				// If button has outline preset.
 				if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
 
 					var buttonTextColor = wp.customize( 'astra-settings[button-color]' ).get();
@@ -1500,18 +1629,36 @@ function hasWordPressWidgetBlockEditor() {
 
 					if( '' === buttonBorderColor ) {
 						// Theme Button - Background Color
-						astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+						jQuery( 'style#astra-settings-theme-button-border-group-border-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-theme-button-border-group-border-color">'
+							+ btnSelector + '	{ border-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
 					}
 
 					if( '' === buttonTextColor ) {
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
 
-						astra_css( 'astra-settings[button-bg-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
 					}
 
 				} else {
+					jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+					jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
 
 					// Theme Button - Background Color
-					astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+					jQuery( 'head' ).append(
+						'<style id="stra-settings-button-bg-color-background-color">'
+						+ btnSelector + '	{ background-color: ' + buttonBGColor + ' }'
+						+ '</style>'
+					);
 				}
 			} );
 		} );
@@ -1528,14 +1675,145 @@ function hasWordPressWidgetBlockEditor() {
 		astra_css( 'astra-settings[theme-button-border-group-border-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_border_h_color_ele + search_button_hover_selector );
 
 	} else {
-		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector;
+
+		wp.customize( 'astra-settings[button-preset-style]', function( setting ) {
+			setting.bind( function( value ) {
+
+				var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
+				var buttonTextColor = wp.customize( 'astra-settings[button-color]' ).get();
+				var themeColor = wp.customize( 'astra-settings[theme-color]' ).get();
+
+				if( 'button_04' === value || 'button_05' === value || 'button_06' === value ) {
+
+					var buttonBorderColor = wp.customize( 'astra-settings[theme-button-border-group-border-color]' ).get();
+
+					if( '' === buttonBorderColor ) {
+						jQuery( 'style#astra-settings-theme-button-border-group-border-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-theme-button-border-group-border-color">'
+							+ btnSelector + '	{ border-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor && '' !== buttonBGColor ) {
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor && '' === buttonBGColor ) {
+
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + themeColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					// Remove old.
+					jQuery( 'style#astra-settings-button-preset-style-background-color' ).remove();
+
+					// Concat and append new <style>.
+					jQuery( 'head' ).append(
+						'<style id="aastra-settings-button-preset-style-background-color">'
+						+ btnSelector + '	{ background: transparent }'
+						+ '</style>'
+					);
+				} else {
+
+					jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+					jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
+
+					if( '' === buttonTextColor && '' === buttonBGColor ) {
+						jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-bg-color-background-color">'
+							+ btnSelector + '	{ background-color: ' + themeColor + ' }'
+							+ '</style>'
+						);
+					} else {
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-bg-color-background-color">'
+							+ btnSelector + '	{ background-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor ) {
+						jQuery( 'style#astra-settings-button-color-color' ).remove();
+					}
+				}
+
+			} );
+		} );
+
+		wp.customize( 'astra-settings[button-color]', function( setting ) {
+			setting.bind( function( value ) {
+
+				if( '' === value ) {
+
+					var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
+
+					// If button has outline preset.
+					if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
+
+						var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
+
+						jQuery( 'style#astra-settings-button-outline-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-color-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
+					} else {
+						jQuery( 'style#astra-settings-button-color-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-color-color">'
+							+ btnSelector + '	{ color: ' + value + ' }'
+							+ '</style>'
+						);
+					}
+
+				} else {
+
+					jQuery( 'style#astra-settings-button-color-color' ).remove();
+
+					// Theme Button - Background Color
+					jQuery( 'head' ).append(
+						'<style id="astra-settings-button-color-color">'
+						+ btnSelector + '	{ color: ' + value + ' }'
+						+ '</style>'
+					);
+				}
+
+			} );
+		} );
 
 		wp.customize( 'astra-settings[button-bg-color]', function( setting ) {
 			setting.bind( function( value ) {
 
 				var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
+				var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
 
+				// If button has outline preset.
 				if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
 
 					var buttonTextColor = wp.customize( 'astra-settings[button-color]' ).get();
@@ -1543,21 +1821,41 @@ function hasWordPressWidgetBlockEditor() {
 
 					if( '' === buttonBorderColor ) {
 						// Theme Button - Background Color
-						astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+						jQuery( 'style#astra-settings-theme-button-border-group-border-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-theme-button-border-group-border-color">'
+							+ btnSelector + '	{ border-color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
 					}
 
 					if( '' === buttonTextColor ) {
+						jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
 
-						astra_css( 'astra-settings[button-bg-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-button-outline-preset-color">'
+							+ btnSelector + '	{ color: ' + buttonBGColor + ' }'
+							+ '</style>'
+						);
 					}
 
 				} else {
+					jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
+					jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
 
 					// Theme Button - Background Color
-					astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+					jQuery( 'head' ).append(
+						'<style id="stra-settings-button-bg-color-background-color">'
+						+ btnSelector + '	{ background-color: ' + buttonBGColor + ' }'
+						+ '</style>'
+					);
 				}
 			} );
 		} );
+
+
 
 		// Theme Button - Border Color
 		astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );

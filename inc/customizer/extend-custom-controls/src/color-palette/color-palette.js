@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import {Tooltip} from '@wordpress/components';
+import { Tooltip } from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {

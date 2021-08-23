@@ -356,7 +356,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$btn_border_color = $btn_bg_color;
 				}
 
-				if ( '' === astra_get_option( 'button-bg-color' ) ) {
+				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
 				} else {
 					if ( '' === astra_get_option( 'button-color' ) ) {
@@ -681,19 +681,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Default widget title color.
-			if ( astra_has_global_color_format_support() ) {
-				// Widget Title.
-				$css_output['.widget-title'] = array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-					'color'     => esc_attr( $heading_base_color ),
-				);
-			} else {
-				// Widget Title.
-				$css_output['.widget-title'] = array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-					'color'     => esc_attr( $text_color ),
-				);
-			}
+			$css_output['.widget-title'] = array(
+				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
+				'color'     => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
+			);
 
 			if ( false === astra_apply_new_default_blog_values() ) {
 				$css_output['.entry-title a , .entry-title, .page-title']  = array(

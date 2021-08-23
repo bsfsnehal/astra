@@ -647,9 +647,9 @@
 
 		const globalPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
-		let customizer_preview_container =  document.getElementById('customize-preview')
-		let iframe = customizer_preview_container.getElementsByTagName('iframe')[0]
-		let innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		const customizerPreviewContainer =  document.getElementById('customize-preview')
+		const iframe = customizerPreviewContainer.getElementsByTagName('iframe')[0]
+		const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
 		let stylePrefix = astra.customizer.globalPaletteStylePrefix;
 
 		Object.entries( globalPalette.palette ).map( ( paletteItem, index ) => {

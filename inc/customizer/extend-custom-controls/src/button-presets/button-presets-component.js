@@ -52,6 +52,7 @@ const ButtonPresetsComponent = (props) => {
 			'theme-button-padding',
 			'button-bg-color',
 			'theme-button-border-group-border-size',
+			'button-color'
 		];
 
 		btnOptions.forEach( function( btnOption ) {

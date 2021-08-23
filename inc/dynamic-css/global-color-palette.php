@@ -10,16 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_dynamic_theme_css', 'astra_generate_palette_editor_style', 11 );
+add_filter( 'astra_dynamic_theme_css', 'astra_generate_global_palette_style' );
 
 /**
- * Generate editor style on front end compatible for global palette.
+ * Generate palette CSS variable styles on the front end.
  *
  * @since x.x.x
  * @param string $dynamic_css dynamic css.
  * @return array
  */
-function astra_generate_palette_editor_style( $dynamic_css ) {
+function astra_generate_global_palette_style( $dynamic_css ) {
 
 	$global_palette  = astra_get_option( 'global-color-palette' );
 	$palette_style   = array();

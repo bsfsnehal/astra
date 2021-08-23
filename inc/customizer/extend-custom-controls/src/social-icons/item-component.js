@@ -78,7 +78,7 @@ const ItemComponent = props => {
 					 setSelectedIcon( Icons[value] );
 					} }
 				isMulti={false}
-				noSelectedPlaceholder= { __( "Select Icon" ) }
+				noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
 			/>
 		</div>}
 	</div>;

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState , useEffect} from 'react';
 
 const {__} = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button } = wp.components;
@@ -12,7 +12,7 @@ let svg_icons = Object.keys( astIcons )
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;
-
+	
 	const [state, setState] = useState({
 		open: false,
 	});
@@ -21,9 +21,13 @@ const ItemComponent = props => {
 	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
 
 	const[ selectedIcon , setSelectedIcon ] = useState(
-		Icons[icon]
+		props.item.icon
 	)
 	
+	useEffect(() => {
+		setSelectedIcon( Icons[props.item.icon] );
+	}, []);
+
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({

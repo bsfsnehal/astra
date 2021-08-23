@@ -2910,6 +2910,17 @@ namespace {
         {
         }
         /**
+         * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
+         *
+         * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
+         * 2. UABB : Button, Slide Box CTA, Flip box CTA, Info Banner, Posts, Info Circle, Call to Action, Subscribe Form.
+         *
+         * @since x.x.x
+         */
+        public static function unset_builder_elements_underline()
+        {
+        }
+        /**
          * Load sidebar static CSS when it is enabled.
          *
          * @since 3.0.0
@@ -4696,7 +4707,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /**
+        /** 
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5864,9 +5875,9 @@ namespace {
         /**
          * Check if component placed on the builder.
          *
-         * @param string  $component_id component id.
-         * @param string  $builder_type builder type.
-         * @param string  $device Device type (mobile, desktop and both).
+         * @param string $component_id component id.
+         * @param string $builder_type builder type.
+         * @param string $device Device type (mobile, desktop and both).
          * @return bool
          */
         public static function is_component_loaded($component_id, $builder_type = 'header', $device = 'both')
@@ -6564,7 +6575,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6574,7 +6585,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6584,7 +6595,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6594,7 +6605,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6604,7 +6615,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6614,7 +6625,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6624,7 +6635,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -6633,7 +6644,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -6678,16 +6689,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -6696,7 +6707,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -6704,7 +6715,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -6712,7 +6723,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -6720,7 +6731,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -6728,7 +6739,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -6736,7 +6747,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -6746,7 +6757,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -6756,7 +6767,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -6786,7 +6797,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -11168,7 +11179,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'), '3.6.8' => array('astra_set_removal_widget_design_options_flag', 'astra_clear_all_assets_cache'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline'));
         /**
          *  Constructor
          */
@@ -12006,7 +12017,7 @@ namespace {
     }
     /**
      * Footer menu static CSS
-     *
+     * 
      * @since 3.5.0
      * @return string
      */
@@ -12146,7 +12157,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */
@@ -12233,7 +12244,7 @@ namespace {
     }
     /**
      * Search Component static CSS.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */
@@ -12994,6 +13005,15 @@ namespace {
     {
     }
     /**
+     * Dont apply zero size to existing user.
+     *
+     * @since x.x.x
+     * @return boolean false if it is an existing user , true if not.
+     */
+    function astra_zero_font_size_case()
+    {
+    }
+    /**
      * Astra Color Palettes
      *
      * @since 1.0.23
@@ -13559,7 +13579,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -13879,6 +13899,15 @@ namespace {
      * @return boolean
      */
     function astra_remove_widget_design_options()
+    {
+    }
+    /**
+     * Clear Astra + Astra Pro assets cache.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_clear_theme_addon_asset_cache()
     {
     }
     /**
@@ -14863,6 +14892,23 @@ namespace {
      * @return void
      */
     function astra_set_removal_widget_design_options_flag()
+    {
+    }
+    /**
+     * Apply zero font size for new users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_zero_font_size_comp()
+    {
+    }
+    /** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_unset_builder_elements_underline()
     {
     }
     /**

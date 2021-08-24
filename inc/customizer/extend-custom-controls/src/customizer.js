@@ -553,7 +553,6 @@
 
 								var result = compareByOperator(rule);
 								displayed = compareByRelation(relation, displayed, result);
-
 							}
 						});
 

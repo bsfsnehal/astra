@@ -727,3 +727,14 @@ h6 {
 .wp-block-spacer .components-resizable-box__container {
   background: #f5f5f5;
 }
+
+.components-resizable-box__container.block-library-spacer__resize-container:before {
+  content: attr(data-spaceheight);
+  font-size: 18px;
+  font-weight: 500;
+  color: #858585;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}

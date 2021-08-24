@@ -138,7 +138,7 @@
 			// Scroll to footer.
 			if ('panel-footer-builder-group' === id) {
 				$('#accordion-panel-' + id).on('click', function () {
-					let $iframeBody = $body.find('iframe').contents().find('body');
+					let $iframeBody = $body.find('iframe').contents().find('body.logged-in');
 					$body.find('iframe').contents().find('body, html').animate({
 						scrollTop: $iframeBody[0].scrollHeight
 					}, 500);

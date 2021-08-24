@@ -456,17 +456,28 @@
 							currentValue = currentValue[rule['setting-key']];
 						}
 
-						if( typeof currentValue === 'object' ){
-
+						// Change Dynamic section for sticky header controls.
+						if( typeof currentValue === 'object' && undefined !== rule['sticky-header-item'] ) {
 							var headers = ['above','primary','below'];
-							$.each(headers, function( key, val ) {
+
+							$.each( headers, function( key, val ) {
 								$.each( currentValue[val] , function( key, zone ) {
 									if( zone.indexOf( comparedValue ) > -1 ){
-										currentValue = comparedValue;
+										header_type = (val == 'primary' ) ? 'main' : val;
+
+										let sticky_settings = getSetting( 'astra-settings[header-' + header_type + '-stick]');
+										// Check if sticky header is active or not.
+										if( true == sticky_settings.get() ) {
+											currentValue = comparedValue;
+										}
+
+										// Change section of control here.
+										if( undefined != rule['control-name'] ) {
+											api.control( rule['control-name'] ).section( 'section-' + val + '-header-builder' );
+										}
 									}
 								});
 							});
-
 						}
 
 						switch (operator) {

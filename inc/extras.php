@@ -736,7 +736,7 @@ function astra_clear_theme_addon_asset_cache() {
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
 
 /**
- * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ * Check whether user is exising or new to add support of improved Gutenberg UI/UX.
  *
  * @since x.x.x
  * @return boolean

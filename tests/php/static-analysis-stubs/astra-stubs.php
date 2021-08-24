@@ -14912,6 +14912,17 @@ namespace {
     {
     }
     /**
+     * Migrating Builder > Account > transparent resonsive menu color options to single color options.
+     * Because we do not show menu on resonsive devices, whereas we trigger login link on responsive devices instead of showing menu.
+     *
+     * @since x.x.x
+     *
+     * @return void
+     */
+    function astra_remove_responsive_account_menu_colors_support()
+    {
+    }
+    /**
      * WordPress filter - Widget Tags
      *
      * @param  array $args Tag arguments.

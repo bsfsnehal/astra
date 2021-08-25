@@ -25,7 +25,7 @@ jobs:
           body-includes: Final release PR. Please check all the checklist below before merging.
       - run: |
           echo ${{ steps.fc.outputs.comment-id }}
-          if [[ ${{ steps.fc.outputs.comment-id }} != '' ]]; then
+          if [ ${{ steps.fc.outputs.comment-id }} != '' ]; then
               echo ::set-output name=comment_exists::true
           fi
 

@@ -27,7 +27,7 @@ jobs:
           if [ -z ${{ steps.fc.outputs.comment-id }} ]; then
               echo ::set-output name=comment_exists::true
           fi
-          echo ::steps.check-branch.outputscomment_exists
+          echo ${{ steps.check-branch.outputscomment_exists }}
 
       - uses: tzkhan/pr-update-action@v2
         if: |

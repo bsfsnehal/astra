@@ -25,7 +25,7 @@ jobs:
           title-template: 'Build: Release PR'
           title-update-action: 'prefix'
 
-      - uses: peter-evans/create-or-update-comment
+      - uses: peter-evans/create-or-update-comment@v1
         if: steps.check-branch.outputs.match == 'true'
         with:
           issue-number: ${{ github.event.number }}

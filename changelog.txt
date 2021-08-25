@@ -5,8 +5,12 @@ v3.6.9
 - Improvement: Moved add-on related frontend-pro.js file from theme to add-on.
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
+- Fix: Dropdown target as link not working if the menu item has a link.
 - Fix: WooCommerce - Cart count is overlapping on submenu section.
+- Fix: The submenu toggle not working when "Flyout Menu" is used and the page is resized.
+- Fix: Customizer color group control's reset position misaligned.
 - Fix: Desktop logo width is applying on the mobile devices for a moment.
+- Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.

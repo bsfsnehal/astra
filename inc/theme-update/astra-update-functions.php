@@ -3208,3 +3208,33 @@ function astra_unset_builder_elements_underline() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Migrating Builder > Account > transparent resonsive menu color options to single color options.
+ * Because we do not show menu on resonsive devices, whereas we trigger login link on responsive devices instead of showing menu.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_remove_responsive_account_menu_colors_support() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$account_menu_colors = array(
+		'transparent-account-menu-color',                // Menu color.
+		'transparent-account-menu-bg-obj',               // Menu background color.
+		'transparent-account-menu-h-color',              // Menu hover color.
+		'transparent-account-menu-h-bg-color',           // Menu background hover color.
+		'transparent-account-menu-a-color',              // Menu active color.
+		'transparent-account-menu-a-bg-color',           // Menu background active color.
+	);
+
+	foreach ( $account_menu_colors as $color_option ) {
+		if ( ! isset( $theme_options[ $color_option ] ) && isset( $theme_options[ $color_option . '-responsive' ]['desktop'] ) ) {
+			$theme_options[ $color_option ] = $theme_options[ $color_option . '-responsive' ]['desktop'];
+		}
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}

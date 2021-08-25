@@ -10,6 +10,7 @@ v3.6.9
 - Fix: The submenu toggle not working when "Flyout Menu" is used and the page is resized.
 - Fix: Customizer color group control's reset position misaligned.
 - Fix: Desktop logo width is applying on the mobile devices for a moment.
+- Fix: Social icon does not change in customizer preview.
 - Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 
 v3.6.8

@@ -24,8 +24,7 @@ jobs:
           issue-number: ${{ github.event.number }}
           body-includes: Final release PR. Please check all the checklist below before merging.
       - run: |
-          echo ${{ steps.fc.outputs.comment-id }}
-          if [ ${{ steps.fc.outputs.comment-id }} != '' ]; then
+          if [ -z ${{ steps.fc.outputs.comment-id }} ]; then
               echo ::set-output name=comment_exists::true
           fi
 

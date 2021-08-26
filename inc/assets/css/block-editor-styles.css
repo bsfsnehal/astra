@@ -94,10 +94,6 @@ html {
   position: relative;
 }
 
-.edit-post-visual-editor blockquote p:last-child {
-  margin: 0;
-}
-
 .edit-post-visual-editor address {
   margin: 0 0 1.5em;
 }

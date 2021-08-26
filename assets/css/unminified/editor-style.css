@@ -1366,10 +1366,6 @@ blockquote {
   position: relative;
 }
 
-blockquote p:last-child {
-  margin: 0;
-}
-
 address {
   margin: 0 0 1.5em;
 }

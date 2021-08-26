@@ -135,10 +135,36 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			add_action( 'customize_register', array( $this, 'customize_register_site_icon' ), 20 );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_action( 'customize_save_after', array( $this, 'delete_cached_partials' ) );
 			add_action( 'wp_head', array( $this, 'preview_styles' ) );
 			add_action( 'wp_ajax_astra_regenerate_fonts_folder', array( $this, 'regenerate_astra_fonts_folder' ) );
+		}
+
+		public function customize_register_site_icon( $wp_customize ) {
+			$panel_arr = array(
+				'priority'       => 10,
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '',
+				'title'          => 'Site Identity',
+				'description'    => '',
+			);
+			// Register panel.
+			$wp_customize->add_panel( 'astra-site-identity', $panel_arr );
+
+			$section_arr = array(
+				'priority'       => 10,
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '',
+				'title'          => 'Site Identity',
+				'description'    => '',
+			);
+
+			// Register Section.
+			$wp_customize->add_section( 'astra-site-identity', $section_arr );
+
+			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity';
 		}
 
 		/**

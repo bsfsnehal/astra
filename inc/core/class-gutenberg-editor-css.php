@@ -467,11 +467,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
+				$astra_improve_gutenberg_blocks_ui = astra_can_improve_gutenberg_blocks_ui();
+				$file_block_button_selector = $astra_improve_gutenberg_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
+				$file_block_button_hover_selector = $astra_improve_gutenberg_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' : '';
+
 				$button_desktop_css = array(
 					/**
 					 * Gutenberg button compatibility for default styling.
 					 */
-					'.wp-block-button .wp-block-button__link' . $search_button_selector => array(
+					'.wp-block-button .wp-block-button__link' . $search_button_selector . $file_block_button_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => $theme_btn_top_border,
 						'border-right-width'  => $theme_btn_right_border,
@@ -492,12 +496,21 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					),
-					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' . $search_button_hover_selector => array(
+					'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' . $search_button_hover_selector . $file_block_button_hover_selector => array(
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
 					),
 				);
+
+				if( $astra_improve_gutenberg_blocks_ui ) {
+					$button_desktop_css['.block-editor-writing-flow .wp-block-file__content-wrapper'] = array(
+						'display' => 'flex',
+						'align-items' => 'center',
+						'flex-wrap' => 'wrap',
+						'justify-content' => 'space-between',
+					);
+				}
 
 				if ( $is_support_wp_5_8 ) {
 					$button_desktop_css['.wp-block-search .wp-block-search__input, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper'] = array(

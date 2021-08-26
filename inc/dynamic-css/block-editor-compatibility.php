@@ -70,6 +70,12 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		figure.wp-block-pullquote blockquote {
 			padding-top: 0;
 		}
+		.wp-block-file {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
 		.wp-block-pullquote blockquote::before {
 			content: "\201D";
 			font-family: "Helvetica",sans-serif;

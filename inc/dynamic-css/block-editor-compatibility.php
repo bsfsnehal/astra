@@ -85,6 +85,9 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		}
 		ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
 			list-style-type: none;
+		}
+		.wp-block-button__link {
+			border: 2px solid currentColor;
 		}';
 
 		if( $is_site_rtl ) {

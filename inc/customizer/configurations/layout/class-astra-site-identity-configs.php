@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-					'priority'          => 6,
+					'priority'          => 5.5,
 					'title'             => __( 'Retina Logo', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'transport'         => 'postMessage',
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'different-mobile-logo' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Different Logo For Mobile Devices?', 'astra' ),
-					'priority'  => 5,
+					'priority'  => 5.5,
 					'context'   => array(
 						array(
 							'setting'  => 'custom_logo',
@@ -176,6 +176,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
@@ -188,7 +189,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'control'           => 'image',
 					'sanitize_callback' => 'esc_url_raw',
 					'section'           => 'title_tagline',
-					'priority'          => 5.5,
+					'priority'          => 6,
 					'title'             => __( 'Mobile Logo (optional)', 'astra' ),
 					'library_filter'    => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),

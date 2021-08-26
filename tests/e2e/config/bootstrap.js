@@ -1,14 +1,14 @@
 /**
  * External dependencies
  */
- import { get } from 'lodash';
+import { get } from 'lodash';
 
- import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 
- /**
-  * WordPress dependencies
-  */
- import {
+/**
+ * WordPress dependencies
+ */
+import {
 	 createURL,
 	 clearLocalStorage,
 	 enablePageDialogAccept,
@@ -16,61 +16,61 @@
 	 setBrowserViewport,
 	 trashAllPosts,
 	 deactivatePlugin,
- } from '@wordpress/e2e-test-utils';
+} from '@wordpress/e2e-test-utils';
 
- import './expect-extensions';
+import './expect-extensions';
 
- /**
-  * Environment variables
-  */
- const { PUPPETEER_TIMEOUT } = process.env;
+/**
+ * Environment variables
+ */
+const { PUPPETEER_TIMEOUT } = process.env;
 
- /**
-  * Set of console logging types observed to protect against unexpected yet
-  * handled (i.e. not catastrophic) errors or warnings. Each key corresponds
-  * to the Puppeteer ConsoleMessage type, its value the corresponding function
-  * on the console global object.
-  *
-  * @type {Object<string,string>}
-  */
- const OBSERVED_CONSOLE_MESSAGE_TYPES = {
+/**
+ * Set of console logging types observed to protect against unexpected yet
+ * handled (i.e. not catastrophic) errors or warnings. Each key corresponds
+ * to the Puppeteer ConsoleMessage type, its value the corresponding function
+ * on the console global object.
+ *
+ * @type {Object<string,string>}
+ */
+const OBSERVED_CONSOLE_MESSAGE_TYPES = {
 	 error: 'error',
- };
+};
 
- /**
-  * Array of page event tuples of [ eventName, handler ].
-  *
-  * @type {Array}
-  */
- const pageEvents = [];
+/**
+ * Array of page event tuples of [ eventName, handler ].
+ *
+ * @type {Array}
+ */
+const pageEvents = [];
 
- // The Jest timeout is increased because these tests are a bit slow
- jest.setTimeout( PUPPETEER_TIMEOUT || 300000 );
+// The Jest timeout is increased because these tests are a bit slow
+jest.setTimeout( PUPPETEER_TIMEOUT || 300000 );
 
- /**
-  * Adds an event listener to the page to handle additions of page event
-  * handlers, to assure that they are removed at test teardown.
-  */
- function capturePageEventsForTearDown() {
+/**
+ * Adds an event listener to the page to handle additions of page event
+ * handlers, to assure that they are removed at test teardown.
+ */
+function capturePageEventsForTearDown() {
 	 page.on( 'newListener', ( eventName, listener ) => {
 		 pageEvents.push( [ eventName, listener ] );
 	 } );
- }
+}
 
- /**
-  * Removes all bound page event handlers.
-  */
- function removePageEvents() {
+/**
+ * Removes all bound page event handlers.
+ */
+function removePageEvents() {
 	 pageEvents.forEach( ( [ eventName, handler ] ) => {
 		 page.removeListener( eventName, handler );
 	 } );
- }
+}
 
- /**
-  * Adds a page event handler to emit uncaught exception to process if one of
-  * the observed console logging types is encountered.
-  */
- function observeConsoleLogging() {
+/**
+ * Adds a page event handler to emit uncaught exception to process if one of
+ * the observed console logging types is encountered.
+ */
+function observeConsoleLogging() {
 	 page.on( 'console', ( message ) => {
 		 const type = message.type();
 		 if ( ! OBSERVED_CONSOLE_MESSAGE_TYPES.hasOwnProperty( type ) ) {
@@ -160,47 +160,47 @@
 		 // eslint-disable-next-line no-console
 		 console[ logFunction ]( text );
 	 } );
- }
+}
 
- /**
-  * Runs Axe tests for a page.
-  *
-  * @return {?Promise} Promise resolving once Axe texts are finished.
-  */
- async function runAxeTests() {
+/**
+ * Runs Axe tests for a page.
+ *
+ * @return {?Promise} Promise resolving once Axe texts are finished.
+ */
+async function runAxeTests() {
 	 if ( true ) {
 		 return;
 	 }
 
 	 await expect( page ).toPassAxeTests();
- }
+}
 
- /**
-  * Set up browser.
-  */
- async function setupBrowser() {
+/**
+ * Set up browser.
+ */
+async function setupBrowser() {
 	 await setBrowserViewport( {
 		 width: 1600,
 		 height: 1000,
 	 } );
- }
+}
 
- /**
-  * Reset the site to default settings.
-  */
- async function siteReset() {
+/**
+ * Reset the site to default settings.
+ */
+async function siteReset() {
 	 await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
 		 method: 'DELETE',
 	 } );
- }
+}
 
- /**
-  * Before every test suite run, delete all content created by the test. This ensures
-  * other posts/comments/etc. aren't dirtying tests and tests don't depend on
-  * each other's side-effects.
-  */
- // eslint-disable-next-line jest/require-top-level-describe
- beforeAll( async () => {
+/**
+ * Before every test suite run, delete all content created by the test. This ensures
+ * other posts/comments/etc. aren't dirtying tests and tests don't depend on
+ * each other's side-effects.
+ */
+// eslint-disable-next-line jest/require-top-level-describe
+beforeAll( async () => {
 	 capturePageEventsForTearDown();
 	 enablePageDialogAccept();
 	 observeConsoleLogging();
@@ -210,17 +210,17 @@
 	 await siteReset();
 	 await page.setDefaultNavigationTimeout( 10000 );
 	 await page.setDefaultTimeout( 10000 );
- } );
+} );
 
- // eslint-disable-next-line jest/require-top-level-describe
- afterEach( async () => {
+// eslint-disable-next-line jest/require-top-level-describe
+afterEach( async () => {
 	 await clearLocalStorage();
 	 await runAxeTests();
 	 await setupBrowser();
- } );
+} );
 
- // eslint-disable-next-line jest/require-top-level-describe
- afterAll( async () => {
+// eslint-disable-next-line jest/require-top-level-describe
+afterAll( async () => {
 	 removePageEvents();
 	 await siteReset();
- } );
+} );

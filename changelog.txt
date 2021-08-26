@@ -1,3 +1,14 @@
+v3.7.0-beta.1
+- New: Introduced Global Color Palette Feature
+- New: Introduced Typograhpy Presets Feature
+- New: Introduced Button Presets Feature
+- New: Added Heading Typograhpy options for H4-H6 also
+- New: Content background color option
+- Fix: Heading color option not working for Sidebar, Footer widget title
+- Fix: Heading color option not working for Archive page title
+- Fix: Live preview for content background option not working
+- Fix: Content background image not working for related posts section
+
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
 - Fix: Elementor Pro's Header-Footer theme builder layouts does not override theme's Header-Footer builder layouts.

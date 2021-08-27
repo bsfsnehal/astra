@@ -184,6 +184,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'html'                                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				':root'                                   => Astra_Global_Palette::generate_global_palette_style(),
 				'a'                                       => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -946,6 +947,20 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-right' => '0',
 				),
 			);
+
+			if ( astra_is_content_bg_option_to_load() ) {
+
+				$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
+
+				$boxed_container['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
+
+				$boxed_container_tablet['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
+
+				$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
+
+				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
+				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
+			}
 
 			$css .= astra_parse_css( $boxed_container );
 

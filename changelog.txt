@@ -1,5 +1,5 @@
 v3.6.9
-- Improvement: Font size '0' will applicable for the fonts
+- Improvement: Font size '0' will applicable for the fonts.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
 - Improvement: Clear asset cache of theme and addon on every new update of theme.
 - Improvement: Moved add-on related frontend-pro.js file from theme to add-on.

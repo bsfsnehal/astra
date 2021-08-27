@@ -380,46 +380,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $desktop_css );
 
-			if( astra_can_improve_gutenberg_blocks_ui() ) {
-				$compatibility_css = '
-				.editor-styles-wrapper .wp-block-pullquote blockquote {
-					padding-top: 0;
-				}
-				.editor-styles-wrapper .wp-block-pullquote blockquote::before {
-					content: "\201D";
-					font-family: "Helvetica",sans-serif;
-					display: flex;
-					transform: rotate( 180deg );
-					font-size: 6rem;
-					font-style: normal;
-					line-height: 1;
-					font-weight: bold;
-					align-items: center;
-					justify-content: center;
-				}
-				.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote {
-					max-width: 100%;
-					text-align: inherit;
-				}
-				ul.wp-block-categories__list, ul.wp-block-archives-list {
-					list-style-type: none;
-				}';
-
-				if( $is_site_rtl ) {
-					$compatibility_css .= '
-					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
-						margin-right: 20px;
-					}';
-				} else {
-					$compatibility_css .= '
-					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
-						margin-left: 20px;
-					}';
-				}
-
-				$css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
-			}
-
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -1125,6 +1085,50 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			$css .= astra_parse_css( $gtn_full_wide_image_css );
+
+			if( astra_can_improve_gutenberg_blocks_ui() ) {
+				$compatibility_css = '
+				.editor-styles-wrapper .wp-block-pullquote blockquote {
+					padding-top: 0;
+				}
+				.editor-styles-wrapper .wp-block-pullquote blockquote::before {
+					content: "\201D";
+					font-family: "Helvetica",sans-serif;
+					display: flex;
+					transform: rotate( 180deg );
+					font-size: 6rem;
+					font-style: normal;
+					line-height: 1;
+					font-weight: bold;
+					align-items: center;
+					justify-content: center;
+				}
+				.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote {
+					max-width: 100%;
+					text-align: inherit;
+				}
+				ul.wp-block-categories__list, ul.wp-block-archives-list {
+					list-style-type: none;
+				}
+				.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
+					margin-left: -5em;
+					margin-right: -5em;
+				}';
+
+				if( $is_site_rtl ) {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-right: 20px;
+					}';
+				} else {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-left: 20px;
+					}';
+				}
+
+				$css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+			}
 
 			if ( in_array( $pagenow, array( 'post-new.php' ) ) && ! isset( $post ) ) {
 

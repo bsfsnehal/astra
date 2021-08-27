@@ -1,8 +1,9 @@
 v3.6.9
-- Improvement : Font size '0' will applicable for the fonts.
+- Improvement: Font size '0' will applicable for the fonts.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
 - Improvement: Clear asset cache of theme and addon on every new update of theme.
 - Improvement: Moved add-on related frontend-pro.js file from theme to add-on.
+- Improvement: Moved the site icon control to a separate section 'Site Identity'.
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
 - Fix: Dropdown target as link not working if the menu item has a link.

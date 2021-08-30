@@ -723,3 +723,7 @@ h6 {
 ul.wp-block-categories__list {
   padding-right: 0;
 }
+
+.components-popover .components-popover__content {
+  min-width: 290px;
+}

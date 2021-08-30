@@ -48,6 +48,8 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	 */
 	public $link_type = '';
 
+	public $is_button_link = '';
+
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
@@ -55,9 +57,10 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['link_text'] = $this->link_text;
-		$this->json['linked']    = $this->linked;
-		$this->json['link_type'] = $this->link_type;
+		$this->json['link_text']      = $this->link_text;
+		$this->json['linked']         = $this->linked;
+		$this->json['link_type']      = $this->link_type;
+		$this->json['is_button_link'] = $this->is_button_link;
 	}
 
 	/**

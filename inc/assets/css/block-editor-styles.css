@@ -727,3 +727,7 @@ h6 {
 .edit-post-visual-editor .components-button {
   color: #1e1e1e;
 }
+
+.edit-post-visual-editor .components-button.is-pressed {
+  color: #ffffff;
+}

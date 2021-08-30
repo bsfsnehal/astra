@@ -67,6 +67,9 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		$is_site_rtl                = is_rtl();
 
 		$editor_improvement_css = '
+		body .wp-block-file .wp-block-file__button {
+			text-decoration: none;
+		}
 		figure.wp-block-pullquote blockquote {
 			padding-top: 0;
 		}

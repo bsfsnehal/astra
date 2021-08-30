@@ -727,3 +727,11 @@ ul.wp-block-categories__list {
 .components-popover .components-popover__content {
   min-width: 290px;
 }
+
+.wp-block-buttons .wp-block.wp-block-button {
+  padding-left: 0;
+}
+
+.wp-block-buttons .wp-block-button:not(:first-child) {
+  padding-right: 0;
+}

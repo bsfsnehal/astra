@@ -1483,8 +1483,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
 
-				$file_block_button_selector = $can_update_gb_blocks_ui ? ', .wp-block-file .wp-block-file__button' : '';
-				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus' : '';
+				$file_block_button_selector = $can_update_gb_blocks_ui ? ', body .wp-block-file .wp-block-file__button' : '';
+				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', body .wp-block-file .wp-block-file__button:hover, body .wp-block-file .wp-block-file__button:focus' : '';
 
 				/**
 				 * Global button CSS - Desktop.
@@ -1728,6 +1728,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+					);
+
+					$global_button_page_builder_desktop['.wp-block-buttons .wp-block-button .wp-block-button__link'] = array(
 						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),

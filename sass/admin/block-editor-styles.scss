@@ -360,3 +360,9 @@ ul.wp-block-categories__list {
 .components-popover .components-popover__content {
 	min-width: 290px;
 }
+.wp-block-buttons .wp-block.wp-block-button {
+	padding-right: 0;
+}
+.wp-block-buttons .wp-block-button:not(:first-child) {
+	padding-left: 0;
+}

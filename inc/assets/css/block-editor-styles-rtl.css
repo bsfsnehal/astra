@@ -754,6 +754,10 @@ h6 {
   margin: -0.5em 0 0 -0.5em;
 }
 
+ul.wp-block-categories__list {
+  padding-right: 0;
+}
+
 .edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
   padding-right: 20px;
 }

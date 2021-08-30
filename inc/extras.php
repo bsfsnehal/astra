@@ -817,3 +817,15 @@ function astra_clear_theme_addon_asset_cache() {
 }
 
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
+
+/**
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_can_improve_gutenberg_blocks_ui() {
+	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['improve-gutenberg-ui'] = isset( $astra_settings['improve-gutenberg-ui'] ) ? false : true;
+	return apply_filters( 'astra_improve_gutenberg_blocks_ui', $astra_settings['improve-gutenberg-ui'] );
+}

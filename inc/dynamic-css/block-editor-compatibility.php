@@ -79,6 +79,9 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			flex-wrap: wrap;
 			justify-content: space-between;
 		}
+		.wp-block-pullquote {
+			border: none;
+		}
 		.wp-block-pullquote blockquote::before {
 			content: "\201D";
 			font-family: "Helvetica",sans-serif;

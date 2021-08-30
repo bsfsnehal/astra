@@ -1088,6 +1088,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if( astra_improve_gutenberg_blocks_ui() ) {
 				$compatibility_css = '
+				.wp-block-cover__inner-container .wp-block {
+					color: #ffffff;
+				}
 				.editor-styles-wrapper .wp-block-pullquote blockquote {
 					padding-top: 0;
 				}

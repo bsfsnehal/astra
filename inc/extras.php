@@ -665,7 +665,7 @@ function astra_get_transparent_header_default_value() {
  * @since x.x.x
  */
 function astra_is_content_bg_option_to_load() {
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
 		return false;
 	}
 	return true;
@@ -739,7 +739,7 @@ function astra_apply_blog_grid_css() {
  * @since x.x.x
  */
 function astra_maybe_load_h4_to_h6_typo_options() {
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
 		return false;
 	}
 	return true;

@@ -3240,6 +3240,21 @@ function astra_set_removal_widget_design_options_flag() {
 }
 
 /**
+ * Do not apply direct reflections on site, setting up flag here before updating font-size for buttons for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_may_update_button_font_size() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['button-default-empty-font-size'] ) ) {
+		$theme_options['button-default-empty-font-size'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Apply zero font size for new users.
  *
  * @since x.x.x
@@ -3250,20 +3265,6 @@ function astra_zero_font_size_comp() {
 
 	if ( ! isset( $theme_options['astra-zero-font-size-case-css'] ) ) {
 		$theme_options['astra-zero-font-size-case-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * @since x.x.x
- * @return void
- */
-function astra_may_update_button_font_size() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['button-default-empty-font-size'] ) ) {
-		$theme_options['button-default-empty-font-size'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

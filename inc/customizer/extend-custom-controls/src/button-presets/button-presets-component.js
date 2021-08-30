@@ -17,7 +17,7 @@ const ButtonPresetsComponent = (props) => {
 		const borderWidth = options[ presetKey ][ 'border-size' ];
 		const padding = options[ presetKey ][ 'button-padding' ];
 
-		/// Padding
+		// Padding
 		props.customizer
 			.control( 'astra-settings[theme-button-padding]' )
 			.setting.set( padding );
@@ -51,8 +51,9 @@ const ButtonPresetsComponent = (props) => {
 			'theme-button-border-group-border-size',
 			'theme-button-padding',
 			'button-bg-color',
-			'theme-button-border-group-border-size',
-			'button-color'
+			'button-color',
+			'button-h-color',
+			'button-bg-h-color'
 		];
 
 		btnOptions.forEach( function( btnOption ) {

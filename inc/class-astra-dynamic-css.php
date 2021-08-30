@@ -358,10 +358,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
-				} else {
-					if ( '' === astra_get_option( 'button-color' ) ) {
+				} elseif ( '' === astra_get_option( 'button-color' ) ) {
 						$btn_text_color = $btn_bg_color;
-					}
 				}
 
 				$btn_bg_color = 'transparent';
@@ -468,8 +466,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'html'                                   => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
-				// root css for global palette style.
-				':root'                                  => Astra_Global_Palette::generate_global_palette_style(),
 				'a, .page-title'                         => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -674,6 +670,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			if ( false === astra_apply_new_default_blog_values() ) {
+				$css_output['.entry-title a , .entry-title, .page-title']  = array(
+					'font-weight' => 'normal',
+				);
+				$css_output['.ast-archive-description .ast-archive-title'] = array(
+					'font-weight' => '300',
+				);
+			}
+
 			if ( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(
 					'color' => esc_attr( $heading_base_color ),
@@ -685,15 +690,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
 				'color'     => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
 			);
-
-			if ( false === astra_apply_new_default_blog_values() ) {
-				$css_output['.entry-title a , .entry-title, .page-title']  = array(
-					'font-weight' => 'normal',
-				);
-				$css_output['.ast-archive-description .ast-archive-title'] = array(
-					'font-weight' => '300',
-				);
-			}
 
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {

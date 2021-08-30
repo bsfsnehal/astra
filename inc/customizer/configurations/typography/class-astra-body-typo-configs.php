@@ -277,6 +277,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 			);
 
+
 			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 
 				$_configs[] = array(

@@ -10,11 +10,21 @@ v3.7.0-beta.1
 - Fix: Content background image not working for related posts section.
 
 v3.6.9
-- Improvement : Font size '0' will applicable for the fonts.
-- Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
+- Improvement: Font size '0' will applicable for the fonts.
+- Improvement: Gutenberg editor overall UI/UX improved.
 - Improvement: Clear asset cache of theme and addon on every new update of theme.
+- Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
+- Improvement: Moved add-on related frontend-pro.js file from theme to add-on.
+- Improvement: Moved the site icon control to a separator section 'Site Identity'.
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
+- Fix: Dropdown target as link not working if the menu item has a link.
+- Fix: WooCommerce - Cart count is overlapping on submenu section.
+- Fix: The submenu toggle not working when "Flyout Menu" is used and the page is resized.
+- Fix: Customizer color group control's reset position misaligned.
+- Fix: Desktop logo width is applying on the mobile devices for a moment.
+- Fix: Social icon does not change in customizer preview.
+- Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.

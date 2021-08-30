@@ -111,6 +111,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_may_update_button_font_size',
 				'astra_zero_font_size_comp',
 				'astra_unset_builder_elements_underline',
+				'astra_improve_gutenberg_editor_ui',
 			),
 			'3.7.0' => array(
 				'astra_update_sticky_footer_flag',

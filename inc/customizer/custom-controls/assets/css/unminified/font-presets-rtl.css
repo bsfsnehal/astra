@@ -16,7 +16,7 @@
     text-align: center;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
-	border: 1px solid #3582c4!important;
+	border: 1px solid #3582c4;
 }
 
 .ast-typo-presets .ast-typo-preset-item svg {
@@ -28,7 +28,7 @@
     margin-top: -13px;
 }
 .ast-typo-presets .ast-typo-preset-item.active {
-    border: 1px solid #3582c4!important;
+    border: 1px solid #3582c4;
     background: #fff;
 }
 

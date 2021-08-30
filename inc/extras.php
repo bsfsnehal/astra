@@ -577,6 +577,16 @@ function astra_target_rules_for_related_posts() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Check the Astra addon 3.5.0 version is using or not.
  * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
  *
@@ -609,6 +619,7 @@ function astra_is_elemetor_active() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
@@ -656,6 +667,18 @@ function astra_get_transparent_header_default_value() {
 	$astra_settings                                      = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? false : true;
 	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
+}
+
+/**
+ * Check if content bg options can be loaded.
+ *
+ * @since x.x.x
+ */
+function astra_is_content_bg_option_to_load() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
+		return false;
+	}
+	return true;
 }
 
 /**
@@ -725,8 +748,8 @@ function astra_apply_blog_grid_css() {
  *
  * @since x.x.x
  */
-function astra_is_h4_to_h6_typo_option_to_load() {
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+function astra_maybe_load_h4_to_h6_typo_options() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
 		return false;
 	}
 	return true;
@@ -742,6 +765,18 @@ function astra_can_remove_elementor_toc_margin_space() {
 	$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
 	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
+}
+
+/**
+ * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
+ *
+ * @since x.x.x
+ * @return boolean false if it is an existing user, true for new user.
+ */
+function astra_has_global_color_format_support() {
+	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
+	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
 }
 
 /**

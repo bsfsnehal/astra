@@ -44,8 +44,8 @@ class Astra_Global_Palette {
 	 * Localize variables used in the customizer.
 	 *
 	 * @since x.x.x
-	 * @param object $object localize object.
-	 * @return array $object localize object.
+	 * @param array $object localize object.
+	 * @return array<array-key, mixed> $object localize object.
 	 */
 	public function localize_variables( $object ) {
 
@@ -73,33 +73,33 @@ class Astra_Global_Palette {
 					'#3a3a3a',
 					'#3a3a3a',
 					'#4B4F58',
-					'#F6F7F8',
-					'#00123A',
-					'#243673',
-					'#FBFCFF',
-					'#BFD1FF',
+					'#F5F5F5',
+					'#FFFFFF',
+					'#F2F5F7',
+					'#424242',
+					'#000000',
 				),
 				'palette_2' => array(
-					'#FF6333',
-					'#FA430B',
-					'#19150F',
-					'#413E3A',
-					'#F7F3ED',
-					'#AE7867',
-					'#462903',
-					'#FFE1B4',
+					'#0274be',
+					'#3a3a3a',
+					'#3a3a3a',
+					'#4B4F58',
+					'#F5F5F5',
 					'#FFFFFF',
+					'#F2F5F7',
+					'#424242',
+					'#000000',
 				),
 				'palette_3' => array(
-					'#FD4973',
-					'#F81B4F',
-					'#19150F',
-					'#483D40',
-					'#F7F2F3',
-					'#A46E7B',
-					'#C8002F',
-					'#FFD8E0',
+					'#0274be',
+					'#3a3a3a',
+					'#3a3a3a',
+					'#4B4F58',
+					'#F5F5F5',
 					'#FFFFFF',
+					'#F2F5F7',
+					'#424242',
+					'#000000',
 				),
 			),
 		);
@@ -117,11 +117,11 @@ class Astra_Global_Palette {
 			__( 'Link Hover Color', 'astra' ),
 			__( 'Heading Color', 'astra' ),
 			__( 'Text Color', 'astra' ),
-			__( 'Background Color', 'astra' ),
+			__( 'Site Background Color', 'astra' ),
+			__( 'Content Background', 'astra' ),
 			__( 'Extra Color 1', 'astra' ),
 			__( 'Extra Color 2', 'astra' ),
 			__( 'Extra Color 3', 'astra' ),
-			__( 'Extra Color 4', 'astra' ),
 		);
 	}
 
@@ -194,27 +194,30 @@ class Astra_Global_Palette {
 	 *
 	 * @since x.x.x
 	 * @param array $global_palette global palette data.
-	 * @return bool
+	 * @return array
 	 */
 	public function format_global_palette( $global_palette ) {
 		$editor_palette    = array();
 		$extra_color_index = 1;
 		$color_index       = 0;
-		foreach ( $global_palette['palette'] as $key => $color ) {
 
-			if ( isset( $global_palette['labels'][ $color_index ] ) ) {
-				$label = $global_palette['labels'][ $color_index ];
-			} else {
-				$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
-				$extra_color_index++;
+		if ( isset( $global_palette['palette'] ) ) {
+			foreach ( $global_palette['palette'] as $key => $color ) {
+
+				if ( isset( $global_palette['labels'][ $color_index ] ) ) {
+					$label = $global_palette['labels'][ $color_index ];
+				} else {
+					$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
+					$extra_color_index++;
+				}
+
+				$editor_palette[] = array(
+					'name'  => $label,
+					'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
+					'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
+				);
+				$color_index++;
 			}
-
-			$editor_palette[] = array(
-				'name'  => $label,
-				'slug'  => self::get_css_variable_prefix() . $key,
-				'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
-			);
-			$color_index++;
 		}
 
 		return $editor_palette;

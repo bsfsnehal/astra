@@ -53,7 +53,7 @@ class Astra_Heading_Colors_Loader {
 		$font_weight_h3 = astra_get_option( 'font-weight-h3' );
 		Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
-		if ( astra_is_h4_to_h6_typo_option_to_load() ) {
+		if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 
 			$font_family_h4 = astra_get_option( 'font-family-h4' );
 			$font_weight_h4 = astra_get_option( 'font-weight-h4' );
@@ -140,10 +140,10 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Theme button Font Defaults
 		 */
-		$defaults['font-weight-button']    = 'inherit';
-		$defaults['font-family-button']    = 'inherit';
+		$defaults['font-weight-button'] = 'inherit';
+		$defaults['font-family-button'] = 'inherit';
 		if ( $update_button_size_default ) {
-			$defaults['font-size-button']      = array(
+			$defaults['font-size-button'] = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -152,7 +152,7 @@ class Astra_Heading_Colors_Loader {
 				'mobile-unit'  => 'px',
 			);
 		} else {
-			$defaults['font-size-button']      = array(
+			$defaults['font-size-button'] = array(
 				'desktop'      => 15,
 				'tablet'       => '',
 				'mobile'       => '',
@@ -200,6 +200,15 @@ class Astra_Heading_Colors_Loader {
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+		wp_localize_script(
+			'astra-heading-colors-customizer-preview-js',
+			'astraHeadingColorOptions',
+			array(
+				'maybeApplyHeadingColorForTitle' => astra_has_global_color_format_support(),
+			)
+		);
+
 	}
 }
 

@@ -358,6 +358,43 @@
   margin-bottom: 8px;
 }
 
+.ast-btn-preset-wrap {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item{
+	cursor: pointer;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item svg{
+	fill: #646970;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item svg:hover{
+	fill: #565b62;
+}
+
+.ast-btn-preset-wrap .ast-btn-style-item.active svg,
+.ast-btn-preset-wrap .ast-btn-style-item.active svg:hover{
+	fill: #2271b1;
+}
+
+.ast-reset-btn-preset-wrap{
+	position: absolute;
+    display: inline-block;
+    line-height: 1;
+    right: 0;
+	top: 0;
+}
+.ast-reset-btn-preset-wrap .components-button.is-secondary,
+.ast-reset-btn-preset-wrap .components-button.is-secondary:hover{
+	box-shadow: none;
+	background: transparent;
+}
+
+
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -659,6 +696,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
 	font-size: 12px;
+	mix-blend-mode: difference;
 }
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
@@ -938,6 +976,10 @@
     left: 0;
     right: 0;
     bottom: 0;
+	display: none;
+}
+.astra-color-picker-wrap.picker-open{
+	display: block;
 }
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
@@ -1473,7 +1515,7 @@ input[type="text"].select2-search__field {
     text-align: center;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
-	border: 1px solid #3582c4!important;
+	border: 1px solid #3582c4;
 }
 
 .ast-typo-presets .ast-typo-preset-item svg {
@@ -1485,7 +1527,7 @@ input[type="text"].select2-search__field {
     margin-top: -13px;
 }
 .ast-typo-presets .ast-typo-preset-item.active {
-    border: 1px solid #3582c4!important;
+    border: 1px solid #3582c4;
     background: #fff;
 }
 
@@ -1852,6 +1894,10 @@ input[type="text"].select2-search__field {
   width: 100%;
   height: 100%;
   border-radius: 100%;
+}
+
+.astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
+	box-shadow: none;
 }
 
 .astra-popover-color .components-custom-gradient-picker {

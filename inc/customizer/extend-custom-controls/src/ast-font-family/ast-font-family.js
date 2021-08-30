@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
-import {useEffect,useState} from 'react';
+import {useState} from 'react';
 
 const FontFamilyComponent = props => {
 	const {
@@ -12,18 +12,16 @@ const FontFamilyComponent = props => {
 		link
 	} = props.control.params;
 
-	let value = props.control.setting.get();
 
 	const [state, setState] = useState({
-		value: value,
+		value: props.control.setting.get(),
 	});
 
 	const linkRemoteUpdate = () => {
 
 		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
 			if ( e.detail === 'typography' ) {
-				let value = props.control.setting.get();
-				setState({ value : value });
+				setState({ value : props.control.setting.get() });
 			}
 		} );
 	}

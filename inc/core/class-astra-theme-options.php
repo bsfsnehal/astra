@@ -96,13 +96,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
+			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
 			/**
 			 * Update Astra customizer default values. To not update directly on existing users site, added backwards.
 			 *
 			 * @since 3.6.3
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
-			$palette_css_var_prefix   = Astra_Global_Palette::get_css_variable_prefix();
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(
@@ -325,7 +325,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'site-content-width'                   => 1200,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
-							'background-color'      => '',
+							'background-color'      => 'var(' . $palette_css_var_prefix . '4)',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',
@@ -346,6 +346,38 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						),
 						'mobile'  => array(
 							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+						),
+					),
+					'content-bg-obj-responsive'            => array(
+						'desktop' => array(
+							'background-color'      => 'var(' . $palette_css_var_prefix . '5)',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+						),
+						'tablet'  => array(
+							'background-color'      => 'var(' . $palette_css_var_prefix . '5)',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+						),
+						'mobile'  => array(
+							'background-color'      => 'var(' . $palette_css_var_prefix . '5)',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',

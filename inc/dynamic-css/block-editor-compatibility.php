@@ -63,7 +63,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
 	}
 
-	if( astra_can_improve_gutenberg_blocks_ui() ) {
+	if( astra_improve_gutenberg_blocks_ui() ) {
 		$is_site_rtl                = is_rtl();
 
 		$editor_improvement_css = '

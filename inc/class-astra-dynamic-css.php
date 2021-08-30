@@ -1481,10 +1481,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$search_button_selector       = $is_wp_5_8_support_enabled ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = $is_wp_5_8_support_enabled ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
-				$astra_improve_gutenberg_blocks_ui = astra_can_improve_gutenberg_blocks_ui();
+				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
 
-				$file_block_button_selector = $astra_improve_gutenberg_blocks_ui ? ', .wp-block-file .wp-block-file__button' : '';
-				$file_block_button_hover_selector = $astra_improve_gutenberg_blocks_ui ? ', .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus' : '';
+				$file_block_button_selector = $can_update_gb_blocks_ui ? ', .wp-block-file .wp-block-file__button' : '';
+				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus' : '';
 
 				/**
 				 * Global button CSS - Desktop.

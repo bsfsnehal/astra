@@ -427,9 +427,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
-				$astra_improve_gutenberg_blocks_ui = astra_can_improve_gutenberg_blocks_ui();
-				$file_block_button_selector = $astra_improve_gutenberg_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
-				$file_block_button_hover_selector = $astra_improve_gutenberg_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' : '';
+				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
+				$file_block_button_selector = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
+				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' : '';
 
 				$button_desktop_css = array(
 					/**
@@ -463,7 +463,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if( $astra_improve_gutenberg_blocks_ui ) {
+				if( $can_update_gb_blocks_ui ) {
 					$button_desktop_css['.block-editor-writing-flow .wp-block-file__content-wrapper'] = array(
 						'display' => 'flex',
 						'align-items' => 'center',
@@ -1086,7 +1086,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $gtn_full_wide_image_css );
 
-			if( astra_can_improve_gutenberg_blocks_ui() ) {
+			if( astra_improve_gutenberg_blocks_ui() ) {
 				$compatibility_css = '
 				.editor-styles-wrapper .wp-block-pullquote blockquote {
 					padding-top: 0;

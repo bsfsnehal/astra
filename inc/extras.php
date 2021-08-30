@@ -741,8 +741,8 @@ add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 1
  * @since x.x.x
  * @return boolean
  */
-function astra_can_improve_gutenberg_blocks_ui() {
+function astra_improve_gutenberg_blocks_ui() {
 	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['improve-gutenberg-ui'] = isset( $astra_settings['improve-gutenberg-ui'] ) ? false : true;
-	return apply_filters( 'astra_improve_gutenberg_blocks_ui', $astra_settings['improve-gutenberg-ui'] );
+	$astra_settings['improve-gb-editor-ui'] = isset( $astra_settings['improve-gb-editor-ui'] ) ? false : true;
+	return apply_filters( 'astra_improve_gutenberg_blocks_ui', $astra_settings['improve-gb-editor-ui'] );
 }

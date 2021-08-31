@@ -62,6 +62,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
+			add_action( 'after_setup_theme', array( $this, 'default_block_template' ), 0 );
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
 		}
@@ -178,6 +179,25 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				);
 			}
 
+			// Add support for block templates.
+			add_theme_support( 'block-templates' );
+
+		}
+
+		/**
+		 * Add a default block template.
+		 *
+		 * @since x.x.x
+		 *
+		 * @return string (block template markup)
+		 */
+		public function default_block_template() {
+			add_filter( 'block_editor_settings_all',
+				function( $settings ) {
+					$settings['defaultBlockTemplate'] = file_get_contents( get_theme_file_path( 'block-templates/default.html' ) );
+					return $settings;
+				}
+			);
 		}
 
 		/**

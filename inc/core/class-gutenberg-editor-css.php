@@ -1112,10 +1112,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				}
 				ul.wp-block-categories__list, ul.wp-block-archives-list {
 					list-style-type: none;
-				}
-				.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"] {
-					margin-left: -5em;
-					margin-right: -5em;
 				}';
 
 				if( $is_site_rtl ) {

@@ -101,8 +101,12 @@
 	}
 }
 
-#site-navigation {
+#site-navigation ,
+#footer-site-navigation ,
+#mobile-site-navigation ,
+#account-site-navigation {
 	height: 100%;
+	
 }
 
 .site-header .menu-link * {

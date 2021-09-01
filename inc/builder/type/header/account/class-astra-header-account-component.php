@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id'         => 'site-navigation',
+					'id'         => 'account-site-navigation',
 					'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Header_Account_Component' ) ) {
 							echo astra_attr(
 								'site-navigation',
 								array(
-									'id' => 'site-navigation',
+									'id' => 'account-site-navigation',
 								)
 							);
 							echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';

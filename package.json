@@ -45,7 +45,7 @@
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.0.0",
     "node-sass": "^6.0.1",
     "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
   },

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 import {__} from '@wordpress/i18n';
 
-
 const { Dashicon } = wp.components;
 
 const CustomizerLinkComponent = props => {
@@ -45,15 +44,15 @@ const CustomizerLinkComponent = props => {
 					  }}>
 		</a>;
 	} else {
-		linkHtml = 
+		linkHtml =
 		<>
 		<div className="ast-builder-elements-section">
 			<div className="ahfb-builder-item-start">
-				<button onClick={(e) => { 
+				<button onClick={(e) => {
 					e.preventDefault();
 					onLinkClick();
-					}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}> 
-					 {link_text}	
+					}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}>
+					 {link_text}
 					<span className="ahfb-builder-item-icon">
 						<Dashicon icon="arrow-right-alt2"/>
 					</span>

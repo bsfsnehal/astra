@@ -3666,6 +3666,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
+					width: 2em;
+					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;
 					vertical-align: middle;

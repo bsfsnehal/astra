@@ -213,7 +213,7 @@
 			set_context(control_id);
 		},
 
-		registerControlsBySection: async function (section) {
+		registerControlsBySection: async function ( section, lazy = false ) {
 
 			if( ! section ) {
 				return;
@@ -222,6 +222,16 @@
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
+
+					if( true === lazy && ( config.hasOwnProperty('lazy') && true === config.lazy ) ) {
+						this.addControl(config.id, config);
+						continue;
+					}
+
+					if( config.hasOwnProperty('lazy') && true === config.lazy ) {
+						continue;
+					}
+
 					this.addControl(config.id, config);
 					await null;
 				}
@@ -459,7 +469,6 @@
 						// Change Dynamic section for sticky header controls.
 						if( typeof currentValue === 'object' && undefined !== rule['sticky-header-item'] ) {
 							var headers = ['above','primary','below'];
-
 							$.each( headers, function( key, val ) {
 								$.each( currentValue[val] , function( key, zone ) {
 									if( zone.indexOf( comparedValue ) > -1 ){
@@ -469,11 +478,6 @@
 										// Check if sticky header is active or not.
 										if( true == sticky_settings.get() ) {
 											currentValue = comparedValue;
-										}
-
-										// Change section of control here.
-										if( undefined != rule['control-name'] ) {
-											api.control( rule['control-name'] ).section( 'section-' + val + '-header-builder' );
 										}
 									}
 								});
@@ -694,6 +698,11 @@
 			]).then(function () {
 				api.section.each(function (section) {
 					section.expanded.bind(function (isExpanded) {
+
+						setTimeout( function() {
+							AstCustomizerAPI.registerControlsBySection( api.section(section.id), true );
+						}, 1000 );
+
 						// Lazy Loaded Context.
 						AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 

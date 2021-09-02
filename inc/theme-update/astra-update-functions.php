@@ -3257,7 +3257,7 @@ function astra_may_update_button_font_size() {
 /**
  * Apply zero font size for new users.
  *
- * @since x.x.x
+ * @since 3.6.9
  * @return void
  */
 function astra_zero_font_size_comp() {
@@ -3272,7 +3272,7 @@ function astra_zero_font_size_comp() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.9
  * @return void
  */
 function astra_unset_builder_elements_underline() {
@@ -3288,7 +3288,7 @@ function astra_unset_builder_elements_underline() {
  * Migrating Builder > Account > transparent resonsive menu color options to single color options.
  * Because we do not show menu on resonsive devices, whereas we trigger login link on responsive devices instead of showing menu.
  *
- * @since x.x.x
+ * @since 3.6.9
  *
  * @return void
  */

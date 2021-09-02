@@ -1,6 +1,6 @@
-import {useState , useEffect} from 'react';
+import { useState , useEffect } from 'react';
 
-const {__} = wp.i18n;
+const { __ } = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button } = wp.components;
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import astIcons from "../../../../../assets/svg/ast-social-icons"
@@ -23,7 +23,6 @@ const ItemComponent = props => {
 	const[ selectedIcon , setSelectedIcon ] = useState(
 		props.item.icon
 	)
-	
 	useEffect(() => {
 		setSelectedIcon( Icons[props.item.icon] );
 	}, []);
@@ -74,9 +73,9 @@ const ItemComponent = props => {
 				theme="default"
 				value={props.item.icon}
 				onChange={ value => {
-					 props.onChangeIcon(value, props.index); 
-					 setSelectedIcon( Icons[value] );
-					} }
+					props.onChangeIcon(value, props.index);
+					setSelectedIcon( Icons[value] );
+				} }
 				isMulti={false}
 				noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
 			/>

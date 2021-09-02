@@ -1462,9 +1462,11 @@ namespace {
         {
         }
         /**
-         *  Call Mobile Menu Markup.
-         */
-        public function header_mobile_menu_markup()
+		 *  Call Mobile Menu Markup.
+		 *
+		 * @param string $device Checking where mobile-menu is dropped.
+		 */
+		public function header_mobile_menu_markup($device = '')
         {
         }
         /**
@@ -2323,11 +2325,13 @@ namespace {
         {
         }
         /**
-         * Secondary navigation markup
-         *
-         * @since 3.0.0.
-         */
-        public static function menu_markup()
+		 * Secondary navigation markup
+		 *
+		 * @param string $device Checking where mobile-menu is dropped.
+		 *
+		 * @since 3.0.0.
+		 */
+		public static function menu_markup($device = '')
         {
         }
     }

@@ -2348,9 +2348,9 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 /**
- * 10 - Submenu container box shadow 
+ * 10 - Submenu container box shadow
  */
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu):not(#ast-desktop-toggle-menu) .sub-menu {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 

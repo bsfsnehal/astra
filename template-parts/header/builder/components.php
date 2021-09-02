@@ -57,7 +57,7 @@ switch ( $component_slug ) {
 	case 'mobile-menu':
 		?>
 		<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-menu">
-			<?php do_action( 'astra_header_menu_mobile' ); ?>
+			<?php do_action( 'astra_header_menu_mobile', $device ); ?>
 		</div>
 		<?php
 		break;

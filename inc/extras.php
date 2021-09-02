@@ -409,12 +409,13 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		'ast-hf-menu-7',
 		'ast-hf-menu-8',
 		'ast-hf-menu-9',
-		'ast-hf-menu-10',       // Cloned builder menus.
-		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
-		'ast-hf-account-menu',  // Builder - Login Account Menu.
-		'primary-menu',         // Old header - Primary Menu.
-		'above_header-menu',    // Old header - Above Menu.
-		'below_header-menu',    // Old header - Below Menu.
+		'ast-hf-menu-10',           // Cloned builder menus.
+		'ast-hf-mobile-menu',       // Builder - Mobile Menu.
+		'ast-desktop-toggle-menu',  // Builder - Toggle for Desktop Menu.
+		'ast-hf-account-menu',      // Builder - Login Account Menu.
+		'primary-menu',             // Old header - Primary Menu.
+		'above_header-menu',        // Old header - Above Menu.
+		'below_header-menu',        // Old header - Below Menu.
 	);
 
 	$load_svg_menu_icons = false;

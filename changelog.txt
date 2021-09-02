@@ -1,5 +1,6 @@
 v3.7.1 (Unreleased)
 - Fix: W3C HTML validation - Duplicate ID: Layer_1.
+- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu.
 
 v3.6.9
 - Improvement: In the font size option, users cannot set the value '0'.

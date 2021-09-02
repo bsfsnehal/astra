@@ -11,7 +11,7 @@ v3.6.9
 - Fix: The submenu toggle is not working when 'Flyout Menu' is used, and the page is resized.
 - Fix: Customizer color group control's reset position misaligned.
 - Fix: Desktop logo width is applying on the mobile devices during page load.
-- Fix: Social icon does not change in the customizer preview.
+- Fix: Social icon does not change in the customizer preview. 
 - Fix: Gutenberg Editor content area showing white background color when Full-Width Contained / Stretched layout is active.
 - Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 

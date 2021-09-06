@@ -8,7 +8,7 @@ describe('Menu spacing under header builder in the customizer', () => {
        
        'header-menu1-menu-spacing':{
 
-            desktop: 'top','40':'top,right,bottom,left(10,10,10,10)',
+            desktop:'top,right,bottom,left(60,50,90,30)',
             tablet: '',
         	mobile: '',
                //'cursor': 'pointer',

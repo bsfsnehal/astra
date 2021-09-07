@@ -50,4 +50,4 @@ describe('Menu background style under header builder in the customizer', () => {
         
         
     });
-    })
+    });

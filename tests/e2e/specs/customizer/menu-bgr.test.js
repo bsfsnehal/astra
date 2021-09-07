@@ -30,19 +30,16 @@
 //     })
 
 
-import { visitAdminPage } from "@wordpress/e2e-test-utils";
+
 import { createURL } from "@wordpress/e2e-test-utils";
 
 import { setCustomize } from "../../utils/set-customize";
 describe('Menu background style under header builder in the customizer', () => {
 	it( 'menu bgr color should apply corectly', async () => {
 		const menubgcolor= {
-
-        'background': 'rgb(250, 169, 169)',
-       
-       //'cursor': 'pointer',
-
-        }
+          'background':  'rgb(199, 228, 144)',
+          'background': 'rgb(199, 228, 144)',
+         }
         await setCustomize( menubgcolor );
 
 		await page.goto( createURL( '/' ), {
@@ -50,6 +47,7 @@ describe('Menu background style under header builder in the customizer', () => {
 		} );
         await page.waitForSelector( '#ast-hf-menu-1 > ul' );
         //ast-select-input
+        
         
     });
     })

@@ -6,7 +6,6 @@ describe('Menu hover style under header builder in the customizer', () => {
 
         'ast-select-input':'zoom',
        'header-menu1-menu-hover-animation': 'zoom',
-       //'cursor': 'pointer',
 
         }
         await setCustomize( menuhoverstyle );

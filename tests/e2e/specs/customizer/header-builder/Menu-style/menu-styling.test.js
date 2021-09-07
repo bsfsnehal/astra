@@ -55,7 +55,7 @@ describe('Menu hover style under header builder in the customizer', () => {
                 await expect( {
                     selector: '#ast-hf-menu-1 > ul',
                     property: 'Menu Spacing',
-                    } ).cssValueToBe( `${ menuspacing[ '#ast-hf-menu-1 > ul' ].desktop }` );  
+                    } ).cssValueToBe( `${ menuMargin[ '#ast-hf-menu-1 > ul' ].desktop }` );  
         
     });
     

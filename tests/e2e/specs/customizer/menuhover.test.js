@@ -4,9 +4,7 @@ describe('Menu hover style under header builder in the customizer', () => {
 	it( 'menu hover style should apply corectly', async () => {
 		const menuhoverstyle = {
        'header-menu1-menu-hover-animation': 'zoom',
-       
-
-        }
+        };
         await setCustomize( menuhoverstyle );
 
 		await page.goto( createURL( '/' ), {
@@ -19,4 +17,4 @@ describe('Menu hover style under header builder in the customizer', () => {
             } ).cssValueToBe( `${ menuhoverstyle[ 'header-menu1-menu-hover-animation' ]}` );
         
     });
-    });
+});

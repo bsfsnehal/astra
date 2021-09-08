@@ -14,7 +14,7 @@ describe('Menu margin under header builder in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
         await page.waitForSelector( '#ast-hf-menu-1 ul' );
-        //ast-select-inp
+    
 
     });
 });

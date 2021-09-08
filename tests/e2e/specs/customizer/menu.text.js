@@ -7,10 +7,7 @@ describe('Menu background style under header builder in the customizer', () => {
 		const menuTextcolor= {
 
         'header-menu1-text-colors': 'rgba(0,0,0,1)',
-       
-       //'cursor': 'pointer',
-
-        }
+        };
         await setCustomize( menuTextcolor );
 
 		await page.goto( createURL( '/' ), {
@@ -19,4 +16,4 @@ describe('Menu background style under header builder in the customizer', () => {
         
         
     });
- });
+});

@@ -4,7 +4,7 @@ describe('Menu background style under header builder in the customizer', () => {
 	it( 'menu bgr color should apply corectly', async () => {
 		const menubgcolor= {
           'background':  'rgb(199, 228, 144)',
-         }
+         };
         await setCustomize( menubgcolor );
 
 		await page.goto( createURL( '/' ), {

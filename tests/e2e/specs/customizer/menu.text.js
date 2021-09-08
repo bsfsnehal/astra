@@ -16,8 +16,7 @@ describe('Menu background style under header builder in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-        //await page.waitForSelector( '#astra-settings\[header-menu1-color-responsive\] > div.color-button-wrap > button' );
-        //ast-select-input
+        
         
     });
-    })
+ });

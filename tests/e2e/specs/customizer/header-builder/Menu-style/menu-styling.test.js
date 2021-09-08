@@ -1,6 +1,6 @@
 import { setCustomize } from "../../../../utils/set-customize";
 import { createURL } from "@wordpress/e2e-test-utils";
-describe('Menu hover style under header builder in the customizer', () => {
+describe('Menu hover, Spacing,Margin style under header builder', () => {
        it( 'menu hover style should apply corectly', async () => {
               const menuhoverstyle = {
               'header-menu1-menu-hover-animation': 'zoom',
@@ -21,38 +21,35 @@ describe('Menu hover style under header builder in the customizer', () => {
 
        it( 'menu spacing style should apply corectly', async () => {
               const menuspacing = {
-              'section-hb-menu-1-margin > label > div':{
-                  desktop:'top,right,bottom,left(40,40,40,40)',
-            
-                     },
+                 'header-menu1-menu-spacing':'30px',
+                        
               };
-              await setCustomize( menuspacing );
-
-              await page.goto( createURL( '/' ), {
-              waitUntil: 'networkidle0',
-              } );
-              await page.waitForSelector( '#ast-builder-menu-1 .menu-item .menu-link' );
-
-              await expect( {
-              selector: '.ast-builder-menu-1 .menu-item > .menu-link',
-              property: 'padding-top',
-              } ).cssValueToBe( '40px' );
-       });
+                 await setCustomize( menuspacing );
+     
+                 await page.goto( createURL( '/' ), {
+                 waitUntil: 'networkidle0',
+                 } );
+                 await page.waitForSelector( '#ast-desktop-header .main-navigation a' );
+     
+                 await expect( {
+                 selector: '.ast-builder-menu-1 .menu-item > .menu-link',
+                 property: 'padding-top',
+                 } ).cssValueToBe(`${ menuspacing[ 'header-menu1-menu-spacing' ] }`)
+             });
        it( 'menu margin should apply corectly', async () => {
                 const menuMargin = {
-                '[section-hb-menu-1-margin]':{
-                   desktop:'top,right,bottom,left(40,40,40,40)',
-                   },
+               'section-hb-menu-1-margin':'40px',
                 };
+              
               await setCustomize( menuMargin );
               await page.goto( createURL( '/' ), {
               waitUntil: 'networkidle0',
               } );
               await page.waitForSelector( '#ast-hf-menu-1' );  
               await expect( {
-              selector: '#ast-hf-menu-1',
-              property: 'Menu Spacing',
-             } ).cssValueToBe( `${ menuMargin[ '[section-hb-menu-1-margin]' ].desktop }` );  
+              selector: '.ast-builder-menu-1 .main-header-menu, .ast-header-break-point .ast-builder-menu-1 .main-header-menu',
+              property: 'margin-top',
+             } ).cssValueToBe( `${ menuMargin[ 'section-hb-menu-1-margin' ] }` );  
         
     });
  });

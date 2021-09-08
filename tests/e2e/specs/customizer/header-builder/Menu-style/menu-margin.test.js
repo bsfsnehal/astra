@@ -7,11 +7,7 @@ describe('Menu margin under header builder in the customizer', () => {
             'margin-bottom': '100px',
             'margin-left': '80px',
             'margin-right': '150px',
-            
-        
-       //'cursor': 'pointer',
-
-        }
+        };
         await setCustomize( menuMargin );
 
 		await page.goto( createURL( '/' ), {
@@ -20,5 +16,5 @@ describe('Menu margin under header builder in the customizer', () => {
         await page.waitForSelector( '#ast-hf-menu-1 ul' );
         //ast-select-inp
 
-})
-})
+    });
+});

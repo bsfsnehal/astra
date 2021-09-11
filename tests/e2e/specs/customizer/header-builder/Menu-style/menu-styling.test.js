@@ -1,6 +1,6 @@
 import { setCustomize } from "../../../../utils/set-customize";
 import { createURL } from "@wordpress/e2e-test-utils";
-describe('Menu hover, Spacing,Margin style under header builder', () => {
+describe('Menu hover, Spacing, Margin style under header builder', () => {
        it( 'menu hover style should apply corectly', async () => {
               const menuhoverstyle = {
               'header-menu1-menu-hover-animation': 'zoom',
@@ -9,7 +9,7 @@ describe('Menu hover, Spacing,Margin style under header builder', () => {
 
               await page.goto( createURL( '/' ), {
                      waitUntil: 'networkidle0',
-                     } );
+              } );
               await page.waitForSelector( '#menu-item-269 > a' );
               await expect( {
               selector: '.menu-item-269 > a',
@@ -35,7 +35,7 @@ describe('Menu hover, Spacing,Margin style under header builder', () => {
                  selector: '.ast-builder-menu-1 .menu-item > .menu-link',
                  property: 'padding-top',
                  } ).cssValueToBe(`${ menuspacing[ 'header-menu1-menu-spacing' ] }`)
-             });
+              });
        it( 'menu margin should apply corectly', async () => {
                 const menuMargin = {
                'section-hb-menu-1-margin':'40px',
@@ -51,5 +51,5 @@ describe('Menu hover, Spacing,Margin style under header builder', () => {
               property: 'margin-top',
              } ).cssValueToBe( `${ menuMargin[ 'section-hb-menu-1-margin' ] }` );  
         
-    });
+     });
  });

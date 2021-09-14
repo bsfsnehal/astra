@@ -1,7 +1,7 @@
 import { setCustomize } from "../../../utils/set-customize";
 import { createURL,createNewPost,publishPost } from "@wordpress/e2e-test-utils";
 describe('Sidebar for pages', () => {
-    it( 'Position for Sidebar for pages  should apply corectly', async () => {
+    it( 'Position for Sidebar for single  should apply corectly', async () => {
         const Postsidebar = {
             'single-post-sidebar-layout': 'left-sidebar',
             

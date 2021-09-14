@@ -1,22 +1,21 @@
-import { createURL } from "@wordpress/e2e-test-utils";
+import { createURL, publishPost } from "@wordpress/e2e-test-utils";
 import { setCustomize } from '../../../utils/set-customize';
-import {__experimentalScrollable}from  '@wordpress/e2e-test-utils';
 describe( 'copyright Footer settings in the customizer', () => {
     it( 'copyright text color should apply corectly', async () => {
-        const copyrightcolor = {
+        const CopyrightText = {
     
-            'footer-copyright-color':'rgb(186, 18, 226)',
+            'qt_ast-footer-copyright_toolbar':'rgb(58,58,58)',
         };
 
-        await setCustomize( copyrightcolor );
+        await setCustomize( CopyrightText );
+     
         await page.goto( createURL( '/' ), {
         waitUntil: 'networkidle0',
-        } );
-
+        } ),
         await expect( {
             selector: '.ast-footer-copyright',
             property: 'color',
-        } ).cssValueToBe( `rgb(186, 18, 226)`);
+        } ).cssValueToBe( ` rgb(58, 58, 58)`);
 
     });
 });

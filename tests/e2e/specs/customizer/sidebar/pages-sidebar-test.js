@@ -8,11 +8,12 @@ describe('Sidebar for pages', () => {
         };
         await setCustomize( Pagesidebar );
 
-
-
-		await page.goto( createURL( 'sample-page' ), {
+        await page.goto( createURL( 'sample-page' ), {
 			waitUntil: 'networkidle0',
 		} );
+
+        await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' );
+
         await expect( {
             selector: '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary',
             property: '',

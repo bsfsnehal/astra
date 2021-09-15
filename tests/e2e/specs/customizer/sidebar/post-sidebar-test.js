@@ -16,6 +16,8 @@ describe('Sidebar for posts', () => {
 		await page.goto( createURL( 'samplepost' ), {
 			waitUntil: 'networkidle0',
 		} );
+        await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' );
+
         await expect( {
             selector: '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary',
             property: '',

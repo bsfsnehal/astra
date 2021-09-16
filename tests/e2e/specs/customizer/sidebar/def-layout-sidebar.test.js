@@ -11,7 +11,7 @@ import { setCustomize } from '../../../utils/set-customize';
             } );
             await page.waitForSelector( '.ast-separate-container.ast-left-sidebar #secondary' );
             await expect( {
-                selector: '.secondary',
+                selector: '.ast-separate-container.ast-left-sidebar #secondary',
                 property: '',
             } ).cssValueToBe( `` );  
         });

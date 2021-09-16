@@ -9,14 +9,14 @@ import { setCustomize } from '../../../utils/set-customize';
             await setCustomize( leftSidebar );
 
             await page.goto( createURL( '/' ), {
-                waitUntil: 'networkidle0',
+            waitUntil: 'networkidle0',
             } );
 
             await page.waitForSelector( '.secondary' );
 
             await expect( {
-                selector: '.secondary',
-                property: '',
+            selector: '.secondary',
+            property: '',
             } ).cssValueToBe( `` );  
         });
      
@@ -52,8 +52,8 @@ import { setCustomize } from '../../../utils/set-customize';
             await page.waitForSelector( '.ast-right-sidebar #secondary' );
 
             await expect( {
-                selector: '.ast-right-sidebar #secondary',
-                property: '',
+            selector: '.ast-right-sidebar #secondary',
+            property: '',
             } ).cssValueToBe( `` );  
         });
     });

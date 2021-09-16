@@ -19,9 +19,7 @@ import { setCustomize } from '../../../utils/set-customize';
             property: '',
             } ).cssValueToBe( `` );  
         });
-     
-
-        it( 'Default layout for sidebar  as No Sidebar should apply corectly', async () => {
+       it( 'Default layout for sidebar  as No Sidebar should apply corectly', async () => {
              const defSidebar = {
              'site-sidebar-layout': 'no-sidebar',
              };
@@ -38,9 +36,7 @@ import { setCustomize } from '../../../utils/set-customize';
             property: '',
             } ).cssValueToBe( `` );  
         });
- 
-
-        it( 'Default layout for sidebar as RIGHT  should apply corectly', async () => {
+       it( 'Default layout for sidebar as RIGHT  should apply corectly', async () => {
             const rightSidebar = {
            'site-sidebar-layout': 'right-sidebar',
             };

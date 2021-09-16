@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
-    describe('Default layout for Sidebar setting in customizer', () => {
+    describe( 'Default layout for Sidebar setting in customizer', () => {
         it( 'Default layout for sidebar from customizer should apply corectly', async () => {
             const leftSidebar = {
             'site-sidebar-layout': 'left-sidebar',

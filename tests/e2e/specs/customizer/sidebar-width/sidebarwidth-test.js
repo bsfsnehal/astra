@@ -13,6 +13,6 @@ describe('Sidebar width', () => {
         await expect( {
             selector: '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary',
             property: '',
-        } ).cssValueToBe( `${ sidebarWidth [ 'site-sidebar-width' ] }` );  
+        } ).cssValueToBe( `` );  
     });
 });

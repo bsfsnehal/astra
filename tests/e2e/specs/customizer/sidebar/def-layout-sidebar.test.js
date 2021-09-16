@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
     describe( 'Default layout for Sidebar setting in customizer', () => {
-        it( 'Default layout for sidebar from customizer should apply corectly', async () => {
+        it( 'Default layout of sidebar from customizer should apply corectly', async () => {
             const leftSidebar = {
             'site-sidebar-layout': 'left-sidebar',
 
@@ -19,7 +19,7 @@ import { setCustomize } from '../../../utils/set-customize';
             property: '',
             } ).cssValueToBe( `` );  
         });
-       it( 'Default layout for sidebar as No Sidebar should apply corectly', async () => {
+       it( 'Default layout of sidebar as No Sidebar should apply corectly', async () => {
              const defSidebar = {
              'site-sidebar-layout': 'no-sidebar',
              };
@@ -36,7 +36,7 @@ import { setCustomize } from '../../../utils/set-customize';
             property: '',
             } ).cssValueToBe( `` );  
         });
-       it( 'Default layout for sidebar as RIGHT should apply corectly', async () => {
+       it( 'Default layout of sidebar as RIGHT should apply corectly', async () => {
             const rightSidebar = {
            'site-sidebar-layout': 'right-sidebar',
             };

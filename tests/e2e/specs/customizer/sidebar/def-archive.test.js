@@ -50,7 +50,6 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
-            
                 await page.goto( createURL( '2021/09' ), {
                     waitUntil: 'networkidle0',
                 });
@@ -70,7 +69,6 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
-            
                 await page.goto( createURL( '2021/09' ), {
                     waitUntil: 'networkidle0',
                 });

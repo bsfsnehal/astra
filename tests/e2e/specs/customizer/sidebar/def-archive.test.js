@@ -60,7 +60,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 }).cssValueToBe( `` );  
         });
 
-        it( 'Defult Position of Sidebar for archive-posts as RIGHT should apply correctly', async () => {
+        it( 'Default Position of Sidebar for archive-posts as RIGHT should apply correctly', async () => {
             const archiveDef = {
             'archive-post-sidebar-layout': 'default',
             'site-sidebar-layout': 'right-sidebar'

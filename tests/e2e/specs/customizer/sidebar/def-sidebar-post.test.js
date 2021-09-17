@@ -51,7 +51,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 }).cssValueToBe( `` );  
         });
 
-        it( 'Defult Position of Sidebar for blog-posts as LEFT should apply correctly', async () => {
+        it( 'Default Position of Sidebar for blog-posts as LEFT should apply correctly', async () => {
             const blogSidebar = {
             'single-post-sidebar-layout': 'default',
             'site-sidebar-layout': 'left-sidebar'

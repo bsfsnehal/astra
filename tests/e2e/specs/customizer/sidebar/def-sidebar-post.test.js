@@ -6,9 +6,6 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
             'single-post-sidebar-layout': 'left-sidebar',
             };
                 await setCustomize( blogSidebar );
-                // await page.goto( createURL( '/' ), {
-                //     waitUntil: 'networkidle0',
-                // });
                 await createNewPost( {
                     postType: 'post',
                     title: 'sample',

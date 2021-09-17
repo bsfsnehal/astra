@@ -1,7 +1,7 @@
 import { setCustomize } from '../../../utils/set-customize';
 import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
     describe( 'Default Position of the Sidebar for blog posts under the Customizer', () => {
-        it( 'Default Position of Sidebar for blog posts as LEFT should apply correctly', async () => {
+        it( 'Position of Sidebar for blog posts as LEFT should apply correctly', async () => {
             const blogSidebar = {
             'single-post-sidebar-layout': 'left-sidebar',
             };
@@ -21,7 +21,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 }).cssValueToBe( `` );  
         });
 
-        it( 'Default Position of Sidebar for blog-posts as RIGHT should apply correctly', async () => {
+        it( 'Position of Sidebar for blog-posts as RIGHT should apply correctly', async () => {
             const blogSidebar = {
             'single-post-sidebar-layout': 'right-sidebar',
             };
@@ -36,7 +36,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 }).cssValueToBe( `` );  
         });
 
-        it( 'Default Position of Sidebar for blog-posts as NO-Sidebar should apply correctly', async () => {
+        it( 'Position of Sidebar for blog-posts as NO-Sidebar should apply correctly', async () => {
             const blogSidebar = {
             'single-post-sidebar-layout': 'no-sidebar',
             };

@@ -14,7 +14,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                     title: 'sample',
                 });
                 await publishPost();
-                await page.goto( createURL( '2021/09' ), {
+                await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
                 await page.waitForSelector( '.ast-separate-container.ast-left-sidebar #secondary' );
@@ -32,7 +32,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
-                await page.goto( createURL( '2021/09' ), {
+                await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
                 await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
@@ -50,7 +50,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
-                await page.goto( createURL( '2021/09' ), {
+                await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
                 await page.waitForSelector( '.ast-no-sidebar' );
@@ -60,7 +60,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 }).cssValueToBe( `` );  
         });
 
-        it( 'Deafult Position of Sidebar for archive-posts as RIGHT should apply correctly', async () => {
+        it( 'Defult Position of Sidebar for archive-posts as RIGHT should apply correctly', async () => {
             const archiveDef = {
             'archive-post-sidebar-layout': 'default',
             'site-sidebar-layout': 'right-sidebar'
@@ -69,7 +69,7 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
-                await page.goto( createURL( '2021/09' ), {
+                await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 });
                 await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );

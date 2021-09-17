@@ -8,20 +8,20 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await setCustomize( archiveSidebar );
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
-                } );
+                });
                 await createNewPost( {
                     postType: 'post',
                     title: 'sample',
-                } );
+                });
                 await publishPost();
                 await page.goto( createURL( '2021/09' ), {
                     waitUntil: 'networkidle0',
-                } );
+                });
                 await page.waitForSelector( '.ast-separate-container.ast-left-sidebar #secondary' );
                 await expect( {
                     selector: '.ast-separate-container.ast-left-sidebar #secondary',
                     property: '',
-                } ).cssValueToBe( `` );  
+                }).cssValueToBe( `` );  
         });
 
         it( 'Position of Sidebar for archive-posts as RIGHT should apply correctly', async () => {
@@ -31,16 +31,15 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await setCustomize( archiveRight );
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
-                } );
-            
+                });
                 await page.goto( createURL( '2021/09' ), {
                     waitUntil: 'networkidle0',
-                } );
+                });
                 await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
                 await expect( {
                     selector: '.ast-separate-container.ast-right-sidebar #secondary',
                     property: '',
-                } ).cssValueToBe( `` );  
+                }).cssValueToBe( `` );  
         });
 
         it( 'Position of Sidebar for archive-posts as NO-Sidebar should apply correctly', async () => {
@@ -79,6 +78,6 @@ import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
                 await expect( {
                     selector: '.ast-separate-container.ast-right-sidebar #secondary',
                     property: '',
-                } ).cssValueToBe( `` );  
+                }).cssValueToBe( `` );  
         });
     });

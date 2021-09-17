@@ -9,9 +9,9 @@ import { createURL } from "@wordpress/e2e-test-utils";
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 } );
-                await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary' );
+                await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
                 await expect( {
-                    selector: '.ast-separate-container.ast-right-sidebar #secondary, .ast-separate-container.ast-left-sidebar #secondary',
+                    selector: '.ast-separate-container.ast-right-sidebar #secondary',
                     property: '',
                 }).cssValueToBe( `` );  
          });

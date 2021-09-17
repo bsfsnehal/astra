@@ -3,16 +3,16 @@ import { createURL } from "@wordpress/e2e-test-utils";
     describe('Sidebar width', () => {
         it( 'Width of sidebar  should apply correctly', async () => {
             const sidebarWidth = {
-                'site-sidebar-width': '40%',
+                'site-sidebar-width': '30',
             };
                 await setCustomize( sidebarWidth );
                 await page.goto( createURL( '/' ), {
                     waitUntil: 'networkidle0',
                 } );
-                await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
+                await page.waitForSelector( '#secondary' );
                 await expect( {
-                    selector: '.ast-separate-container.ast-right-sidebar #secondary',
-                    property: '',
-                }).cssValueToBe( `` );  
-         });
+                    selector: '.secondary',
+                    property: 'width',
+                }).cssValueToBe(  `${ sidebarWidth[ 'site-sidebar-width' ] }` );  
+        });
     });

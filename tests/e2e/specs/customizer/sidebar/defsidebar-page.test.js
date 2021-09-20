@@ -14,9 +14,7 @@ import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils'
             await page.goto( createURL( 'Test-page' ), {
                 waitUntil: 'networkidle0',
             } );
-            await page.waitForSelector(
-                '.ast-separate-container.ast-left-sidebar #secondary',
-            );
+            await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');
             await expect( {
                 selector: '.ast-separate-container.ast-left-sidebar #secondary',
                 property: '',
@@ -31,9 +29,7 @@ import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils'
             await page.goto( createURL( 'Test-page' ), {
                 waitUntil: 'networkidle0',
             } );
-            await page.waitForSelector(
-                '.ast-separate-container.ast-right-sidebar #secondary',
-            );
+            await page.waitForSelector('.ast-separate-container.ast-right-sidebar #secondary');
             await expect( {
                 selector: '.ast-separate-container.ast-right-sidebar #secondary',
                 property: '',
@@ -67,9 +63,7 @@ import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils'
             await page.goto( createURL( 'Test-page' ), {
                 waitUntil: 'networkidle0',
             } );
-            await page.waitForSelector(
-                '.ast-separate-container.ast-left-sidebar #secondary',
-            );
+            await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');
             await expect( {
                 selector: '.ast-separate-container.ast-left-sidebar #secondary',
                 property: '',

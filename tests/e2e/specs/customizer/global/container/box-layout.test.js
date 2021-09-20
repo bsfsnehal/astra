@@ -1,11 +1,11 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/set-customize';
 describe( 'Container layout setting from Global option under the Customizer', () => {
-	it( 'Layout for container as CONTENT-BOXED should apply correctly', async () => {
-		const contboxLayout = {
-			'site-content-layout': 'content-boxed-container',
+	it( 'Layout for container as BOXED should apply correctly', async () => {
+		const boxLayout = {
+			'single-page-content-layout': 'boxed-container',
 		};
-		await setCustomize( contboxLayout );
+		await setCustomize( boxLayout );
 		await page.goto( createURL( 'sample-page' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -16,4 +16,3 @@ describe( 'Container layout setting from Global option under the Customizer', ()
 		} ).cssValueToBe( `` );
 	});
 });
-//.ast-container max-width 1240px

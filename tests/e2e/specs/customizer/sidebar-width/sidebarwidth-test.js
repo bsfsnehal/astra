@@ -4,6 +4,7 @@ import { createURL } from "@wordpress/e2e-test-utils";
         it( 'Width of sidebar  should apply correctly', async () => {
             const sidebarWidth = {
                 'site-sidebar-width': '30',
+                'inspector-input-control-0':'30'
             };
                 await setCustomize( sidebarWidth );
                 await page.goto( createURL( '/' ), {
@@ -13,6 +14,6 @@ import { createURL } from "@wordpress/e2e-test-utils";
                 await expect( {
                     selector: '.secondary',
                     property: 'width',
-                }).cssValueToBe(  `${ sidebarWidth[ 'site-sidebar-width' ] }` );  
+                }).cssValueToBe(  `30px` );
         });
-    });
+    });//.cssValueToBe(  `${ sidebarWidth[ 'site-sidebar-width' ] }` );

@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../utils/set-customize';
 describe( 'Container width setting from Global option under the Customizer', () => {
 	it( 'Container width should apply correctly', async () => {
 		const contWidth = {
-			'site-content-width': '1960px',
+			'site-content-width': '1400px',
 		};
 		await setCustomize( contWidth );
 		await page.goto( createURL( '/' ), {

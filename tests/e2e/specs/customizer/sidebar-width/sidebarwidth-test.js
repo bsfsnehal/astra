@@ -16,4 +16,4 @@ import { createURL } from "@wordpress/e2e-test-utils";
                     property: 'width',
                 }).cssValueToBe(  `30px` );
         });
-    });//.cssValueToBe(  `${ sidebarWidth[ 'site-sidebar-width' ] }` );
+    });

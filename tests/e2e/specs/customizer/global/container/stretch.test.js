@@ -14,5 +14,5 @@ describe( 'Container layout setting from Global option under the Customizer', ()
 			selector: '.ast-page-builder-template .site-content #primary',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
-});
+	} );
+} );

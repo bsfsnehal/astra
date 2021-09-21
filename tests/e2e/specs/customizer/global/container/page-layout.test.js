@@ -59,7 +59,7 @@ describe( 'Container layout setting from Global option under the Customizer', ()
 			selector: '.ast-page-builder-template .site-content #primary',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
+	} );
 
     it( 'Layout for container as DEFAULT should apply correctly', async () => {
         const contboxLayout = {
@@ -75,5 +75,5 @@ describe( 'Container layout setting from Global option under the Customizer', ()
             selector: '.site-content .ast-container',
             property: '',
         } ).cssValueToBe( `` );
-    });
-});
+    } );
+} );

@@ -14,5 +14,5 @@ describe( 'Container layout setting from Global option under the Customizer', ()
 			selector: '.ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
-});
+	} );
+} );

@@ -16,4 +16,3 @@ describe( 'Container layout setting from Global option under the Customizer', ()
 		} ).cssValueToBe( `` );
 	});
 });
-//.ast-container max-width 1240px

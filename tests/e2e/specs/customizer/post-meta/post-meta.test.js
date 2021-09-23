@@ -8,8 +8,8 @@ describe( 'Post meta setting for sidebar', () => {
         };
         await setCustomize( pageSidebar );
         await createNewPost( {
-            postType: 'page',
-            title: 'Test-page',
+            postType: 'post',
+            title: 'blog-post',
         } );
         await publishPost();
         await page.goto( createURL( 'Test-page' ), {

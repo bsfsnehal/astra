@@ -3,21 +3,23 @@ import { setCustomize } from '../../../utils/set-customize';
 import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils';
 describe( 'Post meta setting for sidebar', () => {
 	it( 'position of Sidebar for page as LEFT should apply correctly', async () => {
-        const pageSidebar = {
-            'single-page-sidebar-layout': 'left-sidebar',
+        const postSidebar = {
+            'single-post-sidebar-layout': 'left-sidebar',
+            'site-sidebar-layout': ' Right Sidebar',
         };
-        await setCustomize( pageSidebar );
+        await setCustomize( postSidebar );
         await createNewPost( {
             postType: 'post',
             title: 'blog-post',
+            content:'blog post created',
         } );
         await publishPost();
         await page.goto( createURL( 'blog-post' ), {
             waitUntil: 'networkidle0',
         } );
-        await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');
+        await page.waitForSelector('.ast-left-sidebar #secondary');
         await expect( {
-            selector: '.ast-separate-container.ast-left-sidebar #secondary',
+            selector: '.ast-left-sidebar #secondary',
             property: '',
         } ).cssValueToBe( `` );
 	} );

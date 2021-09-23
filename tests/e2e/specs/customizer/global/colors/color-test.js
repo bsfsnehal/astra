@@ -1,12 +1,17 @@
 import { setCustomize } from "../../../../utils/set-customize";
 import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils';
 describe( 'Testing color option in the global setting, under the customizer', () => {
-	it( 'Text color should apply correctly', async () => {
+	it( 'Global text color should apply correctly', async () => {
         const textColor = {
             'text-color': 'rgb(254, 51, 51)',
         };
         await setCustomize( textColor );
-        await page.goto( createURL( 'testing' ), {
+        await createNewPost( {
+            postType: 'post',
+            title: 'text-color',
+        } );
+        await publishPost();
+        await page.goto( createURL( 'text-color' ), {
             waitUntil: 'networkidle0',
         } );
         await page.waitForSelector('body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6');
@@ -53,7 +58,7 @@ describe( 'Testing color option in the global setting, under the customizer', ()
               property: 'color',
         } ).cssValueToBe( `${ linkColor[ 'link-color' ]}` );
 	} );
-    it( 'Theme color should apply correctly', async () => {
+    it( 'Theme color the should apply correctly', async () => {
         const themeColor = {
             'theme-color': 'rgb(141, 198, 235)',
         };

@@ -12,7 +12,7 @@ describe( 'Post meta setting for sidebar', () => {
             title: 'blog-post',
         } );
         await publishPost();
-        await page.goto( createURL( 'Test-page' ), {
+        await page.goto( createURL( 'blog-post' ), {
             waitUntil: 'networkidle0',
         } );
         await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');

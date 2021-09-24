@@ -41,20 +41,20 @@ describe( 'Testing Global Color setting, under the customizer', () => {
 	} );
     it( 'Link color should apply correctly', async () => {
         const linkColor = {
-            'link-color': 'rgb(105, 1, 183)',
+            'link-color': 'rgb(240, 240, 241)',
         };
         await setCustomize( linkColor );
         await createNewPost( {
             postType: 'post',
-            title: 'link-color',
+            title: 'link-colors',
         } );
         await publishPost();
-        await page.goto( createURL( 'link-color' ), {
+        await page.goto( createURL( 'link-colors' ), {
             waitUntil: 'networkidle0',
         } );
-        await page.waitForSelector('.entry-meta, .entry-meta *');
+        await page.waitForSelector('a, .page-title');
         await expect( {
-            selector: '.entry-meta, .entry-meta *',
+            selector: 'a, .page-title',
               property: 'color',
         } ).cssValueToBe( `${ linkColor[ 'link-color' ]}` );
 	} );

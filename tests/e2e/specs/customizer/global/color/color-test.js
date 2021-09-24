@@ -1,5 +1,5 @@
 import { setCustomize } from "../../../../utils/set-customize";
-import {createURL, createNewPost, publishPost,} from '@wordpress/e2e-test-utils';
+import {createURL, createNewPost, publishPost} from '@wordpress/e2e-test-utils';
 describe( 'Testing Global Color setting, under the customizer', () => {
 	it( 'Global text color should apply correctly', async () => {
         const textColor = {
